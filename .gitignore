@@ -7,8 +7,12 @@
 *.o
 *.obj
 
+# IDE User Data
+.suo
+
 # Generated Debug Data
 *.VC.db
+*.VC.openDB
 
 # Precompiled Headers
 *.gch
