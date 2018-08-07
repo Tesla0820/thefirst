@@ -98,6 +98,9 @@
     <ClCompile Include="src\GameEngine\Behaviour\Renderer\RendererBase.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
+    <ClCompile Include="src\DXCT\D3D\D3DXAllocateHierarchy.cpp">
+      <Filter>DXCT\D3D</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\DXCT\Window.h">
@@ -186,6 +189,9 @@
     </ClInclude>
     <ClInclude Include="src\GameEngine\Behaviour\Renderer\MeshRenderer.h">
       <Filter>GameEngine\Behaviour\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\DXCT\D3D\D3DXAllocateHierarchy.h">
+      <Filter>DXCT\D3D</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
