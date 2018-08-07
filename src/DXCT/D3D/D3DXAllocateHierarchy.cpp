@@ -125,6 +125,7 @@ HRESULT D3DXAllocateHierarchy::DestroyFrame(LPD3DXFRAME pFrameToFree)
 
 	return S_OK;
 }
+
 //ämï€ÇµÇΩ D3DXMESHCONTAINER Çâï˙ÇµÇ‹Ç∑ÅB
 HRESULT D3DXAllocateHierarchy::DestroyMeshContainer(LPD3DXMESHCONTAINER pMeshContainerToFree)
 {
