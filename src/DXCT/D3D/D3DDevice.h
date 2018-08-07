@@ -12,6 +12,7 @@
 namespace DXCT{ namespace D3D
 {
 
+//IDirect3DDevice9のラッパークラスです。
 class D3DDevice:public D3DObject<IDirect3DDevice9>
 {
 	private:

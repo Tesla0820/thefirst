@@ -11,6 +11,7 @@
 namespace DXCT { namespace D3D
 {
 
+//IDirect3DTexture9のラッパークラスです。
 class D3DTexture :public D3DObject<IDirect3DTexture9>
 {
 	private:

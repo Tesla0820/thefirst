@@ -14,7 +14,7 @@ namespace DXCT { namespace D3D
 
 constexpr UINT DxctD3DSDKVersion = D3D_SDK_VERSION;
 
-
+//IDirect3D9のラッパークラスです。
 class D3DFactory : public D3DObject<IDirect3D9>
 {
 	private:

@@ -8,72 +8,77 @@
 #include "IReleasable.h"
 namespace DXCT
 {
-	template<class T>
-	class DXObject:public IReleasable
-	{
-		private:
-			DXObject() = delete;
-			DXObject(DXObject<T> const&) = delete;
-			DXObject<T>& operator=(DXObject<T> const&) = delete;
 
-		protected:
-			T* _object;
+//DirectX関係のCOMオブジェクトを管理する基底クラスです。
+template<class T>
+class DXObject:public IReleasable
+{
+	private:
+		DXObject() = delete;
+		DXObject(DXObject<T> const&) = delete;
+		DXObject<T>& operator=(DXObject<T> const&) = delete;
 
-		public:
+	protected:
+		T* _object; //管理オブジェクト
 
-			DXObject(T* object);
-			DXObject(DXObject<T> &&) noexcept = default;	
-			DXObject<T>& operator=(DXObject<T> && object);
-			virtual ~DXObject();
-			T* GetPtr() const;
-			virtual void Release() override;
-			virtual bool IsReleased() override;
+	public:
 
-	};
+		DXObject(T* object);
+		DXObject(DXObject<T> &&) noexcept = default;	
+		virtual ~DXObject();
+		DXObject<T>& operator=(DXObject<T> && object);
+		T* GetPtr() const;
+		virtual void Release() override;
+		virtual bool IsReleased() override;
 
-	template<class T>
-	DXObject<T>& DXObject<T>::operator=(DXObject<T>&& object)
-	{
-		_object = object._object;
-		object._object = nullptr;
-	}
+};
 	
-	template<class T>
-	DXObject<T>::DXObject(T * object)
-	{
-		_object = object;
-	}
-
-	template<class T>
-	DXObject<T>::~DXObject()
-	{
-		if (_object)
-		{
-			_object->Release();
-		}
-	}
-
-	template<class T>
-	T* DXObject<T>::GetPtr() const
-	{
-		return _object;
-	}
+template<class T>
+DXObject<T>& DXObject<T>::operator=(DXObject<T>&& object)
+{
+	_object = object._object;
+	object._object = nullptr;
+}
 	
-	template<class T>
-	void DXObject<T>::Release()
-	{
-		if (_object)
-		{
-			_object->Release();
-			_object = nullptr;
-		}
-	}
+	
+template<class T>
+DXObject<T>::DXObject(T * object)
+{
+	_object = object;
+}
 
-	template<class T>
-	bool DXObject<T>::IsReleased()
+template<class T>
+DXObject<T>::~DXObject()
+{
+	if (_object)
 	{
-		return _object != nullptr;
+		_object->Release();
 	}
+}
+//管理オブジェクトのアドレスを取得します。
+template<class T>
+T* DXObject<T>::GetPtr() const
+{
+	return _object;
+}
+	
+//管理オブジェクトを解放します。
+template<class T>
+void DXObject<T>::Release()
+{
+	if (_object)
+	{
+		_object->Release();
+		_object = nullptr;
+	}
+}
+
+//管理オブジェクトが解放済みかを取得します。
+template<class T>
+bool DXObject<T>::IsReleased()
+{
+	return _object != nullptr;
+}
 
 }
 #endif

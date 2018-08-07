@@ -9,11 +9,14 @@
 
 namespace DXCT { namespace D3D 
 {
-	DXCT_INTERFACE IRecoverable
-	{
-		virtual void Recovery(IRecoverable * origin) = 0;
-		virtual void BackUp() = 0;
-	};
+
+//Direct3D9で発生するデバイスロストの復帰メカニズムを提供します。
+DXCT_INTERFACE IRecoverable
+{
+	virtual void Recovery(IRecoverable * origin) = 0;	//デバイスロストから復帰します。
+	virtual void BackUp() = 0;							//復帰のための準備処理を行います。
+};
+
 }
 }
 #endif

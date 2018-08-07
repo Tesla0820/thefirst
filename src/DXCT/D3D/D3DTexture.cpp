@@ -18,6 +18,7 @@ D3DTexture::~D3DTexture()
 
 }
 
+//デバイスロストから復帰します。
 void D3DTexture::Recovery(IRecoverable * origin)
 {
 	D3DObject::Recovery(origin);
