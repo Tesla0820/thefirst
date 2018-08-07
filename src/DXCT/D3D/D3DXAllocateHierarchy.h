@@ -13,7 +13,7 @@ namespace DXCT { namespace D3D
 class D3DXAllocateHierarchy :ID3DXAllocateHierarchy
 {
 	private:
-	void DeepStringCopy(LPSTR* dest,LPCSTR source);
+	void StringDeepCopy(LPSTR* dest,LPCSTR source);
 
 	public:
 	D3DXAllocateHierarchy();
