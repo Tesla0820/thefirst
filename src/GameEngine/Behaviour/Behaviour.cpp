@@ -3,18 +3,21 @@
 //
 
 #include "Behaviour.h"
-
+#include "../Scene/SceneManager.h"
 namespace GameEngine { namespace Behaviour
 {
 
+using GameEngine::Scene::SceneManager;
+
 Behaviour::Behaviour()
 {
+	_isStarted = false;
 	_target = nullptr;
 }
 
 void Behaviour::SetTarget(GameEngine::GameObject * target)
 {
-	_target = target;
+	Binder::BindBehaviourToGameObject(target, this);
 }
 
 GameEngine::GameObject * Behaviour::GetTarget()

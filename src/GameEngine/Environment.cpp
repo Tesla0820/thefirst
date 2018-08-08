@@ -7,6 +7,8 @@
 namespace GameEngine
 {
 
+using GameEngine::Scene::SceneManager;
+
 static Environment* _instance;
 
 constexpr int ScreenWidth = 800;
@@ -85,13 +87,14 @@ Environment::Environment():_window(ScreenWidth + GetSystemMetrics(SM_CYCAPTION) 
 	_currentScene = -1;
 	_newScene = 0;
 	_backColor = D3DCOLOR_ARGB(255, 0, 0, 64);
-	Scene::SceneManager::Create();
-	_sceneManager = Scene::SceneManager::Get();
+	//シーンマネージャの構築
+	SceneManager::Create();
 	_counter.Start();
 }
 Environment::~Environment()
 {
-	Scene::SceneManager::Release();
+	//シーンマネージャの解放
+	SceneManager::Release();
 	_device.reset();
 	_factory.reset();
 }
@@ -130,7 +133,7 @@ WPARAM Environment::Run()
 {
 	MSG msg;
 	//実行開始と共に最初のシーン読み込み
-	_sceneManager->LoadScene(0);
+	SceneManager::LoadScene(0);
 	while (1)
 	{
 		if (PeekMessage(&msg, NULL, 0, 0, PM_REMOVE))
@@ -168,7 +171,8 @@ void Environment::UpdateFrame()
 
 void Environment::Update()
 {
-	_sceneManager->Update();
+
+	SceneManager::Update();
 }
 
 void Environment::Draw()
@@ -179,7 +183,7 @@ void Environment::Draw()
 	// Direct3Dによる描画の開始
 	if (SUCCEEDED(_device->BeginScene()))
 	{
-		_sceneManager->Draw();
+		SceneManager::Draw();
 		// Direct3Dによる描画の終了
 		_device->EndScene();
 	}

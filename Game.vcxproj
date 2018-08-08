@@ -26,6 +26,7 @@
     <ClCompile Include="src\DXCT\D3D\D3DXAllocateHierarchy.cpp" />
     <ClCompile Include="src\DXCT\DXCTException.cpp" />
     <ClCompile Include="src\DXCT\Window.cpp" />
+    <ClCompile Include="src\GameEngine\BehaviourBinder.cpp" />
     <ClCompile Include="src\GameEngine\Behaviour\Behaviour.cpp" />
     <ClCompile Include="src\GameEngine\Behaviour\Camera.cpp" />
     <ClCompile Include="src\GameEngine\Behaviour\Renderer\MeshRenderer.cpp" />
@@ -47,6 +48,10 @@
     </ClInclude>
     <ClInclude Include="src\DXCT\D3D\IRecoverable.h" />
     <ClInclude Include="src\DXCT\IReleasable.h" />
+    <ClInclude Include="src\GameEngine\BehaviourBinder.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
     <ClInclude Include="src\GameEngine\Behaviour\Behaviour.h" />
     <ClInclude Include="src\GameEngine\Behaviour\Camera.h" />
     <ClInclude Include="src\GameEngine\Behaviour\Renderer\MeshRenderer.h" />

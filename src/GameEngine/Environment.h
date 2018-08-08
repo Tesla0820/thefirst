@@ -22,7 +22,6 @@ class Environment
 		std::unique_ptr<DXCT::D3D::D3DFactory> _factory;
 		std::shared_ptr<DXCT::D3D::D3DDevice> _device;
 		Time::FPSCounter _counter;
-		Scene::SceneManager *_sceneManager;
 		MainWindow _window;
 		D3DCOLOR _backColor;
 		bool _isWindowMode;

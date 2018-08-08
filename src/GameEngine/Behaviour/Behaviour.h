@@ -6,19 +6,19 @@
 #define HEADER_BEHAVIOUR_H
 
 #include "../GameEngine_inner.h"
+#include "../BehaviourBinder.h"
 
-namespace GameEngine 
-{ 
 
-class GameObject;
-
-namespace Behaviour
+namespace GameEngine { namespace Behaviour
 {
 
-struct Behaviour
+class Behaviour
 {
+	friend void GameEngine::Binder::BindBehaviourToGameObject(GameEngine::GameObject* object,GameEngine::Behaviour::Behaviour* beaviour);
+
 	private:
 		GameEngine::GameObject* _target;
+		bool _isStarted;
 	protected:
 		Behaviour();
 	public:
