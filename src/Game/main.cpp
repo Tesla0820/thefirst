@@ -56,8 +56,5 @@ int Run()
 
 void RegisterScenes()
 {
-	GameEngine::Scene::SceneManager* _sceneManager;
-	_sceneManager = GameEngine::Scene::SceneManager::Get();
-
-	_sceneManager->RegisterScene(new Game::TitleScene());
+	GameEngine::Scene::SceneManager::RegisterScene(new Game::TitleScene());
 }

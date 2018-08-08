@@ -101,6 +101,9 @@
     <ClCompile Include="src\DXCT\D3D\D3DXAllocateHierarchy.cpp">
       <Filter>DXCT\D3D</Filter>
     </ClCompile>
+    <ClCompile Include="src\GameEngine\BehaviourBinder.cpp">
+      <Filter>GameEngine</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\DXCT\Window.h">
@@ -192,6 +195,9 @@
     </ClInclude>
     <ClInclude Include="src\DXCT\D3D\D3DXAllocateHierarchy.h">
       <Filter>DXCT\D3D</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GameEngine\BehaviourBinder.h">
+      <Filter>GameEngine</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

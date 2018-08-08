@@ -11,7 +11,8 @@ GameObject::GameObject()
 {
 	_name = "";
 	auto transform = new GameEngine::Behaviour::Transform();
-	_behaviours.push_back(transform);
+	AddBehaviour(transform);
+	_enable = true;
 }
 
 GameObject::~GameObject()
@@ -40,10 +41,7 @@ GameObject* GameObject::GetChild(int index)
 
 void GameObject::AddBehaviour(Behaviour::Behaviour * behaviour)
 {
-	GameObject* object = behaviour->GetTarget();
-	if (object)return;
-	behaviour->SetTarget(this);
-	_behaviours.push_back(behaviour);
+	Binder::BindBehaviourToGameObject(this, behaviour);
 }
 
 GameEngine::Behaviour::Transform * GameObject::GetTransform()
@@ -56,18 +54,7 @@ std::vector<GameObject*> GameObject::GetChildren()
 	return _children;
 }
 
-void GameObject::Start()
-{
-	for (auto behaviour : _behaviours)
-	{
-		behaviour->Start();
-	}
-	for (auto object : _children)
-	{
-		object->Start();
-	}
-}
-
+//子オブジェクトとアタッチされているビヘイビアの更新処理を実行します。
 void GameObject::Update()
 {
 	for (auto behaviour : _behaviours)
@@ -131,7 +118,7 @@ void GameObject::Destroy()
 GameObject * GameObject::Instantiate()
 {
 	GameObject *object = new GameObject();
-	Scene::SceneManager::Get()->AddObject(object);
+	Scene::SceneManager::AddObject(object);
 	return object;
 }
 
