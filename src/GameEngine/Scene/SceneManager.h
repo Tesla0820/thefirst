@@ -29,6 +29,7 @@ namespace GameEngine { namespace Scene
 			static void ClearObjects();
 		public:
 			static void AddObject(GameObject *object);
+			static void RemoveObject(GameObject * object);
 			static void RegisterUnstartedBehaviour(GameEngine::Behaviour::Behaviour  *unstarted);
 			static void UnRegisterBehaviour(GameEngine::Behaviour::Behaviour *behaviour);
 			static void RegisterScene(SceneBase *scene);

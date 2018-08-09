@@ -10,7 +10,7 @@
 #include <string>
 
 #include "GameEngine_inner.h"
-#include "BehaviourBinder.h"
+#include "Binder/BehaviourBinder.h"
 #include "Behaviour/Behaviour.h"
 #include "Behaviour/Transform.h"
 
@@ -24,12 +24,12 @@ namespace GameEngine
 		private:	
 			GameObject(GameObject const&) = delete;
 			GameObject& operator=(GameObject const&) = delete;
+			void BindGameObject(GameObject* parent, GameObject* child);
 
 			GameObject* _parent;
 			std::vector<GameObject*> _children;
 			std::vector<Behaviour::Behaviour*> _behaviours;
 			std::string _name;
-
 			bool _enable;
 
 		protected:
@@ -39,17 +39,22 @@ namespace GameEngine
 			GameObject(GameObject&&) = default;
 			GameObject& operator=(GameObject&&) = default;
 			virtual ~GameObject();
+			void SetEnable(bool enable);
+			void SetParent(GameObject* object);
+			void AddChild(GameObject* object);
+			void RemoveChild(GameObject* object);
+			bool GetEnable();
 			GameObject* GetParent();
 			GameObject* GetChild(int index);
+			std::vector<GameObject*> GetChildren();
 			void AddBehaviour(Behaviour::Behaviour* behaviour);
 			template <class T> T* FindBehaviour();
 			Behaviour::Transform* GetTransform();
-			std::vector<GameObject*> GetChildren();
 			void Update();
 			void BeforeDraw(D3DXMATRIX const& mtx);
-			void Draw(D3DXMATRIX const& mtx); 
-			void End();
+			void Draw(D3DXMATRIX const& mtx);
 			void Destroy();
+
 			static GameObject* Instantiate();
 	};
 

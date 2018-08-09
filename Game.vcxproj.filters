@@ -39,6 +39,9 @@
     <Filter Include="ソース ファイル\Behaviours">
       <UniqueIdentifier>{db9817c5-5b2d-4c13-96f7-3c4e4083e7ea}</UniqueIdentifier>
     </Filter>
+    <Filter Include="GameEngine\Binder">
+      <UniqueIdentifier>{04d20c96-4acf-48ef-ba48-816ff2b3e991}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\DXCT\Window.cpp">
@@ -101,8 +104,8 @@
     <ClCompile Include="src\DXCT\D3D\D3DXAllocateHierarchy.cpp">
       <Filter>DXCT\D3D</Filter>
     </ClCompile>
-    <ClCompile Include="src\GameEngine\BehaviourBinder.cpp">
-      <Filter>GameEngine</Filter>
+    <ClCompile Include="src\GameEngine\Binder\BehaviourBinder.cpp">
+      <Filter>GameEngine\Binder</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -196,8 +199,8 @@
     <ClInclude Include="src\DXCT\D3D\D3DXAllocateHierarchy.h">
       <Filter>DXCT\D3D</Filter>
     </ClInclude>
-    <ClInclude Include="src\GameEngine\BehaviourBinder.h">
-      <Filter>GameEngine</Filter>
+    <ClInclude Include="src\GameEngine\Binder\BehaviourBinder.h">
+      <Filter>GameEngine\Binder</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
