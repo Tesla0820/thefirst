@@ -6,7 +6,7 @@
 #define HEADER_BEHAVIOUR_H
 
 #include "../GameEngine_inner.h"
-#include "../BehaviourBinder.h"
+#include "../Binder/BehaviourBinder.h"
 
 
 namespace GameEngine { namespace Behaviour

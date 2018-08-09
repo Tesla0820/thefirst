@@ -32,6 +32,13 @@ void SceneManager::AddObject(GameObject * object)
 	_manager->_objects.push_back(object);
 }
 
+void SceneManager::RemoveObject(GameObject * object)
+{
+	auto iterator = std::find(_manager->_objects.begin(), _manager->_objects.end(), object);
+	if (iterator == _manager->_objects.end()) return; //一致する子オブジェクトが存在しなった。
+	_manager->_objects.erase(iterator);
+}
+
 void SceneManager::RegisterUnstartedBehaviour(GameEngine::Behaviour::Behaviour * unstarted)
 {
 	_manager->_unstartedBehaviours.push_back(unstarted);

@@ -18,9 +18,7 @@ namespace GameEngine
 	}
 	namespace Binder
 	{
-
 		void BindBehaviourToGameObject(GameEngine::GameObject* object, GameEngine::Behaviour::Behaviour *behaviour);
-
 	}
 }
 

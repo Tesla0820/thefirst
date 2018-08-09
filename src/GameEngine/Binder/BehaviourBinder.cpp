@@ -2,9 +2,9 @@
 //		ƒtƒ@ƒCƒ‹–¼:BehaviourBinder.cpp
 //
 
-#include "Scene//SceneManager.h"
-#include "GameObject.h"
-#include "Behaviour/Behaviour.h"
+#include "../Scene/SceneManager.h"
+#include "../GameObject.h"
+#include "../Behaviour/Behaviour.h"
 
 namespace GameEngine { namespace Binder 
 {
