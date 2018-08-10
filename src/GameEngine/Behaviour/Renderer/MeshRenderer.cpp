@@ -25,7 +25,6 @@ void MeshRenderer::Draw(D3DXMATRIX const & matrix)
 void MeshRenderer::CalculateNormals()
 {
 	D3DXVECTOR3 v1, v2,temp,normal;
-	GetAttachedObject()->GetTransform()->GetWorldPosition();
 	D3DXVec3Subtract(&v1, &D3DXVECTOR3(vertex[1].pos), &D3DXVECTOR3(vertex[0].pos));
 	D3DXVec3Subtract(&v2, &D3DXVECTOR3(vertex[2].pos), &D3DXVECTOR3(vertex[0].pos));
 	D3DXVec3Cross(&temp, &v1, &v2);
