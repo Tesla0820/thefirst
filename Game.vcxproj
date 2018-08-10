@@ -22,6 +22,7 @@
     <ClCompile Include="src\DXCT\D3D\D3DDevice.cpp" />
     <ClCompile Include="src\DXCT\D3D\D3DFactory.cpp" />
     <ClCompile Include="src\DXCT\D3D\D3DModel.cpp" />
+    <ClCompile Include="src\DXCT\D3D\D3DSurface.cpp" />
     <ClCompile Include="src\DXCT\D3D\D3DTexture.cpp" />
     <ClCompile Include="src\DXCT\D3D\D3DXAllocateHierarchy.cpp" />
     <ClCompile Include="src\DXCT\DXCTException.cpp" />
@@ -42,6 +43,7 @@
     <ClCompile Include="src\Game\TitleScene\TitleScene.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\DXCT\D3D\D3DSurface.h" />
     <ClInclude Include="src\DXCT\D3D\D3DXAllocateHierarchy.h">
       <SubType>
       </SubType>

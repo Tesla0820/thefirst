@@ -107,6 +107,9 @@
     <ClCompile Include="src\GameEngine\Binder\BehaviourBinder.cpp">
       <Filter>GameEngine\Binder</Filter>
     </ClCompile>
+    <ClCompile Include="src\DXCT\D3D\D3DSurface.cpp">
+      <Filter>DXCT\D3D</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\DXCT\Window.h">
@@ -201,6 +204,9 @@
     </ClInclude>
     <ClInclude Include="src\GameEngine\Binder\BehaviourBinder.h">
       <Filter>GameEngine\Binder</Filter>
+    </ClInclude>
+    <ClInclude Include="src\DXCT\D3D\D3DSurface.h">
+      <Filter>DXCT\D3D</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

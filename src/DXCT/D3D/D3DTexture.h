@@ -7,6 +7,7 @@
 
 #include "../dxct_inner.h"
 #include "D3DObject.h"
+#include "D3DSurface.h"
 
 namespace DXCT { namespace D3D
 {
@@ -21,7 +22,7 @@ class D3DTexture :public D3DObject<IDirect3DTexture9>
 
 	public:
 	D3DTexture(IDirect3DTexture9 *texture);
-	~D3DTexture();
+	std::shared_ptr<D3DSurface> GetSurfaceFromLevel(UINT level);
 
 
 };

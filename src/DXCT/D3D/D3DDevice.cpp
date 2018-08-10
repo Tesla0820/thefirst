@@ -15,15 +15,27 @@ D3DDevice::D3DDevice(IDirect3DDevice9* device)
 
 }
 
+std::shared_ptr<D3DTexture> D3DDevice::CreateTexture(UINT width, UINT height, UINT levels, DWORD usage, D3DFORMAT format, D3DPOOL pool, HANDLE * pHandle)
+{
+	HRESULT hr;
+	IDirect3DTexture9* _texture;
+	hr = _object->CreateTexture(width, height, levels, usage, format, pool, &_texture, pHandle);
+	if (SUCCEEDED(hr))
+	{
+		return std::shared_ptr<D3DTexture>(new D3DTexture(_texture));
+	}
+	return std::shared_ptr<D3DTexture>();
+}
+
 //D3DXを通して、ファイルからテクスチャを生成します。
-D3DTexture* D3DDevice::CreateTextureFromFile(LPCTSTR path)
+std::shared_ptr<D3DTexture> D3DDevice::CreateTextureFromFile(LPCTSTR path)
 {
 	HRESULT hr;
 	IDirect3DTexture9* _texture;
 	hr = D3DXCreateTextureFromFile(_object, path, &_texture);
 	if (SUCCEEDED(hr))
 	{
-		return new D3DTexture(_texture);
+		return std::shared_ptr<D3DTexture>(new D3DTexture(_texture));
 	}
 	throw std::runtime_error("ファイルが存在しません。");
 }
@@ -32,6 +44,11 @@ D3DTexture* D3DDevice::CreateTextureFromFile(LPCTSTR path)
 HRESULT D3DDevice::SetRenderState(D3DRENDERSTATETYPE type,DWORD value)
 {
 	return _object->SetRenderState(type, value);
+}
+
+HRESULT D3DDevice::SetRenderTarget(DWORD renderTargetIndex, std::shared_ptr<D3DSurface>& surface)
+{
+	return _object->SetRenderTarget(renderTargetIndex, surface->GetPtr());
 }
 
 //サンプラーステートを設定します。
@@ -50,6 +67,11 @@ HRESULT D3DDevice::SetTextureStageState(DWORD stage, D3DTEXTURESTAGESTATETYPE ty
 HRESULT D3DDevice::Clear(DWORD count,D3DRECT const* rects,DWORD flags,D3DCOLOR color,float z,DWORD stencil)
 {
 	return _object->Clear(count, rects, flags, color, z, stencil);
+}
+
+HRESULT D3DDevice::ColorFill(std::shared_ptr<D3DSurface>& surface, RECT const * pRect, D3DCOLOR color)
+{
+	return _object->ColorFill(surface->GetPtr(), pRect, color);
 }
 
 //シーンの描画を開始します。
