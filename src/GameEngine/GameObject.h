@@ -11,12 +11,17 @@
 
 #include "GameEngine_inner.h"
 #include "Binder/BehaviourBinder.h"
-#include "Behaviour/Behaviour.h"
-#include "Behaviour/Transform.h"
+
 
 
 namespace GameEngine
 {
+	namespace Behaviour
+	{
+		class Behaviour;
+		class Transform;
+	}
+
 	class GameObject
 	{
 		friend void GameEngine::Binder::BindBehaviourToGameObject(GameEngine::GameObject* object, GameEngine::Behaviour::Behaviour* beaviour);

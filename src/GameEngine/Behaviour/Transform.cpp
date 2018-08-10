@@ -3,6 +3,7 @@
 //
 
 #include "Transform.h"
+#include "../GameObject.h"
 
 namespace GameEngine { namespace Behaviour
 {
@@ -39,6 +40,12 @@ D3DXVECTOR3 Transform::GetPosition()
 	return _position;
 }
 
+D3DXVECTOR3 Transform::GetWorldPosition()
+{
+	D3DXMATRIX matrix=GetWorldMatrix();
+	return D3DXVECTOR3(matrix._41, matrix._42, matrix._43);
+}
+
 D3DXVECTOR3 Transform::GetScale()
 {
 	return _scale;
@@ -72,6 +79,19 @@ D3DXMATRIX Transform::GetMatrix()
 	current._14 = current._24 = current._34 = 0.0f;
 	current._44 = 1.0f;
 	return current;
+}
+
+D3DXMATRIX Transform::GetWorldMatrix()
+{
+	D3DXMATRIX current = GetMatrix();
+	GameObject* attached = GetAttachedObject();
+	if (!attached) return current;
+	GameObject* parent = attached->GetParent();
+	if (!parent) return current;
+	D3DXMATRIX world = parent->GetTransform()->GetWorldMatrix();
+	D3DXMatrixMultiply(&current, &current, &world);
+	return current;
+	
 }
 
 }

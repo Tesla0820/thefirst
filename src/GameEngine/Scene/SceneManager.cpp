@@ -2,6 +2,7 @@
 //		ƒtƒ@ƒCƒ‹–¼:SceneManager.cpp
 //
 #include "SceneManager.h"
+#include "../Behaviour/Behaviour.h"
 
 namespace GameEngine { namespace Scene 
 {
@@ -89,6 +90,7 @@ void SceneManager::Draw()
 {
 	D3DXMATRIX matrix;
 	D3DXMatrixIdentity(&matrix);
+	
 	for (auto object : _manager->_objects)
 	{
 		object->BeforeDraw(matrix);

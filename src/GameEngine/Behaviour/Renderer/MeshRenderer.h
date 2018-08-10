@@ -23,8 +23,8 @@ struct Vertex
 class MeshRenderer : public RendererBase
 {
 	private:
-	D3DPRIMITIVETYPE _primitiveType;
-	Vertex vertex[3];
+		D3DPRIMITIVETYPE _primitiveType;
+		Vertex vertex[3];
 
 	public:
 		virtual void Draw(D3DXMATRIX const& matrix) override;

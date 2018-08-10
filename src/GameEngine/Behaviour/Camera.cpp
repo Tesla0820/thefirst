@@ -3,6 +3,7 @@
 //
 
 #include "Camera.h"
+#include "Transform.h"
 
 namespace GameEngine { namespace Behaviour
 {
@@ -57,7 +58,7 @@ void Camera::SetOrtho(float width, float height)
 
 void Camera::Start()
 {
-	_transform = GetTarget()->GetTransform();
+	_transform = GetAttachedObject()->GetTransform();
 }
 
 void Camera::BeforeDraw(D3DXMATRIX const & matrix)
@@ -77,7 +78,7 @@ void Camera::BeforeDraw(D3DXMATRIX const & matrix)
 	{
 		D3DXMatrixOrthoLH(&projection, _width, _height, _zn, _zf);
 	}
-	_transform = GetTarget()->GetTransform();
+	_transform = GetAttachedObject()->GetTransform();
 	pos = _transform->GetPosition();
 	rot = _transform->GetRotation();
 	D3DXMatrixTranslation(&posMtx, pos.x, pos.y, pos.z);
