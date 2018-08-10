@@ -24,6 +24,7 @@
     <ClCompile Include="src\DXCT\D3D\D3DModel.cpp" />
     <ClCompile Include="src\DXCT\D3D\D3DSurface.cpp" />
     <ClCompile Include="src\DXCT\D3D\D3DTexture.cpp" />
+    <ClCompile Include="src\DXCT\D3D\D3DVertexBuffer.cpp" />
     <ClCompile Include="src\DXCT\D3D\D3DXAllocateHierarchy.cpp" />
     <ClCompile Include="src\DXCT\DXCTException.cpp" />
     <ClCompile Include="src\DXCT\Window.cpp" />
@@ -44,6 +45,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\DXCT\D3D\D3DSurface.h" />
+    <ClInclude Include="src\DXCT\D3D\D3DVertexBuffer.h" />
     <ClInclude Include="src\DXCT\D3D\D3DXAllocateHierarchy.h">
       <SubType>
       </SubType>
@@ -74,6 +76,10 @@
     <ClInclude Include="src\GameEngine\GameObject.h" />
     <ClInclude Include="src\GameEngine\IRenderer.h" />
     <ClInclude Include="src\GameEngine\MainWindow.h" />
+    <ClInclude Include="src\GameEngine\Mesh.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
     <ClInclude Include="src\GameEngine\Scene\SceneBase.h" />
     <ClInclude Include="src\GameEngine\Scene\SceneManager.h">
       <SubType>

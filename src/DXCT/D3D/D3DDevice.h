@@ -10,6 +10,7 @@
 #include "D3DObject.h"
 #include "D3DTexture.h"
 #include "D3DSurface.h"
+#include "D3DVertexBuffer.h"
 
 namespace DXCT{ namespace D3D
 {
@@ -27,6 +28,7 @@ class D3DDevice:public D3DObject<IDirect3DDevice9>
 		D3DDevice(IDirect3DDevice9 *device);
 		std::shared_ptr<D3DTexture> CreateTexture(UINT Width, UINT height, UINT levels, DWORD usage, D3DFORMAT format, D3DPOOL pool, HANDLE* pHandle = nullptr);
 		std::shared_ptr<D3DTexture> CreateTextureFromFile(LPCTSTR path);
+		std::shared_ptr<D3DVertexBuffer> CreateVertexBuffer(UINT length, DWORD usage, DWORD FVF, D3DPOOL pool, HANDLE* pHandle = nullptr);
 		HRESULT SetRenderState(D3DRENDERSTATETYPE type, DWORD value);
 		HRESULT SetRenderTarget(DWORD renderTargetIndex, std::shared_ptr<D3DSurface> &surface);
 		HRESULT SetSamplerState(DWORD sampler, D3DSAMPLERSTATETYPE type, DWORD value);

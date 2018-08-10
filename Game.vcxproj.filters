@@ -110,6 +110,9 @@
     <ClCompile Include="src\DXCT\D3D\D3DSurface.cpp">
       <Filter>DXCT\D3D</Filter>
     </ClCompile>
+    <ClCompile Include="src\DXCT\D3D\D3DVertexBuffer.cpp">
+      <Filter>DXCT\D3D</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\DXCT\Window.h">
@@ -206,6 +209,12 @@
       <Filter>GameEngine\Binder</Filter>
     </ClInclude>
     <ClInclude Include="src\DXCT\D3D\D3DSurface.h">
+      <Filter>DXCT\D3D</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GameEngine\Mesh.h">
+      <Filter>GameEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\DXCT\D3D\D3DVertexBuffer.h">
       <Filter>DXCT\D3D</Filter>
     </ClInclude>
   </ItemGroup>
