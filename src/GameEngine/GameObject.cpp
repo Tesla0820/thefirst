@@ -4,6 +4,9 @@
 
 #include "GameObject.h"
 #include "Scene/SceneManager.h"
+#include "Behaviour/Behaviour.h"
+#include "Behaviour/Transform.h"
+
 namespace GameEngine
 {
 
@@ -131,7 +134,7 @@ void GameObject::BeforeDraw(D3DXMATRIX const& mtx)
 {
 	if (!_enable) return;
 	GameEngine::Behaviour::Transform* transform = FindBehaviour<GameEngine::Behaviour::Transform>();
-	D3DXMATRIX currentMatrix = transform->GetMatrix();
+	D3DXMATRIX currentMatrix = transform->GetWorldMatrix();
 	D3DXMATRIX temp;
 	D3DXMatrixMultiply(&temp, &mtx, &currentMatrix);
 
@@ -151,19 +154,17 @@ void GameObject::Draw(D3DXMATRIX const& mtx)
 {
 	if (!_enable) return;
 	GameEngine::Behaviour::Transform* transform = FindBehaviour<GameEngine::Behaviour::Transform>();
-	D3DXMATRIX currentMatrix = transform->GetMatrix();
-	D3DXMATRIX temp;
-	D3DXMatrixMultiply(&temp, &mtx, &currentMatrix);
+	D3DXMATRIX currentMatrix = transform->GetWorldMatrix();
 
 	for (auto behavior : _behaviours)
 	{
 
-		behavior->Draw(temp);
+		behavior->Draw(currentMatrix);
 	}
 
 	for (auto object : _children)
 	{
-		object->Draw(temp);
+		object->Draw(currentMatrix);
 	}
 }
 

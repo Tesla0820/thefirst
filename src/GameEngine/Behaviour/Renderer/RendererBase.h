@@ -6,7 +6,6 @@
 #define HEADER_RENDERER_BASE_H
 
 #include "../Behaviour.h"
-
 namespace GameEngine { namespace Behaviour
 {
 
@@ -16,8 +15,8 @@ class RendererBase : public Behaviour
 
 
 	public:
-	RendererBase();
-	virtual ~RendererBase();
+		RendererBase();
+		virtual ~RendererBase();
 
 };
 

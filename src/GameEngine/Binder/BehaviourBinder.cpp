@@ -11,9 +11,9 @@ namespace GameEngine { namespace Binder
 	void BindBehaviourToGameObject(GameEngine::GameObject* object,GameEngine::Behaviour::Behaviour *behaviour)
 	{
 		if (!behaviour)return;
-		if (behaviour->_target) return;
+		if (behaviour->_attached) return;
 
-		behaviour->_target = object;
+		behaviour->_attached = object;
 		if (object) 
 		{
 			object->_behaviours.push_back(behaviour);

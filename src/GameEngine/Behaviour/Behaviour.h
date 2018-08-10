@@ -17,13 +17,13 @@ class Behaviour
 	friend void GameEngine::Binder::BindBehaviourToGameObject(GameEngine::GameObject* object,GameEngine::Behaviour::Behaviour* beaviour);
 
 	private:
-		GameEngine::GameObject* _target;
+		GameEngine::GameObject* _attached;
 		bool _isStarted;
 	protected:
 		Behaviour();
 	public:
-		void SetTarget(GameEngine::GameObject* target);
-		GameEngine::GameObject* GetTarget();
+		void SetAttachedObject(GameEngine::GameObject* target);
+		GameEngine::GameObject* GetAttachedObject();
 		virtual void Start();
 		virtual void Update();
 		virtual void BeforeDraw(D3DXMATRIX const& matrix);
