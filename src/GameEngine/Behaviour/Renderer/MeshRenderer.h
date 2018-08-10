@@ -8,6 +8,7 @@
 #include <vector>
 
 #include "RendererBase.h"
+#include "../../Mesh.h"
 
 namespace GameEngine { namespace Behaviour
 {
@@ -23,12 +24,13 @@ struct Vertex
 class MeshRenderer : public RendererBase
 {
 	private:
-		D3DPRIMITIVETYPE _primitiveType;
-		Vertex vertex[3];
+		std::shared_ptr<Mesh> _mesh;
 
 	public:
+		void SetMesh(std::shared_ptr<Mesh> _mesh);
 		virtual void Draw(D3DXMATRIX const& matrix) override;
-		void CalculateNormals();
+
+		
 };
 
 }

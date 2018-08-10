@@ -31,13 +31,25 @@ std::shared_ptr<D3DTexture> D3DDevice::CreateTexture(UINT width, UINT height, UI
 std::shared_ptr<D3DTexture> D3DDevice::CreateTextureFromFile(LPCTSTR path)
 {
 	HRESULT hr;
-	IDirect3DTexture9* _texture;
+	IDirect3DTexture9 *_texture;
 	hr = D3DXCreateTextureFromFile(_object, path, &_texture);
 	if (SUCCEEDED(hr))
 	{
 		return std::shared_ptr<D3DTexture>(new D3DTexture(_texture));
 	}
 	throw std::runtime_error("ファイルが存在しません。");
+}
+
+std::shared_ptr<D3DVertexBuffer> D3DDevice::CreateVertexBuffer(UINT length, DWORD usage, DWORD FVF, D3DPOOL pool, HANDLE * pHandle)
+{
+	HRESULT hr;
+	IDirect3DVertexBuffer9 *_vertexBuffer;
+	hr = _object->CreateVertexBuffer(length, usage, FVF, pool, &_vertexBuffer, pHandle);
+	if (SUCCEEDED(hr))
+	{
+		return std::shared_ptr<D3DVertexBuffer>(new D3DVertexBuffer(_vertexBuffer));
+	}
+	return std::shared_ptr<D3DVertexBuffer>();
 }
 
 //レンダーステートを設定します。
