@@ -4,6 +4,7 @@
 
 #include "Behaviour.h"
 #include "../Scene/SceneManager.h"
+
 namespace GameEngine { namespace Behaviour
 {
 
@@ -12,17 +13,17 @@ using GameEngine::Scene::SceneManager;
 Behaviour::Behaviour()
 {
 	_isStarted = false;
-	_target = nullptr;
+	_attached = nullptr;
 }
 
-void Behaviour::SetTarget(GameEngine::GameObject * target)
+void Behaviour::SetAttachedObject(GameEngine::GameObject * target)
 {
 	Binder::BindBehaviourToGameObject(target, this);
 }
 
-GameEngine::GameObject * Behaviour::GetTarget()
+GameEngine::GameObject * Behaviour::GetAttachedObject()
 {
-	return _target;
+	return _attached;
 }
 
 void Behaviour::Start()
