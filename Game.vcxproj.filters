@@ -42,6 +42,9 @@
     <Filter Include="GameEngine\Binder">
       <UniqueIdentifier>{04d20c96-4acf-48ef-ba48-816ff2b3e991}</UniqueIdentifier>
     </Filter>
+    <Filter Include="GameEngine\Behaviour\Collider">
+      <UniqueIdentifier>{fe771e15-7ffc-4d55-b8c4-f2a4a65f6ff4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\DXCT\Window.cpp">
@@ -112,6 +115,15 @@
     </ClCompile>
     <ClCompile Include="src\DXCT\D3D\D3DVertexBuffer.cpp">
       <Filter>DXCT\D3D</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GameEngine\Behaviour\Collider\Collider.cpp">
+      <Filter>GameEngine\Behaviour\Collider</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GameEngine\Behaviour\Collider\BoxCollider.cpp">
+      <Filter>GameEngine\Behaviour\Collider</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GameEngine\Behaviour\Collider\SphereCollider.cpp">
+      <Filter>GameEngine\Behaviour\Collider</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -216,6 +228,15 @@
     </ClInclude>
     <ClInclude Include="src\DXCT\D3D\D3DVertexBuffer.h">
       <Filter>DXCT\D3D</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GameEngine\Behaviour\Collider\Collider.h">
+      <Filter>GameEngine\Behaviour\Collider</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GameEngine\Behaviour\Collider\SphereCollider.h">
+      <Filter>GameEngine\Behaviour\Collider</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GameEngine\Behaviour\Collider\BoxCollider.h">
+      <Filter>GameEngine\Behaviour\Collider</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
