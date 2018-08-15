@@ -2,9 +2,9 @@
 #include "DInputKeyboardDevice.h"
 
 //＝＝＝ライブラリのリンク＝＝＝//
-#pragma comment(lib, "dinput8")
 
-namespace DXCT { namespace DInput {
+namespace DXCT { namespace DInput 
+{
 //＝＝＝関数定義＝＝＝//
 /////////////////////////////////////////////
 //関数名：Initialize
@@ -15,7 +15,7 @@ namespace DXCT { namespace DInput {
 //
 //戻り値：(LRESULT)処理の成否
 /////////////////////////////////////////////
-HRESULT DXCT::DInput::Keyboard::Initialize(HWND hWnd, IDirectInput8* manager)
+HRESULT Keyboard::Initialize(HWND hWnd, IDirectInput8* manager)
 {
     //---各種宣言---//
     HRESULT hr;
@@ -30,7 +30,7 @@ HRESULT DXCT::DInput::Keyboard::Initialize(HWND hWnd, IDirectInput8* manager)
 
     //---入力設定---//
     //データ フォーマット設定
-    hr = _device->SetDataFormat(&c_dfDIJoystick);
+    hr = _device->SetDataFormat(&c_dfDIKeyboard);
     if (FAILED(hr))
     {
         SAFE_RELEASE(_device);
@@ -66,7 +66,7 @@ HRESULT DXCT::DInput::Keyboard::Initialize(HWND hWnd, IDirectInput8* manager)
 //
 //戻り値：なし
 /////////////////////////////////////////////
-void DXCT::DInput::Keyboard::End(void)
+void Keyboard::End(void)
 {
     SAFE_RELEASE(_device);
 }
@@ -80,7 +80,7 @@ void DXCT::DInput::Keyboard::End(void)
 //
 //戻り値：なし
 /////////////////////////////////////////////
-void DXCT::DInput::Keyboard::Update(void)
+void Keyboard::Update(void)
 {
     //---各種宣言---//
     HRESULT hr;
@@ -114,7 +114,7 @@ void DXCT::DInput::Keyboard::Update(void)
 //
 //戻り値：(bool)判定結果
 /////////////////////////////////////////////
-bool DXCT::DInput::Keyboard::GetHold(DWORD button)
+bool Keyboard::GetHold(DWORD button)
 {
     if (button >= _countof(_current))
     {
@@ -132,7 +132,7 @@ bool DXCT::DInput::Keyboard::GetHold(DWORD button)
 //
 //戻り値：(bool)判定結果
 /////////////////////////////////////////////
-bool DXCT::DInput::Keyboard::GetTrigger(DWORD button)
+bool Keyboard::GetTrigger(DWORD button)
 {
     if (button >= _countof(_trigger))
     {
@@ -150,7 +150,7 @@ bool DXCT::DInput::Keyboard::GetTrigger(DWORD button)
 //
 //戻り値：(bool)判定結果
 /////////////////////////////////////////////
-bool DXCT::DInput::Keyboard::GetRelease(DWORD button)
+bool Keyboard::GetRelease(DWORD button)
 {
     if (button >= _countof(_release))
     {

@@ -26,6 +26,7 @@
     <ClCompile Include="src\DXCT\D3D\D3DTexture.cpp" />
     <ClCompile Include="src\DXCT\D3D\D3DVertexBuffer.cpp" />
     <ClCompile Include="src\DXCT\D3D\D3DXAllocateHierarchy.cpp" />
+    <ClCompile Include="src\DXCT\DInput\DInputFactory.cpp" />
     <ClCompile Include="src\DXCT\DInput\DInputJoypadDevice.cpp" />
     <ClCompile Include="src\DXCT\DInput\DInputKeyboardDevice.cpp" />
     <ClCompile Include="src\DXCT\DInput\DInputMouseDevice.cpp" />
@@ -55,6 +56,10 @@
       </SubType>
     </ClInclude>
     <ClInclude Include="src\DXCT\D3D\IRecoverable.h" />
+    <ClInclude Include="src\DXCT\DInput\DInputFactory.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
     <ClInclude Include="src\DXCT\DInput\DInputJoypadDevice.h" />
     <ClInclude Include="src\DXCT\DInput\DInputKeyboardDevice.h" />
     <ClInclude Include="src\DXCT\DInput\DInputMouseDevice.h" />

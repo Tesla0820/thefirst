@@ -2,7 +2,6 @@
 #include "DInputJoypadDevice.h"
 
 //＝＝＝ライブラリのリンク＝＝＝//
-#pragma comment(lib, "dinput8")
 
 namespace DXCT { namespace DInput {
 
@@ -16,7 +15,7 @@ namespace DXCT { namespace DInput {
 //  
 //戻り値：(BOOL)処理の成否
 /////////////////////////////////////////////
-BOOL CALLBACK DXCT::DInput::Joypad::EnumJoyCallback(const DIDEVICEINSTANCE* lpddi, VOID* pvRef)
+BOOL CALLBACK Joypad::EnumJoyCallback( DIDEVICEINSTANCE const* lpddi, VOID* pvRef)
 {
     //---各種宣言---//
     DIDEVCAPS diDevCaps;
@@ -51,7 +50,7 @@ BOOL CALLBACK DXCT::DInput::Joypad::EnumJoyCallback(const DIDEVICEINSTANCE* lpdd
 //
 //戻り値：(LRESULT)処理の成否
 /////////////////////////////////////////////
-HRESULT DXCT::DInput::Joypad::Initialize(HWND hWnd, IDirectInput8* manager)
+HRESULT Joypad::Initialize(HWND hWnd, IDirectInput8* manager)
 {
     //---各種宣言---//
     HRESULT hr;
@@ -122,7 +121,7 @@ HRESULT DXCT::DInput::Joypad::Initialize(HWND hWnd, IDirectInput8* manager)
 //
 //戻り値：なし
 /////////////////////////////////////////////
-void DXCT::DInput::Joypad::End(void)
+void Joypad::End(void)
 {
     DeleteDevice();
 }
@@ -136,7 +135,7 @@ void DXCT::DInput::Joypad::End(void)
 //
 //戻り値：なし
 /////////////////////////////////////////////
-void DXCT::DInput::Joypad::Update(void)
+void Joypad::Update(void)
 {
     //---各種宣言---//
     HRESULT hr;
@@ -171,7 +170,7 @@ void DXCT::DInput::Joypad::Update(void)
 //
 //戻り値：(DWORD)接続数
 /////////////////////////////////////////////
-DWORD DXCT::DInput::Joypad::GetCount(void)
+DWORD Joypad::GetCount(void)
 {
     return _deviceValue;
 }
@@ -185,7 +184,7 @@ DWORD DXCT::DInput::Joypad::GetCount(void)
 
 //戻り値：(DIJOYSTATE*)入力状態
 /////////////////////////////////////////////
-DIJOYSTATE* DXCT::DInput::Joypad::GetState(DWORD joynumber)
+DIJOYSTATE* Joypad::GetState(DWORD joynumber)
 {
     if (joynumber >= _deviceValue)
     {
@@ -203,7 +202,7 @@ DIJOYSTATE* DXCT::DInput::Joypad::GetState(DWORD joynumber)
 //
 //戻り値：(LONG)入力内容
 /////////////////////////////////////////////
-LONG DXCT::DInput::Joypad::GetAxisX(DWORD joynumber)
+LONG Joypad::GetAxisX(DWORD joynumber)
 {
     if (joynumber >= _deviceValue)
     {
@@ -221,7 +220,7 @@ LONG DXCT::DInput::Joypad::GetAxisX(DWORD joynumber)
 //
 //戻り値：(LONG)入力内容
 /////////////////////////////////////////////
-LONG DXCT::DInput::Joypad::GetAxisY(DWORD joynumber)
+LONG Joypad::GetAxisY(DWORD joynumber)
 {
     if (joynumber >= _deviceValue)
     {
@@ -239,7 +238,7 @@ LONG DXCT::DInput::Joypad::GetAxisY(DWORD joynumber)
 //
 //戻り値：(LONG)入力内容
 /////////////////////////////////////////////
-LONG DXCT::DInput::Joypad::GetAxisZ(DWORD joynumber)
+LONG Joypad::GetAxisZ(DWORD joynumber)
 {
     if (joynumber >= _deviceValue)
     {
@@ -257,7 +256,7 @@ LONG DXCT::DInput::Joypad::GetAxisZ(DWORD joynumber)
 //
 //戻り値：(bool)判定結果
 /////////////////////////////////////////////
-bool DXCT::DInput::Joypad::GetHold(DWORD joynumber, DWORD button)
+bool Joypad::GetHold(DWORD joynumber, DWORD button)
 {
     if (joynumber >= _deviceValue)
     {
@@ -279,7 +278,7 @@ bool DXCT::DInput::Joypad::GetHold(DWORD joynumber, DWORD button)
 //
 //戻り値：(bool)判定結果
 /////////////////////////////////////////////
-bool DXCT::DInput::Joypad::GetTrigger(DWORD joynumber, DWORD button)
+bool Joypad::GetTrigger(DWORD joynumber, DWORD button)
 {
     if (joynumber >= _deviceValue)
     {
@@ -301,7 +300,7 @@ bool DXCT::DInput::Joypad::GetTrigger(DWORD joynumber, DWORD button)
 //
 //戻り値：(bool)判定結果
 /////////////////////////////////////////////
-bool DXCT::DInput::Joypad::GetRelease(DWORD joynumber, DWORD button)
+bool Joypad::GetRelease(DWORD joynumber, DWORD button)
 {
     if (joynumber >= _deviceValue)
     {
@@ -323,7 +322,7 @@ bool DXCT::DInput::Joypad::GetRelease(DWORD joynumber, DWORD button)
 //
 //戻り値：なし
 /////////////////////////////////////////////
-void DXCT::DInput::Joypad::DeleteDevice(void)
+void Joypad::DeleteDevice(void)
 {
     for (DWORD i = 0; i < _deviceValue; ++i)
     {

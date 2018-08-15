@@ -2,9 +2,10 @@
 #include "DInputMouseDevice.h"
 
 //＝＝＝ライブラリのリンク＝＝＝//
-#pragma comment(lib, "dinput8")
 
-namespace DXCT { namespace DInput {
+
+namespace DXCT { namespace DInput 
+{
 
 //＝＝＝関数定義＝＝＝//
 /////////////////////////////////////////////
@@ -16,7 +17,7 @@ namespace DXCT { namespace DInput {
 //
 //戻り値：(LRESULT)処理の成否
 /////////////////////////////////////////////
-HRESULT DXCT::DInput::Mouse::Initialize(HWND hWnd, IDirectInput8* manager)
+HRESULT Mouse::Initialize(HWND hWnd, IDirectInput8* manager)
 {
     //---各種宣言---//
     HRESULT hr;
@@ -74,7 +75,7 @@ HRESULT DXCT::DInput::Mouse::Initialize(HWND hWnd, IDirectInput8* manager)
 //
 //戻り値：なし
 /////////////////////////////////////////////
-void DXCT::DInput::Mouse::End(void)
+void Mouse::End(void)
 {
     SAFE_RELEASE(_device);
 }
@@ -88,7 +89,7 @@ void DXCT::DInput::Mouse::End(void)
 //
 //戻り値：なし
 /////////////////////////////////////////////
-void DXCT::DInput::Mouse::Update(void)
+void Mouse::Update(void)
 {
     //---各種宣言---//
     HRESULT hr;
@@ -122,7 +123,7 @@ void DXCT::DInput::Mouse::Update(void)
 
 //戻り値：(DIJOYSTATE*)入力状態
 /////////////////////////////////////////////
-DIMOUSESTATE* DXCT::DInput::Mouse::GetState(void)
+DIMOUSESTATE* Mouse::GetState(void)
 {
     return &_current;
 }
@@ -136,7 +137,7 @@ DIMOUSESTATE* DXCT::DInput::Mouse::GetState(void)
 //
 //戻り値：(bool)判定結果
 /////////////////////////////////////////////
-bool DXCT::DInput::Mouse::GetHold(DWORD button)
+bool Mouse::GetHold(DWORD button)
 {
     if (button >= _countof(_current.rgbButtons))
     {
@@ -154,7 +155,7 @@ bool DXCT::DInput::Mouse::GetHold(DWORD button)
 //
 //戻り値：(bool)判定結果
 /////////////////////////////////////////////
-bool DXCT::DInput::Mouse::GetTrigger(DWORD button)
+bool Mouse::GetTrigger(DWORD button)
 {
     if (button >= _countof(_trigger.rgbButtons))
     {
@@ -172,7 +173,7 @@ bool DXCT::DInput::Mouse::GetTrigger(DWORD button)
 //
 //戻り値：(bool)判定結果
 /////////////////////////////////////////////
-bool DXCT::DInput::Mouse::GetRelease(DWORD button)
+bool Mouse::GetRelease(DWORD button)
 {
     if (button >= _countof(_release.rgbButtons))
     {

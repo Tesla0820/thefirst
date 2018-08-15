@@ -128,6 +128,9 @@
     <ClCompile Include="src\GameEngine\InputManager.cpp">
       <Filter>GameEngine</Filter>
     </ClCompile>
+    <ClCompile Include="src\DXCT\DInput\DInputFactory.cpp">
+      <Filter>DXCT\DInput</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\DXCT\Window.h">
@@ -243,6 +246,9 @@
     </ClInclude>
     <ClInclude Include="src\GameEngine\InputManager.h">
       <Filter>GameEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\DXCT\DInput\DInputFactory.h">
+      <Filter>DXCT\DInput</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
