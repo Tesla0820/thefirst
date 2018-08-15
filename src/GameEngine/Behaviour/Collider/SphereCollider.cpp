@@ -47,13 +47,11 @@ void SphereCollider::Hit()
 
 void SphereCollider::HitToSphere(SphereCollider* collider)
 {
-	GameObject* me;			// 自分側のゲームオブジェクト
-	GameObject* other;		// 相手側オブジェクト
 	float range;			// 当たり判定の範囲
 	float magnitude;		// 自分から相手までの距離の二乗
 	D3DXVECTOR3 mePos, otherPos;	// 自分と相手の位置
 	mePos = this->_center;
-	otherPos = collider->GetAttachedObject()->GetTransform()->GetPosition;
+	otherPos = collider->GetAttachedObject()->GetTransform()->GetPosition();
 	range = _radius + collider->_radius;	// 判定の範囲を取得
 
 	magnitude = (mePos.x - otherPos.x)*(mePos.x - otherPos.x) + (mePos.y - otherPos.y)*(mePos.y - otherPos.y) + (mePos.z - otherPos.z)*(mePos.z - otherPos.z);
@@ -66,8 +64,6 @@ void SphereCollider::HitToSphere(SphereCollider* collider)
 
 void SphereCollider::HitToBox(BoxCollider* collider)
 {
-	GameObject* me;			// 自分側のゲームオブジェクト
-	GameObject* other;		// 相手側オブジェクト
 	float range;			// 当たり判定の範囲
 	float magnitude;		// 自分から相手までの距離の二乗
 	D3DXVECTOR3 mePos, otherPos[8];	// 自分と相手(頂点配列)の位置
@@ -75,7 +71,9 @@ void SphereCollider::HitToBox(BoxCollider* collider)
 
 	mePos = this->_center;
 	for (int i = 0; i < 8; i++)
-		otherPos[i] = collider->GetAttachedObject()->GetTransform()->GetPosition;// ８つに中心座標の格納
+	{
+		otherPos[i] = collider->GetAttachedObject()->GetTransform()->GetPosition();// ８つに中心座標の格納
+	}
 
 	otherScale = collider->GetScale();// 相手の大きさの格納
 

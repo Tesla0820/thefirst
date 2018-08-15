@@ -46,8 +46,6 @@ void BoxCollider::Hit()
 
 void BoxCollider::HitToSphere(SphereCollider* collider)
 {
-	GameObject* me;			// 自分側のゲームオブジェクト
-	GameObject* other;		// 相手側オブジェクト
 	float range;			// 当たり判定の範囲
 	float magnitude;		// 自分から相手までの距離の二乗
 	D3DXVECTOR3 mePos[8], otherPos;	// 自分と相手(頂点配列)の位置
@@ -58,7 +56,7 @@ void BoxCollider::HitToSphere(SphereCollider* collider)
 	for (int i = 0; i < 8; i++)
 		mePos[i] = this->_position;// ８つに直方体の中心座標を格納
 	meScale = this->_scale;
-	otherPos = collider->GetAttachedObject()->GetTransform()->GetPosition;
+	otherPos = collider->GetAttachedObject()->GetTransform()->GetPosition();
 	otherRadius = collider->GetRadius();
 
 																		 // 直方体の上の頂点（左下から時計回り）

@@ -8,6 +8,8 @@
 #include "Collider.h"
 #include "SphereCollider.h"
 
+class SphereCollider;
+
 namespace GameEngine { namespace Behaviour
 {
 

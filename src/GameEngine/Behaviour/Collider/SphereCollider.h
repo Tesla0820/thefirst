@@ -8,6 +8,7 @@
 #include "Collider.h"
 #include "BoxCollider.h"
 
+class BoxCollider;
 
 namespace GameEngine { namespace Behaviour
 {
