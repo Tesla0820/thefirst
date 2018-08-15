@@ -45,6 +45,9 @@
     <Filter Include="DXCT\DInput">
       <UniqueIdentifier>{20fe0ab8-13a4-4e7c-af7c-87e7b50c1557}</UniqueIdentifier>
     </Filter>
+    <Filter Include="GameEngine\InputManager">
+      <UniqueIdentifier>{35acd492-ab0d-4fc8-ad64-584655ef4b1d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\DXCT\Window.cpp">
@@ -116,20 +119,23 @@
     <ClCompile Include="src\DXCT\D3D\D3DVertexBuffer.cpp">
       <Filter>DXCT\D3D</Filter>
     </ClCompile>
-    <ClCompile Include="src\DXCT\DInput\DInputJoypadDevice.cpp">
-      <Filter>DXCT\DInput</Filter>
-    </ClCompile>
-    <ClCompile Include="src\DXCT\DInput\DInputKeyboardDevice.cpp">
-      <Filter>DXCT\DInput</Filter>
-    </ClCompile>
-    <ClCompile Include="src\DXCT\DInput\DInputMouseDevice.cpp">
-      <Filter>DXCT\DInput</Filter>
-    </ClCompile>
     <ClCompile Include="src\GameEngine\InputManager.cpp">
       <Filter>GameEngine</Filter>
     </ClCompile>
     <ClCompile Include="src\DXCT\DInput\DInputFactory.cpp">
       <Filter>DXCT\DInput</Filter>
+    </ClCompile>
+    <ClCompile Include="src\DXCT\DInput\DInputDevice.cpp">
+      <Filter>DXCT\DInput</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GameEngine\InputManager\Joypad.cpp">
+      <Filter>GameEngine\InputManager</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GameEngine\InputManager\Keyboard.cpp">
+      <Filter>GameEngine\InputManager</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GameEngine\InputManager\Mouse.cpp">
+      <Filter>GameEngine\InputManager</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -235,20 +241,26 @@
     <ClInclude Include="src\DXCT\D3D\D3DVertexBuffer.h">
       <Filter>DXCT\D3D</Filter>
     </ClInclude>
-    <ClInclude Include="src\DXCT\DInput\DInputJoypadDevice.h">
-      <Filter>DXCT\DInput</Filter>
-    </ClInclude>
-    <ClInclude Include="src\DXCT\DInput\DInputKeyboardDevice.h">
-      <Filter>DXCT\DInput</Filter>
-    </ClInclude>
-    <ClInclude Include="src\DXCT\DInput\DInputMouseDevice.h">
-      <Filter>DXCT\DInput</Filter>
-    </ClInclude>
     <ClInclude Include="src\GameEngine\InputManager.h">
       <Filter>GameEngine</Filter>
     </ClInclude>
     <ClInclude Include="src\DXCT\DInput\DInputFactory.h">
       <Filter>DXCT\DInput</Filter>
+    </ClInclude>
+    <ClInclude Include="src\DXCT\DInput\DInputDevice.h">
+      <Filter>DXCT\DInput</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GameEngine\InputManager\Joypad.h">
+      <Filter>GameEngine\InputManager</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GameEngine\InputManager\Keyboard.h">
+      <Filter>GameEngine\InputManager</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GameEngine\InputManager\Mouse.h">
+      <Filter>GameEngine\InputManager</Filter>
+    </ClInclude>
+    <ClInclude Include="src\DXCT\dxct_DInput.h">
+      <Filter>DXCT</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
