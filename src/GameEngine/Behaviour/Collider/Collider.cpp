@@ -15,30 +15,16 @@ Collider::Collider()
 
 Collider::~Collider()
 {
-	//当たり判定が有効ではなくなるので、判定の配列から自分を消す。
+}
+
+void Collider::Enabled()
+{
+	AddActiveCollider(this);
+}
+
+void Collider::Disabled()
+{
 	RemoveActiveCollider(this);
-}
-
-//ゲームオブジェクトを紐づけます。実際に紐づけるのはゲームオブジェクト側からなので
-//この関数を直接呼び出さないでください。
-void Collider::Attach(GameObject * object)
-{
-	_object = object;
-	if (object)
-	{
-		//当たり判定が有効なので配列に自分を追加する。
-		AddActiveCollider(this);
-	}
-	else
-	{
-		//当たり判定が有効ではないので配列から自分を消去する。
-		RemoveActiveCollider(this);
-	}
-}
-
-GameObject * Collider::GetGameObject()
-{
-	return _object;
 }
 
 

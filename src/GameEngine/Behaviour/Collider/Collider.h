@@ -23,8 +23,8 @@ protected:
 public:
 	Collider();
 	virtual ~Collider();
-	void Attach(GameObject* object);	// ゲームオブジェクトを紐づけます。
-	GameObject* GetGameObject();		// 適用されているゲームオブジェクトを取得します。
+	virtual void Enabled() override;
+	virtual void Disabled() override;
 	virtual void Hit() = 0; // 判定します。純粋仮想関数です。
 
 };
