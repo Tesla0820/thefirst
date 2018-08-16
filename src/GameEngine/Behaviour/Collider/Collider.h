@@ -22,7 +22,6 @@ protected:
 	static void RemoveActiveCollider(Collider* collider);// 有効な判定配列から削除する
 public:
 	Collider();
-	virtual ~Collider();
 	virtual void Enabled() override;
 	virtual void Disabled() override;
 	virtual void Hit() = 0; // 判定します。純粋仮想関数です。
