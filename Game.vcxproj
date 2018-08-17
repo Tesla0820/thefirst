@@ -19,16 +19,17 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\DXCT\D3DX\D3DXAllocateHierarchy.cpp" />
+    <ClCompile Include="src\DXCT\D3DX\D3DXConstantTable.cpp" />
     <ClCompile Include="src\DXCT\D3D\D3DDevice.cpp" />
     <ClCompile Include="src\DXCT\D3D\D3DFactory.cpp" />
     <ClCompile Include="src\DXCT\D3D\D3DModel.cpp" />
+    <ClCompile Include="src\DXCT\D3D\D3DPixelShader.cpp" />
     <ClCompile Include="src\DXCT\D3D\D3DSurface.cpp" />
     <ClCompile Include="src\DXCT\D3D\D3DTexture.cpp" />
     <ClCompile Include="src\DXCT\D3D\D3DVertexBuffer.cpp" />
-    <ClCompile Include="src\DXCT\D3D\D3DXAllocateHierarchy.cpp" />
-    <ClCompile Include="src\DXCT\DInput\DInputJoypadDevice.cpp" />
-    <ClCompile Include="src\DXCT\DInput\DInputKeyboardDevice.cpp" />
-    <ClCompile Include="src\DXCT\DInput\DInputMouseDevice.cpp" />
+    <ClCompile Include="src\DXCT\D3D\D3DVertexDeclaration.cpp" />
+    <ClCompile Include="src\DXCT\D3D\D3DVertexShader.cpp" />
     <ClCompile Include="src\DXCT\DXCTException.cpp" />
     <ClCompile Include="src\DXCT\Window.cpp" />
     <ClCompile Include="src\GameEngine\Behaviour\Behaviour.cpp" />
@@ -42,25 +43,35 @@
     <ClCompile Include="src\GameEngine\Binder\BehaviourBinder.cpp" />
     <ClCompile Include="src\GameEngine\Environment.cpp" />
     <ClCompile Include="src\GameEngine\GameObject.cpp" />
-    <ClCompile Include="src\GameEngine\InputManager.cpp" />
     <ClCompile Include="src\GameEngine\MainWindow.cpp" />
+    <ClCompile Include="src\GameEngine\Pipeline\DefaultPipeline.cpp" />
+    <ClCompile Include="src\GameEngine\Pipeline\IModefier.h" />
+    <ClCompile Include="src\GameEngine\Resource\Mesh\MeshD3DX.cpp" />
     <ClCompile Include="src\GameEngine\Scene\SceneManager.cpp" />
     <ClCompile Include="src\GameEngine\Time\FPSCounter.cpp" />
     <ClCompile Include="src\GameEngine\Time\StopWatch.cpp" />
     <ClCompile Include="src\Game\main.cpp" />
+    <ClCompile Include="src\Game\TitleScene\Pipeline\Echo.cpp" />
     <ClCompile Include="src\Game\TitleScene\TitleScene.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\DXCT\D3DX\D3DXAllocateHierarchy.h" />
+    <ClInclude Include="src\DXCT\D3DX\D3DXConstantTable.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="src\DXCT\D3D\D3DPixelShader.h" />
     <ClInclude Include="src\DXCT\D3D\D3DSurface.h" />
     <ClInclude Include="src\DXCT\D3D\D3DVertexBuffer.h" />
-    <ClInclude Include="src\DXCT\D3D\D3DXAllocateHierarchy.h">
+    <ClInclude Include="src\DXCT\D3D\D3DVertexDeclaration.h">
       <SubType>
       </SubType>
     </ClInclude>
     <ClInclude Include="src\DXCT\D3D\IRecoverable.h" />
-    <ClInclude Include="src\DXCT\DInput\DInputJoypadDevice.h" />
-    <ClInclude Include="src\DXCT\DInput\DInputKeyboardDevice.h" />
-    <ClInclude Include="src\DXCT\DInput\DInputMouseDevice.h" />
+    <ClInclude Include="src\DXCT\D3D\D3DVertexShader.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
     <ClInclude Include="src\DXCT\IReleasable.h" />
     <ClInclude Include="src\GameEngine\Behaviour\Behaviour.h" />
     <ClInclude Include="src\GameEngine\Behaviour\Camera.h" />
@@ -87,13 +98,11 @@
     <ClInclude Include="src\DXCT\Window.h" />
     <ClInclude Include="src\GameEngine\Environment.h" />
     <ClInclude Include="src\GameEngine\GameObject.h" />
-    <ClInclude Include="src\GameEngine\InputManager.h" />
     <ClInclude Include="src\GameEngine\IRenderer.h" />
     <ClInclude Include="src\GameEngine\MainWindow.h" />
-    <ClInclude Include="src\GameEngine\Mesh.h">
-      <SubType>
-      </SubType>
-    </ClInclude>
+    <ClInclude Include="src\GameEngine\Pipeline\DefaultPipeline.h" />
+    <ClInclude Include="src\GameEngine\Resource\Mesh\IMesh.h" />
+    <ClInclude Include="src\GameEngine\Resource\Mesh\MeshD3DX.h" />
     <ClInclude Include="src\GameEngine\Scene\SceneBase.h" />
     <ClInclude Include="src\GameEngine\Scene\SceneManager.h">
       <SubType>
@@ -103,6 +112,7 @@
     <ClInclude Include="src\GameEngine\Time\stopwatch.h" />
     <ClInclude Include="src\GameEngine\Vertex.h" />
     <ClInclude Include="src\Game\main.h" />
+    <ClInclude Include="src\Game\TitleScene\Pipeline\Echo.h" />
     <ClInclude Include="src\Game\TitleScene\TitleScene.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

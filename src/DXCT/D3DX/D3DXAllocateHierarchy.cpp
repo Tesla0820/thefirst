@@ -5,7 +5,7 @@
 #include <string>
 #include "D3DXAllocateHierarchy.h"
 
-namespace DXCT { namespace D3D
+namespace DXCT { namespace D3DX
 {
 D3DXAllocateHierarchy::D3DXAllocateHierarchy()
 {

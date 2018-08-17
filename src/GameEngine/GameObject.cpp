@@ -174,14 +174,13 @@ void GameObject::Destroy()
 {
 	if (_parent)
 	{
-		_parent->RemoveChild(this);
+		SetParent(nullptr);
 	}
 	while (!_behaviours.empty())
 	{
-		auto behaviour = _behaviours.back();
-		behaviour->Destroy();
+		delete _behaviours.back();
+		_behaviours.pop_back();
 	}
-	delete this;
 }
 
 GameObject * GameObject::Instantiate()
