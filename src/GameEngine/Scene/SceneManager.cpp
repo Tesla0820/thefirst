@@ -79,7 +79,7 @@ void SceneManager::Update()
 		while (!_manager->_unstartedBehaviours.empty())
 		{
 			auto behaviour = _manager->_unstartedBehaviours.back();
-			behaviour->Start();
+			behaviour->Initialize();
 			_manager->_unstartedBehaviours.pop_back();
 		}
 		object->Update();

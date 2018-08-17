@@ -33,6 +33,9 @@
     <ClCompile Include="src\DXCT\Window.cpp" />
     <ClCompile Include="src\GameEngine\Behaviour\Behaviour.cpp" />
     <ClCompile Include="src\GameEngine\Behaviour\Camera.cpp" />
+    <ClCompile Include="src\GameEngine\Behaviour\Collider\BoxCollider.cpp" />
+    <ClCompile Include="src\GameEngine\Behaviour\Collider\Collider.cpp" />
+    <ClCompile Include="src\GameEngine\Behaviour\Collider\SphereCollider.cpp" />
     <ClCompile Include="src\GameEngine\Behaviour\Renderer\MeshRenderer.cpp" />
     <ClCompile Include="src\GameEngine\Behaviour\Renderer\RendererBase.cpp" />
     <ClCompile Include="src\GameEngine\Behaviour\Transform.cpp" />
@@ -61,6 +64,9 @@
     <ClInclude Include="src\DXCT\IReleasable.h" />
     <ClInclude Include="src\GameEngine\Behaviour\Behaviour.h" />
     <ClInclude Include="src\GameEngine\Behaviour\Camera.h" />
+    <ClInclude Include="src\GameEngine\Behaviour\Collider\BoxCollider.h" />
+    <ClInclude Include="src\GameEngine\Behaviour\Collider\Collider.h" />
+    <ClInclude Include="src\GameEngine\Behaviour\Collider\SphereCollider.h" />
     <ClInclude Include="src\GameEngine\Behaviour\Renderer\MeshRenderer.h" />
     <ClInclude Include="src\GameEngine\Behaviour\Renderer\RendererBase.h">
       <SubType>
