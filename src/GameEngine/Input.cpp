@@ -1,38 +1,48 @@
 //＝＝＝ヘッダファイル読み込み＝＝＝//
-#include "InputManager.h"
-
-//＝＝＝ライブラリのリンク＝＝＝//
-#pragma comment(lib, "dinput8")
+#include "Input.h"
 
 namespace GameEngine {
+
+//------//
+std::shared_ptr<DXCT::DInput::DInputFactory> Input::_factory;	//管理インターフェース
+GameEngine::InputManager::Joypad             Input::_joypad;	//ゲームパッド
+GameEngine::InputManager::Keyboard           Input::_keyboard;	//キーボード
+GameEngine::InputManager::Mouse	             Input::_mouse;		//マウス
+
+
+Input::Input()
+{
+}
+
+void Input::Release()
+{
+}
+
 //＝＝＝関数定義＝＝＝//
 /////////////////////////////////////////////
-//関数名：Initialize
+//関数名：Create
 //
 //機能：デバイスの初期化
 //
-//引数：(HWND)ハンドル,(IDirectInput8*)デバイスマネージャー
+//引数：(HWND)ハンドル
 //
 //戻り値：(LRESULT)処理の成否
 /////////////////////////////////////////////
-HRESULT GameEngine::InputManager::Initialize(HWND hWnd)
+HRESULT GameEngine::Input::Create(HWND hWnd)
 {
     //---各種宣言---//
     HRESULT hr;
-    HINSTANCE hInst;
-
-    hInst = (HINSTANCE)GetWindowLong(hWnd, -6/*GWL_HINSTANCE*/);
 
     //DirectInputオブジェクト生成
-    hr = DirectInput8Create(hInst, DIRECTINPUT_VERSION, IID_IDirectInput8, (LPVOID*)&_manager, NULL);
-    if (FAILED(hr))
+    _factory = DXCT::DInput::DInputFactory::Create();
+    if (!_factory)
     {
         MessageBoxA(hWnd, "DirectInputオブジェクト生成に失敗しました。", "ERROR", MB_ICONSTOP | MB_OK);
-        return hr;
+        return S_FALSE;
     }
 
     //ゲームパッドの準備
-    hr = _joypad.Initialize(hWnd, _manager);
+    hr = _joypad.Create(hWnd, _factory);
     if (FAILED(hr))
     {
         End();
@@ -40,20 +50,17 @@ HRESULT GameEngine::InputManager::Initialize(HWND hWnd)
     }
 
     //キーボードの準備
-    hr = _keyboard.Initialize(hWnd, _manager);
+    hr = _keyboard.Create(hWnd, _factory);
     if (FAILED(hr))
     {
-        _joypad.End();
         End();
         return hr;
     }
 
     //マウスの準備
-    hr = _mouse.Initialize(hWnd, _manager);
+    hr = _mouse.Create(hWnd, _factory);
     if (FAILED(hr))
     {
-        _joypad.End();
-        _keyboard.End();
         End();
         return hr;
     }
@@ -70,12 +77,12 @@ HRESULT GameEngine::InputManager::Initialize(HWND hWnd)
 //
 //戻り値：なし
 /////////////////////////////////////////////
-void  GameEngine::InputManager::End(void)
+void  GameEngine::Input::End(void)
 {
     _joypad.End();
     _keyboard.End();
     _mouse.End();
-    SAFE_RELEASE(_manager);
+    SAFE_RELEASE(_factory);
 }
 
 /////////////////////////////////////////////
@@ -87,7 +94,7 @@ void  GameEngine::InputManager::End(void)
 //
 //戻り値：なし
 /////////////////////////////////////////////
-void GameEngine::InputManager::Update(void)
+void GameEngine::Input::Update(void)
 {
     _joypad.Update();
     _keyboard.Update();
@@ -103,7 +110,7 @@ void GameEngine::InputManager::Update(void)
 //
 //戻り値：(bool)判定結果
 /////////////////////////////////////////////
-bool GameEngine::InputManager::GetJoyButton(DWORD joynumber, DWORD button, PUSH_TYPE type)
+bool GameEngine::Input::GetJoyButton(DWORD joynumber, DWORD button, PUSH_TYPE type)
 {
     switch (type)
     {
@@ -130,7 +137,7 @@ bool GameEngine::InputManager::GetJoyButton(DWORD joynumber, DWORD button, PUSH_
 
 //戻り値：(LONG)入力データ
 /////////////////////////////////////////////
-LONG GameEngine::InputManager::GetJoyStick(DWORD joynumber, AXIS_TYPE type)
+LONG GameEngine::Input::GetJoyStick(DWORD joynumber, AXIS_TYPE type)
 {
     switch (type)
     {
@@ -157,7 +164,7 @@ LONG GameEngine::InputManager::GetJoyStick(DWORD joynumber, AXIS_TYPE type)
 //
 //戻り値：(bool)判定結果
 /////////////////////////////////////////////
-bool GameEngine::InputManager::GetKey(DWORD button, PUSH_TYPE type)
+bool GameEngine::Input::GetKey(DWORD button, PUSH_TYPE type)
 {
     switch (type)
     {
@@ -184,7 +191,7 @@ bool GameEngine::InputManager::GetKey(DWORD button, PUSH_TYPE type)
 //
 //戻り値：(bool)判定結果
 /////////////////////////////////////////////
-bool GameEngine::InputManager::GetMouseButton(DWORD button, PUSH_TYPE type)
+bool GameEngine::Input::GetMouseButton(DWORD button, PUSH_TYPE type)
 {
     switch (type)
     {
@@ -211,7 +218,7 @@ bool GameEngine::InputManager::GetMouseButton(DWORD button, PUSH_TYPE type)
 //
 //戻り値：(bool)判定結果
 /////////////////////////////////////////////
-DIMOUSESTATE* GameEngine::InputManager::GetMouseMove(void)
+DIMOUSESTATE* GameEngine::Input::GetMouseMove(void)
 {
     return _mouse.GetState();
 }

@@ -4,6 +4,7 @@
 
 #include "Environment.h"
 #include "Behaviour/Camera.h"
+#include "Input.h"
 namespace GameEngine
 {
 
@@ -89,10 +90,14 @@ Environment::Environment():_window(ScreenWidth + GetSystemMetrics(SM_CYCAPTION) 
 	_backColor = D3DCOLOR_ARGB(255, 0, 0, 64);
 	//シーンマネージャの構築
 	SceneManager::Create();
+    Input::Create(_window.GetHandle());
 	_counter.Start();
 }
 Environment::~Environment()
 {
+    //入力の解放
+    Input::End();
+
 	//シーンマネージャの解放
 	SceneManager::Release();
 	_device.reset();
@@ -173,6 +178,16 @@ void Environment::Update()
 {
 
 	SceneManager::Update();
+    Input::Update();
+    if (Input::GetKey(DIK_LEFTARROW, HOLD) || Input::GetMouseButton(DIMOFS_BUTTON0, HOLD))
+    {
+        _backColor = D3DCOLOR_ARGB(255, 255, 255, 255);
+    }
+    else
+    {
+        _backColor = D3DCOLOR_ARGB(255, 0, 0, 64);
+    }
+
 }
 
 void Environment::Draw()

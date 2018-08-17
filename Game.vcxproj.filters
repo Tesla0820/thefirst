@@ -119,19 +119,19 @@
     <ClCompile Include="src\DXCT\D3D\D3DVertexBuffer.cpp">
       <Filter>DXCT\D3D</Filter>
     </ClCompile>
-    <ClCompile Include="src\GameEngine\InputManager.cpp">
-      <Filter>GameEngine</Filter>
-    </ClCompile>
     <ClCompile Include="src\DXCT\DInput\DInputFactory.cpp">
       <Filter>DXCT\DInput</Filter>
     </ClCompile>
     <ClCompile Include="src\DXCT\DInput\DInputDevice.cpp">
       <Filter>DXCT\DInput</Filter>
     </ClCompile>
-    <ClCompile Include="src\GameEngine\InputManager\Joypad.cpp">
+    <ClCompile Include="src\GameEngine\InputManager\Keyboard.cpp">
       <Filter>GameEngine\InputManager</Filter>
     </ClCompile>
-    <ClCompile Include="src\GameEngine\InputManager\Keyboard.cpp">
+    <ClCompile Include="src\GameEngine\Input.cpp">
+      <Filter>GameEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GameEngine\InputManager\Joypad.cpp">
       <Filter>GameEngine\InputManager</Filter>
     </ClCompile>
     <ClCompile Include="src\GameEngine\InputManager\Mouse.cpp">
@@ -241,26 +241,26 @@
     <ClInclude Include="src\DXCT\D3D\D3DVertexBuffer.h">
       <Filter>DXCT\D3D</Filter>
     </ClInclude>
-    <ClInclude Include="src\GameEngine\InputManager.h">
-      <Filter>GameEngine</Filter>
-    </ClInclude>
     <ClInclude Include="src\DXCT\DInput\DInputFactory.h">
       <Filter>DXCT\DInput</Filter>
     </ClInclude>
     <ClInclude Include="src\DXCT\DInput\DInputDevice.h">
       <Filter>DXCT\DInput</Filter>
     </ClInclude>
-    <ClInclude Include="src\GameEngine\InputManager\Joypad.h">
-      <Filter>GameEngine\InputManager</Filter>
-    </ClInclude>
     <ClInclude Include="src\GameEngine\InputManager\Keyboard.h">
-      <Filter>GameEngine\InputManager</Filter>
-    </ClInclude>
-    <ClInclude Include="src\GameEngine\InputManager\Mouse.h">
       <Filter>GameEngine\InputManager</Filter>
     </ClInclude>
     <ClInclude Include="src\DXCT\dxct_DInput.h">
       <Filter>DXCT</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GameEngine\Input.h">
+      <Filter>GameEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GameEngine\InputManager\Joypad.h">
+      <Filter>GameEngine\InputManager</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GameEngine\InputManager\Mouse.h">
+      <Filter>GameEngine\InputManager</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

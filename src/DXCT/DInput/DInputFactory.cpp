@@ -28,9 +28,9 @@ std::shared_ptr<DInputDevice> DInputFactory::CreateDevice(GUID const & guid, IUn
 	return std::shared_ptr<DInputDevice>();
 }
 
-HRESULT DInputFactory::EnumDevices(DWORD deviceType, EnumDeviceCallBack * callback,void* reference, DWORD flags)
+HRESULT DInputFactory::EnumDevices(DWORD deviceType, EnumDeviceCallBack callback,void* reference, DWORD flags)
 {
-	std::tuple<EnumDeviceCallBack*, DInputFactory*, void*> tuple = std::make_tuple(callback, this, reference);
+	std::tuple<EnumDeviceCallBack*, DInputFactory*, void*> tuple = std::make_tuple(&callback, this, reference);
 	return _object->EnumDevices(deviceType, EnumDeviceCallBackBase, reinterpret_cast<void*>(&tuple), flags);
 }
 

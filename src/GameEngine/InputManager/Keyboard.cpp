@@ -1,35 +1,39 @@
 //＝＝＝ヘッダファイル読み込み＝＝＝//
-#include "DInputKeyboardDevice.h"
+#include "Keyboard.h"
 
-//＝＝＝ライブラリのリンク＝＝＝//
-
-namespace DXCT { namespace DInput 
+namespace GameEngine { namespace InputManager
 {
+
+Keyboard::Keyboard()
+{
+
+}
+
 //＝＝＝関数定義＝＝＝//
 /////////////////////////////////////////////
-//関数名：Initialize
+//関数名：Create
 //
 //機能：デバイスの初期化
 //
-//引数：(HWND)ハンドル,(IDirectInput8*)デバイスマネージャー
+//引数：(HWND)ハンドル,(DInputFactory)デバイスマネージャー
 //
 //戻り値：(LRESULT)処理の成否
 /////////////////////////////////////////////
-HRESULT Keyboard::Initialize(HWND hWnd, IDirectInput8* manager)
+HRESULT Keyboard::Create(HWND hWnd , std::shared_ptr<DXCT::DInput::DInputFactory> manager)
 {
     //---各種宣言---//
     HRESULT hr;
 
     //---デバイス生成---//
-    hr = manager->CreateDevice(GUID_SysKeyboard, &_device, NULL);
-    if (FAILED(hr))
+    _device = manager->CreateDevice(GUID_SysKeyboard, NULL);
+    if (!_device)
     {
         MessageBoxA(hWnd, "キーボードのオブジェクト生成に失敗しました。", "ERROR", MB_ICONSTOP | MB_OK);
-        return hr;
+        return S_FALSE;
     }
 
     //---入力設定---//
-    //データ フォーマット設定
+    //データフォーマット設定
     hr = _device->SetDataFormat(&c_dfDIKeyboard);
     if (FAILED(hr))
     {
@@ -51,7 +55,7 @@ HRESULT Keyboard::Initialize(HWND hWnd, IDirectInput8* manager)
     if (FAILED(hr))
     {
         SAFE_RELEASE(_device);
-        MessageBoxA(hWnd, "ゲームパッドの入力制御開始に失敗しました。", "ERROR", MB_ICONSTOP | MB_OK);
+        MessageBoxA(hWnd, "キーボードの入力制御開始に失敗しました。", "ERROR", MB_ICONSTOP | MB_OK);
         return hr;
     }
     return hr;
@@ -88,7 +92,7 @@ void Keyboard::Update(void)
     if (_device)
     {
         _device->Acquire();
-        CopyMemory(_preview, _current, 256);
+        memcpy(_preview, _current, 256);
         hr = _device->GetDeviceState(256, _current);
         if (hr == DIERR_INPUTLOST)
         {

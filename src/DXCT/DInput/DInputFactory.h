@@ -26,7 +26,7 @@ class DInputFactory:public DXObject<IDirectInput8>
 
 		~DInputFactory();
 		std::shared_ptr<DInputDevice> CreateDevice(GUID const& guid,IUnknown* unknownOuter);
-		HRESULT DInputFactory::EnumDevices(DWORD deviceType, EnumDeviceCallBack * callback, void* reference, DWORD flags);
+		HRESULT DInputFactory::EnumDevices(DWORD deviceType, EnumDeviceCallBack callback, void* reference, DWORD flags);
 
 		static std::shared_ptr<DInputFactory> Create();
 		static int CALLBACK EnumDeviceCallBackBase(DIDEVICEINSTANCE const* instance, void* reference);

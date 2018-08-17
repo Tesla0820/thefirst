@@ -38,7 +38,7 @@
     <ClCompile Include="src\GameEngine\Binder\BehaviourBinder.cpp" />
     <ClCompile Include="src\GameEngine\Environment.cpp" />
     <ClCompile Include="src\GameEngine\GameObject.cpp" />
-    <ClCompile Include="src\GameEngine\InputManager.cpp" />
+    <ClCompile Include="src\GameEngine\Input.cpp" />
     <ClCompile Include="src\GameEngine\InputManager\Joypad.cpp" />
     <ClCompile Include="src\GameEngine\InputManager\Keyboard.cpp" />
     <ClCompile Include="src\GameEngine\InputManager\Mouse.cpp" />
@@ -86,7 +86,7 @@
     <ClInclude Include="src\DXCT\Window.h" />
     <ClInclude Include="src\GameEngine\Environment.h" />
     <ClInclude Include="src\GameEngine\GameObject.h" />
-    <ClInclude Include="src\GameEngine\InputManager.h" />
+    <ClInclude Include="src\GameEngine\Input.h" />
     <ClInclude Include="src\GameEngine\InputManager\Joypad.h" />
     <ClInclude Include="src\GameEngine\InputManager\Keyboard.h" />
     <ClInclude Include="src\GameEngine\InputManager\Mouse.h" />

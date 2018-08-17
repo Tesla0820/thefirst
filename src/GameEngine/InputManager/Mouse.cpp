@@ -1,35 +1,39 @@
 //＝＝＝ヘッダファイル読み込み＝＝＝//
-#include "DInputMouseDevice.h"
+#include "Mouse.h"
 
-//＝＝＝ライブラリのリンク＝＝＝//
-
-
-namespace DXCT { namespace DInput 
+namespace GameEngine { namespace InputManager
 {
+
+Mouse::Mouse()
+{
+    _device = nullptr;
+}
 
 //＝＝＝関数定義＝＝＝//
 /////////////////////////////////////////////
-//関数名：Initialize
+//関数名：Create
 //
 //機能：デバイスの初期化
 //
-//引数：(HWND)ハンドル,(IDirectInput8*)デバイスマネージャー
+//引数：(HWND)ハンドル,(DInputFactory)デバイスマネージャー
 //
 //戻り値：(LRESULT)処理の成否
 /////////////////////////////////////////////
-HRESULT Mouse::Initialize(HWND hWnd, IDirectInput8* manager)
+HRESULT Mouse::Create(HWND hWnd, std::shared_ptr<DXCT::DInput::DInputFactory> manager)
 {
     //---各種宣言---//
     HRESULT hr;
 
     //---デバイス生成---//
-    hr = manager->CreateDevice(GUID_SysMouse, &_device, NULL);
-    if (FAILED(hr))
+    _device = manager->CreateDevice(GUID_SysMouse, NULL);
+    if (!_device)
     {
         MessageBoxA(hWnd, "マウスのオブジェクト生成に失敗しました。", "ERROR", MB_ICONSTOP | MB_OK);
-        return hr;
+        return S_FALSE;
     }
-    // データ フォーマット設定
+
+    //---入力設定---//
+    //データフォーマット設定
     hr = _device->SetDataFormat(&c_dfDIMouse);
     if (FAILED(hr))
     {
@@ -37,7 +41,7 @@ HRESULT Mouse::Initialize(HWND hWnd, IDirectInput8* manager)
         MessageBoxA(hWnd, "マウスのデータフォーマット設定に失敗しました。", "ERROR", MB_ICONSTOP | MB_OK);
         return hr;
     }
-    // 協調レベルの設定
+    //協調レベルの設定
     hr = _device->SetCooperativeLevel(hWnd, DISCL_NONEXCLUSIVE | DISCL_FOREGROUND);
     if (FAILED(hr))
     {
@@ -46,16 +50,22 @@ HRESULT Mouse::Initialize(HWND hWnd, IDirectInput8* manager)
         return hr;
     }
 
-    // デバイス設定
+    //デバイス設定
     DIPROPDWORD dipdw;
-    dipdw.diph.dwSize = sizeof(dipdw);
+    dipdw.diph.dwSize = sizeof(DIPROPDWORD);
     dipdw.diph.dwHeaderSize = sizeof(dipdw.diph);
     dipdw.diph.dwObj = 0;
     dipdw.diph.dwHow = DIPH_DEVICE;
     dipdw.dwData = DIPROPAXISMODE_REL;
-    _device->SetProperty(DIPROP_AXISMODE, &dipdw.diph);
+    hr = _device->SetProperty(DIPROP_AXISMODE, &dipdw.diph);
+    if (FAILED(hr))
+    {
+        End();
+        MessageBoxA(hWnd, "マウスのデバイス設定に失敗しました。", "ERROR", MB_ICONSTOP | MB_OK);
+        return hr;
+    }
 
-    // デバイスへの入力制御開始
+    //デバイスへの入力制御開始
     hr = _device->Acquire();
     if (FAILED(hr))
     {
@@ -66,7 +76,7 @@ HRESULT Mouse::Initialize(HWND hWnd, IDirectInput8* manager)
     return hr;
 }
 
-//////////////////////////////////2///////////
+/////////////////////////////////////////////
 //関数名：End
 //
 //機能：デバイスの終了
@@ -97,7 +107,7 @@ void Mouse::Update(void)
     if (_device)
     {
         _device->Acquire();
-        CopyMemory(&_preview, &_current, sizeof(DIMOUSESTATE));
+        memcpy(&_preview, &_current, sizeof(DIMOUSESTATE));
         hr = _device->GetDeviceState(sizeof(DIMOUSESTATE), &_current);
         if (hr == DIERR_INPUTLOST)
         {

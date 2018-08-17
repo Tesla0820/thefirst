@@ -1,34 +1,30 @@
 //
-//		ファイル名:DInputKeyboardDevice.h
+//		ファイル名:Keyboard.h
 //
 
-#ifndef _HEADER_DINPUT_KEYBOARD_DEVICE_H
-#define _HEADER_DINPUT_KEYBOARD_DEVICE_H
+#ifndef HEADER_KEYBOARD_H
+#define HEADER_KEYBOARD_H
 
 //＝＝＝ヘッダファイル読み込み＝＝＝//
-#define DIRECTINPUT_VERSION	0x0800	//DirectX8 を明示
-#include <dinput.h>					//DirectInput 関連のヘッダ
-#include <windows.h>
-#include <WinUser.h>
-#include <d3d9.h>
-#include <d3dx9.h>
-#include "../DXObject.h"
+#include "../GameEngine_inner.h"
 
-
-namespace DXCT { namespace DInput {
+namespace GameEngine { namespace InputManager
+{
 
 //＝＝＝クラス宣言＝＝＝//
-class Keyboard : public DXObject<IDirectInput8>
+class Keyboard
 {
     private:
-        IDirectInputDevice8* _device;       //デバイス
-        BYTE			     _current[256];	//現在の状態
-        BYTE			     _preview[256];	//前回の状態
-        BYTE			     _trigger[256];	//トリガ状態
-        BYTE			     _release[256];	//リリース状態
+        std::shared_ptr<DXCT::DInput::DInputDevice> _device;       //デバイス
+        BYTE			                            _current[256];	//現在の状態
+        BYTE			                            _preview[256];	//前回の状態
+        BYTE			                            _trigger[256];	//トリガ状態
+        BYTE			                            _release[256];	//リリース状態
 
     public:
-        HRESULT Initialize(HWND, IDirectInput8*);
+        Keyboard();
+
+        HRESULT Create(HWND, std::shared_ptr<DXCT::DInput::DInputFactory>);
         void End(void);
         void Update(void);
 
