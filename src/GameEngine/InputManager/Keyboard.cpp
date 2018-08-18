@@ -1,36 +1,40 @@
 //＝＝＝ヘッダファイル読み込み＝＝＝//
-#include "DInputKeyboardDevice.h"
+#include "Keyboard.h"
 
-//＝＝＝ライブラリのリンク＝＝＝//
-#pragma comment(lib, "dinput8")
+namespace GameEngine { namespace InputManager
+{
 
-namespace DXCT { namespace DInput {
+Keyboard::Keyboard()
+{
+
+}
+
 //＝＝＝関数定義＝＝＝//
 /////////////////////////////////////////////
-//関数名：Initialize
+//関数名：Create
 //
 //機能：デバイスの初期化
 //
-//引数：(HWND)ハンドル,(IDirectInput8*)デバイスマネージャー
+//引数：(HWND)ハンドル,(DInputFactory)デバイスマネージャー
 //
 //戻り値：(LRESULT)処理の成否
 /////////////////////////////////////////////
-HRESULT DXCT::DInput::Keyboard::Initialize(HWND hWnd, IDirectInput8* manager)
+HRESULT Keyboard::Create(HWND hWnd , std::shared_ptr<DXCT::DInput::DInputFactory> manager)
 {
     //---各種宣言---//
     HRESULT hr;
 
     //---デバイス生成---//
-    hr = manager->CreateDevice(GUID_SysKeyboard, &_device, NULL);
-    if (FAILED(hr))
+    _device = manager->CreateDevice(GUID_SysKeyboard, NULL);
+    if (!_device)
     {
         MessageBoxA(hWnd, "キーボードのオブジェクト生成に失敗しました。", "ERROR", MB_ICONSTOP | MB_OK);
-        return hr;
+        return S_FALSE;
     }
 
     //---入力設定---//
-    //データ フォーマット設定
-    hr = _device->SetDataFormat(&c_dfDIJoystick);
+    //データフォーマット設定
+    hr = _device->SetDataFormat(&c_dfDIKeyboard);
     if (FAILED(hr))
     {
         SAFE_RELEASE(_device);
@@ -51,7 +55,7 @@ HRESULT DXCT::DInput::Keyboard::Initialize(HWND hWnd, IDirectInput8* manager)
     if (FAILED(hr))
     {
         SAFE_RELEASE(_device);
-        MessageBoxA(hWnd, "ゲームパッドの入力制御開始に失敗しました。", "ERROR", MB_ICONSTOP | MB_OK);
+        MessageBoxA(hWnd, "キーボードの入力制御開始に失敗しました。", "ERROR", MB_ICONSTOP | MB_OK);
         return hr;
     }
     return hr;
@@ -66,7 +70,7 @@ HRESULT DXCT::DInput::Keyboard::Initialize(HWND hWnd, IDirectInput8* manager)
 //
 //戻り値：なし
 /////////////////////////////////////////////
-void DXCT::DInput::Keyboard::End(void)
+void Keyboard::End(void)
 {
     SAFE_RELEASE(_device);
 }
@@ -80,7 +84,7 @@ void DXCT::DInput::Keyboard::End(void)
 //
 //戻り値：なし
 /////////////////////////////////////////////
-void DXCT::DInput::Keyboard::Update(void)
+void Keyboard::Update(void)
 {
     //---各種宣言---//
     HRESULT hr;
@@ -88,7 +92,7 @@ void DXCT::DInput::Keyboard::Update(void)
     if (_device)
     {
         _device->Acquire();
-        CopyMemory(_preview, _current, 256);
+        memcpy(_preview, _current, 256);
         hr = _device->GetDeviceState(256, _current);
         if (hr == DIERR_INPUTLOST)
         {
@@ -114,7 +118,7 @@ void DXCT::DInput::Keyboard::Update(void)
 //
 //戻り値：(bool)判定結果
 /////////////////////////////////////////////
-bool DXCT::DInput::Keyboard::GetHold(DWORD button)
+bool Keyboard::GetHold(DWORD button)
 {
     if (button >= _countof(_current))
     {
@@ -132,7 +136,7 @@ bool DXCT::DInput::Keyboard::GetHold(DWORD button)
 //
 //戻り値：(bool)判定結果
 /////////////////////////////////////////////
-bool DXCT::DInput::Keyboard::GetTrigger(DWORD button)
+bool Keyboard::GetTrigger(DWORD button)
 {
     if (button >= _countof(_trigger))
     {
@@ -150,7 +154,7 @@ bool DXCT::DInput::Keyboard::GetTrigger(DWORD button)
 //
 //戻り値：(bool)判定結果
 /////////////////////////////////////////////
-bool DXCT::DInput::Keyboard::GetRelease(DWORD button)
+bool Keyboard::GetRelease(DWORD button)
 {
     if (button >= _countof(_release))
     {

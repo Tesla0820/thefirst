@@ -6,11 +6,13 @@
 #ifndef HEADER_DXCT_INNER_H
 #define HEADER_DXCT_INNER_H
 
+#define DIRECTINPUT_VERSION	0x0800	//DirectX8 を明示
+
 //共通インクルードヘッダ
 #include <Windows.h>
 #include <d3d9.h>
 #include <d3dx9.h>
-
+#include <dinput.h>
 //内部定義
 #ifndef DXCT_INTERFACE
 #	define DXCT_INTERFACE	struct

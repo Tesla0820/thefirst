@@ -1,34 +1,39 @@
 //＝＝＝ヘッダファイル読み込み＝＝＝//
-#include "DInputMouseDevice.h"
+#include "Mouse.h"
 
-//＝＝＝ライブラリのリンク＝＝＝//
-#pragma comment(lib, "dinput8")
+namespace GameEngine { namespace InputManager
+{
 
-namespace DXCT { namespace DInput {
+Mouse::Mouse()
+{
+    _device = nullptr;
+}
 
 //＝＝＝関数定義＝＝＝//
 /////////////////////////////////////////////
-//関数名：Initialize
+//関数名：Create
 //
 //機能：デバイスの初期化
 //
-//引数：(HWND)ハンドル,(IDirectInput8*)デバイスマネージャー
+//引数：(HWND)ハンドル,(DInputFactory)デバイスマネージャー
 //
 //戻り値：(LRESULT)処理の成否
 /////////////////////////////////////////////
-HRESULT DXCT::DInput::Mouse::Initialize(HWND hWnd, IDirectInput8* manager)
+HRESULT Mouse::Create(HWND hWnd, std::shared_ptr<DXCT::DInput::DInputFactory> manager)
 {
     //---各種宣言---//
     HRESULT hr;
 
     //---デバイス生成---//
-    hr = manager->CreateDevice(GUID_SysMouse, &_device, NULL);
-    if (FAILED(hr))
+    _device = manager->CreateDevice(GUID_SysMouse, NULL);
+    if (!_device)
     {
         MessageBoxA(hWnd, "マウスのオブジェクト生成に失敗しました。", "ERROR", MB_ICONSTOP | MB_OK);
-        return hr;
+        return S_FALSE;
     }
-    // データ フォーマット設定
+
+    //---入力設定---//
+    //データフォーマット設定
     hr = _device->SetDataFormat(&c_dfDIMouse);
     if (FAILED(hr))
     {
@@ -36,7 +41,7 @@ HRESULT DXCT::DInput::Mouse::Initialize(HWND hWnd, IDirectInput8* manager)
         MessageBoxA(hWnd, "マウスのデータフォーマット設定に失敗しました。", "ERROR", MB_ICONSTOP | MB_OK);
         return hr;
     }
-    // 協調レベルの設定
+    //協調レベルの設定
     hr = _device->SetCooperativeLevel(hWnd, DISCL_NONEXCLUSIVE | DISCL_FOREGROUND);
     if (FAILED(hr))
     {
@@ -45,16 +50,22 @@ HRESULT DXCT::DInput::Mouse::Initialize(HWND hWnd, IDirectInput8* manager)
         return hr;
     }
 
-    // デバイス設定
+    //デバイス設定
     DIPROPDWORD dipdw;
-    dipdw.diph.dwSize = sizeof(dipdw);
+    dipdw.diph.dwSize = sizeof(DIPROPDWORD);
     dipdw.diph.dwHeaderSize = sizeof(dipdw.diph);
     dipdw.diph.dwObj = 0;
     dipdw.diph.dwHow = DIPH_DEVICE;
     dipdw.dwData = DIPROPAXISMODE_REL;
-    _device->SetProperty(DIPROP_AXISMODE, &dipdw.diph);
+    hr = _device->SetProperty(DIPROP_AXISMODE, &dipdw.diph);
+    if (FAILED(hr))
+    {
+        End();
+        MessageBoxA(hWnd, "マウスのデバイス設定に失敗しました。", "ERROR", MB_ICONSTOP | MB_OK);
+        return hr;
+    }
 
-    // デバイスへの入力制御開始
+    //デバイスへの入力制御開始
     hr = _device->Acquire();
     if (FAILED(hr))
     {
@@ -65,7 +76,7 @@ HRESULT DXCT::DInput::Mouse::Initialize(HWND hWnd, IDirectInput8* manager)
     return hr;
 }
 
-//////////////////////////////////2///////////
+/////////////////////////////////////////////
 //関数名：End
 //
 //機能：デバイスの終了
@@ -74,7 +85,7 @@ HRESULT DXCT::DInput::Mouse::Initialize(HWND hWnd, IDirectInput8* manager)
 //
 //戻り値：なし
 /////////////////////////////////////////////
-void DXCT::DInput::Mouse::End(void)
+void Mouse::End(void)
 {
     SAFE_RELEASE(_device);
 }
@@ -88,7 +99,7 @@ void DXCT::DInput::Mouse::End(void)
 //
 //戻り値：なし
 /////////////////////////////////////////////
-void DXCT::DInput::Mouse::Update(void)
+void Mouse::Update(void)
 {
     //---各種宣言---//
     HRESULT hr;
@@ -96,7 +107,7 @@ void DXCT::DInput::Mouse::Update(void)
     if (_device)
     {
         _device->Acquire();
-        CopyMemory(&_preview, &_current, sizeof(DIMOUSESTATE));
+        memcpy(&_preview, &_current, sizeof(DIMOUSESTATE));
         hr = _device->GetDeviceState(sizeof(DIMOUSESTATE), &_current);
         if (hr == DIERR_INPUTLOST)
         {
@@ -122,7 +133,7 @@ void DXCT::DInput::Mouse::Update(void)
 
 //戻り値：(DIJOYSTATE*)入力状態
 /////////////////////////////////////////////
-DIMOUSESTATE* DXCT::DInput::Mouse::GetState(void)
+DIMOUSESTATE* Mouse::GetState(void)
 {
     return &_current;
 }
@@ -136,7 +147,7 @@ DIMOUSESTATE* DXCT::DInput::Mouse::GetState(void)
 //
 //戻り値：(bool)判定結果
 /////////////////////////////////////////////
-bool DXCT::DInput::Mouse::GetHold(DWORD button)
+bool Mouse::GetHold(DWORD button)
 {
     if (button >= _countof(_current.rgbButtons))
     {
@@ -154,7 +165,7 @@ bool DXCT::DInput::Mouse::GetHold(DWORD button)
 //
 //戻り値：(bool)判定結果
 /////////////////////////////////////////////
-bool DXCT::DInput::Mouse::GetTrigger(DWORD button)
+bool Mouse::GetTrigger(DWORD button)
 {
     if (button >= _countof(_trigger.rgbButtons))
     {
@@ -172,7 +183,7 @@ bool DXCT::DInput::Mouse::GetTrigger(DWORD button)
 //
 //戻り値：(bool)判定結果
 /////////////////////////////////////////////
-bool DXCT::DInput::Mouse::GetRelease(DWORD button)
+bool Mouse::GetRelease(DWORD button)
 {
     if (button >= _countof(_release.rgbButtons))
     {
