@@ -5,7 +5,10 @@
 #ifndef _HEADER_DINPUT_JOYPAD_DEVICE_H
 #define _HEADER_DINPUT_JOYPAD_DEVICE_H
 
+
 #include "../GameEngine_inner.h"
+
+#define MAX_JOY		8		// Å‘åÚ‘±”
 
 namespace GameEngine { namespace InputManager {
 
