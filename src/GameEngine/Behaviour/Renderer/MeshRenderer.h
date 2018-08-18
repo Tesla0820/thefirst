@@ -8,7 +8,7 @@
 #include <vector>
 
 #include "RendererBase.h"
-#include "../../Mesh.h"
+#include "../../Resource/Mesh/IMesh.h"
 
 namespace GameEngine { namespace Behaviour
 {
@@ -24,10 +24,10 @@ struct Vertex
 class MeshRenderer : public RendererBase
 {
 	private:
-		std::shared_ptr<Mesh> _mesh;
+		std::shared_ptr<Resource::Mesh::IMesh> _mesh;
 
 	public:
-		void SetMesh(std::shared_ptr<Mesh> _mesh);
+		void SetMesh(std::shared_ptr<Resource::Mesh::IMesh> _mesh);
 		virtual void Draw(D3DXMATRIX const& matrix) override;
 
 		

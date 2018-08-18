@@ -8,5 +8,11 @@
 #include "D3D/D3DObject.h"
 #include "D3D/D3DFactory.h"
 #include "D3D/D3DDevice.h"
+#include "D3D/D3DSurface.h"
 #include "D3D/D3DTexture.h"
+#include "D3D/D3DVertexBuffer.h"
+#include "D3D/D3DVertexShader.h"
+#include "D3D/D3DPixelShader.h"
+#include "D3D/D3DVertexDeclaration.h"
+
 #endif

@@ -90,6 +90,7 @@ void Camera::BeforeDraw(D3DXMATRIX const & matrix)
 
 	device->SetTransform(D3DTS_VIEW, &view);
 	device->SetTransform(D3DTS_PROJECTION, &projection);
+	Environment::Get()->OnSetCamera(view, projection);
 }
 
 Camera * Camera::GetCurrent()

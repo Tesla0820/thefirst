@@ -20,4 +20,7 @@
 #include "Behaviour/Renderer/RendererBase.h"
 #include "Behaviour/Renderer/MeshRenderer.h"
 
+//Resource
+#include "Resource/Mesh/IMesh.h"
+#include "Resource/Mesh/MeshD3DX.h"
 #endif

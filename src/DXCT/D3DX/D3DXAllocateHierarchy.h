@@ -7,7 +7,7 @@
 
 #include "../dxct_inner.h"
 
-namespace DXCT { namespace D3D
+namespace DXCT { namespace D3DX
 {
 
 class D3DXAllocateHierarchy :ID3DXAllocateHierarchy

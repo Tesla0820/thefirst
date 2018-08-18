@@ -19,19 +19,26 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\DXCT\D3DX\D3DXAllocateHierarchy.cpp" />
+    <ClCompile Include="src\DXCT\D3DX\D3DXConstantTable.cpp" />
     <ClCompile Include="src\DXCT\D3D\D3DDevice.cpp" />
     <ClCompile Include="src\DXCT\D3D\D3DFactory.cpp" />
     <ClCompile Include="src\DXCT\D3D\D3DModel.cpp" />
+    <ClCompile Include="src\DXCT\D3D\D3DPixelShader.cpp" />
     <ClCompile Include="src\DXCT\D3D\D3DSurface.cpp" />
     <ClCompile Include="src\DXCT\D3D\D3DTexture.cpp" />
     <ClCompile Include="src\DXCT\D3D\D3DVertexBuffer.cpp" />
-    <ClCompile Include="src\DXCT\D3D\D3DXAllocateHierarchy.cpp" />
     <ClCompile Include="src\DXCT\DInput\DInputDevice.cpp" />
     <ClCompile Include="src\DXCT\DInput\DInputFactory.cpp" />
+    <ClCompile Include="src\DXCT\D3D\D3DVertexDeclaration.cpp" />
+    <ClCompile Include="src\DXCT\D3D\D3DVertexShader.cpp" />
     <ClCompile Include="src\DXCT\DXCTException.cpp" />
     <ClCompile Include="src\DXCT\Window.cpp" />
     <ClCompile Include="src\GameEngine\Behaviour\Behaviour.cpp" />
     <ClCompile Include="src\GameEngine\Behaviour\Camera.cpp" />
+    <ClCompile Include="src\GameEngine\Behaviour\Collider\BoxCollider.cpp" />
+    <ClCompile Include="src\GameEngine\Behaviour\Collider\Collider.cpp" />
+    <ClCompile Include="src\GameEngine\Behaviour\Collider\SphereCollider.cpp" />
     <ClCompile Include="src\GameEngine\Behaviour\Renderer\MeshRenderer.cpp" />
     <ClCompile Include="src\GameEngine\Behaviour\Renderer\RendererBase.cpp" />
     <ClCompile Include="src\GameEngine\Behaviour\Transform.cpp" />
@@ -43,16 +50,26 @@
     <ClCompile Include="src\GameEngine\InputManager\Keyboard.cpp" />
     <ClCompile Include="src\GameEngine\InputManager\Mouse.cpp" />
     <ClCompile Include="src\GameEngine\MainWindow.cpp" />
+    <ClCompile Include="src\GameEngine\Pipeline\DefaultPipeline.cpp" />
+    <ClCompile Include="src\GameEngine\Pipeline\IModefier.h" />
+    <ClCompile Include="src\GameEngine\Resource\Mesh\MeshD3DX.cpp" />
     <ClCompile Include="src\GameEngine\Scene\SceneManager.cpp" />
     <ClCompile Include="src\GameEngine\Time\FPSCounter.cpp" />
     <ClCompile Include="src\GameEngine\Time\StopWatch.cpp" />
     <ClCompile Include="src\Game\main.cpp" />
+    <ClCompile Include="src\Game\TitleScene\Pipeline\Echo.cpp" />
     <ClCompile Include="src\Game\TitleScene\TitleScene.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\DXCT\D3DX\D3DXAllocateHierarchy.h" />
+    <ClInclude Include="src\DXCT\D3DX\D3DXConstantTable.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="src\DXCT\D3D\D3DPixelShader.h" />
     <ClInclude Include="src\DXCT\D3D\D3DSurface.h" />
     <ClInclude Include="src\DXCT\D3D\D3DVertexBuffer.h" />
-    <ClInclude Include="src\DXCT\D3D\D3DXAllocateHierarchy.h">
+    <ClInclude Include="src\DXCT\D3D\D3DVertexDeclaration.h">
       <SubType>
       </SubType>
     </ClInclude>
@@ -63,9 +80,16 @@
       </SubType>
     </ClInclude>
     <ClInclude Include="src\DXCT\dxct_DInput.h" />
+    <ClInclude Include="src\DXCT\D3D\D3DVertexShader.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
     <ClInclude Include="src\DXCT\IReleasable.h" />
     <ClInclude Include="src\GameEngine\Behaviour\Behaviour.h" />
     <ClInclude Include="src\GameEngine\Behaviour\Camera.h" />
+    <ClInclude Include="src\GameEngine\Behaviour\Collider\BoxCollider.h" />
+    <ClInclude Include="src\GameEngine\Behaviour\Collider\Collider.h" />
+    <ClInclude Include="src\GameEngine\Behaviour\Collider\SphereCollider.h" />
     <ClInclude Include="src\GameEngine\Behaviour\Renderer\MeshRenderer.h" />
     <ClInclude Include="src\GameEngine\Behaviour\Renderer\RendererBase.h">
       <SubType>
@@ -92,10 +116,9 @@
     <ClInclude Include="src\GameEngine\InputManager\Mouse.h" />
     <ClInclude Include="src\GameEngine\IRenderer.h" />
     <ClInclude Include="src\GameEngine\MainWindow.h" />
-    <ClInclude Include="src\GameEngine\Mesh.h">
-      <SubType>
-      </SubType>
-    </ClInclude>
+    <ClInclude Include="src\GameEngine\Pipeline\DefaultPipeline.h" />
+    <ClInclude Include="src\GameEngine\Resource\Mesh\IMesh.h" />
+    <ClInclude Include="src\GameEngine\Resource\Mesh\MeshD3DX.h" />
     <ClInclude Include="src\GameEngine\Scene\SceneBase.h" />
     <ClInclude Include="src\GameEngine\Scene\SceneManager.h">
       <SubType>
@@ -105,6 +128,7 @@
     <ClInclude Include="src\GameEngine\Time\stopwatch.h" />
     <ClInclude Include="src\GameEngine\Vertex.h" />
     <ClInclude Include="src\Game\main.h" />
+    <ClInclude Include="src\Game\TitleScene\Pipeline\Echo.h" />
     <ClInclude Include="src\Game\TitleScene\TitleScene.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
