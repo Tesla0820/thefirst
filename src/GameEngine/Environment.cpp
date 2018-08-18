@@ -89,7 +89,7 @@ Environment::~Environment()
 
 void Environment::Create()
 {
-	_instance=new Environment();
+	_instance = new Environment();
 }
 
 Environment* Environment::Get()

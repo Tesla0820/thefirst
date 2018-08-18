@@ -9,6 +9,14 @@ Echo::Echo()
 
 void Echo::OnAttach(std::shared_ptr<DXCT::D3D::D3DDevice> const & device)
 {
+	SIZE screenSize=GameEngine::Environment::Get()->GetScreenSize();
+	SIZE targetSize = { 1,1 };
+	while (screenSize.cx > targetSize.cx || screenSize.cy > targetSize.cy)
+	{
+		targetSize.cx *= 2;
+		targetSize.cy *= 2;
+	}
+
 	D3DVERTEXELEMENT9 elements[] = 
 	{
 		{ 0, 0, D3DDECLTYPE_FLOAT3, D3DDECLMETHOD_DEFAULT, D3DDECLUSAGE_POSITION, 0 },
@@ -18,10 +26,14 @@ void Echo::OnAttach(std::shared_ptr<DXCT::D3D::D3DDevice> const & device)
 	_vertexShader = device->CreateVertexShaderFromFile(TEXT("./data/shader/vs.fx"), NULL, NULL, "vertex");
 	_pixelShader = device->CreatePixelShaderFromFile(TEXT("./data/shader/ps.fx"), NULL, NULL, "pixel");
 	_vertexDeclaration = device->CreateVertexDeclaration(elements);
+	_renderTarget = device->CreateTexture(targetSize.cx, targetSize.cy, 0, D3DUSAGE_RENDERTARGET, D3DFMT_A32B32G32R32F, D3DPOOL_DEFAULT);
+	_surface = _renderTarget->GetSurfaceFromLevel(0);
+
 }
 
 void Echo::OnDetach(std::shared_ptr<DXCT::D3D::D3DDevice> const & device)
 {
+
 }
 
 void Echo::OnSetCamera(std::shared_ptr<DXCT::D3D::D3DDevice> const & device, D3DXMATRIX const & view, D3DXMATRIX const & projection)
@@ -32,7 +44,7 @@ void Echo::OnSetCamera(std::shared_ptr<DXCT::D3D::D3DDevice> const & device, D3D
 
 void Echo::BeforeScene(std::shared_ptr<DXCT::D3D::D3DDevice> const & device)
 {
-	
+	device->SetRenderTarget(1, _surface);
 }
 
 void Echo::BeforeRenderer(std::shared_ptr<DXCT::D3D::D3DDevice> const & device, D3DXMATRIX const& world)
