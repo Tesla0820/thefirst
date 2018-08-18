@@ -37,14 +37,24 @@ void Echo::BeforeScene(std::shared_ptr<DXCT::D3D::D3DDevice> const & device)
 
 void Echo::BeforeRenderer(std::shared_ptr<DXCT::D3D::D3DDevice> const & device, D3DXMATRIX const& world)
 {
+	D3DXVECTOR3 lightVec(0.1f,1.0f,0.0f);
 	float vec[4] = { 0.0f,0.0f,0.0f,0.0f };
+	float light[4] = { 0.0f,0.0f,0.0f,0.0f };
 	D3DXMATRIX wvp;
 	_vertexShader->SetMatrix(device, "W", &world);
 	D3DXMatrixMultiply(&wvp, &world, &_vp);
 	_vertexShader->SetMatrix(device, "WVP", &wvp);
-	_pixelShader->SetFloatArray(device, "position", vec,4);
-	_pixelShader->SetFloat(device, "range", 11.0f);
-	_pixelShader->SetFloat(device, "weight", 0.0625f);
+	D3DXVec3Normalize(&lightVec, &lightVec);
+
+	for (int i = 0; i < 3; i++)
+	{
+		light[i] = lightVec[i];
+	}
+
+	_vertexShader->SetFloatArray(device, "light", lightVec, 4);
+	_pixelShader->SetFloatArray(device, "position", vec, 4);
+	_pixelShader->SetFloat(device, "range", 20.0f);
+	_pixelShader->SetFloat(device, "weight", 6.0f);
 	device->SetVertexShader(_vertexShader);
 	device->SetPixelShader(_pixelShader);
 	device->SetVertexDeclaration(_vertexDeclaration);
