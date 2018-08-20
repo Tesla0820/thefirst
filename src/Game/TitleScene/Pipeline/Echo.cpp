@@ -26,9 +26,6 @@ void Echo::OnAttach(std::shared_ptr<DXCT::D3D::D3DDevice> const & device)
 	_vertexShader = device->CreateVertexShaderFromFile(TEXT("./data/shader/vs.fx"), NULL, NULL, "vertex");
 	_pixelShader = device->CreatePixelShaderFromFile(TEXT("./data/shader/ps.fx"), NULL, NULL, "pixel");
 	_vertexDeclaration = device->CreateVertexDeclaration(elements);
-	_renderTarget = device->CreateTexture(targetSize.cx, targetSize.cy, 0, D3DUSAGE_RENDERTARGET, D3DFMT_A32B32G32R32F, D3DPOOL_DEFAULT);
-	_surface = _renderTarget->GetSurfaceFromLevel(0);
-
 }
 
 void Echo::OnDetach(std::shared_ptr<DXCT::D3D::D3DDevice> const & device)
@@ -44,29 +41,32 @@ void Echo::OnSetCamera(std::shared_ptr<DXCT::D3D::D3DDevice> const & device, D3D
 
 void Echo::BeforeScene(std::shared_ptr<DXCT::D3D::D3DDevice> const & device)
 {
-	device->SetRenderTarget(1, _surface);
 }
 
 void Echo::BeforeRenderer(std::shared_ptr<DXCT::D3D::D3DDevice> const & device, D3DXMATRIX const& world)
 {
 	D3DXVECTOR3 lightVec(0.1f,1.0f,0.0f);
+	D3DXVECTOR3 effectVec(0.1f, 0.0f, 1.0f);
 	float vec[4] = { 0.0f,0.0f,0.0f,0.0f };
 	float light[4] = { 0.0f,0.0f,0.0f,0.0f };
+	float effectAngle[4] = { 0.0f,0.0f,0.0f,1.0f };
 	D3DXMATRIX wvp;
 	_vertexShader->SetMatrix(device, "W", &world);
 	D3DXMatrixMultiply(&wvp, &world, &_vp);
 	_vertexShader->SetMatrix(device, "WVP", &wvp);
 	D3DXVec3Normalize(&lightVec, &lightVec);
-
+	D3DXVec3Normalize(&effectVec, &effectVec);
 	for (int i = 0; i < 3; i++)
 	{
 		light[i] = lightVec[i];
+		effectAngle[i] = effectVec[i];
 	}
 
 	_vertexShader->SetFloatArray(device, "light", lightVec, 4);
 	_pixelShader->SetFloatArray(device, "position", vec, 4);
 	_pixelShader->SetFloat(device, "range", 20.0f);
 	_pixelShader->SetFloat(device, "weight", 6.0f);
+	_pixelShader->SetFloatArray(device, "angle", effectAngle,4);
 	device->SetVertexShader(_vertexShader);
 	device->SetPixelShader(_pixelShader);
 	device->SetVertexDeclaration(_vertexDeclaration);
