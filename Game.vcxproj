@@ -56,6 +56,7 @@
     <ClCompile Include="src\GameEngine\Scene\SceneManager.cpp" />
     <ClCompile Include="src\GameEngine\Time\FPSCounter.cpp" />
     <ClCompile Include="src\GameEngine\Time\StopWatch.cpp" />
+    <ClCompile Include="src\Game\GameScene\player.cpp" />
     <ClCompile Include="src\Game\main.cpp" />
     <ClCompile Include="src\Game\TitleScene\Pipeline\Echo.cpp" />
     <ClCompile Include="src\Game\TitleScene\TitleScene.cpp" />
@@ -127,6 +128,7 @@
     <ClInclude Include="src\GameEngine\Time\FPSCounter.h" />
     <ClInclude Include="src\GameEngine\Time\stopwatch.h" />
     <ClInclude Include="src\GameEngine\Vertex.h" />
+    <ClInclude Include="src\Game\GameScene\player.h" />
     <ClInclude Include="src\Game\main.h" />
     <ClInclude Include="src\Game\TitleScene\Pipeline\Echo.h" />
     <ClInclude Include="src\Game\TitleScene\TitleScene.h" />
