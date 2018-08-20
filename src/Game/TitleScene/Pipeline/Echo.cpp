@@ -9,6 +9,14 @@ Echo::Echo()
 
 void Echo::OnAttach(std::shared_ptr<DXCT::D3D::D3DDevice> const & device)
 {
+	SIZE screenSize=GameEngine::Environment::Get()->GetScreenSize();
+	SIZE targetSize = { 1,1 };
+	while (screenSize.cx > targetSize.cx || screenSize.cy > targetSize.cy)
+	{
+		targetSize.cx *= 2;
+		targetSize.cy *= 2;
+	}
+
 	D3DVERTEXELEMENT9 elements[] = 
 	{
 		{ 0, 0, D3DDECLTYPE_FLOAT3, D3DDECLMETHOD_DEFAULT, D3DDECLUSAGE_POSITION, 0 },
@@ -22,6 +30,7 @@ void Echo::OnAttach(std::shared_ptr<DXCT::D3D::D3DDevice> const & device)
 
 void Echo::OnDetach(std::shared_ptr<DXCT::D3D::D3DDevice> const & device)
 {
+
 }
 
 void Echo::OnSetCamera(std::shared_ptr<DXCT::D3D::D3DDevice> const & device, D3DXMATRIX const & view, D3DXMATRIX const & projection)
@@ -32,29 +41,32 @@ void Echo::OnSetCamera(std::shared_ptr<DXCT::D3D::D3DDevice> const & device, D3D
 
 void Echo::BeforeScene(std::shared_ptr<DXCT::D3D::D3DDevice> const & device)
 {
-	
 }
 
 void Echo::BeforeRenderer(std::shared_ptr<DXCT::D3D::D3DDevice> const & device, D3DXMATRIX const& world)
 {
 	D3DXVECTOR3 lightVec(0.1f,1.0f,0.0f);
+	D3DXVECTOR3 effectVec(0.1f, 0.0f, 1.0f);
 	float vec[4] = { 0.0f,0.0f,0.0f,0.0f };
 	float light[4] = { 0.0f,0.0f,0.0f,0.0f };
+	float effectAngle[4] = { 0.0f,0.0f,0.0f,1.0f };
 	D3DXMATRIX wvp;
 	_vertexShader->SetMatrix(device, "W", &world);
 	D3DXMatrixMultiply(&wvp, &world, &_vp);
 	_vertexShader->SetMatrix(device, "WVP", &wvp);
 	D3DXVec3Normalize(&lightVec, &lightVec);
-
+	D3DXVec3Normalize(&effectVec, &effectVec);
 	for (int i = 0; i < 3; i++)
 	{
 		light[i] = lightVec[i];
+		effectAngle[i] = effectVec[i];
 	}
 
 	_vertexShader->SetFloatArray(device, "light", lightVec, 4);
 	_pixelShader->SetFloatArray(device, "position", vec, 4);
 	_pixelShader->SetFloat(device, "range", 20.0f);
 	_pixelShader->SetFloat(device, "weight", 6.0f);
+	_pixelShader->SetFloatArray(device, "angle", effectAngle,4);
 	device->SetVertexShader(_vertexShader);
 	device->SetPixelShader(_pixelShader);
 	device->SetVertexDeclaration(_vertexDeclaration);
