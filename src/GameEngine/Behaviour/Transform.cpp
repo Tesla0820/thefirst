@@ -94,5 +94,10 @@ D3DXMATRIX Transform::GetWorldMatrix()
 	
 }
 
+void Transform::Offset(D3DXVECTOR3 const * position)
+{
+	_position += *position;
+}
+
 }
 }

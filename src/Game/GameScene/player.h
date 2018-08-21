@@ -11,22 +11,18 @@
 #include "../../GameEngine/Behaviour/Behaviour.h"
 
 
-namespace Game
+namespace Game { namespace GameScene
 {
 	class Player : public GameEngine::Behaviour::Behaviour
 	{
 
 	private:
-		//GameEngine::Vertex VPlayer;
-		D3DXVECTOR3 _pos;
+		GameEngine::Behaviour::Transform* _transform;
 		
 	public:
-		Player();
-		Player(D3DXVECTOR3(pos));
-		~Player();
 		virtual void Start() override;
 		virtual void Update() override;
-		Player* GetPlayer();
 	};
+}
 }
 #endif

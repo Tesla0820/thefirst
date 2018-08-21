@@ -5,6 +5,8 @@
 #include "TitleScene.h"
 #include "../../GameEngine/GameEngine.h"
 #include "Pipeline/Echo.h"
+#include "../GameScene/player.h"
+
 namespace Game
 {
 
@@ -24,7 +26,11 @@ bool TitleScene::Init()
 
 	GameEngine::GameObject* object=GameEngine::GameObject::Instantiate();
 	auto camera = new GameEngine::Behaviour::Camera();
+	auto player = new GameScene::Player();
+	
 	object->AddBehaviour(camera);
+	object->AddBehaviour(player);
+
 	camera->SetCurrent();
 	camera->EnablePerspectiveMode(true);
 	object->GetTransform()->SetPosition(&D3DXVECTOR3(0.0f,5.0f,0.0f));

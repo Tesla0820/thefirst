@@ -29,6 +29,7 @@ class Transform:public Behaviour
 		D3DXQUATERNION GetRotation();
 		D3DXMATRIX GetMatrix();
 		D3DXMATRIX GetWorldMatrix();
+		void Offset(D3DXVECTOR3 const* position);
 };
 }
 }
