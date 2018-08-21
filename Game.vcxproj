@@ -85,6 +85,14 @@
       </SubType>
     </ClInclude>
     <ClInclude Include="src\DXCT\IReleasable.h" />
+    <ClInclude Include="src\DXCT\XAudio2\XAudio2MasteringVoice.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="src\DXCT\XAudio2\XAudio2Factory.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
     <ClInclude Include="src\GameEngine\Behaviour\Behaviour.h" />
     <ClInclude Include="src\GameEngine\Behaviour\Camera.h" />
     <ClInclude Include="src\GameEngine\Behaviour\Collider\BoxCollider.h" />

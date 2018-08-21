@@ -13,6 +13,7 @@
 #include <d3d9.h>
 #include <d3dx9.h>
 #include <dinput.h>
+#include <xaudio2.h>
 //“à•”’è‹`
 #ifndef DXCT_INTERFACE
 #	define DXCT_INTERFACE	struct

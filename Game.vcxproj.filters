@@ -107,9 +107,6 @@
     <ClCompile Include="src\GameEngine\Behaviour\Renderer\RendererBase.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="src\DXCT\D3D\D3DXAllocateHierarchy.cpp">
-      <Filter>DXCT\D3D</Filter>
-    </ClCompile>
     <ClCompile Include="src\GameEngine\Binder\BehaviourBinder.cpp">
       <Filter>GameEngine\Binder</Filter>
     </ClCompile>
@@ -136,6 +133,40 @@
     </ClCompile>
     <ClCompile Include="src\GameEngine\InputManager\Mouse.cpp">
       <Filter>GameEngine\InputManager</Filter>
+    </ClCompile>
+    <ClCompile Include="src\DXCT\D3DX\D3DXAllocateHierarchy.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="src\DXCT\D3DX\D3DXConstantTable.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="src\DXCT\D3D\D3DPixelShader.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="src\DXCT\D3D\D3DVertexDeclaration.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="src\DXCT\D3D\D3DVertexShader.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GameEngine\Behaviour\Collider\BoxCollider.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GameEngine\Behaviour\Collider\Collider.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GameEngine\Behaviour\Collider\SphereCollider.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GameEngine\Pipeline\DefaultPipeline.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GameEngine\Pipeline\IModefier.h" />
+    <ClCompile Include="src\GameEngine\Resource\Mesh\MeshD3DX.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Game\TitleScene\Pipeline\Echo.cpp">
+      <Filter>ソース ファイル</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -226,17 +257,11 @@
     <ClInclude Include="src\GameEngine\Behaviour\Renderer\MeshRenderer.h">
       <Filter>GameEngine\Behaviour\Renderer</Filter>
     </ClInclude>
-    <ClInclude Include="src\DXCT\D3D\D3DXAllocateHierarchy.h">
-      <Filter>DXCT\D3D</Filter>
-    </ClInclude>
     <ClInclude Include="src\GameEngine\Binder\BehaviourBinder.h">
       <Filter>GameEngine\Binder</Filter>
     </ClInclude>
     <ClInclude Include="src\DXCT\D3D\D3DSurface.h">
       <Filter>DXCT\D3D</Filter>
-    </ClInclude>
-    <ClInclude Include="src\GameEngine\Mesh.h">
-      <Filter>GameEngine</Filter>
     </ClInclude>
     <ClInclude Include="src\DXCT\D3D\D3DVertexBuffer.h">
       <Filter>DXCT\D3D</Filter>
@@ -262,5 +287,19 @@
     <ClInclude Include="src\GameEngine\InputManager\Mouse.h">
       <Filter>GameEngine\InputManager</Filter>
     </ClInclude>
+    <ClInclude Include="src\DXCT\D3DX\D3DXAllocateHierarchy.h" />
+    <ClInclude Include="src\DXCT\D3DX\D3DXConstantTable.h" />
+    <ClInclude Include="src\DXCT\D3D\D3DPixelShader.h" />
+    <ClInclude Include="src\DXCT\D3D\D3DVertexDeclaration.h" />
+    <ClInclude Include="src\DXCT\D3D\D3DVertexShader.h" />
+    <ClInclude Include="src\GameEngine\Behaviour\Collider\BoxCollider.h" />
+    <ClInclude Include="src\GameEngine\Behaviour\Collider\Collider.h" />
+    <ClInclude Include="src\GameEngine\Behaviour\Collider\SphereCollider.h" />
+    <ClInclude Include="src\GameEngine\Pipeline\DefaultPipeline.h" />
+    <ClInclude Include="src\GameEngine\Resource\Mesh\IMesh.h" />
+    <ClInclude Include="src\GameEngine\Resource\Mesh\MeshD3DX.h" />
+    <ClInclude Include="src\Game\TitleScene\Pipeline\Echo.h" />
+    <ClInclude Include="src\DXCT\XAudio2\XAudio2Factory.h" />
+    <ClInclude Include="src\DXCT\XAudio2\XAudio2MasteringVoice.h" />
   </ItemGroup>
 </Project>
