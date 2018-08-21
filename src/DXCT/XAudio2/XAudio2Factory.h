@@ -18,7 +18,9 @@ namespace DXCT { namespace XAudio2
 
 
 		public:
-			std::shared_ptr<XAudio2MasteringVoice> CreateMasteringVoice();
+			std::shared_ptr<XAudio2MasteringVoice> CreateMasteringVoice(
+				unsigned int inputCHannels = XAUDIO2_DEFAULT_CHANNELS, unsigned int inputSampleRate = XAUDIO2_DEFAULT_SAMPLERATE,
+				unsigned int flags = 0,unsigned int deviceIndex = 0);
 
 			static std::shared_ptr<XAudio2Factory> Create();
 	};

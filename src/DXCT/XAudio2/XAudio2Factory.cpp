@@ -8,11 +8,12 @@ XAudio2Factory::XAudio2Factory(IXAudio2 * xaudio2)
 	:DXObject(xaudio2)
 {
 }
-std::shared_ptr<XAudio2MasteringVoice> XAudio2Factory::CreateMasteringVoice()
+
+std::shared_ptr<XAudio2MasteringVoice> XAudio2Factory::CreateMasteringVoice(unsigned int inputChannels, unsigned int inputSampleRate, unsigned int flags, unsigned int deviceIndex)
 {
 	HRESULT hr;
 	IXAudio2MasteringVoice* xaudio2MasteringVoice;
-	hr = _object->CreateMasteringVoice(&xaudio2MasteringVoice);
+	hr = _object->CreateMasteringVoice(&xaudio2MasteringVoice,inputChannels,inputSampleRate,flags,deviceIndex);
 	if (SUCCEEDED(hr))
 	{
 		return std::shared_ptr<XAudio2MasteringVoice>(new XAudio2MasteringVoice(xaudio2MasteringVoice));

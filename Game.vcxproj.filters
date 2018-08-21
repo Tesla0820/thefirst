@@ -168,6 +168,15 @@
     <ClCompile Include="src\Game\TitleScene\Pipeline\Echo.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
+    <ClCompile Include="src\DXCT\XAudio2\XAudio2SourceVoice.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="src\DXCT\XAudio2\XAudio2MasteringVoice.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="src\DXCT\XAudio2\XAudio2Factory.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\DXCT\Window.h">
@@ -301,5 +310,6 @@
     <ClInclude Include="src\Game\TitleScene\Pipeline\Echo.h" />
     <ClInclude Include="src\DXCT\XAudio2\XAudio2Factory.h" />
     <ClInclude Include="src\DXCT\XAudio2\XAudio2MasteringVoice.h" />
+    <ClInclude Include="src\DXCT\XAudio2\XAudio2SourceVoice.h" />
   </ItemGroup>
 </Project>
