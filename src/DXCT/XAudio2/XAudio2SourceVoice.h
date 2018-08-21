@@ -6,18 +6,21 @@
 #define HEADER_XAUDIO2_SOURCE_VOICE_H
 
 #include "../DXObject.h"
+#include "XAudio2VoiceRelease.h"
 
 namespace DXCT { namespace XAudio2
 {
-	class XAudio2SourceVoice : public DXObject<IXAudio2SourceVoice>
-	{
-		private:
+
+class XAudio2SourceVoice : public DXObject<IXAudio2SourceVoice, XAudio2VoiceRelease<IXAudio2SourceVoice>>
+{
+	private:
 
 
-		public:
-			XAudio2SourceVoice(IXAudio2SourceVoice* xaudio2SourceVoice);
+	public:
+		XAudio2SourceVoice(IXAudio2SourceVoice* xaudio2SourceVoice);
 
-	};
+};
+
 }
 }
 #endif

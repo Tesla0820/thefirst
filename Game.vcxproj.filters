@@ -311,5 +311,7 @@
     <ClInclude Include="src\DXCT\XAudio2\XAudio2Factory.h" />
     <ClInclude Include="src\DXCT\XAudio2\XAudio2MasteringVoice.h" />
     <ClInclude Include="src\DXCT\XAudio2\XAudio2SourceVoice.h" />
+    <ClInclude Include="src\DXCT\DXObjectRelease.h" />
+    <ClInclude Include="src\DXCT\XAudio2\XAudio2VoiceRelease.h" />
   </ItemGroup>
 </Project>

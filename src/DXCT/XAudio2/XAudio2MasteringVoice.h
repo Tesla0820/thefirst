@@ -6,11 +6,12 @@
 #define HEADER_XAUDIO2_MASTERING_VOICE_H
 
 #include "../DXObject.h"
+#include "XAudio2VoiceRelease.h"
 
 namespace DXCT { namespace XAudio2
 {
 
-class XAudio2MasteringVoice:public DXObject<IXAudio2MasteringVoice>
+class XAudio2MasteringVoice:public DXObject<IXAudio2MasteringVoice,XAudio2VoiceRelease<IXAudio2MasteringVoice>>
 {
 	private:
 
