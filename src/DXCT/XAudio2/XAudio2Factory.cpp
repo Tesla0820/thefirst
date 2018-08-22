@@ -21,6 +21,18 @@ std::shared_ptr<XAudio2MasteringVoice> XAudio2Factory::CreateMasteringVoice(unsi
 	return std::shared_ptr<XAudio2MasteringVoice>();
 }
 
+std::shared_ptr<XAudio2SourceVoice> XAudio2Factory::CreateSourceVoice(const WAVEFORMATEX * sourceFormat, UINT32 flags, float maxFrequencyRatio, IXAudio2VoiceCallback * callback, const XAUDIO2_VOICE_SENDS * sendList, const XAUDIO2_EFFECT_CHAIN * effectChain)
+{
+	HRESULT hr;
+	IXAudio2SourceVoice *xaudio2SourceVoice;
+	hr = _object->CreateSourceVoice(&xaudio2SourceVoice, sourceFormat, flags, maxFrequencyRatio, callback, sendList, effectChain);
+	if (SUCCEEDED(hr))
+	{
+		return std::shared_ptr<XAudio2SourceVoice>(new XAudio2SourceVoice(xaudio2SourceVoice));
+	}
+	return std::shared_ptr<XAudio2SourceVoice>();
+}
+
 std::shared_ptr<XAudio2Factory> DXCT::XAudio2::XAudio2Factory::Create()
 {
 	HRESULT hr;

@@ -19,9 +19,18 @@ namespace DXCT { namespace XAudio2
 
 		public:
 			std::shared_ptr<XAudio2MasteringVoice> CreateMasteringVoice(
-				unsigned int inputCHannels = XAUDIO2_DEFAULT_CHANNELS, unsigned int inputSampleRate = XAUDIO2_DEFAULT_SAMPLERATE,
-				unsigned int flags = 0,unsigned int deviceIndex = 0);
-
+				unsigned int inputCHannels = XAUDIO2_DEFAULT_CHANNELS,
+				unsigned int inputSampleRate = XAUDIO2_DEFAULT_SAMPLERATE,
+				unsigned int flags = 0,unsigned int deviceIndex = 0
+			);
+			std::shared_ptr<XAudio2SourceVoice> CreateSourceVoice(
+				const WAVEFORMATEX *sourceFormat,
+				UINT32 flags = 0,
+				float maxFrequencyRatio = XAUDIO2_DEFAULT_FREQ_RATIO,
+				IXAudio2VoiceCallback *callback = NULL,
+				const XAUDIO2_VOICE_SENDS *sendList = NULL,
+				const XAUDIO2_EFFECT_CHAIN *effectChain = NULL
+			);
 			static std::shared_ptr<XAudio2Factory> Create();
 	};
 }

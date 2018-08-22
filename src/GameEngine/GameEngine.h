@@ -23,4 +23,7 @@
 //Resource
 #include "Resource/Mesh/IMesh.h"
 #include "Resource/Mesh/MeshD3DX.h"
+
+//Sound
+#include "Sound/Sound.h"
 #endif
