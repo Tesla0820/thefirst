@@ -5,6 +5,8 @@
 #include "Environment.h"
 #include "Behaviour/Camera.h"
 #include "Input.h"
+#include "Sound/SoundManager.h"
+
 namespace GameEngine
 {
 
@@ -71,12 +73,22 @@ Environment::Environment():
 	_backColor = D3DCOLOR_ARGB(255, 0, 0, 64);
 	//シーンマネージャの構築
 	SceneManager::Create();
+
+	//入力マネージャの構築
     Input::Create(_window.GetHandle());
+
+	//サウンドマネージャの構築
+	Sound::SoundManager::Create();
+
+	//FPSカウンター開始
 	_counter.Start();
 }
 Environment::~Environment()
 {
-    //入力の解放
+	//サウンドマネージャの解放
+	Sound::SoundManager::Release();
+
+    //入力マネージャの解放
     Input::End();
 
 	//シーンマネージャの解放
