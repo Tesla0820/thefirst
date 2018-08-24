@@ -57,6 +57,7 @@
     <ClCompile Include="src\GameEngine\Time\FPSCounter.cpp" />
     <ClCompile Include="src\GameEngine\Time\StopWatch.cpp" />
     <ClCompile Include="src\Game\main.cpp" />
+    <ClCompile Include="src\Game\TitleScene\Behavior\Gimmick_01.cpp" />
     <ClCompile Include="src\Game\TitleScene\Pipeline\Echo.cpp" />
     <ClCompile Include="src\Game\TitleScene\TitleScene.cpp" />
   </ItemGroup>
@@ -128,6 +129,7 @@
     <ClInclude Include="src\GameEngine\Time\stopwatch.h" />
     <ClInclude Include="src\GameEngine\Vertex.h" />
     <ClInclude Include="src\Game\main.h" />
+    <ClInclude Include="src\Game\TitleScene\Behavior\Gimmick_01.h" />
     <ClInclude Include="src\Game\TitleScene\Pipeline\Echo.h" />
     <ClInclude Include="src\Game\TitleScene\TitleScene.h" />
   </ItemGroup>

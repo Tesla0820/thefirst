@@ -5,6 +5,8 @@
 #include "TitleScene.h"
 #include "../../GameEngine/GameEngine.h"
 #include "Pipeline/Echo.h"
+#include "../../Game/TitleScene/Behavior/Gimmick_01.h"
+
 namespace Game
 {
 
@@ -34,6 +36,11 @@ bool TitleScene::Init()
 	auto meshRenderer = new GameEngine::Behaviour::MeshRenderer();
 	meshRenderer->SetMesh(std::shared_ptr<GameEngine::Resource::Mesh::IMesh>(new GameEngine::Resource::Mesh::MeshD3DX(TEXT("./data/model/stage.x"))));
 	object2->AddBehaviour(meshRenderer);
+
+    GameEngine::GameObject* gimmick = GameEngine::GameObject::Instantiate();
+    gimmick->AddBehaviour(new Game::Behaviour::Gimmick_01());
+    gimmick->GetTransform()->SetPosition(&D3DXVECTOR3(0.0F, 0.0F, 30.0F));
+
 
 
 

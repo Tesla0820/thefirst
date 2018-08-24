@@ -184,18 +184,8 @@ void Environment::UpdateFrame()
 
 void Environment::Update()
 {
-
 	SceneManager::Update();
     Input::Update();
-    if (Input::GetKey(DIK_LEFTARROW, HOLD) || Input::GetMouseButton(DIMOFS_BUTTON0, HOLD))
-    {
-        _backColor = D3DCOLOR_ARGB(255, 255, 255, 255);
-    }
-    else
-    {
-        _backColor = D3DCOLOR_ARGB(255, 0, 0, 64);
-    }
-
 }
 
 void Environment::Draw()
