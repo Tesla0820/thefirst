@@ -13,6 +13,7 @@ namespace Game
 	{
 		
 		private:
+		GameEngine::Sound::Sound* farre;
 		public:
 		TitleScene();
 		~TitleScene();

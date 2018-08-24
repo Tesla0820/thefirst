@@ -7,6 +7,34 @@
 namespace GameEngine { namespace Sound
 {
 
+Sound::Sound(std::unique_ptr<unsigned char[]>&& data,unsigned long bufferSize, WAVEFORMATEXTENSIBLE waveFormatExtensible, char loopCount)
+{
+	_data = std::move(data);
+	_bufferSize = bufferSize;
+	_waveFormatExtensible = waveFormatExtensible;
+	_loopCount = loopCount;
+}
+
+unsigned long Sound::GetBufferSize()
+{
+	return _bufferSize;
+}
+
+unsigned char * Sound::GetData()
+{
+	return _data.get();
+}
+
+void Sound::GetFomat(WAVEFORMATEXTENSIBLE * waveFormatExtensible)
+{
+	*waveFormatExtensible = _waveFormatExtensible;
+}
+
+int Sound::GetLoopCount()
+{
+	return _loopCount;
+}
+
 bool Sound::CheckChunk(std::istream & stream, unsigned long chunkFormat, unsigned long * chunkSize)
 {
 	unsigned long format;
@@ -25,12 +53,6 @@ bool Sound::CheckChunk(std::istream & stream, unsigned long chunkFormat, unsigne
 	return chunkFormat == format;
 }
 
-Sound::Sound(std::unique_ptr<char[]>&& data, WAVEFORMATEXTENSIBLE waveFormatExtensible, char loopCount)
-{
-	_data = std::move(data);
-	_waveFormatExtensible = waveFormatExtensible;
-	_loopCount = loopCount;
-}
 
 Sound * Sound::CreateFromWaveFile(std::string filename, char loopCount)
 {
@@ -67,15 +89,16 @@ Sound * Sound::CreateFromWaveFile(std::string filename, char loopCount)
 		throw(std::runtime_error("データフォーマットがありません。"));
 	}
 	//チャンクデータ読み込み
-	//data(波形データ)読み込み
 	waveFile.read(reinterpret_cast<char*>(&waveFormatExtensible), chunkSize);
+	//data(波形データ)読み込み
 	if (!CheckChunk(waveFile,'atad',&chunkSize))
 	{
 		throw(std::runtime_error("波形データがありません。"));
 	}
-	std::unique_ptr<char[]> data(new char[chunkSize]);
-	waveFile.read(data.get(), sizeof(chunkSize));
-	return new Sound(std::move(data),waveFormatExtensible, loopCount);
+	unsigned char * buffer = new unsigned char[chunkSize+1];
+	waveFile.read(reinterpret_cast<char*>(buffer), chunkSize);
+	std::unique_ptr<unsigned char[]> data(buffer);
+	return new Sound(std::move(data),waveFile.gcount(),waveFormatExtensible, loopCount);
 }
 
 }

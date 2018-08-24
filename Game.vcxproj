@@ -58,6 +58,7 @@
     <ClCompile Include="src\GameEngine\Resource\Mesh\MeshD3DX.cpp" />
     <ClCompile Include="src\GameEngine\Scene\SceneManager.cpp" />
     <ClCompile Include="src\GameEngine\Sound\Sound.cpp" />
+    <ClCompile Include="src\GameEngine\Sound\SoundManager.cpp" />
     <ClCompile Include="src\GameEngine\Time\FPSCounter.cpp" />
     <ClCompile Include="src\GameEngine\Time\StopWatch.cpp" />
     <ClCompile Include="src\Game\main.cpp" />
@@ -88,6 +89,7 @@
       <SubType>
       </SubType>
     </ClInclude>
+    <ClInclude Include="src\DXCT\dxct_XAudio2.h" />
     <ClInclude Include="src\DXCT\DXObjectRelease.h" />
     <ClInclude Include="src\DXCT\IReleasable.h" />
     <ClInclude Include="src\DXCT\XAudio2\XAudio2MasteringVoice.h">
@@ -146,6 +148,10 @@
       </SubType>
     </ClInclude>
     <ClInclude Include="src\GameEngine\Sound\Sound.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="src\GameEngine\Sound\SoundManager.h">
       <SubType>
       </SubType>
     </ClInclude>

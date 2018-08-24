@@ -11,5 +11,10 @@ XAudio2MasteringVoice::XAudio2MasteringVoice(IXAudio2MasteringVoice * xaudio2Mas
 
 }
 
+HRESULT XAudio2MasteringVoice::SetVolume(float volume)
+{
+	return _object->SetVolume(volume);
+}
+
 }
 }

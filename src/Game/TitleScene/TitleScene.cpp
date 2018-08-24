@@ -15,7 +15,7 @@ TitleScene::TitleScene()
 
 TitleScene::~TitleScene()
 {
-
+	SAFE_DELETE(farre);
 }
 
 bool TitleScene::Init()
@@ -34,9 +34,6 @@ bool TitleScene::Init()
 	auto meshRenderer = new GameEngine::Behaviour::MeshRenderer();
 	meshRenderer->SetMesh(std::shared_ptr<GameEngine::Resource::Mesh::IMesh>(new GameEngine::Resource::Mesh::MeshD3DX(TEXT("./data/model/stage.x"))));
 	object2->AddBehaviour(meshRenderer);
-
-
-
 	return false;
 }
 

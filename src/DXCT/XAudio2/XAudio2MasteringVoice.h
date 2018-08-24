@@ -18,7 +18,7 @@ class XAudio2MasteringVoice:public DXObject<IXAudio2MasteringVoice,XAudio2VoiceR
 
 	public:
 	XAudio2MasteringVoice(IXAudio2MasteringVoice* xaudio2MasteringVoice);
-
+	HRESULT SetVolume(float volume);
 };
 
 }
