@@ -33,9 +33,9 @@ void Player::Update()
 	}											
 												
 	if (GameEngine::Input::GetKey(DIKEYBOARD_W, HOLD))
-	{											
-		vec.z += PLAYER_SPEED;					
-	}											
+	{
+		vec.z += PLAYER_SPEED;
+	}
 	if (GameEngine::Input::GetKey(DIKEYBOARD_S, HOLD))
 	{
 		vec.z -= PLAYER_SPEED;

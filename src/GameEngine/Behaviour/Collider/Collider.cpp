@@ -11,6 +11,8 @@ std::vector<Collider*> Collider::_colliders;//Œ»İ—LŒø‚È‘S‚Ä‚Ì”»’è‚Ì”z—ñ
 Collider::Collider()
 {
 	_object = nullptr;
+	_isTrigger = true;
+	_isFreeze = false;
 }
 
 void Collider::Enabled()

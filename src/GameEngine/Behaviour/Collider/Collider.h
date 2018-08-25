@@ -14,8 +14,8 @@ namespace GameEngine { namespace Behaviour
 class Collider : public Behaviour
 {
 private:
-	GameObject* _object;//適用されているオブジェクトへのポインタ
-
+	bool _isTrigger;
+	bool _isFreeze;
 protected:
 	static std::vector<Collider*> _colliders;// 現在有効な全ての判定の配列
 	static void AddActiveCollider(Collider* collider); // 有効な判定配列に追加する
