@@ -85,16 +85,10 @@ namespace GameEngine {
 			{
 				NextScene();
 			}
-			for (auto object = _manager->_objects.begin(); object != _manager->_objects.end() && SceneChanged(); object++)
+			for (auto object = _manager->_objects.begin(); object != _manager->_objects.end() && !SceneChanged(); object++)
 			{
-				static bool t = true;
 				InitializeUnStartedBehaviours();
 				if (SceneChanged())return;
-				if (t)
-				{
-					t = false;
-					LoadScene(1);
-				}
 				(*object)->Update();
 			}
 
