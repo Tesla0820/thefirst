@@ -6,6 +6,7 @@
 #include "main.h"
 #include "../GameEngine/GameEngine.h"
 #include "TitleScene/TitleScene.h"
+#include "GameScene/GameScene.h"
 
 // プロトタイプ宣言
 int Run(); //プログラムの実行
@@ -57,4 +58,5 @@ int Run()
 void RegisterScenes()
 {
 	GameEngine::Scene::SceneManager::RegisterScene(new Game::TitleScene());
+	GameEngine::Scene::SceneManager::RegisterScene(new Game::GameScene());
 }

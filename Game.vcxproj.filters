@@ -183,6 +183,12 @@
     <ClCompile Include="src\GameEngine\Sound\SoundManager.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
+    <ClCompile Include="src\Game\TitleScene\TitleManager.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Game\GameScene\GameScene.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\DXCT\Window.h">
@@ -322,5 +328,7 @@
     <ClInclude Include="src\GameEngine\Sound\Sound.h" />
     <ClInclude Include="src\GameEngine\Sound\SoundManager.h" />
     <ClInclude Include="src\DXCT\dxct_XAudio2.h" />
+    <ClInclude Include="src\Game\TitleScene\TitleManager.h" />
+    <ClInclude Include="src\Game\GameScene\GameScene.h" />
   </ItemGroup>
 </Project>
