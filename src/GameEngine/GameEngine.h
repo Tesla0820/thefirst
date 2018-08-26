@@ -20,6 +20,11 @@
 #include "Behaviour/Renderer/RendererBase.h"
 #include "Behaviour/Renderer/MeshRenderer.h"
 
+//Behaviour/Collider
+#include "Behaviour/Collider/Collider.h"
+#include "Behaviour/Collider/BoxCollider.h"
+#include "Behaviour/Collider/SphereCollider.h"
+
 //Resource
 #include "Resource/Mesh/IMesh.h"
 #include "Resource/Mesh/MeshD3DX.h"

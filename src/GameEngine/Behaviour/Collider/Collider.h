@@ -24,6 +24,10 @@ public:
 	Collider();
 	virtual void Enabled() override;
 	virtual void Disabled() override;
+	void EnableTrigger(bool enable);
+	void EnableFreeze(bool enable);
+	bool IsTrigger();
+	bool IsFreeze();
 	virtual void Hit() = 0; // ”»’è‚µ‚Ü‚·Bƒˆ‰¼‘zŠÖ”‚Å‚·B
 
 };

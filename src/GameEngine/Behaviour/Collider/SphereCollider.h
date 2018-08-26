@@ -6,12 +6,12 @@
 #include <vector>
 #include "../../GameEngine_inner.h"
 #include "Collider.h"
-#include "BoxCollider.h"
 
-class BoxCollider;
 
 namespace GameEngine { namespace Behaviour
 {
+
+class BoxCollider;
 
 //直方体の判定を行うクラスです。
 class SphereCollider :public Collider
@@ -21,9 +21,10 @@ private:
 	float _radius;			// 半径
 
 public:
+	SphereCollider();
 	SphereCollider(D3DXVECTOR3 center, float radius);
-	virtual ~SphereCollider();
-	float* GetRadius();
+	D3DXVECTOR3 GetCenterPosition();
+	float GetRadius();
 	virtual void Hit() override;
 	void HitToSphere(SphereCollider* collider);
 	void HitToBox(BoxCollider* collider);

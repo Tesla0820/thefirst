@@ -6,12 +6,13 @@
 #include <vector>
 #include "../../GameEngine_inner.h"
 #include "Collider.h"
-#include "SphereCollider.h"
 
-class SphereCollider;
+
 
 namespace GameEngine { namespace Behaviour
 {
+
+class SphereCollider;
 
 //直方体の判定を行うクラスです。
 class BoxCollider :public Collider
@@ -23,7 +24,8 @@ private:
 public:
 	BoxCollider(D3DXVECTOR3 positon, D3DXVECTOR3 scale);
 	virtual ~BoxCollider();
-	D3DXVECTOR3* GetScale();
+	D3DXVECTOR3 GetPosition();
+	D3DXVECTOR3 GetScale();
 	virtual void Hit() override;
 	void HitToSphere(SphereCollider* collider);
 	void HitToBox(BoxCollider* collider);

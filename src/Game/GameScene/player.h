@@ -9,7 +9,7 @@
 #include "../../GameEngine/GameEngine.h"
 #include "../../GameEngine/Vertex.h"
 #include "../../GameEngine/Behaviour/Behaviour.h"
-
+#include "../../GameEngine/Behaviour/Collider/SphereCollider.h"
 
 namespace Game { namespace GameScene
 {
@@ -18,7 +18,12 @@ namespace Game { namespace GameScene
 
 	private:
 		GameEngine::Behaviour::Transform* _transform;
-		
+		GameEngine::Behaviour::SphereCollider* _sphere;
+		float angle;
+		int maxFuel;
+		int currentFuel;
+		int delay;
+		float ground;
 	public:
 		virtual void Start() override;
 		virtual void Update() override;
