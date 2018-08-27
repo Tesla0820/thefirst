@@ -1,10 +1,12 @@
 //
-//		ƒtƒ@ƒCƒ‹–¼		FEnviroment.cpp
+//		ãƒ•ã‚¡ã‚¤ãƒ«å		ï¼šEnviroment.cpp
 //
 
 #include "Environment.h"
 #include "Behaviour/Camera.h"
 #include "Input.h"
+#include "Sound/SoundManager.h"
+
 namespace GameEngine
 {
 
@@ -39,21 +41,21 @@ Environment::Environment():
 
 	_factory = std::make_unique<DXCT::D3D::D3DFactory>();
 
-	//ƒfƒBƒXƒvƒŒƒCƒ‚[ƒhæ“¾
+	//ãƒ‡ã‚£ã‚¹ãƒ—ãƒ¬ã‚¤ãƒ¢ãƒ¼ãƒ‰å–å¾—
 	_factory->GetAdapterDisplayMode(adapter,&dm);
 
-	ZeroMemory(&pp, sizeof(pp));				// ƒ[ƒN‚ğƒ[ƒƒNƒŠƒA
-	pp.BackBufferCount = 1;						// ƒoƒbƒNƒoƒbƒtƒ@‚Ì”
-	pp.BackBufferWidth = ScreenWidth;			// ƒQ[ƒ€‰æ–ÊƒTƒCƒY(•)
-	pp.BackBufferHeight = ScreenHeight;			// ƒQ[ƒ€‰æ–ÊƒTƒCƒY(‚‚³)
-	pp.BackBufferFormat = dm.Format;			// ƒoƒbƒNƒoƒbƒtƒ@ƒtƒH[ƒ}ƒbƒg‚ÍƒfƒBƒXƒvƒŒƒCƒ‚[ƒh‚É‡‚í‚¹‚Äİ’è
-	pp.SwapEffect = D3DSWAPEFFECT_DISCARD;		// ‰f‘œM†‚É“¯Šú‚µ‚ÄƒtƒŠƒbƒv‚·‚é
-	pp.Windowed = true;							// ƒEƒBƒ“ƒhƒEƒ‚[ƒh
-	pp.EnableAutoDepthStencil = TRUE;			// ƒfƒvƒXƒoƒbƒtƒ@i‚yƒoƒbƒtƒ@j‚ÆƒXƒeƒ“ƒVƒ‹ƒoƒbƒtƒ@‚ğì¬
-	pp.AutoDepthStencilFormat = D3DFMT_D24S8;	// ƒfƒvƒXƒoƒbƒtƒ@‚Æ‚µ‚Ä24bitAƒXƒeƒ“ƒVƒ‹ƒoƒbƒtƒ@‚Æ‚µ‚Ä8bit‚ğg‚¤
-	// ƒEƒBƒ“ƒhƒEƒ‚[ƒh
-	pp.FullScreen_RefreshRateInHz = 0;								// ƒŠƒtƒŒƒbƒVƒ…ƒŒ[ƒg
-	pp.PresentationInterval = D3DPRESENT_INTERVAL_IMMEDIATE;	// ‚’¼“¯ŠúM†‚É“¯Šú‚µ‚È‚¢
+	ZeroMemory(&pp, sizeof(pp));				// ãƒ¯ãƒ¼ã‚¯ã‚’ã‚¼ãƒ­ã‚¯ãƒªã‚¢
+	pp.BackBufferCount = 1;						// ãƒãƒƒã‚¯ãƒãƒƒãƒ•ã‚¡ã®æ•°
+	pp.BackBufferWidth = ScreenWidth;			// ã‚²ãƒ¼ãƒ ç”»é¢ã‚µã‚¤ã‚º(å¹…)
+	pp.BackBufferHeight = ScreenHeight;			// ã‚²ãƒ¼ãƒ ç”»é¢ã‚µã‚¤ã‚º(é«˜ã•)
+	pp.BackBufferFormat = dm.Format;			// ãƒãƒƒã‚¯ãƒãƒƒãƒ•ã‚¡ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆã¯ãƒ‡ã‚£ã‚¹ãƒ—ãƒ¬ã‚¤ãƒ¢ãƒ¼ãƒ‰ã«åˆã‚ã›ã¦è¨­å®š
+	pp.SwapEffect = D3DSWAPEFFECT_DISCARD;		// æ˜ åƒä¿¡å·ã«åŒæœŸã—ã¦ãƒ•ãƒªãƒƒãƒ—ã™ã‚‹
+	pp.Windowed = true;							// ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ãƒ¢ãƒ¼ãƒ‰
+	pp.EnableAutoDepthStencil = TRUE;			// ãƒ‡ãƒ—ã‚¹ãƒãƒƒãƒ•ã‚¡ï¼ˆï¼ºãƒãƒƒãƒ•ã‚¡ï¼‰ã¨ã‚¹ãƒ†ãƒ³ã‚·ãƒ«ãƒãƒƒãƒ•ã‚¡ã‚’ä½œæˆ
+	pp.AutoDepthStencilFormat = D3DFMT_D24S8;	// ãƒ‡ãƒ—ã‚¹ãƒãƒƒãƒ•ã‚¡ã¨ã—ã¦24bitã€ã‚¹ãƒ†ãƒ³ã‚·ãƒ«ãƒãƒƒãƒ•ã‚¡ã¨ã—ã¦8bitã‚’ä½¿ã†
+	// ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ãƒ¢ãƒ¼ãƒ‰
+	pp.FullScreen_RefreshRateInHz = 0;								// ãƒªãƒ•ãƒ¬ãƒƒã‚·ãƒ¥ãƒ¬ãƒ¼ãƒˆ
+	pp.PresentationInterval = D3DPRESENT_INTERVAL_IMMEDIATE;	// å‚ç›´åŒæœŸä¿¡å·ã«åŒæœŸã—ãªã„
 
 	for (int i = 0; i < 3; i++)
 	{
@@ -69,17 +71,27 @@ Environment::Environment():
 	_currentScene = -1;
 	_newScene = 0;
 	_backColor = D3DCOLOR_ARGB(255, 0, 0, 64);
-	//ƒV[ƒ“ƒ}ƒl[ƒWƒƒ‚Ì\’z
+	//ã‚·ãƒ¼ãƒ³ãƒãƒãƒ¼ã‚¸ãƒ£ã®æ§‹ç¯‰
 	SceneManager::Create();
+
+	//å…¥åŠ›ãƒãƒãƒ¼ã‚¸ãƒ£ã®æ§‹ç¯‰
     Input::Create(_window.GetHandle());
+
+	//ã‚µã‚¦ãƒ³ãƒ‰ãƒãƒãƒ¼ã‚¸ãƒ£ã®æ§‹ç¯‰
+	Sound::SoundManager::Create();
+
+	//FPSã‚«ã‚¦ãƒ³ã‚¿ãƒ¼é–‹å§‹
 	_counter.Start();
 }
 Environment::~Environment()
 {
-    //“ü—Í‚Ì‰ğ•ú
+	//ã‚µã‚¦ãƒ³ãƒ‰ãƒãƒãƒ¼ã‚¸ãƒ£ã®è§£æ”¾
+	Sound::SoundManager::Release();
+
+    //å…¥åŠ›ãƒãƒãƒ¼ã‚¸ãƒ£ã®è§£æ”¾
     Input::End();
 
-	//ƒV[ƒ“ƒ}ƒl[ƒWƒƒ‚Ì‰ğ•ú
+	//ã‚·ãƒ¼ãƒ³ãƒãƒãƒ¼ã‚¸ãƒ£ã®è§£æ”¾
 	SceneManager::Release();
 	_device.reset();
 	_factory.reset();
@@ -120,19 +132,19 @@ std::shared_ptr<DXCT::D3D::D3DDevice> Environment::GetCurrentDevice()
 WPARAM Environment::Run()
 {
 	MSG msg;
-	//ÀsŠJn‚Æ‹¤‚ÉÅ‰‚ÌƒV[ƒ““Ç‚İ‚İ
+	//å®Ÿè¡Œé–‹å§‹ã¨å…±ã«æœ€åˆã®ã‚·ãƒ¼ãƒ³èª­ã¿è¾¼ã¿
 	SceneManager::LoadScene(0);
 	while (1)
 	{
 		if (PeekMessage(&msg, NULL, 0, 0, PM_REMOVE))
 		{
 			if (msg.message == WM_QUIT)
-			{// PostQuitMessage()‚ªŒÄ‚Î‚ê‚½‚çƒ‹[ƒvI—¹
+			{// PostQuitMessage()ãŒå‘¼ã°ã‚ŒãŸã‚‰ãƒ«ãƒ¼ãƒ—çµ‚äº†
 				break;
 			}
 			else
 			{
-				// ƒƒbƒZ[ƒW‚Ì–|–ó‚ÆƒfƒBƒXƒpƒbƒ`
+				// ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã®ç¿»è¨³ã¨ãƒ‡ã‚£ã‚¹ãƒ‘ãƒƒãƒ
 				TranslateMessage(&msg);
 				DispatchMessage(&msg);
 			}
@@ -147,7 +159,7 @@ WPARAM Environment::Run()
 		}
 	}
 
-	timeEndPeriod(1);				// •ª‰ğ”\‚ğ–ß‚·
+	timeEndPeriod(1);				// åˆ†è§£èƒ½ã‚’æˆ»ã™
 	return msg.wParam;
 }
 
@@ -184,25 +196,25 @@ void Environment::UpdateFrame()
 
 void Environment::Update()
 {
+  Input::Update();
 	SceneManager::Update();
-    Input::Update();
 }
 
 void Environment::Draw()
 {
-	//‘OƒtƒŒ[ƒ€‚Ìî•ñ‚ğƒNƒŠƒA
+	//å‰ãƒ•ãƒ¬ãƒ¼ãƒ ã®æƒ…å ±ã‚’ã‚¯ãƒªã‚¢
 	_device->Clear(0, NULL,
 		(D3DCLEAR_TARGET | D3DCLEAR_ZBUFFER | D3DCLEAR_STENCIL), _backColor, 1.0f, 0);
-	// Direct3D‚É‚æ‚é•`‰æ‚ÌŠJn
+	// Direct3Dã«ã‚ˆã‚‹æç”»ã®é–‹å§‹
 	if (_pipeline)_pipeline->BeforeScene(_device);
 	if (SUCCEEDED(_device->BeginScene()))
 	{
 		SceneManager::Draw();
-		// Direct3D‚É‚æ‚é•`‰æ‚ÌI—¹
+		// Direct3Dã«ã‚ˆã‚‹æç”»ã®çµ‚äº†
 		_device->EndScene();
 	}
 	if (_pipeline)_pipeline->AfterScene(_device);
-	// ƒoƒbƒNƒoƒbƒtƒ@‚Æƒtƒƒ“ƒgƒoƒbƒtƒ@‚Ì“ü‚ê‘Ö‚¦
+	// ãƒãƒƒã‚¯ãƒãƒƒãƒ•ã‚¡ã¨ãƒ•ãƒ­ãƒ³ãƒˆãƒãƒƒãƒ•ã‚¡ã®å…¥ã‚Œæ›¿ãˆ
 	_device->Present(NULL, NULL, NULL, NULL);
 }
 

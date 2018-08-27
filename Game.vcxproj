@@ -34,6 +34,9 @@
     <ClCompile Include="src\DXCT\D3D\D3DVertexShader.cpp" />
     <ClCompile Include="src\DXCT\DXCTException.cpp" />
     <ClCompile Include="src\DXCT\Window.cpp" />
+    <ClCompile Include="src\DXCT\XAudio2\XAudio2Factory.cpp" />
+    <ClCompile Include="src\DXCT\XAudio2\XAudio2MasteringVoice.cpp" />
+    <ClCompile Include="src\DXCT\XAudio2\XAudio2SourceVoice.cpp" />
     <ClCompile Include="src\GameEngine\Behaviour\Behaviour.cpp" />
     <ClCompile Include="src\GameEngine\Behaviour\Camera.cpp" />
     <ClCompile Include="src\GameEngine\Behaviour\Collider\BoxCollider.cpp" />
@@ -54,8 +57,11 @@
     <ClCompile Include="src\GameEngine\Pipeline\IModefier.h" />
     <ClCompile Include="src\GameEngine\Resource\Mesh\MeshD3DX.cpp" />
     <ClCompile Include="src\GameEngine\Scene\SceneManager.cpp" />
+    <ClCompile Include="src\GameEngine\Sound\Sound.cpp" />
+    <ClCompile Include="src\GameEngine\Sound\SoundManager.cpp" />
     <ClCompile Include="src\GameEngine\Time\FPSCounter.cpp" />
     <ClCompile Include="src\GameEngine\Time\StopWatch.cpp" />
+    <ClCompile Include="src\Game\GameScene\player.cpp" />
     <ClCompile Include="src\Game\main.cpp" />
     <ClCompile Include="src\Game\TitleScene\Behavior\Bell.cpp" />
     <ClCompile Include="src\Game\TitleScene\Behavior\Douzou.cpp" />
@@ -91,7 +97,25 @@
       <SubType>
       </SubType>
     </ClInclude>
+    <ClInclude Include="src\DXCT\dxct_XAudio2.h" />
+    <ClInclude Include="src\DXCT\DXObjectRelease.h" />
     <ClInclude Include="src\DXCT\IReleasable.h" />
+    <ClInclude Include="src\DXCT\XAudio2\XAudio2MasteringVoice.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="src\DXCT\XAudio2\XAudio2Factory.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="src\DXCT\XAudio2\XAudio2SourceVoice.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="src\DXCT\XAudio2\XAudio2VoiceRelease.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
     <ClInclude Include="src\GameEngine\Behaviour\Behaviour.h" />
     <ClInclude Include="src\GameEngine\Behaviour\Camera.h" />
     <ClInclude Include="src\GameEngine\Behaviour\Collider\BoxCollider.h" />
@@ -131,9 +155,18 @@
       <SubType>
       </SubType>
     </ClInclude>
+    <ClInclude Include="src\GameEngine\Sound\Sound.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="src\GameEngine\Sound\SoundManager.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
     <ClInclude Include="src\GameEngine\Time\FPSCounter.h" />
     <ClInclude Include="src\GameEngine\Time\stopwatch.h" />
     <ClInclude Include="src\GameEngine\Vertex.h" />
+    <ClInclude Include="src\Game\GameScene\player.h" />
     <ClInclude Include="src\Game\main.h" />
     <ClInclude Include="src\Game\TitleScene\Behavior\Bell.h" />
     <ClInclude Include="src\Game\TitleScene\Behavior\Douzou.h" />

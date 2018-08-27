@@ -23,8 +23,8 @@ void SceneManager::ClearObjects()
 	while (!_manager->_objects.empty())
 	{
 		auto object = _manager->_objects.back();
-		delete object;
 		_manager->_objects.pop_back();
+		delete object;
 	}
 }
 
