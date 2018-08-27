@@ -44,7 +44,7 @@ bool Collider::IsFreeze()
 	return _isFreeze;
 }
 
-void Collider::Hit()
+void Collider::HitAll()
 {
 	for (auto iterator = _colliders.begin(); iterator != _colliders.end(); ++iterator)
 	{

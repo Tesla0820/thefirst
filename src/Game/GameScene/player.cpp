@@ -84,7 +84,7 @@ void Player::Update()
 	D3DXQUATERNION rot;
 	D3DXQuaternionRotationYawPitchRoll(&rot, angle, 0.0f, 0.0f);
 	_transform->SetRotation(&rot);
-	_sphere->Hit();
+	_sphere->HitAll();
 }
 
 }

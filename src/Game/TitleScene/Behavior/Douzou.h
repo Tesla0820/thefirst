@@ -26,9 +26,9 @@ class Douzou : public GameEngine::Behaviour::Behaviour
         float Move_Vector;
 
     public:
-        virtual void Start(void) override;
-        virtual void Update(void) override;
-        GameEngine::Behaviour::Transform* Get(void) { return _transform; }
+        virtual void Start() override;
+        virtual void Update() override;
+        GameEngine::Behaviour::Transform* Get() { return _transform; }
 };
 
 }}

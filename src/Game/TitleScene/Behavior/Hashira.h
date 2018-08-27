@@ -23,8 +23,8 @@ class Hashira : public GameEngine::Behaviour::Behaviour
         GameEngine::Behaviour::MeshRenderer* _mesh;
 
     public:
-        virtual void Start(void) override;
-        virtual void Update(void) override;
+        virtual void Start() override;
+        virtual void Update() override;
         GameEngine::Behaviour::Transform* Get(void) { return _transform; }
 };
 
