@@ -4,6 +4,9 @@
 
 #include "Behaviour.h"
 #include "../Scene/SceneManager.h"
+#include "../../Game/GameScene/player.h"
+
+class Player;
 
 namespace GameEngine { namespace Behaviour
 {
@@ -93,10 +96,12 @@ void Behaviour::Disabled()
 
 void Behaviour::Start()
 {
+	
 }
 
 void Behaviour::Update()
 {
+
 }
 
 void Behaviour::BeforeDraw(D3DXMATRIX const& matrix)

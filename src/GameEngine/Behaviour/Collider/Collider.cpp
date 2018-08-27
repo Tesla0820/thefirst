@@ -10,7 +10,8 @@ std::vector<Collider*> Collider::_colliders;//現在有効な全ての判定の配列
 
 Collider::Collider()
 {
-	_object = nullptr;
+	_isTrigger = true;
+	_isFreeze = false;
 }
 
 void Collider::Enabled()
@@ -23,6 +24,34 @@ void Collider::Disabled()
 	RemoveActiveCollider(this);	//コライダーを判定不可とする
 }
 
+void Collider::EnableTrigger(bool enable)
+{
+	_isTrigger = enable;
+}
+
+void Collider::EnableFreeze(bool enable)
+{
+	_isFreeze = enable;
+}
+
+bool Collider::IsTrigger()
+{
+	return _isTrigger;
+}
+
+bool Collider::IsFreeze()
+{
+	return _isFreeze;
+}
+
+void Collider::Hit()
+{
+	for (auto iterator = _colliders.begin(); iterator != _colliders.end(); ++iterator)
+	{
+		if (*iterator == this) continue;//自分は除く
+		Hit(*iterator);
+	}
+}
 
 //有効な当たり判定の配列に対象を追加する。
 //配列内に自分が存在しないときだけ追加処理を実行する
