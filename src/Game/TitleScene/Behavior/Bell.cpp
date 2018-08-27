@@ -1,9 +1,9 @@
 //
-//		ファイル名:Gimmick_01.cpp
+//		ファイル名: Bell.cpp
 //
 
 //＝＝＝ヘッダファイル読み込み＝＝＝//
-#include "Gimmick_01.h"
+#include "Bell.h"
 #include "../../../GameEngine/Resource/Mesh/MeshD3DX.h"
 
 namespace Game { namespace Behaviour
@@ -19,7 +19,7 @@ namespace Game { namespace Behaviour
 //
 //戻り値：なし
 /////////////////////////////////////////////
-void Game::Behaviour::Gimmick_01::Start(void)
+void Game::Behaviour::Bell::Start(void)
 {
     GameEngine::GameObject* model = GetAttachedObject();
     _transform = model->GetTransform();
@@ -38,34 +38,9 @@ void Game::Behaviour::Gimmick_01::Start(void)
 //
 //戻り値：なし
 /////////////////////////////////////////////
-void Game::Behaviour::Gimmick_01::Update(void)
+void Game::Behaviour::Bell::Update(void)
 {
-    static float move_distance = 0;
-    static float move_vector = -0.1F;
-
-    D3DXVECTOR3 position;
-    D3DXQUATERNION rotate;
-
-    position = _transform->GetPosition();
-    rotate = _transform->GetRotation();
-    position.z += move_vector;
-    move_distance += 0.1F;
-    if (move_distance >= 10.0F)
-    {
-        move_distance = 0;
-        if (move_vector == 0.1F)
-        {
-            D3DXQuaternionRotationYawPitchRoll(&rotate, 0.0F, 0.0F, 0.0F);
-        }
-        else
-        {
-            D3DXQuaternionRotationYawPitchRoll(&rotate, D3DX_PI, 0.0F, 0.0F);
-        }
-        move_vector = -move_vector;
-    }
-    _transform->SetPosition(&position);
-    _transform->SetRotation(&rotate);
-    _collider->HitToBox(_collider);
+    //ソナーが当たると他のオブジェクトより長く光る
 }
 
 }}

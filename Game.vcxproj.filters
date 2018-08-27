@@ -168,7 +168,25 @@
     <ClCompile Include="src\Game\TitleScene\Pipeline\Echo.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="src\Game\TitleScene\Behavior\Gimmick_01.cpp">
+    <ClCompile Include="src\Game\TitleScene\Behavior\Douzou.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Game\TitleScene\Behavior\Bell.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Game\TitleScene\Behavior\Hashira.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Game\TitleScene\Behavior\Hashira_break.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Game\TitleScene\Behavior\Toge.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Game\TitleScene\Behavior\Toge_move.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Game\TitleScene\Behavior\Yoroi.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
   </ItemGroup>
@@ -302,6 +320,13 @@
     <ClInclude Include="src\GameEngine\Resource\Mesh\IMesh.h" />
     <ClInclude Include="src\GameEngine\Resource\Mesh\MeshD3DX.h" />
     <ClInclude Include="src\Game\TitleScene\Pipeline\Echo.h" />
-    <ClInclude Include="src\Game\TitleScene\Behavior\Gimmick_01.h" />
+    <ClInclude Include="src\Game\TitleScene\Behavior\Douzou.h" />
+    <ClInclude Include="src\Game\TitleScene\Behavior\Bell.h" />
+    <ClInclude Include="src\Game\TitleScene\Behavior\Hashira.h" />
+    <ClInclude Include="src\Game\TitleScene\Behavior\Hashira_break.h" />
+    <ClInclude Include="src\Game\TitleScene\Behavior\Toge.h" />
+    <ClInclude Include="src\Game\TitleScene\Behavior\Toge_move.h" />
+    <ClInclude Include="src\Game\TitleScene\Behavior\Yoroi.h" />
+    <ClInclude Include="src\Game\TitleScene\Behavior\Gimmick.h" />
   </ItemGroup>
 </Project>
