@@ -26,11 +26,19 @@ class Transform:public Behaviour
 		D3DXVECTOR3 GetPosition();
 		D3DXVECTOR3 GetWorldPosition();
 		D3DXVECTOR3 GetScale();
+		D3DXVECTOR3 Up();
+		D3DXVECTOR3 Down();
+		D3DXVECTOR3 Left();
+		D3DXVECTOR3 Right();
+		D3DXVECTOR3 Front();
+		D3DXVECTOR3 Back();
+		D3DXVECTOR3 CalcDirection(D3DXVECTOR3 const* direction);
 		D3DXQUATERNION GetRotation();
 		D3DXMATRIX GetMatrix();
 		D3DXMATRIX GetWorldMatrix();
 		void Offset(D3DXVECTOR3 const* position);
 };
+
 }
 }
 #endif

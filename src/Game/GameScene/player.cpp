@@ -26,47 +26,26 @@ void Player::Start()
 	//=======================================================
 void Player::Update()
 {
-	D3DXVECTOR3 vec = {0.0f,0.0f,0.0f};
-	D3DXMATRIX matrix = _transform->GetMatrix();
-	D3DXVECTOR3 up
-	{
-		-matrix._32,
-		-matrix._22,
-		-matrix._12,
-	};
-	D3DXVECTOR3 front =
-	{ 
-		-matrix._31,
-		-matrix._21,
-		-matrix._11,
-
-	};
-	D3DXVECTOR3 left =
-	{
-		matrix._33,
-		matrix._23,
-		matrix._13,
-	};
-
-	D3DXVec3Normalize(&front,&front);
-
-	D3DXVec3Normalize(&left, &left);
+	D3DXVECTOR3 vec = { 0.0f,0.0f,0.0f };
+	D3DXVECTOR3 up = _transform->Up();
+	D3DXVECTOR3 front = _transform->Front();
+	D3DXVECTOR3 left = _transform->Left();
 	// à⁄ìÆÅiW,A,S,DÅj
 	if (GameEngine::Input::GetKey(DIKEYBOARD_A, HOLD))
 	{
-		vec -= left;
+		vec += left;
 	}
 	else if (GameEngine::Input::GetKey(DIKEYBOARD_D, HOLD))
 	{
-		vec += left;
+		vec -= left;
 	}
 	if (GameEngine::Input::GetKey(DIKEYBOARD_W, HOLD))
 	{
-		vec -= front;
+		vec += front;
 	}
 	else if (GameEngine::Input::GetKey(DIKEYBOARD_S, HOLD))
 	{
-		vec += front;
+		vec -= front;
 	}
 
 	if (delay)

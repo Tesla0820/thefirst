@@ -31,6 +31,11 @@ float SphereCollider::GetRadius()
 	return _radius;
 }
 
+void SphereCollider::Start()
+{
+	_oldPosition = GetAttachedObject()->GetTransform()->GetWorldPosition();
+}
+
 void SphereCollider::Hit()
 {
 	//イテレーターを使ったループ vectorを使ったときは基本こっち
@@ -72,22 +77,14 @@ void SphereCollider::HitToSphere(SphereCollider* collider)
 
 void SphereCollider::HitToBox(BoxCollider* collider)
 {
-	D3DXVECTOR3 direction[3] =
-	{
-		D3DXVECTOR3(1.0f,0.0,0.0f),//x
-		D3DXVECTOR3(0.0f,1.0,0.0f),//y
-		D3DXVECTOR3(0.0f,0.0,1.0f),//z
-	};
-
+	bool isHit = true;
 	Transform* me = GetAttachedObject()->GetTransform();
 	Transform* target = collider->GetAttachedObject()->GetTransform();
 
-	D3DXMATRIX meMatrix = me->GetWorldMatrix();
-	D3DXMATRIX targetMatrix = target->GetWorldMatrix();
-
-	D3DXVECTOR3 distance = D3DXVECTOR3(meMatrix._41 - targetMatrix._41, meMatrix._42 - targetMatrix._42, meMatrix._43 - targetMatrix._43);
-	D3DXVECTOR3 distanceNormalized;
-	D3DXVec3Normalize(&distanceNormalized, &distance);
+	D3DXVECTOR3 mePosition = me->GetWorldPosition()+_center;
+	D3DXVECTOR3 targetPosition = target->GetWorldPosition()+collider->GetPosition();
+	D3DXVECTOR3 distance = mePosition - targetPosition;
+	D3DXVECTOR3 entryAngle;
 	D3DXVECTOR3 targetScale = target->GetScale();
 	D3DXVECTOR3 targetColliderScale = collider->GetScale();
 	//進度
@@ -99,36 +96,52 @@ void SphereCollider::HitToBox(BoxCollider* collider)
 		targetScale.y*targetColliderScale.y,
 		targetScale.z*targetColliderScale.z
 	};
-	D3DXVECTOR3 angle;
+	D3DXVec3Normalize(&entryAngle, &(_oldPosition + _center - targetPosition));
+	
+	D3DXVECTOR3 direction[3] =
+	{
+		target->CalcDirection(&D3DXVECTOR3(1.0f,0.0,0.0f)),//x
+		target->CalcDirection(&D3DXVECTOR3(0.0f,1.0,0.0f)),//y
+		target->CalcDirection(&D3DXVECTOR3(0.0f,0.0,1.0f)),//z
+	};
+
 	for (int i = 0; i < 3; i++)
 	{
-		angle = D3DXVECTOR3(
-			targetMatrix._11 * direction[i].x + targetMatrix._12 * direction[i].y + targetMatrix._13 * direction[i].z,
-			targetMatrix._21 * direction[i].x + targetMatrix._22 * direction[i].y + targetMatrix._23 * direction[i].z,
-			targetMatrix._31 * direction[i].x + targetMatrix._32 * direction[i].y + targetMatrix._33 * direction[i].z
-		);
-		float a = D3DXVec3Dot(&angle, &distanceNormalized);
-		float s = D3DXVec3Dot(&angle, &distance);
-		float sign = (s > 0) - (s < 0);
-		if (fabs(s)> fabs(half[i])+_radius)
+		D3DXVECTOR2 entry0(entryAngle[i], entryAngle[(i + 1) % 3]);
+		D3DXVECTOR2 entry1(entryAngle[i], entryAngle[(i + 2) % 3]);
+		D3DXVECTOR2 normal0(direction[(i + 1) % 3][i], direction[(i + 1) % 3][(i + 1) % 3]);
+		D3DXVECTOR2 normal1(direction[(i + 2) % 3][i], direction[(i + 2) % 3][(i + 2) % 3]);
+		D3DXVec2Normalize(&entry0, &entry0);
+		D3DXVec2Normalize(&entry1, &entry1);
+		D3DXVec2Normalize(&normal0, &normal0);
+		D3DXVec2Normalize(&normal1, &normal1);
+		float cos0 = half[(i + 1) % 3] / D3DXVec2Length(&D3DXVECTOR2(half[i], half[(i + 1) % 3]));
+		float cos1 = half[(i + 2) % 3] / D3DXVec2Length(&D3DXVECTOR2(half[i], half[(i + 2) % 3]));
+		float dot0	= D3DXVec2Dot(&entry0, &normal0);
+		float dot1	= D3DXVec2Dot(&entry1, &normal1);
+		float s		= D3DXVec3Dot(&direction[i], &distance);
+		if (fabs(s)>= fabs(half[i])+_radius)
 		{
 			//軸側の面外側にいる
-			return;
+			isHit = false;
+			break;
 		}
 
-		if(fabs(a)>=0.7071)
+		if(fabs(dot0)<=cos0 && fabs(dot1)<=cos1)
 		{
-			//軸側の面内側にいる
+			float sign = (s > 0) - (s < 0);
+			//軸側の面内側かつ計算方向側にいる
 			//進度計算
-			penetration += sign*(fabs(half[i])-fabs(s)+_radius)*angle;
+			penetration += sign*(fabs(half[i])-fabs(s)+_radius)*direction[i];
 		}
 	}
 
-	if (!IsTrigger() && !IsFreeze()) 
+	if (isHit && !IsTrigger() && !IsFreeze()) 
 	{
 		//判定内にいる
 		me->Offset(&(penetration));
 	}
+	_oldPosition = GetAttachedObject()->GetTransform()->GetWorldPosition();
 }
 
 }

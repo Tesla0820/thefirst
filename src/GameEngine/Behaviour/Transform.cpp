@@ -42,13 +42,74 @@ D3DXVECTOR3 Transform::GetPosition()
 
 D3DXVECTOR3 Transform::GetWorldPosition()
 {
-	D3DXMATRIX matrix=GetWorldMatrix();
-	return D3DXVECTOR3(matrix._41, matrix._42, matrix._43);
+	D3DXMATRIX world=GetWorldMatrix();
+	return D3DXVECTOR3(world._41, world._42, world._43);
 }
 
 D3DXVECTOR3 Transform::GetScale()
 {
 	return _scale;
+}
+
+D3DXVECTOR3 Transform::Up()
+{
+	D3DMATRIX world = GetWorldMatrix();
+	D3DXVECTOR3 vec = D3DXVECTOR3(-world._32,-world._22, -world._12);
+	D3DXVec3Normalize(&vec, &vec);
+	return vec;
+}
+
+D3DXVECTOR3 Transform::Down()
+{
+	D3DMATRIX world = GetWorldMatrix();
+	D3DXVECTOR3 vec = D3DXVECTOR3(world._32, world._22, world._12);
+	D3DXVec3Normalize(&vec, &vec);
+	return vec;
+}
+
+D3DXVECTOR3 Transform::Left()
+{
+	D3DMATRIX world = GetWorldMatrix();
+	D3DXVECTOR3 vec = D3DXVECTOR3(-world._33, -world._23, -world._13);
+	D3DXVec3Normalize(&vec, &vec);
+	return vec;
+}
+
+D3DXVECTOR3 Transform::Right()
+{
+	D3DMATRIX world = GetWorldMatrix();
+	D3DXVECTOR3 vec = D3DXVECTOR3(world._33, world._23, world._13);
+	D3DXVec3Normalize(&vec, &vec);
+	return vec;
+}
+
+D3DXVECTOR3 Transform::Front()
+{
+	D3DMATRIX world = GetWorldMatrix();
+	D3DXVECTOR3 vec = D3DXVECTOR3(world._31, world._21, world._11);
+	D3DXVec3Normalize(&vec, &vec);
+	return vec;
+}
+
+D3DXVECTOR3 Transform::Back()
+{
+	D3DMATRIX world = GetWorldMatrix();
+	D3DXVECTOR3 vec = D3DXVECTOR3(-world._31, -world._21, -world._11);
+	D3DXVec3Normalize(&vec, &vec);
+	return vec;
+}
+
+D3DXVECTOR3 Transform::CalcDirection(D3DXVECTOR3 const * direction)
+{
+	D3DXMATRIX world = GetWorldMatrix();
+	D3DXVECTOR3 vec
+	(
+		world._11 * direction->x + world._12 * direction->y + world._13 * direction->z,
+		world._21 * direction->x + world._22 * direction->y + world._23 * direction->z,
+		world._31 * direction->x + world._32 * direction->y + world._33 * direction->z
+	);
+	D3DXVec3Normalize(&vec,&vec);
+	return vec;
 }
 
 D3DXQUATERNION Transform::GetRotation()
