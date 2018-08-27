@@ -18,7 +18,7 @@ Camera::Camera()
 	_zf=1000000.0f;
 
 	//“§‹“Š‰e
-	_fovy =D3DX_PI/4;
+	_fovy =D3DX_PI/2;
 	_aspect =(float)screen.cx/(float)screen.cy;
 	//•Às“Š‰e
 	_width = (float)screen.cx;

@@ -1,5 +1,5 @@
 //
-//		ƒtƒ@ƒCƒ‹–¼:TitleScene.cpp
+//		Æ’tÆ’@Æ’CÆ’â€¹â€“Â¼:TitleScene.cpp
 //
 
 #include "TitleScene.h"
@@ -17,19 +17,19 @@ TitleScene::TitleScene()
 
 TitleScene::~TitleScene()
 {
-
+	SAFE_DELETE(farre);
 }
 
 bool TitleScene::Init()
 {
 	GameEngine::Environment::Get()->AttachPipeline(new Pipeline::Echo());
 	GameEngine::GameObject* object;
-	//’n–Ê
+	//â€™nâ€“ÃŠ
 	object = GameEngine::GameObject::Instantiate();
 	auto groundCollider = new GameEngine::Behaviour::BoxCollider(D3DXVECTOR3(0.0f, -10.0f, 0.0f), D3DXVECTOR3(100.0f, 10.0f, 100.0f));
 	object->AddBehaviour(groundCollider);
 
-	//ƒvƒŒƒCƒ„[
+	//Æ’vÆ’Å’Æ’CÆ’â€žÂ[
 	object = GameEngine::GameObject::Instantiate();
 	auto player = new GameScene::Player();
 	auto camera = new GameEngine::Behaviour::Camera();
@@ -44,7 +44,7 @@ bool TitleScene::Init()
 	object->GetTransform()->SetPosition(&D3DXVECTOR3(0.0f,8.0f,-8.0f));
 
 	
-	//ƒXƒe[ƒWƒtƒ@ƒCƒ‹
+	//Æ’XÆ’eÂ[Æ’WÆ’tÆ’@Æ’CÆ’â€¹
 	object = GameEngine::GameObject::Instantiate();
 	auto transform = object->GetTransform();
 	auto meshRenderer = new GameEngine::Behaviour::MeshRenderer();
@@ -52,7 +52,7 @@ bool TitleScene::Init()
 	meshRenderer->SetMesh(std::shared_ptr<GameEngine::Resource::Mesh::IMesh>(new GameEngine::Resource::Mesh::MeshD3DX(TEXT("./data/model/stage.x"))));
 	object->AddBehaviour(meshRenderer);
 
-	//ƒeƒXƒg—p” 
+	//Æ’eÆ’XÆ’gâ€”pâ€Â 
 	object = GameEngine::GameObject::Instantiate();
 	object->AddBehaviour(new GameEngine::Behaviour::BoxCollider(D3DXVECTOR3(0.0f, 0.0f, 0.0f), D3DXVECTOR3(1.0f, 1.0f, 1.0f)));
 	auto meshRenderer2 = new GameEngine::Behaviour::MeshRenderer();
@@ -60,6 +60,7 @@ bool TitleScene::Init()
 	object->AddBehaviour(meshRenderer2);
 	object->GetTransform()->Offset(&D3DXVECTOR3(0.0f, 3.0f, 20.0f));
 	
+
 	return false;
 }
 
