@@ -3,16 +3,16 @@
 //
 
 #include "TitleScene.h"
-#include "../../GameEngine/GameEngine.h"
 #include "Pipeline/Echo.h"
+#include "../../GameEngine/GameEngine.h"
 #include "../GameScene/player.h"
+#include "../../Game/TitleScene/Behavior/Gimmick.h"
 
 namespace Game
 {
 
 TitleScene::TitleScene()
 {
-
 }
 
 TitleScene::~TitleScene()
@@ -41,7 +41,7 @@ bool TitleScene::Init()
 	object->AddBehaviour(camera);
 	object->AddBehaviour(player);
 	object->AddBehaviour(collider);
-	object->GetTransform()->SetPosition(&D3DXVECTOR3(0.0f,8.0f,-8.0f));
+	object->GetTransform()->SetPosition(&D3DXVECTOR3(0.0f,6.0f,-8.0f));
 
 	
 	//ƒXƒe[ƒWƒtƒ@ƒCƒ‹
@@ -52,6 +52,11 @@ bool TitleScene::Init()
 	meshRenderer->SetMesh(std::shared_ptr<GameEngine::Resource::Mesh::IMesh>(new GameEngine::Resource::Mesh::MeshD3DX(TEXT("./data/model/stage.x"))));
 	object->AddBehaviour(meshRenderer);
 
+  InstantiateGimmick(new Game::Behaviour::Douzou, &D3DXVECTOR3(0.0F, 0.0F, 20.0F), 0.0F, 0.0F, 0.0F);
+  InstantiateGimmick(new Game::Behaviour::Douzou, &D3DXVECTOR3(0.0F, 0.0F, 40.0F), 0.0F, 0.0F, 0.0F);
+  InstantiateGimmick(new Game::Behaviour::Douzou, &D3DXVECTOR3(0.0F, 0.0F, 60.0F), 0.0F, 0.0F, 0.0F);
+  InstantiateGimmick(new Game::Behaviour::Douzou, &D3DXVECTOR3(0.0F, 0.0F, 80.0F), 0.0F, 0.0F, 0.0F);
+
 	//ƒeƒXƒg—p” 
 	object = GameEngine::GameObject::Instantiate();
 	object->AddBehaviour(new GameEngine::Behaviour::BoxCollider(D3DXVECTOR3(0.0f, 0.0f, 0.0f), D3DXVECTOR3(1.0f, 1.0f, 1.0f)));
@@ -59,10 +64,8 @@ bool TitleScene::Init()
 	meshRenderer2->SetMesh(std::shared_ptr<GameEngine::Resource::Mesh::IMesh>(new GameEngine::Resource::Mesh::MeshD3DX(TEXT("./data/model/test.x"))));
 	object->AddBehaviour(meshRenderer2);
 	object->GetTransform()->Offset(&D3DXVECTOR3(0.0f, 3.0f, 20.0f));
-	
 
 	return false;
 }
-
 
 }
