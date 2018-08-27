@@ -44,6 +44,14 @@ bool Collider::IsFreeze()
 	return _isFreeze;
 }
 
+void Collider::Hit()
+{
+	for (auto iterator = _colliders.begin(); iterator != _colliders.end(); ++iterator)
+	{
+		if (*iterator == this) continue;//自分は除く
+		Hit(*iterator);
+	}
+}
 
 //有効な当たり判定の配列に対象を追加する。
 //配列内に自分が存在しないときだけ追加処理を実行する

@@ -28,7 +28,8 @@ public:
 	void EnableFreeze(bool enable);
 	bool IsTrigger();
 	bool IsFreeze();
-	virtual void Hit() = 0; // 判定します。純粋仮想関数です。
+	void Hit(); // 判定します。純粋仮想関数です。
+	virtual void Hit(Collider* collider) = 0;
 
 };
 

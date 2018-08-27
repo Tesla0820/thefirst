@@ -26,7 +26,7 @@ public:
 	virtual ~BoxCollider();
 	D3DXVECTOR3 GetPosition();
 	D3DXVECTOR3 GetScale();
-	virtual void Hit() override;
+	virtual void Hit(Collider* collider) override;
 	void HitToSphere(SphereCollider* collider);
 	void HitToBox(BoxCollider* collider);
 };

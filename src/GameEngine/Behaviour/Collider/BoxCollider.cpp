@@ -27,25 +27,20 @@ D3DXVECTOR3 BoxCollider::GetScale()
 	return _scale;
 }
 
-void BoxCollider::Hit()
+void BoxCollider::Hit(Collider* collider)
 {
-	//イテレーターを使ったループ vectorを使ったときは基本こっち
-	for (auto iterator = _colliders.begin(); iterator != _colliders.end(); ++iterator)
+	BoxCollider *box = dynamic_cast<BoxCollider*>(collider);// 動的にキャスト、もしBoxColliderじゃなかったらNULL(nullptr)が帰ってくる
+	if (box)
 	{
-		if (*iterator == this) continue;//自分は除く
-		BoxCollider *box = dynamic_cast<BoxCollider*>(*iterator);// 動的にキャスト、もしBoxColliderじゃなかったらNULL(nullptr)が帰ってくる
-		if (box)
-		{
-			this->HitToBox(box);
-			continue;
-		}
+		this->HitToBox(box);
+		return;
+	}
 
-		SphereCollider *sphere = dynamic_cast<SphereCollider*>(*iterator);// 動的にキャスト、もしSphereColliderじゃなかったらNULL(nullptr)が帰ってくる
-		if (box)
-		{
-			this->HitToSphere(sphere);
-			continue;
-		}
+	SphereCollider *sphere = dynamic_cast<SphereCollider*>(collider);// 動的にキャスト、もしSphereColliderじゃなかったらNULL(nullptr)が帰ってくる
+	if (sphere)
+	{
+		this->HitToSphere(sphere);
+		return;
 	}
 }
 

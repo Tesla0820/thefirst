@@ -27,7 +27,7 @@ public:
 	D3DXVECTOR3 GetCenterPosition();
 	float GetRadius();
 	virtual void Start() override;
-	virtual void Hit() override;
+	virtual void Hit(Collider* collider) override;
 	void HitToSphere(SphereCollider* collider);
 	void HitToBox(BoxCollider* collider);
 };

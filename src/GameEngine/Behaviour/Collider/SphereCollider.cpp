@@ -36,25 +36,20 @@ void SphereCollider::Start()
 	_oldPosition = GetAttachedObject()->GetTransform()->GetWorldPosition();
 }
 
-void SphereCollider::Hit()
+void SphereCollider::Hit(Collider* collider)
 {
-	//イテレーターを使ったループ vectorを使ったときは基本こっち
-	for (auto iterator = _colliders.begin(); iterator != _colliders.end(); ++iterator)
+	SphereCollider *sphere = dynamic_cast<SphereCollider*>(collider);//動的にキャスト、もしCircleColliderじゃなかったらNULL(nullptr)が帰ってくる
+	if (sphere)
 	{
-		if (*iterator == this) continue;//自分は除く
-		SphereCollider *sphere = dynamic_cast<SphereCollider*>(*iterator);//動的にキャスト、もしCircleColliderじゃなかったらNULL(nullptr)が帰ってくる
-		if (sphere)
-		{
-			this->HitToSphere(sphere);
-			continue;
-		}
+		this->HitToSphere(sphere);
+		return;
+	}
 
-		BoxCollider *box = dynamic_cast<BoxCollider*>(*iterator);//動的にキャスト、もしCircleColliderじゃなかったらNULL(nullptr)が帰ってくる
-		if (box)
-		{
-			this->HitToBox(box);
-			continue;
-		}
+	BoxCollider *box = dynamic_cast<BoxCollider*>(collider);//動的にキャスト、もしCircleColliderじゃなかったらNULL(nullptr)が帰ってくる
+	if (box)
+	{
+		this->HitToBox(box);
+		return;
 	}
 }
 
