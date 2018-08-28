@@ -42,12 +42,6 @@
     <Filter Include="GameEngine\Binder">
       <UniqueIdentifier>{04d20c96-4acf-48ef-ba48-816ff2b3e991}</UniqueIdentifier>
     </Filter>
-    <Filter Include="DXCT\DInput">
-      <UniqueIdentifier>{20fe0ab8-13a4-4e7c-af7c-87e7b50c1557}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="GameEngine\InputManager">
-      <UniqueIdentifier>{35acd492-ab0d-4fc8-ad64-584655ef4b1d}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\DXCT\Window.cpp">
@@ -107,6 +101,9 @@
     <ClCompile Include="src\GameEngine\Behaviour\Renderer\RendererBase.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
+    <ClCompile Include="src\DXCT\D3D\D3DXAllocateHierarchy.cpp">
+      <Filter>DXCT\D3D</Filter>
+    </ClCompile>
     <ClCompile Include="src\GameEngine\Binder\BehaviourBinder.cpp">
       <Filter>GameEngine\Binder</Filter>
     </ClCompile>
@@ -115,109 +112,6 @@
     </ClCompile>
     <ClCompile Include="src\DXCT\D3D\D3DVertexBuffer.cpp">
       <Filter>DXCT\D3D</Filter>
-    </ClCompile>
-    <ClCompile Include="src\DXCT\DInput\DInputFactory.cpp">
-      <Filter>DXCT\DInput</Filter>
-    </ClCompile>
-    <ClCompile Include="src\DXCT\DInput\DInputDevice.cpp">
-      <Filter>DXCT\DInput</Filter>
-    </ClCompile>
-    <ClCompile Include="src\GameEngine\InputManager\Keyboard.cpp">
-      <Filter>GameEngine\InputManager</Filter>
-    </ClCompile>
-    <ClCompile Include="src\GameEngine\Input.cpp">
-      <Filter>GameEngine</Filter>
-    </ClCompile>
-    <ClCompile Include="src\GameEngine\InputManager\Joypad.cpp">
-      <Filter>GameEngine\InputManager</Filter>
-    </ClCompile>
-    <ClCompile Include="src\GameEngine\InputManager\Mouse.cpp">
-      <Filter>GameEngine\InputManager</Filter>
-    </ClCompile>
-    <ClCompile Include="src\DXCT\D3DX\D3DXAllocateHierarchy.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="src\DXCT\D3DX\D3DXConstantTable.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="src\DXCT\D3D\D3DPixelShader.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="src\DXCT\D3D\D3DVertexDeclaration.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="src\DXCT\D3D\D3DVertexShader.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="src\GameEngine\Behaviour\Collider\BoxCollider.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="src\GameEngine\Behaviour\Collider\Collider.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="src\GameEngine\Behaviour\Collider\SphereCollider.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="src\GameEngine\Pipeline\DefaultPipeline.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="src\GameEngine\Pipeline\IModefier.h" />
-    <ClCompile Include="src\GameEngine\Resource\Mesh\MeshD3DX.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Game\TitleScene\Pipeline\Echo.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="src\DXCT\XAudio2\XAudio2SourceVoice.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="src\DXCT\XAudio2\XAudio2MasteringVoice.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="src\DXCT\XAudio2\XAudio2Factory.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="src\GameEngine\Sound\Sound.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="src\GameEngine\Sound\SoundManager.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Game\TitleScene\TitleManager.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Game\GameScene\Scene\TutorialScene\TutorialScene.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Game\GameScene\Scene\TutorialScene\TutorialManager.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Game\GameScene\Scene\Stage1Scene\Stage1Scene.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Game\GameScene\Scene\StageManager.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Game\GameScene\Scene\Stage2Scene\Stage2Scene.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Game\GameScene\Scene\Stage3Scene\Stage3Scene.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Game\ResultScene\GameOverScene\GameOverScene.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Game\ResultScene\GameClearScene\GameClearScene.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Game\ResultScene\ResultManager.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Game\ResultScene\StageClearScene\StageClearScene.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Game\ResultScene\StageClearScene\StageClearManager.cpp">
-      <Filter>ソース ファイル</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -308,67 +202,20 @@
     <ClInclude Include="src\GameEngine\Behaviour\Renderer\MeshRenderer.h">
       <Filter>GameEngine\Behaviour\Renderer</Filter>
     </ClInclude>
+    <ClInclude Include="src\DXCT\D3D\D3DXAllocateHierarchy.h">
+      <Filter>DXCT\D3D</Filter>
+    </ClInclude>
     <ClInclude Include="src\GameEngine\Binder\BehaviourBinder.h">
       <Filter>GameEngine\Binder</Filter>
     </ClInclude>
     <ClInclude Include="src\DXCT\D3D\D3DSurface.h">
       <Filter>DXCT\D3D</Filter>
     </ClInclude>
+    <ClInclude Include="src\GameEngine\Mesh.h">
+      <Filter>GameEngine</Filter>
+    </ClInclude>
     <ClInclude Include="src\DXCT\D3D\D3DVertexBuffer.h">
       <Filter>DXCT\D3D</Filter>
     </ClInclude>
-    <ClInclude Include="src\DXCT\DInput\DInputFactory.h">
-      <Filter>DXCT\DInput</Filter>
-    </ClInclude>
-    <ClInclude Include="src\DXCT\DInput\DInputDevice.h">
-      <Filter>DXCT\DInput</Filter>
-    </ClInclude>
-    <ClInclude Include="src\GameEngine\InputManager\Keyboard.h">
-      <Filter>GameEngine\InputManager</Filter>
-    </ClInclude>
-    <ClInclude Include="src\DXCT\dxct_DInput.h">
-      <Filter>DXCT</Filter>
-    </ClInclude>
-    <ClInclude Include="src\GameEngine\Input.h">
-      <Filter>GameEngine</Filter>
-    </ClInclude>
-    <ClInclude Include="src\GameEngine\InputManager\Joypad.h">
-      <Filter>GameEngine\InputManager</Filter>
-    </ClInclude>
-    <ClInclude Include="src\GameEngine\InputManager\Mouse.h">
-      <Filter>GameEngine\InputManager</Filter>
-    </ClInclude>
-    <ClInclude Include="src\DXCT\D3DX\D3DXAllocateHierarchy.h" />
-    <ClInclude Include="src\DXCT\D3DX\D3DXConstantTable.h" />
-    <ClInclude Include="src\DXCT\D3D\D3DPixelShader.h" />
-    <ClInclude Include="src\DXCT\D3D\D3DVertexDeclaration.h" />
-    <ClInclude Include="src\DXCT\D3D\D3DVertexShader.h" />
-    <ClInclude Include="src\GameEngine\Behaviour\Collider\BoxCollider.h" />
-    <ClInclude Include="src\GameEngine\Behaviour\Collider\Collider.h" />
-    <ClInclude Include="src\GameEngine\Behaviour\Collider\SphereCollider.h" />
-    <ClInclude Include="src\GameEngine\Pipeline\DefaultPipeline.h" />
-    <ClInclude Include="src\GameEngine\Resource\Mesh\IMesh.h" />
-    <ClInclude Include="src\GameEngine\Resource\Mesh\MeshD3DX.h" />
-    <ClInclude Include="src\Game\TitleScene\Pipeline\Echo.h" />
-    <ClInclude Include="src\DXCT\XAudio2\XAudio2Factory.h" />
-    <ClInclude Include="src\DXCT\XAudio2\XAudio2MasteringVoice.h" />
-    <ClInclude Include="src\DXCT\XAudio2\XAudio2SourceVoice.h" />
-    <ClInclude Include="src\DXCT\DXObjectRelease.h" />
-    <ClInclude Include="src\DXCT\XAudio2\XAudio2VoiceRelease.h" />
-    <ClInclude Include="src\GameEngine\Sound\Sound.h" />
-    <ClInclude Include="src\GameEngine\Sound\SoundManager.h" />
-    <ClInclude Include="src\DXCT\dxct_XAudio2.h" />
-    <ClInclude Include="src\Game\TitleScene\TitleManager.h" />
-    <ClInclude Include="src\Game\GameScene\Scene\TutorialScene\TutorialScene.h" />
-    <ClInclude Include="src\Game\GameScene\Scene\TutorialScene\TutorialManager.h" />
-    <ClInclude Include="src\Game\GameScene\Scene\Stage1Scene\Stage1Scene.h" />
-    <ClInclude Include="src\Game\GameScene\Scene\StageManager.h" />
-    <ClInclude Include="src\Game\GameScene\Scene\Stage2Scene\Stage2Scene.h" />
-    <ClInclude Include="src\Game\GameScene\Scene\Stage3Scene\Stage3Scene.h" />
-    <ClInclude Include="src\Game\ResultScene\GameOverScene\GameOverScene.h" />
-    <ClInclude Include="src\Game\ResultScene\GameClearScene\GameClearScene.h" />
-    <ClInclude Include="src\Game\ResultScene\ResultManager.h" />
-    <ClInclude Include="src\Game\ResultScene\StageClearScene\StageClearScene.h" />
-    <ClInclude Include="src\Game\ResultScene\StageClearScene\StageClearManager.h" />
   </ItemGroup>
 </Project>

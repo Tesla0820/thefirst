@@ -49,7 +49,6 @@ namespace GameEngine
 			void AddChild(GameObject* object);
 			void RemoveChild(GameObject* object);
 			bool GetEnable();
-			bool GetEnableThis();
 			GameObject* GetParent();
 			GameObject* GetChild(int index);
 			std::vector<GameObject*> GetChildren();

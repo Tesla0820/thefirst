@@ -18,7 +18,7 @@ Camera::Camera()
 	_zf=1000000.0f;
 
 	//“§Ž‹“Š‰e
-	_fovy =D3DX_PI/2;
+	_fovy =D3DX_PI/4;
 	_aspect =(float)screen.cx/(float)screen.cy;
 	//•Às“Š‰e
 	_width = (float)screen.cx;
@@ -90,7 +90,6 @@ void Camera::BeforeDraw(D3DXMATRIX const & matrix)
 
 	device->SetTransform(D3DTS_VIEW, &view);
 	device->SetTransform(D3DTS_PROJECTION, &projection);
-	Environment::Get()->OnSetCamera(view, projection);
 }
 
 Camera * Camera::GetCurrent()

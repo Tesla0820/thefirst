@@ -21,7 +21,15 @@ GameObject::GameObject()
 
 GameObject::~GameObject()
 {
-	Destroy();
+
+	for (auto behaviour : _behaviours)
+	{
+		delete behaviour;
+	}
+	for (auto object : _children)
+	{
+		object->Destroy();
+	}
 }
 
 void GameObject::BindGameObject(GameObject * parent, GameObject * child)
@@ -78,16 +86,6 @@ void GameObject::RemoveChild(GameObject * object)
 }
 
 bool GameObject::GetEnable()
-{
-	bool result = _enable;
-	if (_parent)
-	{
-		result &= _parent->GetEnable();
-	}
-	return result;
-}
-
-bool GameObject::GetEnableThis()
 {
 	return _enable;
 }
@@ -174,13 +172,10 @@ void GameObject::Destroy()
 {
 	if (_parent)
 	{
-		SetParent(nullptr);
+		_parent->RemoveChild(this);
 	}
-	while (!_behaviours.empty())
-	{
-		delete _behaviours.back();
-		_behaviours.pop_back();
-	}
+
+	delete this;
 }
 
 GameObject * GameObject::Instantiate()

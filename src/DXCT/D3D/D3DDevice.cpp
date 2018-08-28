@@ -15,11 +15,6 @@ D3DDevice::D3DDevice(IDirect3DDevice9* device)
 
 }
 
-HRESULT D3DDevice::ClearTexture(DWORD stage)
-{
-	return _object->SetTexture(stage, nullptr);
-}
-
 std::shared_ptr<D3DTexture> D3DDevice::CreateTexture(UINT width, UINT height, UINT levels, DWORD usage, D3DFORMAT format, D3DPOOL pool, HANDLE * pHandle)
 {
 	HRESULT hr;
@@ -57,89 +52,6 @@ std::shared_ptr<D3DVertexBuffer> D3DDevice::CreateVertexBuffer(UINT length, DWOR
 	return std::shared_ptr<D3DVertexBuffer>();
 }
 
-std::shared_ptr<D3DVertexShader> D3DDevice::CreateVertexShaderFromFile(LPCTSTR sourceFile, D3DXMACRO const * defines, ID3DXInclude * include, LPCSTR functionName)
-{
-	HRESULT hr;
-	ID3DXBuffer* shader;
-	ID3DXBuffer* errorMessage;
-	ID3DXConstantTable* table;
-	IDirect3DVertexShader9* vertexShader;
-	DWORD flags = 0;
-#ifdef _DEBUG
-	flags = D3DXSHADER_DEBUG | D3DXSHADER_SKIPOPTIMIZATION;
-#endif
-	hr = D3DXCompileShaderFromFile(sourceFile, defines, include, functionName, "vs_3_0", flags, &shader, &errorMessage, &table);
-	if (errorMessage)
-	{
-		char *ErrorMessage = (char *)errorMessage->GetBufferPointer();
-		DWORD ErrorLength = errorMessage->GetBufferSize();
-		char *message = new char[ErrorLength+1];
-		ZeroMemory(message, ErrorLength + 1);
-		strncpy(message, ErrorMessage, ErrorLength);
-		SAFE_RELEASE(errorMessage);
-		throw(std::runtime_error(std::move(message)));
-		
-	}
-	auto temp = (DWORD*)shader->GetBufferPointer();
-	_object->CreateVertexShader(reinterpret_cast<DWORD*>(shader->GetBufferPointer()), &vertexShader);//コンパイルに成功したのでVertexShaderを作る
-	SAFE_RELEASE(shader);
-	SAFE_RELEASE(errorMessage);
-
-	return std::shared_ptr<D3DVertexShader>(new D3DVertexShader(vertexShader, std::unique_ptr<D3DX::D3DXConstantTable>(new D3DX::D3DXConstantTable(table))));
-}
-
-std::shared_ptr<D3DVertexDeclaration> D3DDevice::CreateVertexDeclaration(D3DVERTEXELEMENT9 const * vertexElements)
-{
-	HRESULT hr;
-	IDirect3DVertexDeclaration9* vertexDeclaration;
-	hr = _object->CreateVertexDeclaration(vertexElements, &vertexDeclaration);
-	if (SUCCEEDED(hr))
-	{
-		return std::shared_ptr<D3DVertexDeclaration>(new D3DVertexDeclaration(vertexDeclaration));
-	}
-	return std::shared_ptr<D3DVertexDeclaration>();
-}
-
-std::shared_ptr<D3DPixelShader> D3DDevice::CreatePixelShaderFromFile(LPCTSTR sourceFile, D3DXMACRO const * defines, ID3DXInclude * include, LPCSTR functionName)
-{
-	HRESULT hr;
-	ID3DXBuffer* shader;
-	ID3DXBuffer* errorMessage;
-	ID3DXConstantTable* table;
-	IDirect3DPixelShader9* pixelShader;
-	DWORD flags = 0;
-#ifdef _DEBUG
-	flags = D3DXSHADER_DEBUG | D3DXSHADER_SKIPOPTIMIZATION;
-#endif
-	hr = D3DXCompileShaderFromFile(sourceFile, defines, include, functionName, "ps_3_0", flags, &shader, &errorMessage, &table);
-	if (errorMessage)
-	{
-		char *ErrorMessage = (char *)errorMessage->GetBufferPointer();
-		DWORD ErrorLength = errorMessage->GetBufferSize();
-		char *message = new char[ErrorLength + 1];
-		ZeroMemory(message, ErrorLength + 1);
-		strncpy(message, ErrorMessage, ErrorLength);
-		SAFE_RELEASE(errorMessage);
-		throw(std::runtime_error(std::move(message)));
-	}
-
-	_object->CreatePixelShader(reinterpret_cast<DWORD*>(shader->GetBufferPointer()), &pixelShader);//コンパイルに成功したのでVertexShaderを作る
-	SAFE_RELEASE(shader);
-	SAFE_RELEASE(errorMessage);
-
-	return std::shared_ptr<D3DPixelShader>(new D3DPixelShader(pixelShader, std::unique_ptr<D3DX::D3DXConstantTable>(new D3DX::D3DXConstantTable(table))));
-}
-
-HRESULT D3DDevice::LightEnable(DWORD lightIndex, BOOL enable)
-{
-	return _object->LightEnable(lightIndex, enable);
-}
-
-HRESULT D3DDevice::SetLight(DWORD index, D3DLIGHT9 const *light)
-{
-	return _object->SetLight(index, light);
-}
-
 //レンダーステートを設定します。
 HRESULT D3DDevice::SetRenderState(D3DRENDERSTATETYPE type,DWORD value)
 {
@@ -157,45 +69,10 @@ HRESULT D3DDevice::SetSamplerState(DWORD sampler,D3DSAMPLERSTATETYPE type,DWORD 
 	return _object->SetSamplerState(sampler, type, value);
 }
 
-HRESULT D3DDevice::SetMaterial(D3DMATERIAL9 const * material)
-{
-	return _object->SetMaterial(material);
-}
-
 //テクスチャステージを設定します。
 HRESULT D3DDevice::SetTextureStageState(DWORD stage, D3DTEXTURESTAGESTATETYPE type, DWORD value)
 {
 	return _object->SetTextureStageState(stage, type, value);
-}
-
-HRESULT D3DDevice::ClearVertexShader()
-{
-	return _object->SetVertexShader(nullptr);
-}
-
-HRESULT D3DDevice::ClearVertexDeclaration()
-{
-	return _object->SetVertexDeclaration(nullptr);
-}
-
-HRESULT D3DDevice::ClearPixelShader()
-{
-	return _object->SetPixelShader(nullptr);
-}
-
-HRESULT D3DDevice::SetVertexShader(std::shared_ptr<D3DVertexShader> const& shader)
-{
-	return _object->SetVertexShader(shader->GetPtr());
-}
-
-HRESULT D3DDevice::SetVertexDeclaration(std::shared_ptr<D3DVertexDeclaration> const & vertexDeclaration)
-{
-	return _object->SetVertexDeclaration(vertexDeclaration->GetPtr());
-}
-
-HRESULT D3DDevice::SetPixelShader(std::shared_ptr<D3DPixelShader> const & shader)
-{
-	return _object->SetPixelShader(shader->GetPtr());
 }
 
 //描画内容をクリアします。
