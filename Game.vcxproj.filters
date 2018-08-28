@@ -186,7 +186,37 @@
     <ClCompile Include="src\Game\TitleScene\TitleManager.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="src\Game\GameScene\GameScene.cpp">
+    <ClCompile Include="src\Game\GameScene\Scene\TutorialScene\TutorialScene.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Game\GameScene\Scene\TutorialScene\TutorialManager.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Game\GameScene\Scene\Stage1Scene\Stage1Scene.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Game\GameScene\Scene\StageManager.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Game\GameScene\Scene\Stage2Scene\Stage2Scene.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Game\GameScene\Scene\Stage3Scene\Stage3Scene.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Game\ResultScene\GameOverScene\GameOverScene.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Game\ResultScene\GameClearScene\GameClearScene.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Game\ResultScene\ResultManager.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Game\ResultScene\StageClearScene\StageClearScene.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Game\ResultScene\StageClearScene\StageClearManager.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
   </ItemGroup>
@@ -329,6 +359,16 @@
     <ClInclude Include="src\GameEngine\Sound\SoundManager.h" />
     <ClInclude Include="src\DXCT\dxct_XAudio2.h" />
     <ClInclude Include="src\Game\TitleScene\TitleManager.h" />
-    <ClInclude Include="src\Game\GameScene\GameScene.h" />
+    <ClInclude Include="src\Game\GameScene\Scene\TutorialScene\TutorialScene.h" />
+    <ClInclude Include="src\Game\GameScene\Scene\TutorialScene\TutorialManager.h" />
+    <ClInclude Include="src\Game\GameScene\Scene\Stage1Scene\Stage1Scene.h" />
+    <ClInclude Include="src\Game\GameScene\Scene\StageManager.h" />
+    <ClInclude Include="src\Game\GameScene\Scene\Stage2Scene\Stage2Scene.h" />
+    <ClInclude Include="src\Game\GameScene\Scene\Stage3Scene\Stage3Scene.h" />
+    <ClInclude Include="src\Game\ResultScene\GameOverScene\GameOverScene.h" />
+    <ClInclude Include="src\Game\ResultScene\GameClearScene\GameClearScene.h" />
+    <ClInclude Include="src\Game\ResultScene\ResultManager.h" />
+    <ClInclude Include="src\Game\ResultScene\StageClearScene\StageClearScene.h" />
+    <ClInclude Include="src\Game\ResultScene\StageClearScene\StageClearManager.h" />
   </ItemGroup>
 </Project>

@@ -1,25 +1,26 @@
 //
-//		ファイル名:GameScene.cpp
+//		ファイル名:Stage3Scene.cpp
 //
 
-#include "GameScene.h"
-#include "../../GameEngine/GameEngine.h"
-#include "../TitleScene/Pipeline/Echo.h"
+#include "Stage3Scene.h"
+#include "../../../../GameEngine/GameEngine.h"
+#include "../../../TitleScene/Pipeline/Echo.h"
+#include "../StageManager.h"
 
-namespace Game
+namespace Game { namespace GameScene {namespace Scene
 {
 
-	GameScene::GameScene()
+	Stage3Scene::Stage3Scene()
 	{
 
 	}
 
-	GameScene::~GameScene()
+	Stage3Scene::~Stage3Scene()
 	{
 		SAFE_DELETE(farre);
 	}
 
-	bool GameScene::Init()
+	bool Stage3Scene::Init()
 	{
 		GameEngine::Environment::Get()->AttachPipeline(new Pipeline::Echo());
 
@@ -31,12 +32,18 @@ namespace Game
 		object->GetTransform()->SetPosition(&D3DXVECTOR3(0.0f, 5.0f, 0.0f));
 		GameEngine::GameObject* object2 = GameEngine::GameObject::Instantiate();
 		auto transform = object2->GetTransform();
-		transform->SetPosition(&D3DXVECTOR3(0.0f, 0.0f, 0.0f));
+		transform->SetPosition(&D3DXVECTOR3(0.0f, 20.0f, 0.0f));
 		auto meshRenderer = new GameEngine::Behaviour::MeshRenderer();
 		meshRenderer->SetMesh(std::shared_ptr<GameEngine::Resource::Mesh::IMesh>(new GameEngine::Resource::Mesh::MeshD3DX(TEXT("./data/model/stage.x"))));
 		object2->AddBehaviour(meshRenderer);
+
+
+		GameEngine::GameObject* ManagerObject = GameEngine::GameObject::Instantiate();
+		auto stagemanager = new Game::GameScene::StageManager();
+		ManagerObject->AddBehaviour(stagemanager);
+		
 		return false;
 	}
-
-
+}
+}
 }

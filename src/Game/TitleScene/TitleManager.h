@@ -10,11 +10,20 @@
 
 namespace Game
 {
+	enum MODE{
+		MODE_TUTORIAL = 0,
+		MODE_STAGE1,
+		MODE_STAGE2,
+		MODE_STAGE3,
+
+		MODE_MAX
+	};
+
 	class TitleManager :public GameEngine::Behaviour::Behaviour
 	{
 
 	private:
-		
+		int _mode;
 	public:
 		TitleManager();
 		~TitleManager();
