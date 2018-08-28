@@ -6,6 +6,13 @@
 #include "main.h"
 #include "../GameEngine/GameEngine.h"
 #include "TitleScene/TitleScene.h"
+#include "GameScene/Scene/TutorialScene/TutorialScene.h"
+#include "GameScene/Scene/Stage1Scene/Stage1Scene.h"
+#include "GameScene/Scene/Stage2Scene/Stage2Scene.h"
+#include "GameScene/Scene/Stage3Scene/Stage3Scene.h"
+#include "ResultScene/StageClearScene/StageClearScene.h"
+#include "ResultScene/GameClearScene/GameClearScene.h"
+#include "ResultScene/GameOverScene/GameOverScene.h"
 
 // プロトタイプ宣言
 int Run(); //プログラムの実行
@@ -56,5 +63,13 @@ int Run()
 
 void RegisterScenes()
 {
+
 	GameEngine::Scene::SceneManager::RegisterScene(new Game::TitleScene());
+	GameEngine::Scene::SceneManager::RegisterScene(new Game::GameScene::Scene::TutorialScene);
+	GameEngine::Scene::SceneManager::RegisterScene(new Game::GameScene::Scene::Stage1Scene);
+	GameEngine::Scene::SceneManager::RegisterScene(new Game::GameScene::Scene::Stage2Scene);
+	GameEngine::Scene::SceneManager::RegisterScene(new Game::GameScene::Scene::Stage3Scene);
+	GameEngine::Scene::SceneManager::RegisterScene(new Game::ResultScene::StageClearScene());
+	GameEngine::Scene::SceneManager::RegisterScene(new Game::ResultScene::GameClearScene());
+	GameEngine::Scene::SceneManager::RegisterScene(new Game::ResultScene::GameOverScene());
 }

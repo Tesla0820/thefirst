@@ -61,8 +61,19 @@
     <ClCompile Include="src\GameEngine\Sound\SoundManager.cpp" />
     <ClCompile Include="src\GameEngine\Time\FPSCounter.cpp" />
     <ClCompile Include="src\GameEngine\Time\StopWatch.cpp" />
-    <ClCompile Include="src\Game\GameScene\player.cpp" />
+    <ClCompile Include="src\Game\ResultScene\GameClearScene\GameClearScene.cpp" />
+    <ClCompile Include="src\Game\ResultScene\GameOverScene\GameOverScene.cpp" />
+    <ClCompile Include="src\Game\GameScene\Scene\Stage1Scene\Stage1Scene.cpp" />
+    <ClCompile Include="src\Game\GameScene\Scene\Stage2Scene\Stage2Scene.cpp" />
+    <ClCompile Include="src\Game\GameScene\Scene\Stage3Scene\Stage3Scene.cpp" />
+    <ClCompile Include="src\Game\GameScene\Scene\StageManager.cpp" />
+    <ClCompile Include="src\Game\GameScene\Scene\TutorialScene\TutorialManager.cpp" />
+    <ClCompile Include="src\Game\GameScene\Scene\TutorialScene\TutorialScene.cpp" />
     <ClCompile Include="src\Game\main.cpp" />
+    <ClCompile Include="src\Game\ResultScene\ResultManager.cpp" />
+    <ClCompile Include="src\Game\ResultScene\StageClearScene\StageClearManager.cpp" />
+    <ClCompile Include="src\Game\ResultScene\StageClearScene\StageClearScene.cpp" />
+    <ClCompile Include="src\Game\GameScene\player.cpp" />
     <ClCompile Include="src\Game\TitleScene\Behavior\Bell.cpp" />
     <ClCompile Include="src\Game\TitleScene\Behavior\Douzou.cpp" />
     <ClCompile Include="src\Game\TitleScene\Behavior\Hashira.cpp" />
@@ -71,6 +82,7 @@
     <ClCompile Include="src\Game\TitleScene\Behavior\Toge_move.cpp" />
     <ClCompile Include="src\Game\TitleScene\Behavior\Yoroi.cpp" />
     <ClCompile Include="src\Game\TitleScene\Pipeline\Echo.cpp" />
+    <ClCompile Include="src\Game\TitleScene\TitleManager.cpp" />
     <ClCompile Include="src\Game\TitleScene\TitleScene.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -166,8 +178,19 @@
     <ClInclude Include="src\GameEngine\Time\FPSCounter.h" />
     <ClInclude Include="src\GameEngine\Time\stopwatch.h" />
     <ClInclude Include="src\GameEngine\Vertex.h" />
-    <ClInclude Include="src\Game\GameScene\player.h" />
+    <ClInclude Include="src\Game\ResultScene\GameClearScene\GameClearScene.h" />
+    <ClInclude Include="src\Game\ResultScene\GameOverScene\GameOverScene.h" />
+    <ClInclude Include="src\Game\GameScene\Scene\Stage1Scene\Stage1Scene.h" />
+    <ClInclude Include="src\Game\GameScene\Scene\Stage2Scene\Stage2Scene.h" />
+    <ClInclude Include="src\Game\GameScene\Scene\Stage3Scene\Stage3Scene.h" />
+    <ClInclude Include="src\Game\GameScene\Scene\StageManager.h" />
+    <ClInclude Include="src\Game\GameScene\Scene\TutorialScene\TutorialManager.h" />
+    <ClInclude Include="src\Game\GameScene\Scene\TutorialScene\TutorialScene.h" />
     <ClInclude Include="src\Game\main.h" />
+    <ClInclude Include="src\Game\ResultScene\ResultManager.h" />
+    <ClInclude Include="src\Game\ResultScene\StageClearScene\StageClearManager.h" />
+    <ClInclude Include="src\Game\ResultScene\StageClearScene\StageClearScene.h" />
+    <ClInclude Include="src\Game\GameScene\player.h" />
     <ClInclude Include="src\Game\TitleScene\Behavior\Bell.h" />
     <ClInclude Include="src\Game\TitleScene\Behavior\Douzou.h" />
     <ClInclude Include="src\Game\TitleScene\Behavior\Gimmick.h" />
@@ -177,6 +200,7 @@
     <ClInclude Include="src\Game\TitleScene\Behavior\Toge_move.h" />
     <ClInclude Include="src\Game\TitleScene\Behavior\Yoroi.h" />
     <ClInclude Include="src\Game\TitleScene\Pipeline\Echo.h" />
+    <ClInclude Include="src\Game\TitleScene\TitleManager.h" />
     <ClInclude Include="src\Game\TitleScene\TitleScene.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
