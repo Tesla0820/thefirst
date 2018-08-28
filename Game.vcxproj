@@ -44,6 +44,7 @@
     <ClCompile Include="src\GameEngine\Behaviour\Collider\SphereCollider.cpp" />
     <ClCompile Include="src\GameEngine\Behaviour\Renderer\MeshRenderer.cpp" />
     <ClCompile Include="src\GameEngine\Behaviour\Renderer\RendererBase.cpp" />
+    <ClCompile Include="src\GameEngine\Behaviour\Renderer\UIRenderer.cpp" />
     <ClCompile Include="src\GameEngine\Behaviour\Transform.cpp" />
     <ClCompile Include="src\GameEngine\Binder\BehaviourBinder.cpp" />
     <ClCompile Include="src\GameEngine\Environment.cpp" />
@@ -56,6 +57,8 @@
     <ClCompile Include="src\GameEngine\Pipeline\DefaultPipeline.cpp" />
     <ClCompile Include="src\GameEngine\Pipeline\IModefier.h" />
     <ClCompile Include="src\GameEngine\Resource\Mesh\MeshD3DX.cpp" />
+    <ClCompile Include="src\GameEngine\Resource\ResourceManager.cpp" />
+    <ClCompile Include="src\GameEngine\Resource\Texture.cpp" />
     <ClCompile Include="src\GameEngine\Scene\SceneManager.cpp" />
     <ClCompile Include="src\GameEngine\Sound\Sound.cpp" />
     <ClCompile Include="src\GameEngine\Sound\SoundManager.cpp" />
@@ -138,6 +141,7 @@
       <SubType>
       </SubType>
     </ClInclude>
+    <ClInclude Include="src\GameEngine\Behaviour\Renderer\UIRenderer.h" />
     <ClInclude Include="src\GameEngine\Behaviour\Transform.h" />
     <ClInclude Include="src\GameEngine\Binder\BehaviourBinder.h" />
     <ClInclude Include="src\GameEngine\GameEngine.h" />
@@ -160,8 +164,12 @@
     <ClInclude Include="src\GameEngine\IRenderer.h" />
     <ClInclude Include="src\GameEngine\MainWindow.h" />
     <ClInclude Include="src\GameEngine\Pipeline\DefaultPipeline.h" />
+    <ClInclude Include="src\GameEngine\Resource\IResource.h" />
+    <ClInclude Include="src\GameEngine\Resource\IResourceBase.h" />
     <ClInclude Include="src\GameEngine\Resource\Mesh\IMesh.h" />
     <ClInclude Include="src\GameEngine\Resource\Mesh\MeshD3DX.h" />
+    <ClInclude Include="src\GameEngine\Resource\ResourceManager.h" />
+    <ClInclude Include="src\GameEngine\Resource\Texture.h" />
     <ClInclude Include="src\GameEngine\Scene\SceneBase.h" />
     <ClInclude Include="src\GameEngine\Scene\SceneManager.h">
       <SubType>

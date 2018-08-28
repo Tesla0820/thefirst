@@ -1,19 +1,18 @@
 //
-//		Æ’tÆ’@Æ’CÆ’â€¹â€“Â¼:TitleScene.cpp
+//		ƒtƒ@ƒCƒ‹–¼:TitleScene.cpp
 //
 
-#include "../../GameEngine/GameEngine.h"
 #include "TitleScene.h"
+#include "../../GameEngine/GameEngine.h"
 #include "Pipeline/Echo.h"
 #include "TitleManager.h"
-#include "Behavior/Gimmick.h"
-#include "../GameScene/player.h"
 
 namespace Game
 {
 
 TitleScene::TitleScene()
 {
+
 }
 
 TitleScene::~TitleScene()
@@ -23,6 +22,8 @@ TitleScene::~TitleScene()
 
 bool TitleScene::Init()
 {
+	using Texture = GameEngine::Resource::Texture;
+	using ResourceManager	= GameEngine::Resource::ResourceManager;
 	GameEngine::GameObject* object = GameEngine::GameObject::Instantiate();
 	auto titlemanager = new Game::TitleManager();
 	object->AddBehaviour(titlemanager);
@@ -30,7 +31,9 @@ bool TitleScene::Init()
 
 	GameEngine::GameObject* BackgroundObject = GameEngine::GameObject::Instantiate();
 	BackgroundObject->GetTransform()->SetPosition(&D3DXVECTOR3(0.0f, 0.0f, 0.0f));
-
+	BackgroundObject->GetTransform()->SetScale(&D3DXVECTOR3(50.0f, 50.0f, 50.0f));
+	auto backGroundRenderer = new GameEngine::Behaviour::UIRenderer(GameEngine::Resource::ResourceManager::Get<Texture>("./data/texture/test.png"));
+	BackgroundObject->AddBehaviour(backGroundRenderer);
 
 	GameEngine::GameObject* TitleObject = GameEngine::GameObject::Instantiate();
 	TitleObject->GetTransform()->SetPosition(&D3DXVECTOR3(0.0f, 0.0f, 0.0f));
@@ -41,5 +44,6 @@ bool TitleScene::Init()
 
 	return false;
 }
+
 
 }

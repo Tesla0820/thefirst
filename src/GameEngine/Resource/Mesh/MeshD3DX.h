@@ -15,7 +15,7 @@ namespace GameEngine { namespace Resource { namespace Mesh
 class MeshD3DX :public IMesh
 {
 	private:
-		D3DMATERIAL9* materials;
+		std::unique_ptr<D3DMATERIAL9[]> materials;
 		
 		DWORD NumMaterials;
 		ID3DXMesh* Mesh;

@@ -6,6 +6,7 @@
 #include "Behaviour/Camera.h"
 #include "Input.h"
 #include "Sound/SoundManager.h"
+#include "Resource/ResourceManager.h"
 
 namespace GameEngine
 {
@@ -80,11 +81,17 @@ Environment::Environment():
 	//サウンドマネージャの構築
 	Sound::SoundManager::Create();
 
+	//リソースマネージャの構築
+	Resource::ResourceManager::Create();
+
 	//FPSカウンター開始
 	_counter.Start();
 }
 Environment::~Environment()
 {
+	//リソースマネージャの解放
+	Resource::ResourceManager::Release();
+
 	//サウンドマネージャの解放
 	Sound::SoundManager::Release();
 
