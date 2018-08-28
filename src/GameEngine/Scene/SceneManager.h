@@ -12,27 +12,21 @@
 #include "SceneBase.h"
 #include "../GameObject.h"
 
-namespace GameEngine {
-	namespace Scene
+namespace GameEngine { namespace Scene 
+{
+	//シーン情報を管理します。ユーザー側でこのクラスの一部の静的メソッドを呼び出さないでください。
+	class SceneManager
 	{
-		//シーン情報を管理します。ユーザー側でこのクラスの一部の静的メソッドを呼び出さないでください。
-		class SceneManager
-		{
 		private:
-			SceneManager();
-			~SceneManager();
-			static void NextScene();
-			static void ClearObjects();
-			static void InitializeUnStartedBehaviours();
-			static bool SceneChanged();
-
 			std::vector <std::unique_ptr<GameEngine::SceneBase>> _scenes;
 			std::vector<GameEngine::GameObject*> _objects;
 			std::list<GameEngine::Behaviour::Behaviour*> _unstartedBehaviours;
 			int _index;
-			int _oldIndex;
+			SceneManager();
+			~SceneManager();
 
 			static SceneManager* _manager;
+			static void ClearObjects();
 		public:
 			static void AddObject(GameObject *object);
 			static void RemoveObject(GameObject * object);
@@ -42,11 +36,11 @@ namespace GameEngine {
 			static void LoadScene(int index);
 			static void Update();
 			static void Draw();
-
+			
 			static void Create();
 			static void Release();
 
-		};
-	}
+	};
+}
 }
 #endif

@@ -4,9 +4,6 @@
 
 #include "Environment.h"
 #include "Behaviour/Camera.h"
-#include "Input.h"
-#include "Sound/SoundManager.h"
-
 namespace GameEngine
 {
 
@@ -17,8 +14,7 @@ static Environment* _instance;
 constexpr int ScreenWidth = 800;
 constexpr int ScreenHeight = 600;
 
-Environment::Environment():
-	_window(ScreenWidth + GetSystemMetrics(SM_CYCAPTION) + GetSystemMetrics(SM_CYBORDER),ScreenHeight + GetSystemMetrics(SM_CXBORDER)*2)
+Environment::Environment():_window(ScreenWidth + GetSystemMetrics(SM_CYCAPTION) + GetSystemMetrics(SM_CYBORDER),ScreenHeight + GetSystemMetrics(SM_CXBORDER)*2)
 {
 	D3DDEVTYPE devTypes[] =
 	{
@@ -67,41 +63,45 @@ Environment::Environment():
 		throw std::runtime_error("can't construct a device.");
 	}
 
-	AttachPipeline(new Pipeline::DefaultPipeline());
+	// レンダーステートパラメータの設定
+	_device->SetRenderState(D3DRS_CULLMODE, D3DCULL_NONE);				// カリングしない
+	_device->SetRenderState(D3DRS_ZENABLE, FALSE);						// Zバッファを使用しない
+	_device->SetRenderState(D3DRS_ALPHABLENDENABLE, TRUE);				// αブレンドを行う
+	_device->SetRenderState(D3DRS_SRCBLEND, D3DBLEND_SRCALPHA);			// αソースカラーの指定
+	_device->SetRenderState(D3DRS_DESTBLEND, D3DBLEND_INVSRCALPHA);		// αデスティネーションカラーの指定
+	
+	// サンプラーステートパラメータの設定
+	_device->SetSamplerState(0, D3DSAMP_ADDRESSU, D3DTADDRESS_WRAP);		// テクスチャアドレッシング方法(U値)を設定
+	_device->SetSamplerState(0, D3DSAMP_ADDRESSV, D3DTADDRESS_WRAP);		// テクスチャアドレッシング方法(V値)を設定
+	_device->SetSamplerState(0, D3DSAMP_MINFILTER, D3DTEXF_POINT);		// テクスチャ縮小フィルタモードを設定
+	_device->SetSamplerState(0, D3DSAMP_MAGFILTER, D3DTEXF_POINT);		// テクスチャ拡大フィルタモードを設定
+	
+	// テクスチャステージステートの設定
+	_device->SetTextureStageState(0, D3DTSS_ALPHAOP, D3DTOP_MODULATE);	// アルファブレンディング処理
+	_device->SetTextureStageState(0, D3DTSS_ALPHAARG1, D3DTA_TEXTURE);	// 最初のアルファ引数
+	_device->SetTextureStageState(0, D3DTSS_ALPHAARG2, D3DTA_CURRENT);	// ２番目のアルファ引数
+
+	//ライティングの設定
+	_device->SetRenderState(D3DRS_LIGHTING, FALSE);
+
 	_currentScene = -1;
 	_newScene = 0;
 	_backColor = D3DCOLOR_ARGB(255, 0, 0, 64);
 	//シーンマネージャの構築
 	SceneManager::Create();
-
-	//入力マネージャの構築
-    Input::Create(_window.GetHandle());
-
-	//サウンドマネージャの構築
-	Sound::SoundManager::Create();
-
-	//FPSカウンター開始
 	_counter.Start();
 }
 Environment::~Environment()
 {
-	//サウンドマネージャの解放
-	Sound::SoundManager::Release();
-
-    //入力マネージャの解放
-    Input::End();
-
 	//シーンマネージャの解放
 	SceneManager::Release();
 	_device.reset();
 	_factory.reset();
 }
 
-
-
 void Environment::Create()
 {
-	_instance = new Environment();
+	_instance=new Environment();
 }
 
 Environment* Environment::Get()
@@ -163,31 +163,6 @@ WPARAM Environment::Run()
 	return msg.wParam;
 }
 
-void Environment::AttachPipeline(Pipeline::IModefier * modefier)
-{
-	if (_pipeline)
-	{
-		_pipeline->OnDetach(_device);
-	}
-	_pipeline.reset(modefier);
-
-	if (_pipeline)
-	{
-		_pipeline->OnAttach(_device);
-	}
-
-}
-
-void Environment::OnBeforeRenderer(D3DXMATRIX const & world)
-{
-	if (_pipeline)_pipeline->BeforeRenderer(_device,world);
-}
-
-void Environment::OnSetCamera(D3DXMATRIX const & view, D3DXMATRIX const & projection)
-{
-	if (_pipeline)_pipeline->OnSetCamera(_device, view, projection);
-}
-
 void Environment::UpdateFrame()
 {
 	Update();
@@ -198,16 +173,6 @@ void Environment::Update()
 {
 
 	SceneManager::Update();
-    Input::Update();
-    if (Input::GetKey(DIK_LEFTARROW, HOLD) || Input::GetMouseButton(DIMOFS_BUTTON0, HOLD))
-    {
-        _backColor = D3DCOLOR_ARGB(255, 255, 255, 255);
-    }
-    else
-    {
-        _backColor = D3DCOLOR_ARGB(255, 0, 0, 64);
-    }
-
 }
 
 void Environment::Draw()
@@ -216,14 +181,13 @@ void Environment::Draw()
 	_device->Clear(0, NULL,
 		(D3DCLEAR_TARGET | D3DCLEAR_ZBUFFER | D3DCLEAR_STENCIL), _backColor, 1.0f, 0);
 	// Direct3Dによる描画の開始
-	if (_pipeline)_pipeline->BeforeScene(_device);
 	if (SUCCEEDED(_device->BeginScene()))
 	{
 		SceneManager::Draw();
 		// Direct3Dによる描画の終了
 		_device->EndScene();
 	}
-	if (_pipeline)_pipeline->AfterScene(_device);
+
 	// バックバッファとフロントバッファの入れ替え
 	_device->Present(NULL, NULL, NULL, NULL);
 }

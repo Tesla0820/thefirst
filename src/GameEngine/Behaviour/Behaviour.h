@@ -17,26 +17,13 @@ class Behaviour
 	friend void GameEngine::Binder::BindBehaviourToGameObject(GameEngine::GameObject* object,GameEngine::Behaviour::Behaviour* beaviour);
 
 	private:
-		void OnEnabled();
-		void OnDisabled();
-		
-		GameObject* _attached;
-		bool _isDestroyed;
+		GameEngine::GameObject* _attached;
 		bool _isStarted;
-		bool _enable;
 	protected:
 		Behaviour();
-	
 	public:
-		void Attach(GameEngine::GameObject* target);
-		GameObject* GetAttachedObject();
-		void SetBehaviourEnable(bool enable);
-		bool GetBehaviourEnable();
-		bool GetEnable();
-		void Initialize();
-		void Destroy();
-		virtual void Enabled();
-		virtual void Disabled();
+		void SetAttachedObject(GameEngine::GameObject* target);
+		GameEngine::GameObject* GetAttachedObject();
 		virtual void Start();
 		virtual void Update();
 		virtual void BeforeDraw(D3DXMATRIX const& matrix);
