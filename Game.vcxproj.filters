@@ -219,6 +219,15 @@
     <ClCompile Include="src\Game\ResultScene\StageClearScene\StageClearManager.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
+    <ClCompile Include="src\GameEngine\Resource\Texture.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GameEngine\Behaviour\Renderer\UIRenderer.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GameEngine\Resource\ResourceManager.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\DXCT\Window.h">
@@ -370,5 +379,10 @@
     <ClInclude Include="src\Game\ResultScene\ResultManager.h" />
     <ClInclude Include="src\Game\ResultScene\StageClearScene\StageClearScene.h" />
     <ClInclude Include="src\Game\ResultScene\StageClearScene\StageClearManager.h" />
+    <ClInclude Include="src\GameEngine\Resource\ResourceManager.h" />
+    <ClInclude Include="src\GameEngine\Resource\IResource.h" />
+    <ClInclude Include="src\GameEngine\Resource\IResourceBase.h" />
+    <ClInclude Include="src\GameEngine\Resource\Texture.h" />
+    <ClInclude Include="src\GameEngine\Behaviour\Renderer\UIRenderer.h" />
   </ItemGroup>
 </Project>

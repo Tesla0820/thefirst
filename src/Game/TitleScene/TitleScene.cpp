@@ -22,6 +22,8 @@ TitleScene::~TitleScene()
 
 bool TitleScene::Init()
 {
+	using Texture = GameEngine::Resource::Texture;
+	using ResourceManager	= GameEngine::Resource::ResourceManager;
 	GameEngine::GameObject* object = GameEngine::GameObject::Instantiate();
 	auto titlemanager = new Game::TitleManager();
 	object->AddBehaviour(titlemanager);
@@ -29,7 +31,9 @@ bool TitleScene::Init()
 
 	GameEngine::GameObject* BackgroundObject = GameEngine::GameObject::Instantiate();
 	BackgroundObject->GetTransform()->SetPosition(&D3DXVECTOR3(0.0f, 0.0f, 0.0f));
-
+	BackgroundObject->GetTransform()->SetScale(&D3DXVECTOR3(50.0f, 50.0f, 50.0f));
+	auto backGroundRenderer = new GameEngine::Behaviour::UIRenderer(GameEngine::Resource::ResourceManager::Get<Texture>("./data/texture/test.png"));
+	BackgroundObject->AddBehaviour(backGroundRenderer);
 
 	GameEngine::GameObject* TitleObject = GameEngine::GameObject::Instantiate();
 	TitleObject->GetTransform()->SetPosition(&D3DXVECTOR3(0.0f, 0.0f, 0.0f));

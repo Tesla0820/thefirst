@@ -19,10 +19,13 @@
 //Behaviour/Renderer
 #include "Behaviour/Renderer/RendererBase.h"
 #include "Behaviour/Renderer/MeshRenderer.h"
+#include "Behaviour/Renderer/UIRenderer.h"
 
 //Resource
+#include "Resource//ResourceManager.h"
 #include "Resource/Mesh/IMesh.h"
 #include "Resource/Mesh/MeshD3DX.h"
+#include "Resource/Texture.h"
 
 //Sound
 #include "Sound/Sound.h"

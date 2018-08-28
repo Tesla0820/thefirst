@@ -6,7 +6,7 @@
 #include "Behaviour/Camera.h"
 #include "Input.h"
 #include "Sound/SoundManager.h"
-
+#include "Resource/ResourceManager.h"
 namespace GameEngine
 {
 
@@ -80,11 +80,18 @@ Environment::Environment():
 	//サウンドマネージャの構築
 	Sound::SoundManager::Create();
 
+	//リソースマネージャの構築
+	Resource::ResourceManager::Create();
+
 	//FPSカウンター開始
 	_counter.Start();
+
 }
 Environment::~Environment()
 {
+	//リソースマネージャの構築
+	Resource::ResourceManager::Release();
+
 	//サウンドマネージャの解放
 	Sound::SoundManager::Release();
 
@@ -196,18 +203,8 @@ void Environment::UpdateFrame()
 
 void Environment::Update()
 {
-
 	SceneManager::Update();
     Input::Update();
-    if (Input::GetKey(DIK_LEFTARROW, HOLD) || Input::GetMouseButton(DIMOFS_BUTTON0, HOLD))
-    {
-        _backColor = D3DCOLOR_ARGB(255, 255, 255, 255);
-    }
-    else
-    {
-        _backColor = D3DCOLOR_ARGB(255, 0, 0, 64);
-    }
-
 }
 
 void Environment::Draw()

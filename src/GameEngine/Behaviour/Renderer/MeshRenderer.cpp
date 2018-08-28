@@ -9,6 +9,7 @@
 
 namespace GameEngine { namespace Behaviour
 {
+
 void MeshRenderer::SetMesh(std::shared_ptr<Resource::Mesh::IMesh> mesh)
 {
 	_mesh = mesh;

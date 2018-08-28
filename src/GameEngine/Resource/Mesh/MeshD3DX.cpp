@@ -24,7 +24,7 @@ MeshD3DX::MeshD3DX(LPCTSTR pFilename)
 		Mesh = temp;
 	}
 
-	materials = new D3DMATERIAL9[NumMaterials];
+	materials.reset( new D3DMATERIAL9[NumMaterials]);
 	D3DXMATERIAL* d3dxMaterials = (D3DXMATERIAL*)Materials->GetBufferPointer();
 
 	for (int i = 0; i < NumMaterials; i++)
@@ -41,7 +41,7 @@ MeshD3DX::MeshD3DX(LPCTSTR pFilename)
 MeshD3DX::~MeshD3DX()
 {
 	SAFE_RELEASE(Mesh);
-	SAFE_DELETE_ARRAY(materials);
+	materials.reset();
 }
 
 void MeshD3DX::Setup()
