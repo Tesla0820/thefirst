@@ -120,11 +120,7 @@ void Keyboard::Update(void)
 /////////////////////////////////////////////
 bool Keyboard::GetHold(DWORD button)
 {
-    if (button >= _countof(_current))
-    {
-        return false;
-    }
-    return (_current[button] & 0x80) != 0;
+    return (_current[button & 0xff] & 0x80) != 0;
 }
 
 /////////////////////////////////////////////
@@ -138,11 +134,7 @@ bool Keyboard::GetHold(DWORD button)
 /////////////////////////////////////////////
 bool Keyboard::GetTrigger(DWORD button)
 {
-    if (button >= _countof(_trigger))
-    {
-        return false;
-    }
-    return (_trigger[button] & 0x80) != 0;
+    return (_trigger[button & 0xff] & 0x80) != 0;
 }
 
 /////////////////////////////////////////////
@@ -156,11 +148,7 @@ bool Keyboard::GetTrigger(DWORD button)
 /////////////////////////////////////////////
 bool Keyboard::GetRelease(DWORD button)
 {
-    if (button >= _countof(_release))
-    {
-        return false;
-    }
-    return (_release[button] & 0x80) != 0;
+    return (_release[button & 0xff] & 0x80) != 0;
 }
 
 }}

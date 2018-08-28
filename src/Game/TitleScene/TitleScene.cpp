@@ -1,18 +1,19 @@
 //
-//		ƒtƒ@ƒCƒ‹–¼:TitleScene.cpp
+//		Æ’tÆ’@Æ’CÆ’â€¹â€“Â¼:TitleScene.cpp
 //
 
-#include "TitleScene.h"
 #include "../../GameEngine/GameEngine.h"
+#include "TitleScene.h"
 #include "Pipeline/Echo.h"
 #include "TitleManager.h"
+#include "Behavior/Gimmick.h"
+#include "../GameScene/player.h"
 
 namespace Game
 {
 
 TitleScene::TitleScene()
 {
-
 }
 
 TitleScene::~TitleScene()
@@ -40,6 +41,5 @@ bool TitleScene::Init()
 
 	return false;
 }
-
 
 }

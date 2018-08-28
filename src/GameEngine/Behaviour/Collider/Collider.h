@@ -14,17 +14,22 @@ namespace GameEngine { namespace Behaviour
 class Collider : public Behaviour
 {
 private:
-	GameObject* _object;//適用されているオブジェクトへのポインタ
-
+	bool _isTrigger;
+	bool _isFreeze;
 protected:
 	static std::vector<Collider*> _colliders;// 現在有効な全ての判定の配列
 	static void AddActiveCollider(Collider* collider); // 有効な判定配列に追加する
 	static void RemoveActiveCollider(Collider* collider);// 有効な判定配列から削除する
+	virtual void Hit(Collider* collider) = 0;
 public:
 	Collider();
 	virtual void Enabled() override;
 	virtual void Disabled() override;
-	virtual void Hit() = 0; // 判定します。純粋仮想関数です。
+	void EnableTrigger(bool enable);
+	void EnableFreeze(bool enable);
+	bool IsTrigger();
+	bool IsFreeze();
+	void HitAll(); // 各Colliderと接触しているか判定します。
 
 };
 
