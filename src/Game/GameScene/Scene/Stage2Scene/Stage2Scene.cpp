@@ -36,11 +36,6 @@ namespace Game { namespace GameScene { namespace Scene
 		auto meshRenderer = new GameEngine::Behaviour::MeshRenderer();
 		meshRenderer->SetMesh(std::shared_ptr<GameEngine::Resource::Mesh::IMesh>(new GameEngine::Resource::Mesh::MeshD3DX(TEXT("./data/model/stage.x"))));
 		object2->AddBehaviour(meshRenderer);
-
-
-		GameEngine::GameObject* ManagerObject = GameEngine::GameObject::Instantiate();
-		auto stagemanager = new Game::GameScene::StageManager();
-		ManagerObject->AddBehaviour(stagemanager);
 		
 		return false;
 	}
