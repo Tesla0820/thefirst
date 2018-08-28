@@ -19,41 +19,112 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\DXCT\D3DX\D3DXAllocateHierarchy.cpp" />
+    <ClCompile Include="src\DXCT\D3DX\D3DXConstantTable.cpp" />
     <ClCompile Include="src\DXCT\D3D\D3DDevice.cpp" />
     <ClCompile Include="src\DXCT\D3D\D3DFactory.cpp" />
     <ClCompile Include="src\DXCT\D3D\D3DModel.cpp" />
+    <ClCompile Include="src\DXCT\D3D\D3DPixelShader.cpp" />
     <ClCompile Include="src\DXCT\D3D\D3DSurface.cpp" />
     <ClCompile Include="src\DXCT\D3D\D3DTexture.cpp" />
     <ClCompile Include="src\DXCT\D3D\D3DVertexBuffer.cpp" />
-    <ClCompile Include="src\DXCT\D3D\D3DXAllocateHierarchy.cpp" />
+    <ClCompile Include="src\DXCT\DInput\DInputDevice.cpp" />
+    <ClCompile Include="src\DXCT\DInput\DInputFactory.cpp" />
+    <ClCompile Include="src\DXCT\D3D\D3DVertexDeclaration.cpp" />
+    <ClCompile Include="src\DXCT\D3D\D3DVertexShader.cpp" />
     <ClCompile Include="src\DXCT\DXCTException.cpp" />
     <ClCompile Include="src\DXCT\Window.cpp" />
+    <ClCompile Include="src\DXCT\XAudio2\XAudio2Factory.cpp" />
+    <ClCompile Include="src\DXCT\XAudio2\XAudio2MasteringVoice.cpp" />
+    <ClCompile Include="src\DXCT\XAudio2\XAudio2SourceVoice.cpp" />
     <ClCompile Include="src\GameEngine\Behaviour\Behaviour.cpp" />
     <ClCompile Include="src\GameEngine\Behaviour\Camera.cpp" />
+    <ClCompile Include="src\GameEngine\Behaviour\Collider\BoxCollider.cpp" />
+    <ClCompile Include="src\GameEngine\Behaviour\Collider\Collider.cpp" />
+    <ClCompile Include="src\GameEngine\Behaviour\Collider\SphereCollider.cpp" />
     <ClCompile Include="src\GameEngine\Behaviour\Renderer\MeshRenderer.cpp" />
     <ClCompile Include="src\GameEngine\Behaviour\Renderer\RendererBase.cpp" />
     <ClCompile Include="src\GameEngine\Behaviour\Transform.cpp" />
     <ClCompile Include="src\GameEngine\Binder\BehaviourBinder.cpp" />
     <ClCompile Include="src\GameEngine\Environment.cpp" />
     <ClCompile Include="src\GameEngine\GameObject.cpp" />
+    <ClCompile Include="src\GameEngine\Input.cpp" />
+    <ClCompile Include="src\GameEngine\InputManager\Joypad.cpp" />
+    <ClCompile Include="src\GameEngine\InputManager\Keyboard.cpp" />
+    <ClCompile Include="src\GameEngine\InputManager\Mouse.cpp" />
     <ClCompile Include="src\GameEngine\MainWindow.cpp" />
+    <ClCompile Include="src\GameEngine\Pipeline\DefaultPipeline.cpp" />
+    <ClCompile Include="src\GameEngine\Pipeline\IModefier.h" />
+    <ClCompile Include="src\GameEngine\Resource\Mesh\MeshD3DX.cpp" />
     <ClCompile Include="src\GameEngine\Scene\SceneManager.cpp" />
+    <ClCompile Include="src\GameEngine\Sound\Sound.cpp" />
+    <ClCompile Include="src\GameEngine\Sound\SoundManager.cpp" />
     <ClCompile Include="src\GameEngine\Time\FPSCounter.cpp" />
     <ClCompile Include="src\GameEngine\Time\StopWatch.cpp" />
+    <ClCompile Include="src\Game\ResultScene\GameClearScene\GameClearScene.cpp" />
+    <ClCompile Include="src\Game\ResultScene\GameOverScene\GameOverScene.cpp" />
+    <ClCompile Include="src\Game\GameScene\Scene\Stage1Scene\Stage1Scene.cpp" />
+    <ClCompile Include="src\Game\GameScene\Scene\Stage2Scene\Stage2Scene.cpp" />
+    <ClCompile Include="src\Game\GameScene\Scene\Stage3Scene\Stage3Scene.cpp" />
+    <ClCompile Include="src\Game\GameScene\Scene\StageManager.cpp" />
+    <ClCompile Include="src\Game\GameScene\Scene\TutorialScene\TutorialManager.cpp" />
+    <ClCompile Include="src\Game\GameScene\Scene\TutorialScene\TutorialScene.cpp" />
     <ClCompile Include="src\Game\main.cpp" />
+    <ClCompile Include="src\Game\ResultScene\ResultManager.cpp" />
+    <ClCompile Include="src\Game\ResultScene\StageClearScene\StageClearManager.cpp" />
+    <ClCompile Include="src\Game\ResultScene\StageClearScene\StageClearScene.cpp" />
+    <ClCompile Include="src\Game\TitleScene\Pipeline\Echo.cpp" />
+    <ClCompile Include="src\Game\TitleScene\TitleManager.cpp" />
     <ClCompile Include="src\Game\TitleScene\TitleScene.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\DXCT\D3DX\D3DXAllocateHierarchy.h" />
+    <ClInclude Include="src\DXCT\D3DX\D3DXConstantTable.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="src\DXCT\D3D\D3DPixelShader.h" />
     <ClInclude Include="src\DXCT\D3D\D3DSurface.h" />
     <ClInclude Include="src\DXCT\D3D\D3DVertexBuffer.h" />
-    <ClInclude Include="src\DXCT\D3D\D3DXAllocateHierarchy.h">
+    <ClInclude Include="src\DXCT\D3D\D3DVertexDeclaration.h">
       <SubType>
       </SubType>
     </ClInclude>
     <ClInclude Include="src\DXCT\D3D\IRecoverable.h" />
+    <ClInclude Include="src\DXCT\DInput\DInputDevice.h" />
+    <ClInclude Include="src\DXCT\DInput\DInputFactory.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="src\DXCT\dxct_DInput.h" />
+    <ClInclude Include="src\DXCT\D3D\D3DVertexShader.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="src\DXCT\dxct_XAudio2.h" />
+    <ClInclude Include="src\DXCT\DXObjectRelease.h" />
     <ClInclude Include="src\DXCT\IReleasable.h" />
+    <ClInclude Include="src\DXCT\XAudio2\XAudio2MasteringVoice.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="src\DXCT\XAudio2\XAudio2Factory.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="src\DXCT\XAudio2\XAudio2SourceVoice.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="src\DXCT\XAudio2\XAudio2VoiceRelease.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
     <ClInclude Include="src\GameEngine\Behaviour\Behaviour.h" />
     <ClInclude Include="src\GameEngine\Behaviour\Camera.h" />
+    <ClInclude Include="src\GameEngine\Behaviour\Collider\BoxCollider.h" />
+    <ClInclude Include="src\GameEngine\Behaviour\Collider\Collider.h" />
+    <ClInclude Include="src\GameEngine\Behaviour\Collider\SphereCollider.h" />
     <ClInclude Include="src\GameEngine\Behaviour\Renderer\MeshRenderer.h" />
     <ClInclude Include="src\GameEngine\Behaviour\Renderer\RendererBase.h">
       <SubType>
@@ -74,21 +145,45 @@
     <ClInclude Include="src\DXCT\Window.h" />
     <ClInclude Include="src\GameEngine\Environment.h" />
     <ClInclude Include="src\GameEngine\GameObject.h" />
+    <ClInclude Include="src\GameEngine\Input.h" />
+    <ClInclude Include="src\GameEngine\InputManager\Joypad.h" />
+    <ClInclude Include="src\GameEngine\InputManager\Keyboard.h" />
+    <ClInclude Include="src\GameEngine\InputManager\Mouse.h" />
     <ClInclude Include="src\GameEngine\IRenderer.h" />
     <ClInclude Include="src\GameEngine\MainWindow.h" />
-    <ClInclude Include="src\GameEngine\Mesh.h">
+    <ClInclude Include="src\GameEngine\Pipeline\DefaultPipeline.h" />
+    <ClInclude Include="src\GameEngine\Resource\Mesh\IMesh.h" />
+    <ClInclude Include="src\GameEngine\Resource\Mesh\MeshD3DX.h" />
+    <ClInclude Include="src\GameEngine\Scene\SceneBase.h" />
+    <ClInclude Include="src\GameEngine\Scene\SceneManager.h">
       <SubType>
       </SubType>
     </ClInclude>
-    <ClInclude Include="src\GameEngine\Scene\SceneBase.h" />
-    <ClInclude Include="src\GameEngine\Scene\SceneManager.h">
+    <ClInclude Include="src\GameEngine\Sound\Sound.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="src\GameEngine\Sound\SoundManager.h">
       <SubType>
       </SubType>
     </ClInclude>
     <ClInclude Include="src\GameEngine\Time\FPSCounter.h" />
     <ClInclude Include="src\GameEngine\Time\stopwatch.h" />
     <ClInclude Include="src\GameEngine\Vertex.h" />
+    <ClInclude Include="src\Game\ResultScene\GameClearScene\GameClearScene.h" />
+    <ClInclude Include="src\Game\ResultScene\GameOverScene\GameOverScene.h" />
+    <ClInclude Include="src\Game\GameScene\Scene\Stage1Scene\Stage1Scene.h" />
+    <ClInclude Include="src\Game\GameScene\Scene\Stage2Scene\Stage2Scene.h" />
+    <ClInclude Include="src\Game\GameScene\Scene\Stage3Scene\Stage3Scene.h" />
+    <ClInclude Include="src\Game\GameScene\Scene\StageManager.h" />
+    <ClInclude Include="src\Game\GameScene\Scene\TutorialScene\TutorialManager.h" />
+    <ClInclude Include="src\Game\GameScene\Scene\TutorialScene\TutorialScene.h" />
     <ClInclude Include="src\Game\main.h" />
+    <ClInclude Include="src\Game\ResultScene\ResultManager.h" />
+    <ClInclude Include="src\Game\ResultScene\StageClearScene\StageClearManager.h" />
+    <ClInclude Include="src\Game\ResultScene\StageClearScene\StageClearScene.h" />
+    <ClInclude Include="src\Game\TitleScene\Pipeline\Echo.h" />
+    <ClInclude Include="src\Game\TitleScene\TitleManager.h" />
     <ClInclude Include="src\Game\TitleScene\TitleScene.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
