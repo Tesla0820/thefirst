@@ -33,6 +33,7 @@ bool TitleScene::Init()
 	BackgroundObject->GetTransform()->SetPosition(&D3DXVECTOR3(0.0f, 0.0f, 0.0f));
 	BackgroundObject->GetTransform()->SetScale(&D3DXVECTOR3(50.0f, 50.0f, 50.0f));
 	auto backGroundRenderer = new GameEngine::Behaviour::UIRenderer(GameEngine::Resource::ResourceManager::Get<Texture>("./data/texture/test.png"));
+	backGroundRenderer->SetColor(D3DCOLOR_ARGB(128, 255, 255, 255));
 	BackgroundObject->AddBehaviour(backGroundRenderer);
 
 	GameEngine::GameObject* TitleObject = GameEngine::GameObject::Instantiate();
