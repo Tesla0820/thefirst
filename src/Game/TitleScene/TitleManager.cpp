@@ -7,6 +7,7 @@
 #include "../../GameEngine/Input.h"
 #include "../../GameEngine/Scene/SceneManager.h"
 #include "../GameScene/Scene/StageManager.h"
+#include "../Common/Fade.h"
 
 namespace Game
 {
@@ -27,7 +28,9 @@ namespace Game
 	//===============================================
 	void TitleManager::Start()
 	{
-		this->_mode = MODE_TUTORIAL;
+		_mode = MODE_TUTORIAL;
+		_alpha = 0;
+		_transform = this->GetAttachedObject()->GetTransform();
 	}
 
 	//=================================================
@@ -35,6 +38,9 @@ namespace Game
 	//=================================================
 	void TitleManager::Update()
 	{
+		D3DXVECTOR3 pos = { 0.0f,0.0f,0.0f };
+		
+
 		// ステージ選択
 		if (GameEngine::Input::GetKey(DIK_UP, TRIGGER))
 		{
@@ -53,8 +59,33 @@ namespace Game
 			}
 		}
 
-		// 次のシーンへ移動
-		if (GameEngine::Input::GetKey(DIK_RETURN, TRIGGER))
+		if (this->_mode == MODE_TUTORIAL)
+		{
+			pos = D3DXVECTOR3(245.0f, 400.0f, 0.0f);
+			
+		}
+		else if (this->_mode == MODE_STAGE1)
+		{
+			pos = D3DXVECTOR3(245.0f, 450.0f, 0.0f);
+		}
+		else if (this->_mode == MODE_STAGE2)
+		{
+			pos = D3DXVECTOR3(245.0f, 500.0f, 0.0f);
+		}
+		else if (this->_mode == MODE_STAGE3)
+		{
+			pos = D3DXVECTOR3(245.0f, 550.0f, 0.0f);
+		}
+
+		if (Fade::EndFadeIn())
+		{
+			//次のシーンへ
+			if (GameEngine::Input::GetKey(DIK_RETURN, TRIGGER))
+			{
+				Fade::StartFadeOut();
+			}
+		}
+		if (Fade::EndFadeOut())
 		{
 			if (this->_mode == MODE_TUTORIAL)
 			{
@@ -77,8 +108,9 @@ namespace Game
 				Game::GameScene::StageManager::SetStage(3);
 			}
 		}
-		
 
+		
+		_transform->SetPosition(&pos);
 		
 	}
 

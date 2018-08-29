@@ -6,6 +6,7 @@
 #include "../../../../GameEngine/GameEngine.h"
 #include "../../../../GameEngine/Input.h"
 #include "../../../../GameEngine/Scene/SceneManager.h"
+#include "../../../Common/Fade.h"
 
 namespace Game { namespace GameScene { namespace Scene
 {
@@ -34,8 +35,15 @@ namespace Game { namespace GameScene { namespace Scene
 	//=================================================
 	void TutorialManager::Update()
 	{
-		// 次のシーンへ移動
-		if (GameEngine::Input::GetKey(DIK_RETURN, TRIGGER))	// 仮
+		if (Fade::EndFadeIn())
+		{
+			//次のシーンへ
+			if (GameEngine::Input::GetKey(DIK_RETURN, TRIGGER))
+			{
+				Fade::StartFadeOut();
+			}
+		}
+		if (Fade::EndFadeOut())
 		{
 			GameEngine::Scene::SceneManager::LoadScene(5);		// ステージクリアへ
 		}

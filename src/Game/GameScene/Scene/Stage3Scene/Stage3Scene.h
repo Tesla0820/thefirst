@@ -1,5 +1,5 @@
 //
-//		ファイル名:Stage2Scene.h
+//		ファイル名:Stage3Scene.h
 //
 
 #ifndef HEADER_STAGE3SCENE_H

@@ -7,6 +7,7 @@
 #include "../../../GameEngine/Input.h"
 #include "../../../GameEngine/Scene/SceneManager.h"
 #include "../../GameScene/Scene/StageManager.h"
+#include "../../Common/Fade.h"
 
 
 namespace Game { namespace ResultScene
@@ -26,7 +27,8 @@ namespace Game { namespace ResultScene
 	//===============================================
 	void StageClearManager::Start()
 	{
-		//this->_Stage = this->_stagemanager->GetStage();
+		//_render = this->GetAttachedObject()->FindBehaviour<GameEngine::Behaviour::UIRenderer>();
+
 	}
 
 	//=================================================
@@ -35,21 +37,16 @@ namespace Game { namespace ResultScene
 	void StageClearManager::Update()
 	{
 		// 次のシーンへ移動
-
-		if (GameEngine::Input::GetKey(DIK_RETURN, TRIGGER))
+		if (Fade::EndFadeIn())
 		{
-			//if (this->_Stage == 0)
-			//{
-			//	GameEngine::Scene::SceneManager::LoadScene(2);	// ステージ1へ
-			//}
-			//else if (this->_Stage == 1)
-			//{
-			//	GameEngine::Scene::SceneManager::LoadScene(3);	// ステージ2へ
-			//}
-			//else if (this->_Stage == 2)
-			//{
-			//	GameEngine::Scene::SceneManager::LoadScene(4);	// ステージ3へ
-			//}
+			//次のシーンへ
+			if (GameEngine::Input::GetKey(DIK_RETURN, TRIGGER))
+			{
+				Fade::StartFadeOut();
+			}
+		}
+		if (Fade::EndFadeOut())
+		{
 			Game::GameScene::StageManager::NextStage();
 		}	
 	}

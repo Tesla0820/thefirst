@@ -249,6 +249,7 @@
     <ClCompile Include="src\GameEngine\Behaviour\Renderer\UIRenderer.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
+    <ClCompile Include="src\Game\Common\Fade.cpp">
     <ClCompile Include="src\Game\Common\MeshRendererEx.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
@@ -419,6 +420,7 @@
     <ClInclude Include="src\GameEngine\Resource\ResourceManager.h" />
     <ClInclude Include="src\GameEngine\Resource\Texture.h" />
     <ClInclude Include="src\GameEngine\Behaviour\Renderer\UIRenderer.h" />
+    <ClInclude Include="src\Game\Common\Fade.h" />
     <ClInclude Include="src\Game\Common\MeshRendererEx.h" />
     <ClInclude Include="src\GameEngine\Behaviour\Collider\ICollisionHandler.h" />
     <ClInclude Include="src\Game\Common\Pipeline\Echo.h" />
