@@ -4,7 +4,7 @@
 
 #include "TitleScene.h"
 #include "../../GameEngine/GameEngine.h"
-#include "Pipeline/Echo.h"
+#include "../Common/Pipeline/Echo.h"
 #include "TitleManager.h"
 
 namespace Game

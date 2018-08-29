@@ -32,6 +32,7 @@ class Echo :public GameEngine::Pipeline::DefaultPipeline
 		virtual void BeforeRenderer	(std::shared_ptr<DXCT::D3D::D3DDevice> const& device, D3DXMATRIX const& world) override;
 		virtual void AfterRenderer	(std::shared_ptr<DXCT::D3D::D3DDevice> const& device) override;
 		virtual void AfterScene		(std::shared_ptr<DXCT::D3D::D3DDevice> const& device) override;
+		void SetRate(float rate);
 };
 
 }

@@ -7,15 +7,17 @@
 
 namespace GameEngine { namespace Behaviour
 {
-SphereCollider::SphereCollider()
-	:	_center(0.0f, 0.0f, 0.0f),
+SphereCollider::SphereCollider(int flag)
+	:	Collider(flag),
+		_center(0.0f, 0.0f, 0.0f),
 		_radius(0.5f)
 {
 
 }
 
 // ’†SÀ•W‚Æ”¼Œa‚ğæ“¾
-SphereCollider::SphereCollider(D3DXVECTOR3 center, float radius)
+SphereCollider::SphereCollider(D3DXVECTOR3 center, float radius, int flag)
+	:Collider(flag)
 {
 	_center = center;
 	_radius = radius;
@@ -66,6 +68,7 @@ void SphereCollider::HitToSphere(SphereCollider* collider)
 	if (magnitude <= range*range)
 	{
 		// “–‚½‚Á‚½
+		OnCollision(collider);
 	}
 
 }
@@ -137,6 +140,10 @@ void SphereCollider::HitToBox(BoxCollider* collider)
 		me->Offset(&(penetration));
 	}
 	_oldPosition = GetAttachedObject()->GetTransform()->GetWorldPosition();
+	if (isHit)
+	{
+		OnCollision(collider);
+	}
 }
 
 }

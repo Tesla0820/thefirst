@@ -15,9 +15,6 @@ class BoxCollider;
 class SphereCollider : public Collider
 {
 private:
-	void HitToSphere(SphereCollider* collider);
-	void HitToBox(BoxCollider* collider);
-
 	D3DXVECTOR3 _oldPosition;
 	D3DXVECTOR3	_center;	// íÜêSç¿ïW
 	float _radius;			// îºåa
@@ -26,10 +23,13 @@ protected:
 	virtual void Hit(Collider* collider) override;
 
 public:
-	SphereCollider();
-	SphereCollider(D3DXVECTOR3 center, float radius);
+	SphereCollider(int flag);
+	SphereCollider(D3DXVECTOR3 center, float radius,int flag);
 	D3DXVECTOR3 GetCenterPosition();
 	float GetRadius();
+	void HitToSphere(SphereCollider* collider);
+	void HitToBox(BoxCollider* collider);
+
 	virtual void Start() override;
 };
 
