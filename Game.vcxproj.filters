@@ -165,9 +165,6 @@
     <ClCompile Include="src\GameEngine\Resource\Mesh\MeshD3DX.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="src\Game\TitleScene\Pipeline\Echo.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
     <ClCompile Include="src\DXCT\XAudio2\XAudio2SourceVoice.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
@@ -253,6 +250,10 @@
       <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="src\Game\Common\Fade.cpp">
+    <ClCompile Include="src\Game\Common\MeshRendererEx.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Game\Common\Pipeline\Echo.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
   </ItemGroup>
@@ -385,7 +386,6 @@
     <ClInclude Include="src\GameEngine\Pipeline\DefaultPipeline.h" />
     <ClInclude Include="src\GameEngine\Resource\Mesh\IMesh.h" />
     <ClInclude Include="src\GameEngine\Resource\Mesh\MeshD3DX.h" />
-    <ClInclude Include="src\Game\TitleScene\Pipeline\Echo.h" />
     <ClInclude Include="src\DXCT\XAudio2\XAudio2Factory.h" />
     <ClInclude Include="src\DXCT\XAudio2\XAudio2MasteringVoice.h" />
     <ClInclude Include="src\DXCT\XAudio2\XAudio2SourceVoice.h" />
@@ -421,5 +421,8 @@
     <ClInclude Include="src\GameEngine\Resource\Texture.h" />
     <ClInclude Include="src\GameEngine\Behaviour\Renderer\UIRenderer.h" />
     <ClInclude Include="src\Game\Common\Fade.h" />
+    <ClInclude Include="src\Game\Common\MeshRendererEx.h" />
+    <ClInclude Include="src\GameEngine\Behaviour\Collider\ICollisionHandler.h" />
+    <ClInclude Include="src\Game\Common\Pipeline\Echo.h" />
   </ItemGroup>
 </Project>

@@ -83,5 +83,11 @@ void Echo::AfterScene(std::shared_ptr<DXCT::D3D::D3DDevice> const & device)
 
 }
 
+void Echo::SetRate(float rate)
+{ 
+	auto device = GameEngine::Environment::Get()->GetCurrentDevice();
+	_vertexShader->SetFloat(device, "rate", rate);
+}
+
 }
 }

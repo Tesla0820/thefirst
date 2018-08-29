@@ -7,7 +7,8 @@
 namespace GameEngine { namespace Behaviour
 {
 // 中心座標と大きさを取得
-BoxCollider::BoxCollider(D3DXVECTOR3 position, D3DXVECTOR3 scale)
+BoxCollider::BoxCollider(D3DXVECTOR3 position, D3DXVECTOR3 scale,int flag)
+	:Collider(flag)
 {
 	_position = position;
 	_scale = scale;
@@ -39,14 +40,9 @@ void BoxCollider::Hit(Collider* collider)
 	SphereCollider *sphere = dynamic_cast<SphereCollider*>(collider);// 動的にキャスト、もしSphereColliderじゃなかったらNULL(nullptr)が帰ってくる
 	if (sphere)
 	{
-		this->HitToSphere(sphere);
+		sphere->HitToBox(this);
 		return;
 	}
-}
-
-void BoxCollider::HitToSphere(SphereCollider* collider)
-{
-
 }
 
 void BoxCollider::HitToBox(BoxCollider* collider)

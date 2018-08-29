@@ -1,17 +1,19 @@
 // Collider.h
 
 #include "Collider.h"
-
+#include "ICollisionHandler.h"
 
 namespace GameEngine { namespace Behaviour
 {
+
 std::vector<Collider*> Collider::_colliders;//現在有効な全ての判定の配列
 
-
-Collider::Collider()
+Collider::Collider(int flag)
 {
+	_handler = nullptr;
 	_isTrigger = true;
 	_isFreeze = false;
+	_flag = 0;
 }
 
 void Collider::Enabled()
@@ -44,11 +46,22 @@ bool Collider::IsFreeze()
 	return _isFreeze;
 }
 
+void Collider::SetHandler(ICollisionHandler * handler)
+{
+	_handler = handler;
+}
+
+int Collider::GetFlag()
+{
+	return _flag;
+}
+
 void Collider::HitAll()
 {
 	for (auto iterator = _colliders.begin(); iterator != _colliders.end(); ++iterator)
 	{
 		if (*iterator == this) continue;//自分は除く
+		if (!(_flag & (*iterator)->GetFlag()))return;//マスクで除外
 		Hit(*iterator);
 	}
 }
@@ -71,6 +84,12 @@ void Collider::RemoveActiveCollider(Collider * collider)
 	auto iterator = std::find(_colliders.begin(), _colliders.end(), collider);
 	if (iterator == _colliders.end())return;
 	_colliders.erase(iterator);				 
+}
+
+void Collider::OnCollision(Collider * from)
+{
+	if (!_handler)return;
+	_handler->OnCollision(from);
 }
 
 

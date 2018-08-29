@@ -4,7 +4,7 @@
 
 #include "Stage2Scene.h"
 #include "../../../../GameEngine/GameEngine.h"
-#include "../../../TitleScene/Pipeline/Echo.h"
+#include "../../../Common/Pipeline/Echo.h"
 #include "../StageManager.h"
 #include "../../../Common/Fade.h"
 
