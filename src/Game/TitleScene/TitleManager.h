@@ -24,6 +24,8 @@ namespace Game
 
 	private:
 		int _mode;
+		int _alpha;
+		GameEngine::Behaviour::Transform* _transform;
 	public:
 		TitleManager();
 		~TitleManager();

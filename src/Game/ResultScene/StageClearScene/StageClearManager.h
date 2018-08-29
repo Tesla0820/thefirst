@@ -18,7 +18,7 @@ namespace Game { namespace ResultScene
 
 	private:
 		int _Stage;
-		Game::GameScene::StageManager* _stagemanager;
+		//GameEngine::Behaviour::UIRenderer* _render;
 	public:
 		StageClearManager();
 		~StageClearManager();

@@ -252,6 +252,9 @@
     <ClCompile Include="src\GameEngine\Behaviour\Renderer\UIRenderer.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
+    <ClCompile Include="src\Game\Common\Fade.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\DXCT\Window.h">
@@ -417,5 +420,6 @@
     <ClInclude Include="src\GameEngine\Resource\ResourceManager.h" />
     <ClInclude Include="src\GameEngine\Resource\Texture.h" />
     <ClInclude Include="src\GameEngine\Behaviour\Renderer\UIRenderer.h" />
+    <ClInclude Include="src\Game\Common\Fade.h" />
   </ItemGroup>
 </Project>

@@ -64,6 +64,7 @@
     <ClCompile Include="src\GameEngine\Sound\SoundManager.cpp" />
     <ClCompile Include="src\GameEngine\Time\FPSCounter.cpp" />
     <ClCompile Include="src\GameEngine\Time\StopWatch.cpp" />
+    <ClCompile Include="src\Game\Common\Fade.cpp" />
     <ClCompile Include="src\Game\ResultScene\GameClearScene\GameClearScene.cpp" />
     <ClCompile Include="src\Game\ResultScene\GameOverScene\GameOverScene.cpp" />
     <ClCompile Include="src\Game\GameScene\Scene\Stage1Scene\Stage1Scene.cpp" />
@@ -186,6 +187,7 @@
     <ClInclude Include="src\GameEngine\Time\FPSCounter.h" />
     <ClInclude Include="src\GameEngine\Time\stopwatch.h" />
     <ClInclude Include="src\GameEngine\Vertex.h" />
+    <ClInclude Include="src\Game\Common\Fade.h" />
     <ClInclude Include="src\Game\ResultScene\GameClearScene\GameClearScene.h" />
     <ClInclude Include="src\Game\ResultScene\GameOverScene\GameOverScene.h" />
     <ClInclude Include="src\Game\GameScene\Scene\Stage1Scene\Stage1Scene.h" />
