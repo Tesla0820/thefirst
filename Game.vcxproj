@@ -64,6 +64,7 @@
     <ClCompile Include="src\GameEngine\Sound\SoundManager.cpp" />
     <ClCompile Include="src\GameEngine\Time\FPSCounter.cpp" />
     <ClCompile Include="src\GameEngine\Time\StopWatch.cpp" />
+    <ClCompile Include="src\Game\Common\MeshRendererEx.cpp" />
     <ClCompile Include="src\Game\ResultScene\GameClearScene\GameClearScene.cpp" />
     <ClCompile Include="src\Game\ResultScene\GameOverScene\GameOverScene.cpp" />
     <ClCompile Include="src\Game\GameScene\Scene\Stage1Scene\Stage1Scene.cpp" />
@@ -84,7 +85,7 @@
     <ClCompile Include="src\Game\TitleScene\Behavior\Toge.cpp" />
     <ClCompile Include="src\Game\TitleScene\Behavior\Toge_move.cpp" />
     <ClCompile Include="src\Game\TitleScene\Behavior\Yoroi.cpp" />
-    <ClCompile Include="src\Game\TitleScene\Pipeline\Echo.cpp" />
+    <ClCompile Include="src\Game\Common\Pipeline\Echo.cpp" />
     <ClCompile Include="src\Game\TitleScene\TitleManager.cpp" />
     <ClCompile Include="src\Game\TitleScene\TitleScene.cpp" />
   </ItemGroup>
@@ -135,6 +136,10 @@
     <ClInclude Include="src\GameEngine\Behaviour\Camera.h" />
     <ClInclude Include="src\GameEngine\Behaviour\Collider\BoxCollider.h" />
     <ClInclude Include="src\GameEngine\Behaviour\Collider\Collider.h" />
+    <ClInclude Include="src\GameEngine\Behaviour\Collider\ICollisionHandler.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
     <ClInclude Include="src\GameEngine\Behaviour\Collider\SphereCollider.h" />
     <ClInclude Include="src\GameEngine\Behaviour\Renderer\MeshRenderer.h" />
     <ClInclude Include="src\GameEngine\Behaviour\Renderer\RendererBase.h">
@@ -186,6 +191,10 @@
     <ClInclude Include="src\GameEngine\Time\FPSCounter.h" />
     <ClInclude Include="src\GameEngine\Time\stopwatch.h" />
     <ClInclude Include="src\GameEngine\Vertex.h" />
+    <ClInclude Include="src\Game\Common\MeshRendererEx.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
     <ClInclude Include="src\Game\ResultScene\GameClearScene\GameClearScene.h" />
     <ClInclude Include="src\Game\ResultScene\GameOverScene\GameOverScene.h" />
     <ClInclude Include="src\Game\GameScene\Scene\Stage1Scene\Stage1Scene.h" />
@@ -207,7 +216,7 @@
     <ClInclude Include="src\Game\TitleScene\Behavior\Toge.h" />
     <ClInclude Include="src\Game\TitleScene\Behavior\Toge_move.h" />
     <ClInclude Include="src\Game\TitleScene\Behavior\Yoroi.h" />
-    <ClInclude Include="src\Game\TitleScene\Pipeline\Echo.h" />
+    <ClInclude Include="src\Game\Common\Pipeline\Echo.h" />
     <ClInclude Include="src\Game\TitleScene\TitleManager.h" />
     <ClInclude Include="src\Game\TitleScene\TitleScene.h" />
   </ItemGroup>

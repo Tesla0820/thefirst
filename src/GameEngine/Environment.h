@@ -39,8 +39,10 @@ class Environment
 		~Environment();
 		SIZE GetScreenSize();
 		std::shared_ptr<DXCT::D3D::D3DDevice> GetCurrentDevice();
+		
 		WPARAM Run();
 		void AttachPipeline(Pipeline::IModefier* modefier);
+		Pipeline::IModefier* GetCurrentPipeline();
 		void OnBeforeRenderer(D3DXMATRIX const& world);
 		void OnSetCamera(D3DXMATRIX const& view, D3DXMATRIX const& projection);
 		static void Create();

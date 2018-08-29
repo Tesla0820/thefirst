@@ -19,7 +19,7 @@ class MeshRenderer : public RendererBase
 		std::shared_ptr<Resource::Mesh::IMesh> _mesh;
 
 	public:
-		MeshRenderer() =default;
+		MeshRenderer() = default;
 		void SetMesh(std::shared_ptr<Resource::Mesh::IMesh> _mesh);
 		virtual void Draw(D3DXMATRIX const& matrix) override;
 

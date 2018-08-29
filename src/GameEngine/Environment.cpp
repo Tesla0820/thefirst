@@ -185,6 +185,11 @@ void Environment::AttachPipeline(Pipeline::IModefier * modefier)
 
 }
 
+Pipeline::IModefier * Environment::GetCurrentPipeline()
+{
+	return _pipeline.get();
+}
+
 void Environment::OnBeforeRenderer(D3DXMATRIX const & world)
 {
 	if (_pipeline)_pipeline->BeforeRenderer(_device,world);

@@ -22,7 +22,7 @@ private:
 	D3DXVECTOR3 _scale;			// ‘å‚«‚³
 
 public:
-	BoxCollider(D3DXVECTOR3 positon, D3DXVECTOR3 scale);
+	BoxCollider(D3DXVECTOR3 positon, D3DXVECTOR3 scale,int flag);
 	virtual ~BoxCollider();
 	D3DXVECTOR3 GetPosition();
 	D3DXVECTOR3 GetScale();
