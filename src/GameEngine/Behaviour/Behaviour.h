@@ -41,6 +41,7 @@ class Behaviour
 		virtual void Update();
 		virtual void BeforeDraw(D3DXMATRIX const& matrix);
 		virtual void Draw(D3DXMATRIX const& matrix);
+		
 		virtual ~Behaviour();
 };
 

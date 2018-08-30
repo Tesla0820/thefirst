@@ -28,9 +28,12 @@ namespace Game
 	//===============================================
 	void TitleManager::Start()
 	{
+		GameEngine::GameObject* object = this->GetAttachedObject();
 		_mode = MODE_TUTORIAL;
 		_alpha = 0;
-		_transform = this->GetAttachedObject()->GetTransform();
+		_transform = object->GetTransform();
+		_soundPlay = object->FindBehaviour<GameEngine::Behaviour::SoundPlay>();
+		_soundPlay->Play();
 	}
 
 	//=================================================

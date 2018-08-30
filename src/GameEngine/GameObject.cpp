@@ -178,7 +178,9 @@ void GameObject::Destroy()
 	}
 	while (!_behaviours.empty())
 	{
-		delete _behaviours.back();
+		auto behaviour = _behaviours.back();
+		behaviour->Destroy();
+		delete behaviour;
 		_behaviours.pop_back();
 	}
 }

@@ -30,9 +30,14 @@ void Sound::GetFomat(WAVEFORMATEXTENSIBLE * waveFormatExtensible)
 	*waveFormatExtensible = _waveFormatExtensible;
 }
 
-int Sound::GetLoopCount()
+char Sound::GetLoopCount()
 {
 	return _loopCount;
+}
+
+void Sound::SetLoopCount(int loopCount)
+{
+	_loopCount = loopCount;
 }
 
 bool Sound::HasChunk(std::istream & stream, unsigned long chunkFormat, unsigned long * chunkSize,unsigned long *chunkPosition)
@@ -87,7 +92,7 @@ bool Sound::HasChunk(std::istream & stream, unsigned long chunkFormat, unsigned 
 }
 
 
-Sound * Sound::CreateFromWaveFile(std::string filename, char loopCount)
+std::shared_ptr<Sound> Sound::CreateFromWaveFile(std::string filename, char loopCount)
 {
 	unsigned long fileSize;
 	unsigned long chunkSize;
@@ -134,7 +139,7 @@ Sound * Sound::CreateFromWaveFile(std::string filename, char loopCount)
 	unsigned char * buffer = new unsigned char[chunkSize+1];
 	waveFile.read(reinterpret_cast<char*>(buffer), chunkSize);
 	std::unique_ptr<unsigned char[]> data(buffer);
-	return new Sound(std::move(data),waveFile.gcount(),waveFormatExtensible, loopCount);
+	return std::shared_ptr<Sound>(new Sound(std::move(data),waveFile.gcount(),waveFormatExtensible, loopCount));
 }
 
 }

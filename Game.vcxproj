@@ -45,6 +45,7 @@
     <ClCompile Include="src\GameEngine\Behaviour\Renderer\MeshRenderer.cpp" />
     <ClCompile Include="src\GameEngine\Behaviour\Renderer\RendererBase.cpp" />
     <ClCompile Include="src\GameEngine\Behaviour\Renderer\UIRenderer.cpp" />
+    <ClCompile Include="src\GameEngine\Behaviour\SoundPlay.cpp" />
     <ClCompile Include="src\GameEngine\Behaviour\Transform.cpp" />
     <ClCompile Include="src\GameEngine\Binder\BehaviourBinder.cpp" />
     <ClCompile Include="src\GameEngine\Environment.cpp" />
@@ -148,6 +149,10 @@
       </SubType>
     </ClInclude>
     <ClInclude Include="src\GameEngine\Behaviour\Renderer\UIRenderer.h" />
+    <ClInclude Include="src\GameEngine\Behaviour\SoundPlay.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
     <ClInclude Include="src\GameEngine\Behaviour\Transform.h" />
     <ClInclude Include="src\GameEngine\Binder\BehaviourBinder.h" />
     <ClInclude Include="src\GameEngine\GameEngine.h" />
