@@ -15,6 +15,7 @@
 #include "Behaviour/Behaviour.h"
 #include "Behaviour/Transform.h"
 #include "Behaviour/Camera.h"
+#include "Behaviour/SoundPlay.h"
 
 //Behaviour/Renderer
 #include "Behaviour/Renderer/RendererBase.h"

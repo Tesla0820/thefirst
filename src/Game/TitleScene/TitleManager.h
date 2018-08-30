@@ -26,6 +26,7 @@ namespace Game
 		int _mode;
 		int _alpha;
 		GameEngine::Behaviour::Transform* _transform;
+		GameEngine::Behaviour::SoundPlay* _soundPlay;
 	public:
 		TitleManager();
 		~TitleManager();

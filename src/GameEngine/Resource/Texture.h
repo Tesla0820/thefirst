@@ -14,16 +14,16 @@ namespace GameEngine { namespace Resource
 class Texture : public IResource<DXCT::D3D::D3DTexture>
 {
 	private:
-		static constexpr char* _resourceType = "Texture";
 		std::shared_ptr<DXCT::D3D::D3DTexture> _texture;
 
 	public:
+		static constexpr char* ResourceType = "Texture";
 		Texture(std::string path);
 		// IResourceBase ‚ğ‰î‚µ‚ÄŒp³‚³‚ê‚Ü‚µ‚½
 		virtual std::string GetResourceType() override;
 
 		// IResource ‚ğ‰î‚µ‚ÄŒp³‚³‚ê‚Ü‚µ‚½
-		virtual get_shared_ptr Get() override;
+		virtual get_result Get() override;
 };
 }
 }

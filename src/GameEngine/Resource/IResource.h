@@ -14,8 +14,8 @@ namespace GameEngine { namespace Resource
 template<class T>
 struct IResource : public IResourceBase
 {
-	using get_shared_ptr = std::shared_ptr<T>;
-	virtual get_shared_ptr Get() = 0;
+	using get_result = std::shared_ptr<T>;
+	virtual get_result Get() = 0;
 	virtual ~IResource() { }
 };
 
