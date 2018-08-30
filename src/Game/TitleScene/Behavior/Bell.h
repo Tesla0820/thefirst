@@ -6,26 +6,26 @@
 #define HEADER_BELL_H
 
 //＝＝＝ヘッダファイル読み込み＝＝＝//
-#include "../../../GameEngine/Behaviour/Collider/BoxCollider.h"
-#include "../../../GameEngine/Behaviour/Renderer/MeshRenderer.h"
-#include "../../../GameEngine/Behaviour/Transform.h"
+#include "Gimmick.h"
+
+//＝＝＝定数・マクロ定義＝＝＝//
+#define SHINE_TIME_BELL SHINE_TIME * 2
+
 
 //＝＝＝クラス宣言＝＝＝//
 namespace Game { namespace Behaviour
 {
 
 //＝＝＝クラス宣言＝＝＝//
-class Bell : public GameEngine::Behaviour::Behaviour
+class Bell : public Gimmick
 {
-    private:
-        GameEngine::Behaviour::Transform*    _transform;
-        GameEngine::Behaviour::BoxCollider*  _collider;
-        GameEngine::Behaviour::MeshRenderer* _mesh;
-
     public:
         virtual void Start(void) override;
         virtual void Update(void) override;
-        GameEngine::Behaviour::Transform* Get(void) { return _transform; }
+        //GameEngine::Behaviour::Transform* Get(void) { return _transform; }
+
+        // ICollisionHandler を介して継承されました
+        virtual void OnCollision(GameEngine::Behaviour::Collider*) override;
 };
 
 }}

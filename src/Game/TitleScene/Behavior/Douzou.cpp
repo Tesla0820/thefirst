@@ -19,17 +19,18 @@ namespace Game { namespace Behaviour
 //
 //戻り値：なし
 /////////////////////////////////////////////
-void Game::Behaviour::Douzou::Start(void)
+void Douzou::Start(void)
 {
     GameEngine::GameObject* model = GetAttachedObject();
     _transform = model->GetTransform();
-    _mesh = new GameEngine::Behaviour::MeshRenderer();
-    _mesh->SetMesh(std::shared_ptr<GameEngine::Resource::Mesh::IMesh>(new GameEngine::Resource::Mesh::MeshD3DX(TEXT("./data/model/gimmick_test.x"))));
-    model->AddBehaviour(_mesh);
-    //model->AddBehaviour(_collider);
+    _renderer = new Game::MeshRendererEx();
+    _renderer->SetMesh(std::shared_ptr<GameEngine::Resource::Mesh::IMesh>(new GameEngine::Resource::Mesh::MeshD3DX(TEXT("./data/model/gimmick_test.x"))));
+    model->AddBehaviour(_renderer);
+    _time = 0;
 
     Move_Distance = 0.0F;
-    Move_Vector = -0.1F;
+    Move = { 0.0F, 0.0F, 0.0F };
+    Move_Vector = _transform->Front();
 }
 
 /////////////////////////////////////////////
@@ -41,32 +42,51 @@ void Game::Behaviour::Douzou::Start(void)
 //
 //戻り値：なし
 /////////////////////////////////////////////
-void Game::Behaviour::Douzou::Update(void)
+void Douzou::Update(void)
 {
     //---各種宣言---//
     D3DXVECTOR3 position;
     D3DXQUATERNION rotate;
 
-    position = _transform->GetPosition();
-    rotate = _transform->GetRotation();
-    position.z += Move_Vector;
+    Move += Move_Vector;
     Move_Distance += 0.1F;
     if (Move_Distance >= 10.0F)
     {
-        Move_Distance = 0;
-        if (Move_Vector == 0.1F)
+        Move_Distance = 0.0F;
+        if (Move_Vector == _transform->Front())
         {
             D3DXQuaternionRotationYawPitchRoll(&rotate, 0.0F, 0.0F, 0.0F);
+            Move_Vector = _transform->Front();
         }
         else
         {
             D3DXQuaternionRotationYawPitchRoll(&rotate, D3DX_PI, 0.0F, 0.0F);
+            Move_Vector = _transform->Back();
         }
-        Move_Vector = -Move_Vector;
     }
-    _transform->SetPosition(&position);
+    _transform->Offset(&position);
     _transform->SetRotation(&rotate);
-    _collider->HitToBox(_collider);
+
+    if (_time)
+    {
+        _time--;
+    }
+    _renderer->SetRate((float)_time / SHINE_TIME);
+}
+
+/////////////////////////////////////////////
+//関数名：OnCollision
+//
+//機能：当たり判定に対する挙動
+//
+//引数：(GameEngine::Behaviour::Collider*)判定
+//
+//戻り値：なし
+/////////////////////////////////////////////
+void Douzou::OnCollision(GameEngine::Behaviour::Collider* from)
+{
+    _time = SHINE_TIME;
+    _renderer->SetRate(1.0F);
 }
 
 }}
