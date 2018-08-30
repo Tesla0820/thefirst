@@ -2,7 +2,7 @@
 
 float4x4 W;		// World matrix for object
 float4x4 WVP;	// World * View * Projection matrix
-float4 light;
+float3 light;
 float rate;
 struct VS_IN
 {
@@ -27,7 +27,7 @@ VS_OUTPUT vertex(VS_IN i)
 	o.WorldPosition = mul(i.Position, W);
 
 	normal = normalize(mul(i.Normal.xyz, (float3x3)W));
-	brightness = saturate(0.5 + dot(normal, (float3)light)*0.5-0.2);
+	brightness = saturate(0.5 + dot(normal, light)*0.5-0.2);
 	o.color = lerp(float4(brightness, brightness, brightness, 1.0),float4(1.0, 0.0, 0.7, 1.0),rate);//float4(brightness, brightness, brightness, 1.0);
 	return o;
 }

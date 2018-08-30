@@ -14,9 +14,9 @@ namespace Game { namespace GameScene
 void Player::Start()
 {
 	GameEngine::GameObject* object = GetAttachedObject();
-	angle = 0.0f;
 	_transform = object->GetTransform();
 	_sphere = object->FindBehaviour<GameEngine::Behaviour::SphereCollider>();
+	angle = 0.0f;
 	currentFuel= maxFuel = 90;
 	delay = 0;
 }
@@ -73,11 +73,11 @@ void Player::Update()
 
 	if (GameEngine::Input::GetKey(DIKEYBOARD_LEFT, HOLD))
 	{
-		angle -= 0.05;
+		angle -= 0.05f;
 	}
 	else if (GameEngine::Input::GetKey(DIKEYBOARD_RIGHT, HOLD))
 	{
-		angle += 0.05;
+		angle += 0.05f;
 	}
 
 

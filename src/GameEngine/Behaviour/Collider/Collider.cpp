@@ -88,8 +88,14 @@ void Collider::RemoveActiveCollider(Collider * collider)
 
 void Collider::OnCollision(Collider * from)
 {
-	if (!_handler)return;
-	_handler->OnCollision(from);
+	if (_handler)
+	{
+		_handler->OnCollision(from);
+	}
+	if (from->_handler)
+	{
+		from->_handler->OnCollision(this);
+	}
 }
 
 
