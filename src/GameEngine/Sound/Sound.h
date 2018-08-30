@@ -12,7 +12,7 @@ namespace GameEngine { namespace Sound
 	class Sound
 	{
 		private:
-			static bool CheckChunk(std::istream & stream, unsigned long chunkFormat, unsigned long * chunkSize);
+			static bool HasChunk(std::istream & stream, unsigned long chunkFormat, unsigned long * chunkSize, unsigned long *chunkPosition);
 			
 			std::unique_ptr<unsigned char[]> _data;
 			unsigned long _bufferSize;

@@ -96,6 +96,8 @@ bool TitleScene::Init()
 	FadeObject->AddBehaviour(FadeRenderer);
 	FadeObject->AddBehaviour(fade);
 
+	GameEngine::Sound::Sound* sound = GameEngine::Sound::Sound::CreateFromWaveFile("./data/sound/M_1.wav", -1);
+	GameEngine::Sound::SoundManager::Play(*sound);
 	return false;
 }
 
