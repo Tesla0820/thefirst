@@ -26,39 +26,102 @@ void GimmickFactory::Instantiate(GameEngine::Behaviour::Behaviour* behaviour, D3
     D3DXQUATERNION rotation;
     D3DXQuaternionRotationYawPitchRoll(&rotation, D3DXToRadian(rotate->x), D3DXToRadian(rotate->y), D3DXToRadian(rotate->z));
     gimmick->GetTransform()->SetRotation(&rotation);
-    gimmick->AddBehaviour(new GameEngine::Behaviour::BoxCollider(D3DXVECTOR3(0.0F, 0.0F,40.0F), D3DXVECTOR3(0.0F,0.0F,0.0F),0));
+    gimmick->AddBehaviour(new GameEngine::Behaviour::BoxCollider(*position, D3DXVECTOR3(1.0F, 1.0F, 1.0F), 0));
 }
 
+/////////////////////////////////////////////
+//関数名：InstantiateBell
+//
+//機能：鐘の生成
+//
+//引数：(D3DXVECTOR3*)位置, (D3DXVECTOR3*)角度
+//
+//戻り値：なし
+/////////////////////////////////////////////
 void GimmickFactory::InstantiateBell(D3DXVECTOR3* position, D3DXVECTOR3* rotate)
 {
     Instantiate(new Game::Behaviour::Bell(), position, rotate);
 }
 
+/////////////////////////////////////////////
+//関数名：InstantiateDouzou
+//
+//機能：銅像の生成
+//
+//引数：(D3DXVECTOR3*)位置, (D3DXVECTOR3*)角度
+//
+//戻り値：なし
+/////////////////////////////////////////////
 void GimmickFactory::InstantiateDouzou(D3DXVECTOR3* position, D3DXVECTOR3* rotate)
 {
     Instantiate(new Game::Behaviour::Douzou(), position, rotate);
 }
 
+/////////////////////////////////////////////
+//関数名：InstantiateHashira
+//
+//機能：柱の生成
+//
+//引数：(D3DXVECTOR3*)位置, (D3DXVECTOR3*)角度
+//
+//戻り値：なし
+/////////////////////////////////////////////
 void GimmickFactory::InstantiateHashira(D3DXVECTOR3* position, D3DXVECTOR3* rotate)
 {
     Instantiate(new Game::Behaviour::Hashira(), position, rotate);
 }
 
+/////////////////////////////////////////////
+//関数名：InstantiateHashira_break
+//
+//機能：壊れた柱の生成
+//
+//引数：(D3DXVECTOR3*)位置, (D3DXVECTOR3*)角度
+//
+//戻り値：なし
+/////////////////////////////////////////////
 void GimmickFactory::InstantiateHashira_break(D3DXVECTOR3* position, D3DXVECTOR3* rotate)
 {
     Instantiate(new Game::Behaviour::Hashira_break(), position, rotate);
 }
 
+/////////////////////////////////////////////
+//関数名：InstantiateToge
+//
+//機能：トゲの生成
+//
+//引数：(D3DXVECTOR3*)位置, (D3DXVECTOR3*)角度
+//
+//戻り値：なし
+/////////////////////////////////////////////
 void GimmickFactory::InstantiateToge(D3DXVECTOR3* position, D3DXVECTOR3* rotate)
 {
     Instantiate(new Game::Behaviour::Toge(), position, rotate);
 }
 
+/////////////////////////////////////////////
+//関数名：InstantiateToge_move
+//
+//機能：動くトゲの生成
+//
+//引数：(D3DXVECTOR3*)位置, (D3DXVECTOR3*)角度
+//
+//戻り値：なし
+/////////////////////////////////////////////
 void GimmickFactory::InstantiateToge_move(D3DXVECTOR3* position, D3DXVECTOR3* rotate)
 {
     Instantiate(new Game::Behaviour::Toge_move(), position, rotate);
 }
 
+/////////////////////////////////////////////
+//関数名：InstantiateYoroi
+//
+//機能：鎧の生成
+//
+//引数：(D3DXVECTOR3*)位置, (D3DXVECTOR3*)角度
+//
+//戻り値：なし
+/////////////////////////////////////////////
 void GimmickFactory::InstantiateYoroi(D3DXVECTOR3* position, D3DXVECTOR3* rotate)
 {
     Instantiate(new Game::Behaviour::Yoroi(), position, rotate);

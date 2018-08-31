@@ -32,11 +32,11 @@ class GimmickFactory
     public:
         static void InstantiateBell(D3DXVECTOR3*, D3DXVECTOR3*);
         static void InstantiateDouzou(D3DXVECTOR3*, D3DXVECTOR3*);
-        static void GimmickFactory::InstantiateHashira(D3DXVECTOR3* position, D3DXVECTOR3* rotate);
-        static void GimmickFactory::InstantiateHashira_break(D3DXVECTOR3* position, D3DXVECTOR3* rotate);
-        static void GimmickFactory::InstantiateToge(D3DXVECTOR3* position, D3DXVECTOR3* rotate);
-        static void GimmickFactory::InstantiateToge_move(D3DXVECTOR3* position, D3DXVECTOR3* rotate);
-        static void GimmickFactory::InstantiateYoroi(D3DXVECTOR3* position, D3DXVECTOR3* rotate);
+        static void InstantiateHashira(D3DXVECTOR3* position, D3DXVECTOR3* rotate);
+        static void InstantiateHashira_break(D3DXVECTOR3* position, D3DXVECTOR3* rotate);
+        static void InstantiateToge(D3DXVECTOR3* position, D3DXVECTOR3* rotate);
+        static void InstantiateToge_move(D3DXVECTOR3* position, D3DXVECTOR3* rotate);
+        static void InstantiateYoroi(D3DXVECTOR3* position, D3DXVECTOR3* rotate);
 };
 
 }}
