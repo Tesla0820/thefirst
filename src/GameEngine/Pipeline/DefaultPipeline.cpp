@@ -20,7 +20,7 @@ void DefaultPipeline::BeforeScene(std::shared_ptr<DXCT::D3D::D3DDevice> const & 
 {
 
 	// レンダーステートパラメータの設定
-	device->SetRenderState(D3DRS_AMBIENT,D3DCOLOR_ARGB(255,32,32,32));	// 画面を少し明るく
+	device->SetRenderState(D3DRS_LIGHTING,FALSE);						// ライト無効
 	device->SetRenderState(D3DRS_CULLMODE, D3DCULL_CCW);				// カリングしない
 	device->SetRenderState(D3DRS_ZENABLE, TRUE);						// Zバッファを使用しない
 	device->SetRenderState(D3DRS_ALPHABLENDENABLE, TRUE);				// αブレンドを行う

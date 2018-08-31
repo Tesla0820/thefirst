@@ -63,7 +63,7 @@ void Echo::BeforeRenderer(std::shared_ptr<DXCT::D3D::D3DDevice> const & device, 
 	_vertexShader->SetFloatArray(device, "light", lightVec, 3);
 	_pixelShader->SetFloatArray(device, "position", vec, 4);
 	_pixelShader->SetFloat(device, "range", _range);
-	_pixelShader->SetFloat(device, "weight", 25.0f);
+	_pixelShader->SetFloat(device, "weight", 144.0f);
 	_pixelShader->SetFloatArray(device, "angle", effectAngle,4);
 	device->SetVertexShader(_vertexShader);
 	device->SetPixelShader(_pixelShader);

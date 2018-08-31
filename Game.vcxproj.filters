@@ -48,8 +48,6 @@
     <ClCompile Include="src\GameEngine\Time\StopWatch.cpp" />
     <ClCompile Include="src\Game\Common\Fade.cpp" />
     <ClCompile Include="src\Game\Common\MeshRendererEx.cpp" />
-    <ClCompile Include="src\Game\ResultScene\GameClearScene\GameClearScene.cpp" />
-    <ClCompile Include="src\Game\ResultScene\GameOverScene\GameOverScene.cpp" />
     <ClCompile Include="src\Game\GameScene\Scene\Stage1Scene\Stage1Scene.cpp" />
     <ClCompile Include="src\Game\GameScene\Scene\Stage2Scene\Stage2Scene.cpp" />
     <ClCompile Include="src\Game\GameScene\Scene\Stage3Scene\Stage3Scene.cpp" />
@@ -57,9 +55,6 @@
     <ClCompile Include="src\Game\GameScene\Scene\TutorialScene\TutorialManager.cpp" />
     <ClCompile Include="src\Game\GameScene\Scene\TutorialScene\TutorialScene.cpp" />
     <ClCompile Include="src\Game\main.cpp" />
-    <ClCompile Include="src\Game\ResultScene\ResultManager.cpp" />
-    <ClCompile Include="src\Game\ResultScene\StageClearScene\StageClearManager.cpp" />
-    <ClCompile Include="src\Game\ResultScene\StageClearScene\StageClearScene.cpp" />
     <ClCompile Include="src\Game\GameScene\player.cpp" />
     <ClCompile Include="src\Game\TitleScene\Behavior\Bell.cpp" />
     <ClCompile Include="src\Game\TitleScene\Behavior\Douzou.cpp" />
@@ -77,6 +72,11 @@
     <ClCompile Include="src\Game\GameScene\GameFactory.cpp" />
     <ClCompile Include="src\Game\GameScene\Sonar.cpp" />
     <ClCompile Include="src\Game\Common\Flash.cpp" />
+    <ClCompile Include="src\Game\ResultScene\GameClearScene\GameClearScene.cpp" />
+    <ClCompile Include="src\Game\ResultScene\GameOverScene\GameOverScene.cpp" />
+    <ClCompile Include="src\Game\ResultScene\StageClearScene\StageClearManager.cpp" />
+    <ClCompile Include="src\Game\ResultScene\StageClearScene\StageClearScene.cpp" />
+    <ClCompile Include="src\Game\ResultScene\ResultManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\DXCT\D3DX\D3DXAllocateHierarchy.h" />
@@ -143,8 +143,6 @@
     <ClInclude Include="src\GameEngine\Vertex.h" />
     <ClInclude Include="src\Game\Common\Fade.h" />
     <ClInclude Include="src\Game\Common\MeshRendererEx.h" />
-    <ClInclude Include="src\Game\ResultScene\GameClearScene\GameClearScene.h" />
-    <ClInclude Include="src\Game\ResultScene\GameOverScene\GameOverScene.h" />
     <ClInclude Include="src\Game\GameScene\Scene\Stage1Scene\Stage1Scene.h" />
     <ClInclude Include="src\Game\GameScene\Scene\Stage2Scene\Stage2Scene.h" />
     <ClInclude Include="src\Game\GameScene\Scene\Stage3Scene\Stage3Scene.h" />
@@ -152,9 +150,6 @@
     <ClInclude Include="src\Game\GameScene\Scene\TutorialScene\TutorialManager.h" />
     <ClInclude Include="src\Game\GameScene\Scene\TutorialScene\TutorialScene.h" />
     <ClInclude Include="src\Game\main.h" />
-    <ClInclude Include="src\Game\ResultScene\ResultManager.h" />
-    <ClInclude Include="src\Game\ResultScene\StageClearScene\StageClearManager.h" />
-    <ClInclude Include="src\Game\ResultScene\StageClearScene\StageClearScene.h" />
     <ClInclude Include="src\Game\GameScene\player.h" />
     <ClInclude Include="src\Game\TitleScene\Behavior\Bell.h" />
     <ClInclude Include="src\Game\TitleScene\Behavior\Douzou.h" />
@@ -172,5 +167,10 @@
     <ClInclude Include="src\Game\GameScene\GameFactory.h" />
     <ClInclude Include="src\Game\GameScene\Sonar.h" />
     <ClInclude Include="src\Game\Common\Flash.h" />
+    <ClInclude Include="src\Game\ResultScene\GameClearScene\GameClearScene.h" />
+    <ClInclude Include="src\Game\ResultScene\GameOverScene\GameOverScene.h" />
+    <ClInclude Include="src\Game\ResultScene\StageClearScene\StageClearManager.h" />
+    <ClInclude Include="src\Game\ResultScene\StageClearScene\StageClearScene.h" />
+    <ClInclude Include="src\Game\ResultScene\ResultManager.h" />
   </ItemGroup>
 </Project>

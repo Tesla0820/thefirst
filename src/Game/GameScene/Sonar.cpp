@@ -41,7 +41,7 @@ void Sonar::SonarDisable()
 	_collider->SetBehaviourEnable(false);
 	_collider->SetRadius(_time);
 	auto pipeline = dynamic_cast<Pipeline::Echo*>(GameEngine::Environment::Get()->GetCurrentPipeline());
-	pipeline->SetRange(_time);
+	pipeline->SetRange(-100);
 }
 
 
