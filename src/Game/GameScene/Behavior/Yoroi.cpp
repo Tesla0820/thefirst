@@ -21,11 +21,7 @@ namespace Game { namespace Behaviour
 /////////////////////////////////////////////
 void Game::Behaviour::Yoroi::Start(void)
 {
-    GameEngine::GameObject* model = GetAttachedObject();
-    _transform = model->GetTransform();
-    _renderer = new Game::MeshRendererEx();
-    _renderer->SetMesh(std::shared_ptr<GameEngine::Resource::Mesh::IMesh>(new GameEngine::Resource::Mesh::MeshD3DX(TEXT("./data/model/gimmick_test.x"))));
-    model->AddBehaviour(_renderer);
+
 }
 
 /////////////////////////////////////////////
