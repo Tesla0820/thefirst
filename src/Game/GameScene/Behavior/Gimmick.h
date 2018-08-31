@@ -22,12 +22,18 @@ namespace Game { namespace Behaviour
 
 class Gimmick : public GameEngine::Behaviour::Behaviour, public GameEngine::Behaviour::ICollisionHandler
 {
-    protected:
-        int _time;
 
+    protected:
+		bool _isShining;
+		int _duration;
         GameEngine::Behaviour::Transform*    _transform;
         GameEngine::Behaviour::BoxCollider*  _collider;
         Game::MeshRendererEx*                _renderer;
+
+		virtual void Start() override;
+		virtual void Update() override;
+		virtual void OnCollision(GameEngine::Behaviour::Collider * from) override;
+		static constexpr int maxDuration = 300;
 };
 
 }}
