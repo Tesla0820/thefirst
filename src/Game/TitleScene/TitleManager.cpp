@@ -19,7 +19,7 @@ namespace Game
 
 	TitleManager::~TitleManager()
 	{
-		
+
 	}
 
 
@@ -28,12 +28,13 @@ namespace Game
 	//===============================================
 	void TitleManager::Start()
 	{
-		GameEngine::GameObject* object = this->GetAttachedObject();
 		_mode = MODE_TUTORIAL;
+		_red = 0;
+		_green = 0;
+		_blue = 0;
 		_alpha = 0;
-		_transform = object->GetTransform();
-		_soundPlay = object->FindBehaviour<GameEngine::Behaviour::SoundPlay>();
-		_soundPlay->Play();
+		_transform = this->GetAttachedObject()->GetTransform();
+		_render = this->GetAttachedObject()->FindBehaviour<GameEngine::Behaviour::UIRenderer>();
 	}
 
 	//=================================================
@@ -42,7 +43,7 @@ namespace Game
 	void TitleManager::Update()
 	{
 		D3DXVECTOR3 pos = { 0.0f,0.0f,0.0f };
-		
+
 
 		// ステージ選択
 		if (GameEngine::Input::GetKey(DIK_UP, TRIGGER))
@@ -64,20 +65,20 @@ namespace Game
 
 		if (this->_mode == MODE_TUTORIAL)
 		{
-			pos = D3DXVECTOR3(245.0f, 400.0f, 0.0f);
-			
+			pos = D3DXVECTOR3(260.0f, 400.0f, 0.0f);
+
 		}
 		else if (this->_mode == MODE_STAGE1)
 		{
-			pos = D3DXVECTOR3(245.0f, 450.0f, 0.0f);
+			pos = D3DXVECTOR3(260.0f, 450.0f, 0.0f);
 		}
 		else if (this->_mode == MODE_STAGE2)
 		{
-			pos = D3DXVECTOR3(245.0f, 500.0f, 0.0f);
+			pos = D3DXVECTOR3(260.0f, 500.0f, 0.0f);
 		}
 		else if (this->_mode == MODE_STAGE3)
 		{
-			pos = D3DXVECTOR3(245.0f, 550.0f, 0.0f);
+			pos = D3DXVECTOR3(260.0f, 550.0f, 0.0f);
 		}
 
 		if (Fade::EndFadeIn())
@@ -112,9 +113,26 @@ namespace Game
 			}
 		}
 
-		
+		if (_red >= 255)
+		{
+			_plus = false;
+		}
+		else if (_red <= 0)
+		{
+			_plus = true;
+		}
+		if (_plus)
+		{
+			_red += 5;
+		}
+		else
+		{
+			_red -= 5;
+		}
+
+
 		_transform->SetPosition(&pos);
-		
+		_render->SetColor(D3DCOLOR_ARGB(255, _red, _green, _blue));
 	}
 
 

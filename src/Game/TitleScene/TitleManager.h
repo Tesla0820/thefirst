@@ -10,7 +10,7 @@
 
 namespace Game
 {
-	enum MODE{
+	enum MODE {
 		MODE_TUTORIAL = 0,
 		MODE_STAGE1,
 		MODE_STAGE2,
@@ -24,9 +24,13 @@ namespace Game
 
 	private:
 		int _mode;
+		int _red;
+		int _green;
+		int _blue;
 		int _alpha;
+		bool _plus;
 		GameEngine::Behaviour::Transform* _transform;
-		GameEngine::Behaviour::SoundPlay* _soundPlay;
+		GameEngine::Behaviour::UIRenderer* _render;
 	public:
 		TitleManager();
 		~TitleManager();
