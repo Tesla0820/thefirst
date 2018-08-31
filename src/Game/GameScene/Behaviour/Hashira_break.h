@@ -15,12 +15,12 @@ namespace Game { namespace Behaviour
 //ƒNƒ‰ƒXéŒ¾//
 class Hashira_break : public Gimmick
 {
+
 public:
+	Hashira_break();
     virtual void Start() override;
     virtual void Update() override;
 
-    // ICollisionHandler ‚ğ‰î‚µ‚ÄŒp³‚³‚ê‚Ü‚µ‚½
-    virtual void OnCollision(GameEngine::Behaviour::Collider*) override;
 };
 
 }}

@@ -1,14 +1,18 @@
 //
-//		ファイル名:Hashira_break.cpp
+//		ファイル名: Bell.cpp
 //
 
 //＝＝＝ヘッダファイル読み込み＝＝＝//
-#include "Hashira_break.h"
+#include "Bell.h"
 #include "../../../GameEngine/Resource/Mesh/MeshD3DX.h"
 
 namespace Game { namespace Behaviour
 {
 
+Bell::Bell()
+	:Gimmick(Gimmick::defaultDuration*2)
+{
+}
 //＝＝＝関数定義＝＝＝//
 /////////////////////////////////////////////
 //関数名：Start
@@ -19,7 +23,7 @@ namespace Game { namespace Behaviour
 //
 //戻り値：なし
 /////////////////////////////////////////////
-void Hashira_break::Start(void)
+void Bell::Start(void)
 {
 
 }
@@ -33,7 +37,7 @@ void Hashira_break::Start(void)
 //
 //戻り値：なし
 /////////////////////////////////////////////
-void Hashira_break::Update(void)
+void Bell::Update(void)
 {
     Gimmick::Update();
 }

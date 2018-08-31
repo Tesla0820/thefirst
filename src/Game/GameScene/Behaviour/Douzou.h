@@ -22,11 +22,9 @@ class Douzou : public Gimmick
         D3DXVECTOR3 Move_Vector;
 
     public:
+		Douzou();
         virtual void Start() override;
         virtual void Update() override;
-
-        // ICollisionHandler ‚ğ‰î‚µ‚ÄŒp³‚³‚ê‚Ü‚µ‚½
-        virtual void OnCollision(GameEngine::Behaviour::Collider*) override;
 };
 
 }}

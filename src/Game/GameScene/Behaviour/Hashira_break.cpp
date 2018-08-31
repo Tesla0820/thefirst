@@ -1,13 +1,18 @@
 //
-//		ファイル名:Toge.cpp
+//		ファイル名:Hashira_break.cpp
 //
 
 //＝＝＝ヘッダファイル読み込み＝＝＝//
-#include "Toge.h"
+#include "Hashira_break.h"
 #include "../../../GameEngine/Resource/Mesh/MeshD3DX.h"
 
 namespace Game { namespace Behaviour
 {
+
+Hashira_break::Hashira_break()
+	:Gimmick(Gimmick::defaultDuration)
+{
+}
 
 //＝＝＝関数定義＝＝＝//
 /////////////////////////////////////////////
@@ -19,7 +24,7 @@ namespace Game { namespace Behaviour
 //
 //戻り値：なし
 /////////////////////////////////////////////
-void Toge::Start(void)
+void Hashira_break::Start(void)
 {
 
 }
@@ -33,7 +38,7 @@ void Toge::Start(void)
 //
 //戻り値：なし
 /////////////////////////////////////////////
-void Toge::Update(void)
+void Hashira_break::Update(void)
 {
     Gimmick::Update();
 }

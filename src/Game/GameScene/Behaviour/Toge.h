@@ -16,11 +16,9 @@ namespace Game { namespace Behaviour
 class Toge : public Gimmick
 {
     public:
+		Toge();
         virtual void Start(void) override;
         virtual void Update(void) override;
-
-        // ICollisionHandler ‚ğ‰î‚µ‚ÄŒp³‚³‚ê‚Ü‚µ‚½
-        virtual void OnCollision(GameEngine::Behaviour::Collider*) override;
 };
 
 }}

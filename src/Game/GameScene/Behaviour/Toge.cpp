@@ -1,13 +1,19 @@
 //
-//		ファイル名:Yoroi.cpp
+//		ファイル名:Toge.cpp
 //
 
 //＝＝＝ヘッダファイル読み込み＝＝＝//
-#include "Yoroi.h"
+#include "Toge.h"
 #include "../../../GameEngine/Resource/Mesh/MeshD3DX.h"
 
 namespace Game { namespace Behaviour
 {
+
+Toge::Toge()
+	:Gimmick(Gimmick::defaultDuration)
+{
+
+}
 
 //＝＝＝関数定義＝＝＝//
 /////////////////////////////////////////////
@@ -19,7 +25,7 @@ namespace Game { namespace Behaviour
 //
 //戻り値：なし
 /////////////////////////////////////////////
-void Game::Behaviour::Yoroi::Start(void)
+void Toge::Start(void)
 {
 
 }
@@ -33,10 +39,9 @@ void Game::Behaviour::Yoroi::Start(void)
 //
 //戻り値：なし
 /////////////////////////////////////////////
-void Game::Behaviour::Yoroi::Update(void)
+void Toge::Update(void)
 {
     Gimmick::Update();
 }
-
 
 }}

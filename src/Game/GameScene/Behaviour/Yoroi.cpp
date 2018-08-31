@@ -1,12 +1,19 @@
 //
-//		ファイル名:Hashira.cpp
+//		ファイル名:Yoroi.cpp
 //
 
 //＝＝＝ヘッダファイル読み込み＝＝＝//
-#include "Hashira.h"
+#include "Yoroi.h"
+#include "../../../GameEngine/Resource/Mesh/MeshD3DX.h"
 
 namespace Game { namespace Behaviour
 {
+
+Yoroi::Yoroi()
+	:Gimmick(Gimmick::defaultDuration)
+{
+}
+
 
 //＝＝＝関数定義＝＝＝//
 /////////////////////////////////////////////
@@ -18,7 +25,7 @@ namespace Game { namespace Behaviour
 //
 //戻り値：なし
 /////////////////////////////////////////////
-void Hashira::Start(void)
+void Game::Behaviour::Yoroi::Start(void)
 {
 
 }
@@ -32,9 +39,10 @@ void Hashira::Start(void)
 //
 //戻り値：なし
 /////////////////////////////////////////////
-void Hashira::Update(void)
+void Game::Behaviour::Yoroi::Update(void)
 {
     Gimmick::Update();
 }
+
 
 }}

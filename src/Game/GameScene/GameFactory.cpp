@@ -1,7 +1,7 @@
 #include "GameFactory.h"
 #include "../../GameEngine/GameEngine.h"
-#include "Sonar.h"
-#include "player.h"
+#include "Behaviour/Sonar.h"
+#include "Behaviour/player.h"
 
 namespace Game { namespace GameScene
 {

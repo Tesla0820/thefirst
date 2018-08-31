@@ -27,7 +27,7 @@ namespace Game { namespace Behaviour
 class GimmickFactory
 {
     private:
-        static void Instantiate(GameEngine::Behaviour::Behaviour*, D3DXVECTOR3*, D3DXVECTOR3*);
+        static void Instantiate(GameEngine::Behaviour::Behaviour* behaviour, D3DXVECTOR3* position, D3DXVECTOR3* rotate, std::shared_ptr<GameEngine::Resource::Mesh::IMesh> mesh);
 
     public:
         static void InstantiateBell(D3DXVECTOR3*, D3DXVECTOR3*);

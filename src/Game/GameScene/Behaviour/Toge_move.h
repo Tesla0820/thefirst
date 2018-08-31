@@ -20,11 +20,10 @@ class Toge_move : public Gimmick
         bool _attack;
 
     public:
-        virtual void Start(void) override;
+		Toge_move();
+		virtual void Start(void) override;
         virtual void Update(void) override;
 
-        // ICollisionHandler ‚ğ‰î‚µ‚ÄŒp³‚³‚ê‚Ü‚µ‚½
-        virtual void OnCollision(GameEngine::Behaviour::Collider*) override;
 };
 
 }}

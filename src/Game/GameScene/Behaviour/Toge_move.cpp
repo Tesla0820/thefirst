@@ -8,6 +8,10 @@
 namespace Game { namespace Behaviour
 {
 
+Toge_move::Toge_move()
+	:Gimmick(Gimmick::defaultDuration)
+{
+}
 //ŠÖ”’è‹`//
 /////////////////////////////////////////////
 //ŠÖ”–¼FStart

@@ -8,7 +8,10 @@
 
 namespace Game { namespace Behaviour
 {
-
+Douzou::Douzou()
+	:Gimmick(Gimmick::defaultDuration)
+{
+}
 //ŠÖ”’è‹`//
 /////////////////////////////////////////////
 //ŠÖ”–¼FStart

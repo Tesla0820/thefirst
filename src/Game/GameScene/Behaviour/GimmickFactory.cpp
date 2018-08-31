@@ -42,7 +42,7 @@ void GimmickFactory::Instantiate(GameEngine::Behaviour::Behaviour* behaviour, D3
 /////////////////////////////////////////////
 void GimmickFactory::InstantiateBell(D3DXVECTOR3* position, D3DXVECTOR3* rotate)
 {
-    Instantiate(new Game::Behaviour::Bell(), position, rotate);
+    Instantiate(new Game::Behaviour::Bell(), position, rotate, nullptr);
 }
 
 /////////////////////////////////////////////
@@ -56,7 +56,7 @@ void GimmickFactory::InstantiateBell(D3DXVECTOR3* position, D3DXVECTOR3* rotate)
 /////////////////////////////////////////////
 void GimmickFactory::InstantiateDouzou(D3DXVECTOR3* position, D3DXVECTOR3* rotate)
 {
-    Instantiate(new Game::Behaviour::Douzou(), position, rotate);
+    Instantiate(new Game::Behaviour::Douzou(), position, rotate, nullptr);
 }
 
 /////////////////////////////////////////////
@@ -70,7 +70,7 @@ void GimmickFactory::InstantiateDouzou(D3DXVECTOR3* position, D3DXVECTOR3* rotat
 /////////////////////////////////////////////
 void GimmickFactory::InstantiateHashira(D3DXVECTOR3* position, D3DXVECTOR3* rotate)
 {
-    Instantiate(new Game::Behaviour::Hashira(), position, rotate);
+    Instantiate(new Game::Behaviour::Hashira(), position, rotate, nullptr);
 }
 
 /////////////////////////////////////////////
@@ -84,7 +84,7 @@ void GimmickFactory::InstantiateHashira(D3DXVECTOR3* position, D3DXVECTOR3* rota
 /////////////////////////////////////////////
 void GimmickFactory::InstantiateHashira_break(D3DXVECTOR3* position, D3DXVECTOR3* rotate)
 {
-    Instantiate(new Game::Behaviour::Hashira_break(), position, rotate);
+    Instantiate(new Game::Behaviour::Hashira_break(), position, rotate, nullptr);
 }
 
 /////////////////////////////////////////////
@@ -98,7 +98,7 @@ void GimmickFactory::InstantiateHashira_break(D3DXVECTOR3* position, D3DXVECTOR3
 /////////////////////////////////////////////
 void GimmickFactory::InstantiateToge(D3DXVECTOR3* position, D3DXVECTOR3* rotate)
 {
-    Instantiate(new Game::Behaviour::Toge(), position, rotate);
+    Instantiate(new Game::Behaviour::Toge(), position, rotate, nullptr);
 }
 
 /////////////////////////////////////////////
@@ -112,7 +112,7 @@ void GimmickFactory::InstantiateToge(D3DXVECTOR3* position, D3DXVECTOR3* rotate)
 /////////////////////////////////////////////
 void GimmickFactory::InstantiateToge_move(D3DXVECTOR3* position, D3DXVECTOR3* rotate)
 {
-    Instantiate(new Game::Behaviour::Toge_move(), position, rotate);
+    Instantiate(new Game::Behaviour::Toge_move(), position, rotate, nullptr);
 }
 
 /////////////////////////////////////////////
@@ -126,7 +126,7 @@ void GimmickFactory::InstantiateToge_move(D3DXVECTOR3* position, D3DXVECTOR3* ro
 /////////////////////////////////////////////
 void GimmickFactory::InstantiateYoroi(D3DXVECTOR3* position, D3DXVECTOR3* rotate)
 {
-    Instantiate(new Game::Behaviour::Yoroi(), position, rotate);
+    Instantiate(new Game::Behaviour::Yoroi(), position, rotate,nullptr);
 }
 
 }}

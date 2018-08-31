@@ -16,11 +16,10 @@ namespace Game { namespace Behaviour
 class Hashira : public Gimmick
 {
     public:
+		Hashira();
         virtual void Start() override;
         virtual void Update() override;
 
-        // ICollisionHandler ‚ğ‰î‚µ‚ÄŒp³‚³‚ê‚Ü‚µ‚½
-        virtual void OnCollision(GameEngine::Behaviour::Collider*) override;
 };
 
 }}
