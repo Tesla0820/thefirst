@@ -38,19 +38,4 @@ void Bell::Update(void)
     Gimmick::Update();
 }
 
-/////////////////////////////////////////////
-//関数名：OnCollision
-//
-//機能：当たり判定に対する挙動
-//
-//引数：(GameEngine::Behaviour::Collider*)判定
-//
-//戻り値：なし
-/////////////////////////////////////////////
-void Bell::OnCollision(GameEngine::Behaviour::Collider* from)
-{
-    _time = SHINE_TIME_BELL;
-    _renderer->SetRate(1.0F);
-}
-
 }}

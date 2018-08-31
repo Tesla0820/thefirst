@@ -20,7 +20,7 @@ namespace Game { namespace Behaviour
 /////////////////////////////////////////////
 void Hashira::Start(void)
 {
-    _transform = GetAttachedObject()->GetTransform();
+
 }
 
 /////////////////////////////////////////////

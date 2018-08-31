@@ -35,26 +35,8 @@ void Game::Behaviour::Yoroi::Start(void)
 /////////////////////////////////////////////
 void Game::Behaviour::Yoroi::Update(void)
 {
-    if (_time)
-    {
-        _time--;
-    }
-    _renderer->SetRate((float)_time / SHINE_TIME);
+    Gimmick::Update();
 }
 
-/////////////////////////////////////////////
-//関数名：OnCollision
-//
-//機能：当たり判定に対する挙動
-//
-//引数：(GameEngine::Behaviour::Collider*)判定
-//
-//戻り値：なし
-/////////////////////////////////////////////
-void Yoroi::OnCollision(GameEngine::Behaviour::Collider* from)
-{
-    _time = SHINE_TIME;
-    _renderer->SetRate(1.0F);
-}
 
 }}
