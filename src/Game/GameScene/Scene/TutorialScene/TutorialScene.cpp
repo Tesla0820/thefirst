@@ -7,6 +7,7 @@
 #include "../../../Common/Pipeline/Echo.h"
 #include "TutorialManager.h"
 #include "../../../Common/Fade.h"
+#include "../../GameFactory.h"
 
 namespace Game { namespace GameScene { namespace Scene
 {
@@ -29,12 +30,12 @@ namespace Game { namespace GameScene { namespace Scene
 		using ResourceManager = GameEngine::Resource::ResourceManager;
 		GameEngine::Environment::Get()->AttachPipeline(new Pipeline::Echo());
 
-		GameEngine::GameObject* object = GameEngine::GameObject::Instantiate();
-		auto camera = new GameEngine::Behaviour::Camera();
-		object->AddBehaviour(camera);
-		camera->SetCurrent();
-		camera->EnablePerspectiveMode(true);
-		object->GetTransform()->SetPosition(&D3DXVECTOR3(0.0f, 5.0f, 0.0f));
+		//地面
+		GameFactory::CreateGround();
+
+		//プレイヤー
+		GameFactory::CreatePlayer();
+
 		GameEngine::GameObject* object2 = GameEngine::GameObject::Instantiate();
 		auto transform = object2->GetTransform();
 		transform->SetPosition(&D3DXVECTOR3(0.0f, 0.0f, 0.0f));
@@ -42,10 +43,9 @@ namespace Game { namespace GameScene { namespace Scene
 		meshRenderer->SetMesh(std::shared_ptr<GameEngine::Resource::Mesh::IMesh>(new GameEngine::Resource::Mesh::MeshD3DX(TEXT("./data/model/stage.x"))));
 		object2->AddBehaviour(meshRenderer);
 
-
-		GameEngine::GameObject* object3 = GameEngine::GameObject::Instantiate();
+		GameEngine::GameObject* object4 = GameEngine::GameObject::Instantiate();
 		auto tutorialmanager = new Game::GameScene::Scene::TutorialManager();
-		object3->AddBehaviour(tutorialmanager);
+		object4->AddBehaviour(tutorialmanager);
 
 		// フェード用
 		GameEngine::GameObject* FadeObject = GameEngine::GameObject::Instantiate();

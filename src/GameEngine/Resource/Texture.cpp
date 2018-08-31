@@ -26,10 +26,10 @@ Texture::Texture(std::string path)
 
 std::string Texture::GetResourceType()
 {
-	return std::string(_resourceType);
+	return std::string(ResourceType);
 }
 
-Texture::get_shared_ptr Texture::Get()
+Texture::get_result Texture::Get()
 {
 	return _texture;
 }

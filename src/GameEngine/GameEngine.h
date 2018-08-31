@@ -15,6 +15,7 @@
 #include "Behaviour/Behaviour.h"
 #include "Behaviour/Transform.h"
 #include "Behaviour/Camera.h"
+#include "Behaviour/SoundPlay.h"
 
 //Behaviour/Renderer
 #include "Behaviour/Renderer/RendererBase.h"
@@ -22,6 +23,7 @@
 #include "Behaviour/Renderer/UIRenderer.h"
 
 //Behaviour/Collider
+#include "Behaviour/Collider/ICollisionHandler.h"
 #include "Behaviour/Collider/Collider.h"
 #include "Behaviour/Collider/BoxCollider.h"
 #include "Behaviour/Collider/SphereCollider.h"

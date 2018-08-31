@@ -124,6 +124,7 @@ void GameObject::Update()
 	if (!_enable) return;
 	for (auto behaviour : _behaviours)
 	{
+		if (!behaviour->GetEnable()) continue;
 		behaviour->Update();
 	}
 	for (auto object : _children)
@@ -178,7 +179,9 @@ void GameObject::Destroy()
 	}
 	while (!_behaviours.empty())
 	{
-		delete _behaviours.back();
+		auto behaviour = _behaviours.back();
+		behaviour->Destroy();
+		delete behaviour;
 		_behaviours.pop_back();
 	}
 }

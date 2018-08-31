@@ -42,10 +42,13 @@ bool TitleScene::Init()
 	TitlemanagerObject->GetTransform()->SetScale(&D3DXVECTOR3(50.0f, 50.0f, 50.0f));
 	auto titlemanager = new Game::TitleManager();
 	auto TitlemanagerRenderer = new GameEngine::Behaviour::UIRenderer(GameEngine::Resource::ResourceManager::Get<Texture>("./data/texture/test.png"));
+	auto titleManagerSoundPlay = new GameEngine::Behaviour::SoundPlay();
 	TitlemanagerRenderer->SetColor(D3DCOLOR_ARGB(255, 255, 255, 255));
+	titleManagerSoundPlay->SetSound(GameEngine::Sound::Sound::CreateFromWaveFile("./data/sound/M_1.wav",XAUDIO2_LOOP_INFINITE));
 	TitlemanagerObject->AddBehaviour(TitlemanagerRenderer);
 	TitlemanagerObject->AddBehaviour(titlemanager);
-	
+	TitlemanagerObject->AddBehaviour(titleManagerSoundPlay);
+
 	// ƒ^ƒCƒgƒ‹‚Ì•`‰æ
 	GameEngine::GameObject* TitleObject = GameEngine::GameObject::Instantiate();
 	TitleObject->GetTransform()->SetPosition(&D3DXVECTOR3(400.0f, 300.0f, 0.0f));
@@ -95,7 +98,6 @@ bool TitleScene::Init()
 	FadeRenderer->SetColor(D3DCOLOR_ARGB(255, 0, 0, 0));
 	FadeObject->AddBehaviour(FadeRenderer);
 	FadeObject->AddBehaviour(fade);
-
 	return false;
 }
 

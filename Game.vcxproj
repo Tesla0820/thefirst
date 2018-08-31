@@ -45,6 +45,7 @@
     <ClCompile Include="src\GameEngine\Behaviour\Renderer\MeshRenderer.cpp" />
     <ClCompile Include="src\GameEngine\Behaviour\Renderer\RendererBase.cpp" />
     <ClCompile Include="src\GameEngine\Behaviour\Renderer\UIRenderer.cpp" />
+    <ClCompile Include="src\GameEngine\Behaviour\SoundPlay.cpp" />
     <ClCompile Include="src\GameEngine\Behaviour\Transform.cpp" />
     <ClCompile Include="src\GameEngine\Binder\BehaviourBinder.cpp" />
     <ClCompile Include="src\GameEngine\Environment.cpp" />
@@ -66,6 +67,8 @@
     <ClCompile Include="src\GameEngine\Time\StopWatch.cpp" />
     <ClCompile Include="src\Game\Common\Fade.cpp" />
     <ClCompile Include="src\Game\Common\MeshRendererEx.cpp" />
+    <ClCompile Include="src\Game\GameScene\GameFactory.cpp" />
+    <ClCompile Include="src\Game\GameScene\Sonar.cpp" />
     <ClCompile Include="src\Game\ResultScene\GameClearScene\GameClearScene.cpp" />
     <ClCompile Include="src\Game\ResultScene\GameOverScene\GameOverScene.cpp" />
     <ClCompile Include="src\Game\GameScene\Scene\Stage1Scene\Stage1Scene.cpp" />
@@ -150,6 +153,10 @@
       </SubType>
     </ClInclude>
     <ClInclude Include="src\GameEngine\Behaviour\Renderer\UIRenderer.h" />
+    <ClInclude Include="src\GameEngine\Behaviour\SoundPlay.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
     <ClInclude Include="src\GameEngine\Behaviour\Transform.h" />
     <ClInclude Include="src\GameEngine\Binder\BehaviourBinder.h" />
     <ClInclude Include="src\GameEngine\GameEngine.h" />
@@ -199,6 +206,11 @@
       <SubType>
       </SubType>
     </ClInclude>
+    <ClInclude Include="src\Game\GameScene\GameFactory.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="src\Game\GameScene\Sonar.h" />
     <ClInclude Include="src\Game\ResultScene\GameClearScene\GameClearScene.h" />
     <ClInclude Include="src\Game\ResultScene\GameOverScene\GameOverScene.h" />
     <ClInclude Include="src\Game\GameScene\Scene\Stage1Scene\Stage1Scene.h" />

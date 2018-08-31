@@ -12,7 +12,7 @@ namespace GameEngine { namespace Sound
 	class Sound
 	{
 		private:
-			static bool CheckChunk(std::istream & stream, unsigned long chunkFormat, unsigned long * chunkSize);
+			static bool HasChunk(std::istream & stream, unsigned long chunkFormat, unsigned long * chunkSize, unsigned long *chunkPosition);
 			
 			std::unique_ptr<unsigned char[]> _data;
 			unsigned long _bufferSize;
@@ -20,12 +20,13 @@ namespace GameEngine { namespace Sound
 			char _loopCount;
 
 		public:
-			Sound(std::unique_ptr<unsigned char[]>&& data,unsigned long bufferSize,WAVEFORMATEXTENSIBLE waveFormatExtensible, char loopCount);
+			Sound(std::unique_ptr<unsigned char[]>&& data,unsigned long bufferSize,WAVEFORMATEXTENSIBLE waveFormatExtensible, char loopCount = 0);
 			unsigned long GetBufferSize();
 			unsigned char* GetData();
 			void GetFomat(WAVEFORMATEXTENSIBLE *waveFormatExtensible);
-			int GetLoopCount();
-			static Sound* CreateFromWaveFile(std::string filename, char loopCount);
+			char GetLoopCount();
+			void SetLoopCount(int loopCount);
+			static std::shared_ptr<Sound> CreateFromWaveFile(std::string filename, char loopCount);
 
 	};
 }
