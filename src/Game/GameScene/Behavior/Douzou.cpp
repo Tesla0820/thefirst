@@ -48,23 +48,29 @@ void Douzou::Update(void)
     D3DXVECTOR3 position;
     D3DXQUATERNION rotate;
 
+    //ˆÚ“®
+    Move = { 0.0F, 0.0F, 0.0F };
     Move += Move_Vector;
     Move_Distance += 0.1F;
+
+    //”½“]”»’è
     if (Move_Distance >= 10.0F)
     {
         Move_Distance = 0.0F;
         if (Move_Vector == _transform->Front())
         {
             D3DXQuaternionRotationYawPitchRoll(&rotate, 0.0F, 0.0F, 0.0F);
-            Move_Vector = _transform->Front();
+            Move_Vector = _transform->Back();
         }
         else
         {
             D3DXQuaternionRotationYawPitchRoll(&rotate, D3DX_PI, 0.0F, 0.0F);
-            Move_Vector = _transform->Back();
+            Move_Vector = _transform->Front();
         }
     }
-    _transform->Offset(&position);
+
+    //ˆÚ“®’l‚Ì”½‰f
+    _transform->Offset(&Move);
     _transform->SetRotation(&rotate);
 
     if (_time)
