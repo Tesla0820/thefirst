@@ -66,6 +66,7 @@
     <ClCompile Include="src\GameEngine\Time\FPSCounter.cpp" />
     <ClCompile Include="src\GameEngine\Time\StopWatch.cpp" />
     <ClCompile Include="src\Game\Common\Fade.cpp" />
+    <ClCompile Include="src\Game\Common\Flash.cpp" />
     <ClCompile Include="src\Game\Common\MeshRendererEx.cpp" />
     <ClCompile Include="src\Game\GameScene\GameFactory.cpp" />
     <ClCompile Include="src\Game\GameScene\Sonar.cpp" />
@@ -202,6 +203,7 @@
     <ClInclude Include="src\GameEngine\Time\stopwatch.h" />
     <ClInclude Include="src\GameEngine\Vertex.h" />
     <ClInclude Include="src\Game\Common\Fade.h" />
+    <ClInclude Include="src\Game\Common\Flash.h" />
     <ClInclude Include="src\Game\Common\MeshRendererEx.h">
       <SubType>
       </SubType>

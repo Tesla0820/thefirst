@@ -47,7 +47,7 @@ namespace Game { namespace GameScene { namespace Scene
 		FadeObject->GetTransform()->SetPosition(&D3DXVECTOR3(400.0f, 300.0f, 0.0f));
 		FadeObject->GetTransform()->SetScale(&D3DXVECTOR3(800.0f, 600.0f, 50.0f));
 		auto fade = new Game::Fade();
-		auto FadeRenderer = new GameEngine::Behaviour::UIRenderer(GameEngine::Resource::ResourceManager::Get<Texture>("./data/texture/test.png"));
+		auto FadeRenderer = new GameEngine::Behaviour::UIRenderer();
 		FadeRenderer->SetColor(D3DCOLOR_ARGB(255, 0, 0, 0));
 		FadeObject->AddBehaviour(FadeRenderer);
 		FadeObject->AddBehaviour(fade);
