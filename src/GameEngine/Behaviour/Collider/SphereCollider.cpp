@@ -28,6 +28,11 @@ D3DXVECTOR3 SphereCollider::GetCenterPosition()
 	return _center;
 }
 
+void SphereCollider::SetRadius(float radius)
+{
+	_radius = radius;
+}
+
 float SphereCollider::GetRadius()
 {
 	return _radius;

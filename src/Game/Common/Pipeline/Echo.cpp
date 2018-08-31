@@ -46,26 +46,24 @@ void Echo::BeforeScene(std::shared_ptr<DXCT::D3D::D3DDevice> const & device)
 void Echo::BeforeRenderer(std::shared_ptr<DXCT::D3D::D3DDevice> const & device, D3DXMATRIX const& world)
 {
 	D3DXVECTOR3 lightVec(0.1f,1.0f,0.0f);
-	D3DXVECTOR3 effectVec(0.1f, 0.0f, 1.0f);
-	float vec[4] = { 0.0f,0.0f,0.0f,0.0f };
-	float light[4] = { 0.0f,0.0f,0.0f,0.0f };
+	float vec[4] = { _position.x,_position.y,_position.z,0.0f };
+	float light[3] = { 0.0f,0.0f,0.0f};
 	float effectAngle[4] = { 0.0f,0.0f,0.0f,1.0f };
 	D3DXMATRIX wvp;
 	_vertexShader->SetMatrix(device, "W", &world);
 	D3DXMatrixMultiply(&wvp, &world, &_vp);
 	_vertexShader->SetMatrix(device, "WVP", &wvp);
 	D3DXVec3Normalize(&lightVec, &lightVec);
-	D3DXVec3Normalize(&effectVec, &effectVec);
 	for (int i = 0; i < 3; i++)
 	{
 		light[i] = lightVec[i];
-		effectAngle[i] = effectVec[i];
+		effectAngle[i] = _direction[i];
 	}
 
-	_vertexShader->SetFloatArray(device, "light", lightVec, 4);
+	_vertexShader->SetFloatArray(device, "light", lightVec, 3);
 	_pixelShader->SetFloatArray(device, "position", vec, 4);
-	_pixelShader->SetFloat(device, "range", 20.0f);
-	_pixelShader->SetFloat(device, "weight", 6.0f);
+	_pixelShader->SetFloat(device, "range", _range);
+	_pixelShader->SetFloat(device, "weight", 25.0f);
 	_pixelShader->SetFloatArray(device, "angle", effectAngle,4);
 	device->SetVertexShader(_vertexShader);
 	device->SetPixelShader(_pixelShader);
@@ -87,6 +85,17 @@ void Echo::SetRate(float rate)
 { 
 	auto device = GameEngine::Environment::Get()->GetCurrentDevice();
 	_vertexShader->SetFloat(device, "rate", rate);
+}
+
+void Echo::SetSonar(D3DXVECTOR3 position, D3DXVECTOR3 direction)
+{
+	_position = position;
+	D3DXVec3Normalize(&_direction, &direction);
+}
+
+void Echo::SetRange(float range)
+{
+	_range = range;
 }
 
 }

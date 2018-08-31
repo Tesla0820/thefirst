@@ -20,9 +20,10 @@ class Echo :public GameEngine::Pipeline::DefaultPipeline
 		std::shared_ptr<DXCT::D3D::D3DVertexShader> _vertexShader;
 		std::shared_ptr<DXCT::D3D::D3DPixelShader>  _pixelShader;
 		std::shared_ptr<DXCT::D3D::D3DVertexDeclaration> _vertexDeclaration;
-		std::shared_ptr<DXCT::D3D::D3DTexture> _renderTarget;
-		std::shared_ptr<DXCT::D3D::D3DSurface> _surface;
 		D3DXMATRIX _vp;
+		D3DXVECTOR3 _position;
+		D3DXVECTOR3 _direction;
+		float _range;
 	public:
 		Echo();
 		virtual void OnAttach		(std::shared_ptr<DXCT::D3D::D3DDevice> const& device) override;
@@ -33,6 +34,8 @@ class Echo :public GameEngine::Pipeline::DefaultPipeline
 		virtual void AfterRenderer	(std::shared_ptr<DXCT::D3D::D3DDevice> const& device) override;
 		virtual void AfterScene		(std::shared_ptr<DXCT::D3D::D3DDevice> const& device) override;
 		void SetRate(float rate);
+		void SetSonar(D3DXVECTOR3 position, D3DXVECTOR3 direction);
+		void SetRange(float range);
 };
 
 }

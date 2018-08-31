@@ -13,7 +13,7 @@ Collider::Collider(int flag)
 	_handler = nullptr;
 	_isTrigger = true;
 	_isFreeze = false;
-	_flag = 0;
+	_flag = flag;
 }
 
 void Collider::Enabled()
@@ -61,7 +61,7 @@ void Collider::HitAll()
 	for (auto iterator = _colliders.begin(); iterator != _colliders.end(); ++iterator)
 	{
 		if (*iterator == this) continue;//自分は除く
-		if (!(_flag & (*iterator)->GetFlag()))return;//マスクで除外
+		if (!(_flag & (*iterator)->GetFlag())) continue;//マスクで除外
 		Hit(*iterator);
 	}
 }
@@ -88,8 +88,14 @@ void Collider::RemoveActiveCollider(Collider * collider)
 
 void Collider::OnCollision(Collider * from)
 {
-	if (!_handler)return;
-	_handler->OnCollision(from);
+	if (_handler)
+	{
+		_handler->OnCollision(from);
+	}
+	if (from->_handler)
+	{
+		from->_handler->OnCollision(this);
+	}
 }
 
 

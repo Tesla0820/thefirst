@@ -26,6 +26,7 @@ public:
 	SphereCollider(int flag);
 	SphereCollider(D3DXVECTOR3 center, float radius,int flag);
 	D3DXVECTOR3 GetCenterPosition();
+	void SetRadius(float radius);
 	float GetRadius();
 	void HitToSphere(SphereCollider* collider);
 	void HitToBox(BoxCollider* collider);
