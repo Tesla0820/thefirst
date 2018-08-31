@@ -14,7 +14,7 @@
 #include "../../../GameEngine/Behaviour/Transform.h"
 
 //＝＝＝定数・マクロ定義＝＝＝//
-#define SHINE_TIME 120.0F
+#define SHINE_TIME 120
 
 //＝＝＝クラス宣言＝＝＝//
 namespace Game { namespace Behaviour
