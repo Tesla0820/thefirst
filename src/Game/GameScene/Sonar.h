@@ -22,13 +22,13 @@ class Sonar:public GameEngine::Behaviour::Behaviour
 		D3DXVECTOR3 _position;
 		D3DXVECTOR3 _direction;
 
-		static constexpr int maxTime = 30;
+		static constexpr int maxTime = 180;
 	public:
 		Sonar() = default;
 		virtual void Start() override;
 		virtual void Update() override;
-		bool Ping(GameEngine::GameObject* origin);
-
+		bool Ping();
+		void SetCollider(GameEngine::Behaviour::SphereCollider* collider);
 
 };
 

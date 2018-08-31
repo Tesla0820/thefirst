@@ -7,8 +7,7 @@
 #include "../../../Common/Pipeline/Echo.h"
 #include "TutorialManager.h"
 #include "../../../Common/Fade.h"
-#include "../../Sonar.h"
-#include "../../player.h"
+#include "../../GameFactory.h"
 
 namespace Game { namespace GameScene { namespace Scene
 {
@@ -31,14 +30,11 @@ namespace Game { namespace GameScene { namespace Scene
 		using ResourceManager = GameEngine::Resource::ResourceManager;
 		GameEngine::Environment::Get()->AttachPipeline(new Pipeline::Echo());
 
-		//プレイヤー
-		GameEngine::GameObject* object = GameEngine::GameObject::Instantiate();
-		auto camera = new GameEngine::Behaviour::Camera();
-		object->AddBehaviour(camera);
-		camera->SetCurrent();
-		camera->EnablePerspectiveMode(true);
-		object->GetTransform()->SetPosition(&D3DXVECTOR3(0.0f, 5.0f, 0.0f));
+		//地面
+		GameFactory::CreateGround();
 
+		//プレイヤー
+		GameFactory::CreatePlayer();
 
 		GameEngine::GameObject* object2 = GameEngine::GameObject::Instantiate();
 		auto transform = object2->GetTransform();
@@ -46,15 +42,6 @@ namespace Game { namespace GameScene { namespace Scene
 		auto meshRenderer = new GameEngine::Behaviour::MeshRenderer();
 		meshRenderer->SetMesh(std::shared_ptr<GameEngine::Resource::Mesh::IMesh>(new GameEngine::Resource::Mesh::MeshD3DX(TEXT("./data/model/stage.x"))));
 		object2->AddBehaviour(meshRenderer);
-		auto player = new GameScene::Player();
-		object2->AddBehaviour(player);
-
-
-		//ソナー判定
-		GameEngine::GameObject* object3 = GameEngine::GameObject::Instantiate();
-		object->AddBehaviour(new Sonar());
-		object->AddBehaviour(new GameEngine::Behaviour::SphereCollider(0xffff));
-
 
 		GameEngine::GameObject* object4 = GameEngine::GameObject::Instantiate();
 		auto tutorialmanager = new Game::GameScene::Scene::TutorialManager();

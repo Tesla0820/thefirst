@@ -5,18 +5,18 @@
 #ifndef HEADER_PLAYER_H
 #define HEADER_PLAYER_H
 
-#include "../../GameEngine/GameEngine_inner.h"
 #include "../../GameEngine/GameEngine.h"
-#include "../../GameEngine/Vertex.h"
-#include "../../GameEngine/Behaviour/Behaviour.h"
-#include "../../GameEngine/Behaviour/Collider/SphereCollider.h"
+#include "Sonar.h"
 
 namespace Game { namespace GameScene
 {
-	class Player : public GameEngine::Behaviour::Behaviour
+	class Player : public GameEngine::Behaviour::Behaviour,public GameEngine::Behaviour::ICollisionHandler
 	{
-
 	private:
+
+		Sonar* _sonar;
+
+		GameEngine::Behaviour::SoundPlay* _soundPlay;
 		GameEngine::Behaviour::Transform* _transform;
 		GameEngine::Behaviour::SphereCollider* _sphere;
 		float angle;
@@ -24,9 +24,14 @@ namespace Game { namespace GameScene
 		int currentFuel;
 		int delay;
 		float ground;
+
 	public:
+
 		virtual void Start() override;
 		virtual void Update() override;
+		// ICollisionHandler ÇâÓÇµÇƒåpè≥Ç≥ÇÍÇ‹ÇµÇΩ
+		virtual void OnCollision(GameEngine::Behaviour::Collider * from) override;
+
 	};
 }
 }

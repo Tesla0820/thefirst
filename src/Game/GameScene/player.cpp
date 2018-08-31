@@ -15,6 +15,8 @@ void Player::Start()
 {
 	GameEngine::GameObject* object = GetAttachedObject();
 	_transform = object->GetTransform();
+	_sonar = object->FindBehaviour<Sonar>();
+	_soundPlay = object->FindBehaviour<GameEngine::Behaviour::SoundPlay>();
 	_sphere = object->FindBehaviour<GameEngine::Behaviour::SphereCollider>();
 	angle = 0.0f;
 	currentFuel= maxFuel = 90;
@@ -68,6 +70,14 @@ void Player::Update()
 		vec += up;
 	}
 
+	if (GameEngine::Input::GetKey(DIKEYBOARD_Z, TRIGGER))
+	{
+		if (_sonar->Ping())
+		{
+			_soundPlay->Play();
+		}
+	}
+
 	// 座標の更新
 	_transform->Offset(&vec);
 
@@ -85,6 +95,14 @@ void Player::Update()
 	D3DXQuaternionRotationYawPitchRoll(&rot, angle, 0.0f, 0.0f);
 	_transform->SetRotation(&rot);
 	_sphere->HitAll();
+}
+
+void Player::OnCollision(GameEngine::Behaviour::Collider * from)
+{
+	if (from->GetFlag() & 0x0002)
+	{
+		//ゲームオーバー
+	}
 }
 
 }

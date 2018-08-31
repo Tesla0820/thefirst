@@ -23,6 +23,7 @@
 #include "Behaviour/Renderer/UIRenderer.h"
 
 //Behaviour/Collider
+#include "Behaviour/Collider/ICollisionHandler.h"
 #include "Behaviour/Collider/Collider.h"
 #include "Behaviour/Collider/BoxCollider.h"
 #include "Behaviour/Collider/SphereCollider.h"

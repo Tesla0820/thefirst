@@ -124,7 +124,7 @@ void GameObject::Update()
 	if (!_enable) return;
 	for (auto behaviour : _behaviours)
 	{
-		if (!behaviour->GetEnable()) return;
+		if (!behaviour->GetEnable()) continue;
 		behaviour->Update();
 	}
 	for (auto object : _children)
