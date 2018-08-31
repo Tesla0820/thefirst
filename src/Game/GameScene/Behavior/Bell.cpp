@@ -21,12 +21,7 @@ namespace Game { namespace Behaviour
 /////////////////////////////////////////////
 void Bell::Start(void)
 {
-    GameEngine::GameObject* model = GetAttachedObject();
-    _transform = model->GetTransform();
-    _renderer = new Game::MeshRendererEx();
-    _renderer->SetMesh(std::shared_ptr<GameEngine::Resource::Mesh::IMesh>(new GameEngine::Resource::Mesh::MeshD3DX(TEXT("./data/model/gimmick_test.x"))));
-    model->AddBehaviour(_renderer);
-    _time = 0;
+
 }
 
 /////////////////////////////////////////////
@@ -40,11 +35,7 @@ void Bell::Start(void)
 /////////////////////////////////////////////
 void Bell::Update(void)
 {
-    if (_time)
-    {
-        _time--;
-    }
-    _renderer->SetRate((float)_time / SHINE_TIME_BELL);
+    Gimmick::Update();
 }
 
 /////////////////////////////////////////////

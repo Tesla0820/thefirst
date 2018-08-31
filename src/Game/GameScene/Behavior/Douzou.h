@@ -16,6 +16,7 @@ namespace Game { namespace Behaviour
 class Douzou : public Gimmick
 {
     private:
+        GameEngine::Behaviour::Transform*    _transform;
         float Move_Distance;
         D3DXVECTOR3 Move;
         D3DXVECTOR3 Move_Vector;
