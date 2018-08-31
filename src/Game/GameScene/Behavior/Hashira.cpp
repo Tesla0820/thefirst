@@ -4,7 +4,6 @@
 
 //＝＝＝ヘッダファイル読み込み＝＝＝//
 #include "Hashira.h"
-#include "../../../GameEngine/Resource/Mesh/MeshD3DX.h"
 
 namespace Game { namespace Behaviour
 {
@@ -21,11 +20,7 @@ namespace Game { namespace Behaviour
 /////////////////////////////////////////////
 void Hashira::Start(void)
 {
-    GameEngine::GameObject* model = GetAttachedObject();
-    _transform = model->GetTransform();
-    _renderer = new Game::MeshRendererEx();
-    _renderer->SetMesh(std::shared_ptr<GameEngine::Resource::Mesh::IMesh>(new GameEngine::Resource::Mesh::MeshD3DX(TEXT("./data/model/gimmick_test.x"))));
-    model->AddBehaviour(_renderer);
+
 }
 
 /////////////////////////////////////////////
@@ -39,26 +34,7 @@ void Hashira::Start(void)
 /////////////////////////////////////////////
 void Hashira::Update(void)
 {
-    if (_time)
-    {
-        _time--;
-    }
-    _renderer->SetRate((float)_time / SHINE_TIME);
-}
-
-/////////////////////////////////////////////
-//関数名：OnCollision
-//
-//機能：当たり判定に対する挙動
-//
-//引数：(GameEngine::Behaviour::Collider*)判定
-//
-//戻り値：なし
-/////////////////////////////////////////////
-void Hashira::OnCollision(GameEngine::Behaviour::Collider* from)
-{
-    _time = SHINE_TIME;
-    _renderer->SetRate(1.0F);
+    Gimmick::Update();
 }
 
 }}

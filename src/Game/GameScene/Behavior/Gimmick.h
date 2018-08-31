@@ -26,14 +26,15 @@ class Gimmick : public GameEngine::Behaviour::Behaviour, public GameEngine::Beha
     protected:
 		bool _isShining;
 		int _duration;
-        GameEngine::Behaviour::Transform*    _transform;
+        int _maxDuration;
+
         GameEngine::Behaviour::BoxCollider*  _collider;
         Game::MeshRendererEx*                _renderer;
 
+        Gimmick(int maxDuration);
 		virtual void Start() override;
 		virtual void Update() override;
 		virtual void OnCollision(GameEngine::Behaviour::Collider * from) override;
-		static constexpr int maxDuration = 300;
 };
 
 }}

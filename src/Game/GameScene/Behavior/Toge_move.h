@@ -16,6 +16,7 @@ namespace Game { namespace Behaviour
 class Toge_move : public Gimmick
 {
     private:
+        GameEngine::Behaviour::Transform*    _transform;
         bool _attack;
 
     public:
