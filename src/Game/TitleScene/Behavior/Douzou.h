@@ -6,29 +6,26 @@
 #define HEADER_DOUZOU_H
 
 //＝＝＝ヘッダファイル読み込み＝＝＝//
-#include "../../../GameEngine/Behaviour/Collider/BoxCollider.h"
-#include "../../../GameEngine/Behaviour/Renderer/MeshRenderer.h"
-#include "../../../GameEngine/Behaviour/Transform.h"
+#include "Gimmick.h"
 
 //＝＝＝クラス宣言＝＝＝//
 namespace Game { namespace Behaviour
 {
 
 //＝＝＝クラス宣言＝＝＝//
-class Douzou : public GameEngine::Behaviour::Behaviour
+class Douzou : public Gimmick
 {
     private:
-        GameEngine::Behaviour::Transform*    _transform;
-        GameEngine::Behaviour::BoxCollider*  _collider;
-        GameEngine::Behaviour::MeshRenderer* _mesh;
-
         float Move_Distance;
-        float Move_Vector;
+        D3DXVECTOR3 Move;
+        D3DXVECTOR3 Move_Vector;
 
     public:
         virtual void Start() override;
         virtual void Update() override;
-        GameEngine::Behaviour::Transform* Get() { return _transform; }
+
+        // ICollisionHandler を介して継承されました
+        virtual void OnCollision(GameEngine::Behaviour::Collider*) override;
 };
 
 }}

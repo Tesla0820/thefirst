@@ -17,6 +17,7 @@ namespace Game
 		public:
 			MeshRendererEx();
 			virtual void Draw(D3DXMATRIX const& matrix) override;
+            void SetRate(float rate);
 	};
 }
 

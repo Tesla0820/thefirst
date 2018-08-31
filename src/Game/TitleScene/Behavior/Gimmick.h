@@ -8,21 +8,27 @@
 //＝＝＝ヘッダファイル読み込み＝＝＝//
 #include <d3dx9math.h>
 #include "../../../GameEngine/Behaviour/Behaviour.h"
+#include "../../../GameEngine/Behaviour/Collider/BoxCollider.h"
+#include "../../../Game/Common/MeshRendererEx.h"
+#include "../../../GameEngine/Behaviour/Collider/ICollisionHandler.h"
+#include "../../../GameEngine/Behaviour/Transform.h"
 
-#include "Bell.h"
-#include "Douzou.h"
-#include "Hashira.h"
-#include "Hashira_break.h"
-#include "Toge.h"
-#include "Toge_move.h"
-#include "Yoroi.h"
+//＝＝＝定数・マクロ定義＝＝＝//
+#define SHINE_TIME 120.0F
 
-void InstantiateGimmick(GameEngine::Behaviour::Behaviour* behaviour, D3DXVECTOR3* position, float x, float y, float z)
+//＝＝＝クラス宣言＝＝＝//
+namespace Game { namespace Behaviour
 {
-    GameEngine::GameObject* gimmick = GameEngine::GameObject::Instantiate();
-    gimmick->AddBehaviour(behaviour);
-    gimmick->GetTransform()->SetPosition(position);
-    gimmick->GetTransform()->SetRotation(D3DXQuaternionRotationYawPitchRoll(new D3DXQUATERNION, D3DXToRadian(x), D3DXToRadian(y), D3DXToRadian(z)));
-}
 
+class Gimmick : public GameEngine::Behaviour::Behaviour, public GameEngine::Behaviour::ICollisionHandler
+{
+    protected:
+        int _time;
+
+        GameEngine::Behaviour::Transform*    _transform;
+        GameEngine::Behaviour::BoxCollider*  _collider;
+        Game::MeshRendererEx*                _renderer;
+};
+
+}}
 #endif

@@ -19,4 +19,9 @@ void MeshRendererEx::Draw(D3DXMATRIX const & matrix)
 	MeshRenderer::Draw(matrix);
 }
 
+void MeshRendererEx::SetRate(float rate)
+{
+    _rate = rate;
+}
+
 }

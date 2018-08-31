@@ -7,6 +7,7 @@
 #include "../../../Common/Pipeline/Echo.h"
 #include "../StageManager.h"
 #include "../../../Common/Fade.h"
+#include "../../../TitleScene/Behavior/GimmickFactory.h"
 
 namespace Game { namespace GameScene { namespace Scene
 {
@@ -38,10 +39,12 @@ namespace Game { namespace GameScene { namespace Scene
 		GameEngine::GameObject* object2 = GameEngine::GameObject::Instantiate();
 		auto transform = object2->GetTransform();
 		transform->SetPosition(&D3DXVECTOR3(0.0f, -20.0f, 0.0f));
-		auto meshRenderer = new GameEngine::Behaviour::MeshRenderer();
+		auto meshRenderer = new Game::MeshRendererEx();
 		meshRenderer->SetMesh(std::shared_ptr<GameEngine::Resource::Mesh::IMesh>(new GameEngine::Resource::Mesh::MeshD3DX(TEXT("./data/model/stage.x"))));
 		object2->AddBehaviour(meshRenderer);
 		
+        Behaviour::GimmickFactory::InstantiateBell(&D3DXVECTOR3(0.0f, 0.0f, 10.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
+
 		// フェード用
 		GameEngine::GameObject* FadeObject = GameEngine::GameObject::Instantiate();
 		FadeObject->GetTransform()->SetPosition(&D3DXVECTOR3(400.0f, 300.0f, 0.0f));

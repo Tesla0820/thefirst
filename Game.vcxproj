@@ -84,6 +84,8 @@
     <ClCompile Include="src\Game\GameScene\player.cpp" />
     <ClCompile Include="src\Game\TitleScene\Behavior\Bell.cpp" />
     <ClCompile Include="src\Game\TitleScene\Behavior\Douzou.cpp" />
+    <ClCompile Include="src\Game\TitleScene\Behavior\Gimmick.cpp" />
+    <ClCompile Include="src\Game\TitleScene\Behavior\GimmickFactory.cpp" />
     <ClCompile Include="src\Game\TitleScene\Behavior\Hashira.cpp" />
     <ClCompile Include="src\Game\TitleScene\Behavior\Hashira_break.cpp" />
     <ClCompile Include="src\Game\TitleScene\Behavior\Toge.cpp" />
@@ -225,6 +227,7 @@
     <ClInclude Include="src\Game\TitleScene\Behavior\Bell.h" />
     <ClInclude Include="src\Game\TitleScene\Behavior\Douzou.h" />
     <ClInclude Include="src\Game\TitleScene\Behavior\Gimmick.h" />
+    <ClInclude Include="src\Game\TitleScene\Behavior\GimmickFactory.h" />
     <ClInclude Include="src\Game\TitleScene\Behavior\Hashira.h" />
     <ClInclude Include="src\Game\TitleScene\Behavior\Hashira_break.h" />
     <ClInclude Include="src\Game\TitleScene\Behavior\Toge.h" />
