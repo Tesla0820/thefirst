@@ -5,7 +5,7 @@
 #ifndef HEADER_PLAYER_H
 #define HEADER_PLAYER_H
 
-#include "../../GameEngine/GameEngine.h"
+#include "player.h"
 #include "Sonar.h"
 
 namespace Game { namespace GameScene

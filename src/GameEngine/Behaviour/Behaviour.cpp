@@ -4,9 +4,6 @@
 
 #include "Behaviour.h"
 #include "../Scene/SceneManager.h"
-#include "../../Game/GameScene/player.h"
-
-class Player;
 
 namespace GameEngine { namespace Behaviour
 {

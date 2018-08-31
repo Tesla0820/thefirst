@@ -3,7 +3,7 @@
 //
 
 #include "Sonar.h"
-#include "../Common/Pipeline/Echo.h"
+#include "../../Common/Pipeline/Echo.h"
 
 namespace Game { namespace GameScene
 {

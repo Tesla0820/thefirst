@@ -3,8 +3,8 @@
 //
 
 #include "player.h"
-#include "../../GameEngine/Input.h"
-#include "../../GameEngine/GameEngine.h"
+#include "../../../GameEngine/Input.h"
+#include "../../../GameEngine/GameEngine.h"
 
 namespace Game { namespace GameScene
 {
