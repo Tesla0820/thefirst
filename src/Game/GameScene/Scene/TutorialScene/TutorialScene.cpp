@@ -8,6 +8,7 @@
 #include "TutorialManager.h"
 #include "../../../Common/Fade.h"
 #include "../../GameFactory.h"
+#include "../../StageLoader.h"
 
 namespace Game { namespace GameScene { namespace Scene
 {
@@ -57,7 +58,7 @@ namespace Game { namespace GameScene { namespace Scene
 		FadeObject->AddBehaviour(FadeRenderer);
 		FadeObject->AddBehaviour(fade);
 
-		
+		StageLoader::LoadStage("./data/stage/stage0.txt");
 
 		return false;
 	}

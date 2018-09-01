@@ -31,6 +31,7 @@
 //Resource
 #include "Resource/ResourceManager.h"
 #include "Resource/Mesh/IMesh.h"
+#include "Resource/Mesh/Mesh.h"
 #include "Resource/Mesh/MeshD3DX.h"
 #include "Resource/Texture.h"
 
