@@ -8,6 +8,7 @@
 #include "TutorialManager.h"
 #include "../../../Common/Fade.h"
 #include "../../GameFactory.h"
+#include "../../Behaviour/GimmickFactory.h"
 
 namespace Game { namespace GameScene { namespace Scene
 {
@@ -46,6 +47,8 @@ namespace Game { namespace GameScene { namespace Scene
 		GameEngine::GameObject* object4 = GameEngine::GameObject::Instantiate();
 		auto tutorialmanager = new Game::GameScene::Scene::TutorialManager();
 		object4->AddBehaviour(tutorialmanager);
+
+        Behaviour::GimmickFactory::InstantiateBell(&D3DXVECTOR3(0.0f, 0.0f, 0.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
 
 		// フェード用
 		GameEngine::GameObject* FadeObject = GameEngine::GameObject::Instantiate();

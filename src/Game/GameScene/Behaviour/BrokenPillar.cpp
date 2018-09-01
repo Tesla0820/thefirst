@@ -1,15 +1,14 @@
 //
-//		ファイル名:Hashira.cpp
+//		ファイル名:BrokenPillar.cpp
 //
 
 //＝＝＝ヘッダファイル読み込み＝＝＝//
-#include "Hashira.h"
+#include "BrokenPillar.h"
 
 namespace Game { namespace Behaviour
 {
 
-Hashira::Hashira()
-	:Gimmick(Gimmick::defaultDuration)
+BrokenPillar::BrokenPillar():Gimmick(Gimmick::defaultDuration)
 {
 
 }
@@ -24,7 +23,7 @@ Hashira::Hashira()
 //
 //戻り値：なし
 /////////////////////////////////////////////
-void Hashira::Start(void)
+void BrokenPillar::Start(void)
 {
 
 }
@@ -38,7 +37,7 @@ void Hashira::Start(void)
 //
 //戻り値：なし
 /////////////////////////////////////////////
-void Hashira::Update(void)
+void BrokenPillar::Update(void)
 {
     Gimmick::Update();
 }

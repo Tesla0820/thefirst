@@ -1,9 +1,9 @@
 //
-//		ファイル名:Yoroi.h
+//		ファイル名:Armor.h
 //
 
-#ifndef HEADER_YOROI_H
-#define HEADER_YOROI_H
+#ifndef HEADER_ARMOR_H
+#define HEADER_ARMOR_H
 
 //＝＝＝ヘッダファイル読み込み＝＝＝//
 #include "Gimmick.h"
@@ -13,10 +13,10 @@ namespace Game { namespace Behaviour
 {
 
 //＝＝＝クラス宣言＝＝＝//
-class Yoroi : public Gimmick
+class Armor : public Gimmick
 {
     public:
-		Yoroi();
+        Armor();
         virtual void Start(void) override;
         virtual void Update(void) override;
 };

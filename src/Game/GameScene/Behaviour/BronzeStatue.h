@@ -1,9 +1,9 @@
 //
-//		ファイル名:Douzou.h
+//		ファイル名:BronzeStatue.h
 //
 
-#ifndef HEADER_DOUZOU_H
-#define HEADER_DOUZOU_H
+#ifndef HEADER_BROZE_SUTATUE_H
+#define HEADER_BROZE_SUTATUE_H
 
 //＝＝＝ヘッダファイル読み込み＝＝＝//
 #include "Gimmick.h"
@@ -13,7 +13,7 @@ namespace Game { namespace Behaviour
 {
 
 //＝＝＝クラス宣言＝＝＝//
-class Douzou : public Gimmick
+class BronzeStatue : public Gimmick
 {
     private:
         GameEngine::Behaviour::Transform*    _transform;
@@ -22,7 +22,7 @@ class Douzou : public Gimmick
         D3DXVECTOR3 Move_Vector;
 
     public:
-		Douzou();
+        BronzeStatue();
         virtual void Start() override;
         virtual void Update() override;
 };
