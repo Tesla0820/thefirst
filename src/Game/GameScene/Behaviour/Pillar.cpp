@@ -1,17 +1,16 @@
 //
-//		ファイル名:Hashira_break.cpp
+//		ファイル名:Pillar.cpp
 //
 
 //＝＝＝ヘッダファイル読み込み＝＝＝//
-#include "Hashira_break.h"
-#include "../../../GameEngine/Resource/Mesh/MeshD3DX.h"
+#include "Pillar.h"
 
 namespace Game { namespace Behaviour
 {
 
-Hashira_break::Hashira_break()
-	:Gimmick(Gimmick::defaultDuration)
+Pillar::Pillar():Gimmick(Gimmick::defaultDuration)
 {
+
 }
 
 //＝＝＝関数定義＝＝＝//
@@ -24,7 +23,7 @@ Hashira_break::Hashira_break()
 //
 //戻り値：なし
 /////////////////////////////////////////////
-void Hashira_break::Start(void)
+void Pillar::Start(void)
 {
 
 }
@@ -38,7 +37,7 @@ void Hashira_break::Start(void)
 //
 //戻り値：なし
 /////////////////////////////////////////////
-void Hashira_break::Update(void)
+void Pillar::Update(void)
 {
     Gimmick::Update();
 }

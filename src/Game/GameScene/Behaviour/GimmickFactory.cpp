@@ -18,7 +18,7 @@ namespace Game { namespace Behaviour
 //
 //戻り値：なし
 /////////////////////////////////////////////
-void GimmickFactory::Instantiate(GameEngine::Behaviour::Behaviour* behaviour, D3DXVECTOR3* position, D3DXVECTOR3* rotate, std::shared_ptr<GameEngine::Resource::Mesh::IMesh> mesh)
+GameEngine::GameObject* GimmickFactory::Instantiate(GameEngine::Behaviour::Behaviour* behaviour, D3DXVECTOR3* position, D3DXVECTOR3* rotate, std::shared_ptr<GameEngine::Resource::Mesh::IMesh> mesh)
 {
     GameEngine::GameObject* gimmick = GameEngine::GameObject::Instantiate();
     gimmick->AddBehaviour(behaviour);
@@ -29,6 +29,21 @@ void GimmickFactory::Instantiate(GameEngine::Behaviour::Behaviour* behaviour, D3
     auto meshRenderer = new Game::MeshRendererEx();
     meshRenderer->SetMesh(mesh);
     gimmick->AddBehaviour(new GameEngine::Behaviour::BoxCollider(*position, D3DXVECTOR3(1.0F, 1.0F, 1.0F), 0));
+    return gimmick;
+}
+
+/////////////////////////////////////////////
+//関数名：InstantiateArmor
+//
+//機能：鎧の生成
+//
+//引数：(D3DXVECTOR3*)位置, (D3DXVECTOR3*)角度
+//
+//戻り値：なし
+/////////////////////////////////////////////
+void GimmickFactory::InstantiateArmor(D3DXVECTOR3* position, D3DXVECTOR3* rotate)
+{
+    Instantiate(new Game::Behaviour::Armor(), position, rotate, std::shared_ptr<GameEngine::Resource::Mesh::IMesh>(new GameEngine::Resource::Mesh::MeshD3DX(TEXT("./data/model/armor.x"))));
 }
 
 /////////////////////////////////////////////
@@ -42,39 +57,11 @@ void GimmickFactory::Instantiate(GameEngine::Behaviour::Behaviour* behaviour, D3
 /////////////////////////////////////////////
 void GimmickFactory::InstantiateBell(D3DXVECTOR3* position, D3DXVECTOR3* rotate)
 {
-    Instantiate(new Game::Behaviour::Bell(), position, rotate, nullptr);
+    Instantiate(new Game::Behaviour::Bell(), position, rotate, std::shared_ptr<GameEngine::Resource::Mesh::IMesh>(new GameEngine::Resource::Mesh::MeshD3DX(TEXT("./data/model/gimmick_test.x"))));
 }
 
 /////////////////////////////////////////////
-//関数名：InstantiateDouzou
-//
-//機能：銅像の生成
-//
-//引数：(D3DXVECTOR3*)位置, (D3DXVECTOR3*)角度
-//
-//戻り値：なし
-/////////////////////////////////////////////
-void GimmickFactory::InstantiateDouzou(D3DXVECTOR3* position, D3DXVECTOR3* rotate)
-{
-    Instantiate(new Game::Behaviour::Douzou(), position, rotate, nullptr);
-}
-
-/////////////////////////////////////////////
-//関数名：InstantiateHashira
-//
-//機能：柱の生成
-//
-//引数：(D3DXVECTOR3*)位置, (D3DXVECTOR3*)角度
-//
-//戻り値：なし
-/////////////////////////////////////////////
-void GimmickFactory::InstantiateHashira(D3DXVECTOR3* position, D3DXVECTOR3* rotate)
-{
-    Instantiate(new Game::Behaviour::Hashira(), position, rotate, nullptr);
-}
-
-/////////////////////////////////////////////
-//関数名：InstantiateHashira_break
+//関数名：InstantiateBrokenPillar
 //
 //機能：壊れた柱の生成
 //
@@ -82,13 +69,41 @@ void GimmickFactory::InstantiateHashira(D3DXVECTOR3* position, D3DXVECTOR3* rota
 //
 //戻り値：なし
 /////////////////////////////////////////////
-void GimmickFactory::InstantiateHashira_break(D3DXVECTOR3* position, D3DXVECTOR3* rotate)
+void GimmickFactory::InstantiateBrokenPillar(D3DXVECTOR3* position, D3DXVECTOR3* rotate)
 {
-    Instantiate(new Game::Behaviour::Hashira_break(), position, rotate, nullptr);
+    Instantiate(new Game::Behaviour::BrokenPillar(), position, rotate, std::shared_ptr<GameEngine::Resource::Mesh::IMesh>(new GameEngine::Resource::Mesh::MeshD3DX(TEXT("./data/model/brokenPillar.x"))));
 }
 
 /////////////////////////////////////////////
-//関数名：InstantiateToge
+//関数名：InstantiateBronzeStatue
+//
+//機能：銅像の生成
+//
+//引数：(D3DXVECTOR3*)位置, (D3DXVECTOR3*)角度
+//
+//戻り値：なし
+/////////////////////////////////////////////
+void GimmickFactory::InstantiateBronzeStatue(D3DXVECTOR3* position, D3DXVECTOR3* rotate)
+{
+    Instantiate(new Game::Behaviour::BronzeStatue(), position, rotate, std::shared_ptr<GameEngine::Resource::Mesh::IMesh>(new GameEngine::Resource::Mesh::MeshD3DX(TEXT("./data/model/bronzeStatue.x"))));
+}
+
+/////////////////////////////////////////////
+//関数名：InstantiatePillar
+//
+//機能：柱の生成
+//
+//引数：(D3DXVECTOR3*)位置, (D3DXVECTOR3*)角度
+//
+//戻り値：なし
+/////////////////////////////////////////////
+void GimmickFactory::InstantiatePillar(D3DXVECTOR3* position, D3DXVECTOR3* rotate)
+{
+    Instantiate(new Game::Behaviour::Pillar(), position, rotate, std::shared_ptr<GameEngine::Resource::Mesh::IMesh>(new GameEngine::Resource::Mesh::MeshD3DX(TEXT("./data/model/pillar.x"))));
+}
+
+/////////////////////////////////////////////
+//関数名：InstantiateThorns
 //
 //機能：トゲの生成
 //
@@ -96,13 +111,13 @@ void GimmickFactory::InstantiateHashira_break(D3DXVECTOR3* position, D3DXVECTOR3
 //
 //戻り値：なし
 /////////////////////////////////////////////
-void GimmickFactory::InstantiateToge(D3DXVECTOR3* position, D3DXVECTOR3* rotate)
+void GimmickFactory::InstantiateThorns(D3DXVECTOR3* position, D3DXVECTOR3* rotate)
 {
-    Instantiate(new Game::Behaviour::Toge(), position, rotate, nullptr);
+    Instantiate(new Game::Behaviour::Thorns(), position, rotate, std::shared_ptr<GameEngine::Resource::Mesh::IMesh>(new GameEngine::Resource::Mesh::MeshD3DX(TEXT("./data/model/thorns.x"))));
 }
 
 /////////////////////////////////////////////
-//関数名：InstantiateToge_move
+//関数名：InstantiateThornsMove
 //
 //機能：動くトゲの生成
 //
@@ -110,23 +125,12 @@ void GimmickFactory::InstantiateToge(D3DXVECTOR3* position, D3DXVECTOR3* rotate)
 //
 //戻り値：なし
 /////////////////////////////////////////////
-void GimmickFactory::InstantiateToge_move(D3DXVECTOR3* position, D3DXVECTOR3* rotate)
+void GimmickFactory::InstantiateThornsMove(D3DXVECTOR3* position, D3DXVECTOR3* rotate)
 {
-    Instantiate(new Game::Behaviour::Toge_move(), position, rotate, nullptr);
+    GameEngine::GameObject* gimmick;
+    gimmick = Instantiate(new Game::Behaviour::ThornsMove(), position, rotate, std::shared_ptr<GameEngine::Resource::Mesh::IMesh>(new GameEngine::Resource::Mesh::MeshD3DX(TEXT("./data/model/thorns.x"))));
+    gimmick->AddBehaviour(gimmick->FindBehaviour<GameEngine::Behaviour::BoxCollider>());
 }
 
-/////////////////////////////////////////////
-//関数名：InstantiateYoroi
-//
-//機能：鎧の生成
-//
-//引数：(D3DXVECTOR3*)位置, (D3DXVECTOR3*)角度
-//
-//戻り値：なし
-/////////////////////////////////////////////
-void GimmickFactory::InstantiateYoroi(D3DXVECTOR3* position, D3DXVECTOR3* rotate)
-{
-    Instantiate(new Game::Behaviour::Yoroi(), position, rotate,nullptr);
-}
 
 }}

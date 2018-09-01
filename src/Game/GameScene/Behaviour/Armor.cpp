@@ -3,17 +3,15 @@
 //
 
 //＝＝＝ヘッダファイル読み込み＝＝＝//
-#include "Yoroi.h"
-#include "../../../GameEngine/Resource/Mesh/MeshD3DX.h"
+#include "Armor.h"
 
 namespace Game { namespace Behaviour
 {
 
-Yoroi::Yoroi()
-	:Gimmick(Gimmick::defaultDuration)
+Armor::Armor():Gimmick(Gimmick::defaultDuration)
 {
-}
 
+}
 
 //＝＝＝関数定義＝＝＝//
 /////////////////////////////////////////////
@@ -25,7 +23,7 @@ Yoroi::Yoroi()
 //
 //戻り値：なし
 /////////////////////////////////////////////
-void Game::Behaviour::Yoroi::Start(void)
+void Armor::Start(void)
 {
 
 }
@@ -39,10 +37,9 @@ void Game::Behaviour::Yoroi::Start(void)
 //
 //戻り値：なし
 /////////////////////////////////////////////
-void Game::Behaviour::Yoroi::Update(void)
+void Armor::Update(void)
 {
     Gimmick::Update();
 }
-
 
 }}

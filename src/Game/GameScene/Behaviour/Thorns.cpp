@@ -1,16 +1,14 @@
 //
-//		ファイル名:Toge.cpp
+//		ファイル名:Thorns.cpp
 //
 
 //＝＝＝ヘッダファイル読み込み＝＝＝//
-#include "Toge.h"
-#include "../../../GameEngine/Resource/Mesh/MeshD3DX.h"
+#include "Thorns.h"
 
 namespace Game { namespace Behaviour
 {
 
-Toge::Toge()
-	:Gimmick(Gimmick::defaultDuration)
+Thorns::Thorns():Gimmick(Gimmick::defaultDuration)
 {
 
 }
@@ -25,7 +23,7 @@ Toge::Toge()
 //
 //戻り値：なし
 /////////////////////////////////////////////
-void Toge::Start(void)
+void Thorns::Start(void)
 {
 
 }
@@ -39,7 +37,7 @@ void Toge::Start(void)
 //
 //戻り値：なし
 /////////////////////////////////////////////
-void Toge::Update(void)
+void Thorns::Update(void)
 {
     Gimmick::Update();
 }

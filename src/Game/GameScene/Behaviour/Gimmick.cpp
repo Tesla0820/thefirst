@@ -18,6 +18,7 @@ void Gimmick::Start()
 	_collider = object->FindBehaviour<GameEngine::Behaviour::BoxCollider>();
 	_renderer = object->FindBehaviour<MeshRendererEx>();
 	_collider->SetHandler(this);
+    _duration = 0;
 }
 
 void Gimmick::Update()

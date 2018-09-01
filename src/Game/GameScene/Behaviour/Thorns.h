@@ -1,9 +1,9 @@
 //
-//		ファイル名:Toge.h
+//		ファイル名:Thorns.h
 //
 
-#ifndef HEADER_TOGE_H
-#define HEADER_TOGE_H
+#ifndef HEADER_THORNS_H
+#define HEADER_THORNS_H
 
 //＝＝＝ヘッダファイル読み込み＝＝＝//
 #include "Gimmick.h"
@@ -13,10 +13,10 @@ namespace Game { namespace Behaviour
 {
 
 //＝＝＝クラス宣言＝＝＝//
-class Toge : public Gimmick
+class Thorns : public Gimmick
 {
     public:
-		Toge();
+        Thorns();
         virtual void Start(void) override;
         virtual void Update(void) override;
 };

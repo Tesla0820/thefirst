@@ -1,9 +1,9 @@
 //
-//		ファイル名:Toge_move.h
+//		ファイル名:ThornsMove.h
 //
 
-#ifndef HEADER_TOGE_MOVE_H
-#define HEADER_TOGE_MOVE_H
+#ifndef HEADER_THORNS_MOVE_H
+#define HEADER_THORNS_MOVE_H
 
 //＝＝＝ヘッダファイル読み込み＝＝＝//
 #include "Gimmick.h"
@@ -13,17 +13,15 @@ namespace Game { namespace Behaviour
 {
 
 //＝＝＝クラス宣言＝＝＝//
-class Toge_move : public Gimmick
+class ThornsMove : public Gimmick
 {
     private:
         GameEngine::Behaviour::Transform*    _transform;
-        bool _attack;
 
     public:
-		Toge_move();
+        ThornsMove();
 		virtual void Start(void) override;
         virtual void Update(void) override;
-
 };
 
 }}

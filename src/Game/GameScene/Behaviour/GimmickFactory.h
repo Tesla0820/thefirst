@@ -13,13 +13,13 @@
 #include "../../../GameEngine/Behaviour/Collider/ICollisionHandler.h"
 #include "../../../GameEngine/Behaviour/Transform.h"
 
+#include "Armor.h"
 #include "Bell.h"
-#include "Douzou.h"
-#include "Hashira.h"
-#include "Hashira_break.h"
-#include "Toge.h"
-#include "Toge_move.h"
-#include "Yoroi.h"
+#include "BrokenPillar.h"
+#include "BronzeStatue.h"
+#include "Pillar.h"
+#include "Thorns.h"
+#include "ThornsMove.h"
 
 namespace Game { namespace Behaviour
 {
@@ -27,16 +27,16 @@ namespace Game { namespace Behaviour
 class GimmickFactory
 {
     private:
-        static void Instantiate(GameEngine::Behaviour::Behaviour* behaviour, D3DXVECTOR3* position, D3DXVECTOR3* rotate, std::shared_ptr<GameEngine::Resource::Mesh::IMesh> mesh);
+        static GameEngine::GameObject* Instantiate(GameEngine::Behaviour::Behaviour* behaviour, D3DXVECTOR3* position, D3DXVECTOR3* rotate, std::shared_ptr<GameEngine::Resource::Mesh::IMesh> mesh);
 
     public:
+        static void InstantiateArmor(D3DXVECTOR3* position, D3DXVECTOR3* rotate);
         static void InstantiateBell(D3DXVECTOR3*, D3DXVECTOR3*);
-        static void InstantiateDouzou(D3DXVECTOR3*, D3DXVECTOR3*);
-        static void InstantiateHashira(D3DXVECTOR3* position, D3DXVECTOR3* rotate);
-        static void InstantiateHashira_break(D3DXVECTOR3* position, D3DXVECTOR3* rotate);
-        static void InstantiateToge(D3DXVECTOR3* position, D3DXVECTOR3* rotate);
-        static void InstantiateToge_move(D3DXVECTOR3* position, D3DXVECTOR3* rotate);
-        static void InstantiateYoroi(D3DXVECTOR3* position, D3DXVECTOR3* rotate);
+        static void InstantiateBrokenPillar(D3DXVECTOR3* position, D3DXVECTOR3* rotate);
+        static void InstantiateBronzeStatue(D3DXVECTOR3*, D3DXVECTOR3*);
+        static void InstantiatePillar(D3DXVECTOR3* position, D3DXVECTOR3* rotate);
+        static void InstantiateThorns(D3DXVECTOR3* position, D3DXVECTOR3* rotate);
+        static void InstantiateThornsMove(D3DXVECTOR3* position, D3DXVECTOR3* rotate);
 };
 
 }}

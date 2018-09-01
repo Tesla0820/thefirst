@@ -1,9 +1,9 @@
 //
-//		ファイル名:Hashira.h
+//		ファイル名:Pillar.h
 //
 
-#ifndef HEADER_HASHIRA_H
-#define HEADER_HASHIRA_H
+#ifndef HEADER_PILLAR_H
+#define HEADER_PILLAR_H
 
 //＝＝＝ヘッダファイル読み込み＝＝＝//
 #include "Gimmick.h"
@@ -13,13 +13,12 @@ namespace Game { namespace Behaviour
 {
 
 //＝＝＝クラス宣言＝＝＝//
-class Hashira : public Gimmick
+class Pillar : public Gimmick
 {
     public:
-		Hashira();
+        Pillar();
         virtual void Start() override;
         virtual void Update() override;
-
 };
 
 }}

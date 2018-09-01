@@ -3,15 +3,16 @@
 //
 
 //＝＝＝ヘッダファイル読み込み＝＝＝//
-#include "Toge_move.h"
+#include "ThornsMove.h"
 
 namespace Game { namespace Behaviour
 {
 
-Toge_move::Toge_move()
-	:Gimmick(Gimmick::defaultDuration)
+ThornsMove::ThornsMove():Gimmick(Gimmick::defaultDuration)
 {
+
 }
+
 //＝＝＝関数定義＝＝＝//
 /////////////////////////////////////////////
 //関数名：Start
@@ -22,10 +23,9 @@ Toge_move::Toge_move()
 //
 //戻り値：なし
 /////////////////////////////////////////////
-void Toge_move::Start(void)
+void ThornsMove::Start(void)
 {
     _transform = GetAttachedObject()->GetTransform();
-    _attack = false;
 }
 
 /////////////////////////////////////////////
@@ -37,19 +37,14 @@ void Toge_move::Start(void)
 //
 //戻り値：なし
 /////////////////////////////////////////////
-void Toge_move::Update(void)
+void ThornsMove::Update(void)
 {
     //プレイヤーがこのオブジェクトから一定の距離に来ると壁や床より突き出る
     if (0/*突き出る距離までプレーヤーが接近*/)
     {
         _transform->SetPosition(&D3DXVECTOR3(0.0F, 0.0F, 30.0F));
-        _attack = true;
     }
 
-    if (_attack)
-    {
-
-    }
 }
 
 }}

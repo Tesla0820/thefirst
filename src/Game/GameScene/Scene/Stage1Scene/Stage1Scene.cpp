@@ -7,7 +7,7 @@
 #include "../../../Common/Pipeline/Echo.h"
 #include "../StageManager.h"
 #include "../../../Common/Fade.h"
-#include "../../Behavior/GimmickFactory.h"
+#include "../../Behaviour/GimmickFactory.h"
 
 namespace Game { namespace GameScene { namespace Scene
 {

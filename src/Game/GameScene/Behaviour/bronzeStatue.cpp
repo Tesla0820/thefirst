@@ -1,16 +1,15 @@
 //
-//		ファイル名:Douzou.cpp
+//		ファイル名:BronzeStatue.cpp
 //
 
 //＝＝＝ヘッダファイル読み込み＝＝＝//
-#include "Douzou.h"
-#include "../../../GameEngine/Resource/Mesh/MeshD3DX.h"
+#include "BronzeStatue.h"
 
 namespace Game { namespace Behaviour
 {
-Douzou::Douzou()
-	:Gimmick(Gimmick::defaultDuration)
+BronzeStatue::BronzeStatue():Gimmick(Gimmick::defaultDuration)
 {
+
 }
 //＝＝＝関数定義＝＝＝//
 /////////////////////////////////////////////
@@ -22,7 +21,7 @@ Douzou::Douzou()
 //
 //戻り値：なし
 /////////////////////////////////////////////
-void Douzou::Start(void)
+void BronzeStatue::Start(void)
 {
     _transform = GetAttachedObject()->GetTransform();
 
@@ -40,7 +39,7 @@ void Douzou::Start(void)
 //
 //戻り値：なし
 /////////////////////////////////////////////
-void Douzou::Update(void)
+void BronzeStatue::Update(void)
 {
     //---各種宣言---//
     D3DXQUATERNION rotate;
