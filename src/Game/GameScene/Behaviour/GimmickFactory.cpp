@@ -20,15 +20,24 @@ namespace Game { namespace Behaviour
 /////////////////////////////////////////////
 GameEngine::GameObject* GimmickFactory::Instantiate(GameEngine::Behaviour::Behaviour* behaviour, D3DXVECTOR3* position, D3DXVECTOR3* rotate, std::shared_ptr<GameEngine::Resource::Mesh::IMesh> mesh)
 {
+    //ƒIƒuƒWƒFƒNƒg‚Ì“o˜^
     GameEngine::GameObject* gimmick = GameEngine::GameObject::Instantiate();
     gimmick->AddBehaviour(behaviour);
+
+    //À•WEŠp“x‚ÌÝ’è
     gimmick->GetTransform()->SetPosition(position);
     D3DXQUATERNION rotation;
     D3DXQuaternionRotationYawPitchRoll(&rotation, D3DXToRadian(rotate->x), D3DXToRadian(rotate->y), D3DXToRadian(rotate->z));
     gimmick->GetTransform()->SetRotation(&rotation);
+
+    //ƒƒbƒVƒ…‚Ì“o˜^
     auto meshRenderer = new Game::MeshRendererEx();
     meshRenderer->SetMesh(mesh);
+    gimmick->AddBehaviour(meshRenderer);
+
+    //“–‚½‚è”»’è‚Ì•t—^
     gimmick->AddBehaviour(new GameEngine::Behaviour::BoxCollider(*position, D3DXVECTOR3(1.0F, 1.0F, 1.0F), 0));
+
     return gimmick;
 }
 

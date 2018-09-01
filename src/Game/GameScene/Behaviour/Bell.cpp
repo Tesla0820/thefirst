@@ -24,7 +24,7 @@ Bell::Bell():Gimmick(Gimmick::defaultDuration * 2)
 /////////////////////////////////////////////
 void Bell::Start(void)
 {
-
+    Gimmick::Start();
 }
 
 /////////////////////////////////////////////
@@ -38,7 +38,7 @@ void Bell::Start(void)
 /////////////////////////////////////////////
 void Bell::Update(void)
 {
-    Gimmick::Update();
+    //Gimmick::Update();
 }
 
 }}
