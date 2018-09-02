@@ -28,13 +28,13 @@ void ThornsMove::Start(void)
     Gimmick::Start();
 
     _transform = GetAttachedObject()->GetTransform();
-    Move_Distance = 0.0F;
-    Move = { 0.0F, 0.0F, 0.0F };
-    Move_Vector = _transform->Front();
+    _move_Distance = 0.0F;
+    _move = { 0.0F, 0.0F, 0.0F };
+    _move_Vector = _transform->Front();
 
     //セットハンドラー
-    //GameEngine::Behaviour::BoxCollider::SetHandler(this);
-    _move = false;
+
+    _attack = false;
 }
 
 /////////////////////////////////////////////
@@ -48,25 +48,23 @@ void ThornsMove::Start(void)
 /////////////////////////////////////////////
 void ThornsMove::Update(void)
 {
-
-    if(!_move)
+    if(!_attack)
     {
         return;
     }
 
-    Move = { 0.0F, 0.0F, 0.0F };
-    Move += Move_Vector;
-    Move_Distance += 0.1F;
+    _move = { 0.0F, 0.0F, 0.0F };
+    _move += _move_Vector;
+    _move_Distance += 0.1F;
 
-    if (Move_Distance >= MOVE_DISTANCE)
+    if (_move_Distance >= MOVE_DISTANCE)
     {
-        _move = false;
+        _attack = false;
         return;
     }
 
     //移動値の反映
-    _transform->Offset(&Move);
-
+    _transform->Offset(&_move);
 }
 
 /////////////////////////////////////////////
@@ -80,7 +78,7 @@ void ThornsMove::Update(void)
 /////////////////////////////////////////////
 void ThornsMove::OnCollision(GameEngine::Behaviour::Collider* from)
 {
-    _move = true;
+    //_attack = true;
 }
 
 }}

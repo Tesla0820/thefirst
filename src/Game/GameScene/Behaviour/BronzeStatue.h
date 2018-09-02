@@ -17,9 +17,10 @@ class BronzeStatue : public Gimmick
 {
     private:
         GameEngine::Behaviour::Transform*    _transform;
-        float Move_Distance;
-        D3DXVECTOR3 Move;
-        D3DXVECTOR3 Move_Vector;
+        float _move_Distance;
+        D3DXVECTOR3 _move;
+        D3DXVECTOR3 _move_Vector;
+        bool _checkRotate;
 
     public:
         BronzeStatue();

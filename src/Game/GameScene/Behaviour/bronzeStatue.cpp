@@ -26,9 +26,10 @@ void BronzeStatue::Start(void)
     Gimmick::Start();
 
     _transform = GetAttachedObject()->GetTransform();
-    Move_Distance = 0.0F;
-    Move = { 0.0F, 0.0F, 0.0F };
-    Move_Vector = _transform->Front();
+    _move_Distance = 0.0F;
+    _move = { 0.0F, 0.0F, 0.0F };
+    _move_Vector = _transform->Front() * 0.1F;
+    _checkRotate = false;
 }
 
 /////////////////////////////////////////////
@@ -43,32 +44,33 @@ void BronzeStatue::Start(void)
 void BronzeStatue::Update(void)
 {
     //ˆÚ“®
-    Move = { 0.0F, 0.0F, 0.0F };
-    Move += Move_Vector;
-    Move_Distance += 0.1F;
+    _move = { 0.0F, 0.0F, 0.0F };
+    _move += _move_Vector;
+    _move_Distance += 0.1F;
 
     //”½“]”»’è
-    if (Move_Distance >= 10.0F)
+    if (_move_Distance >= 10.0F)
     {
         //---ŠeŽíéŒ¾---//
         D3DXQUATERNION rotate;
 
-        Move_Distance = 0.0F;
-        //if (Move_Vector == _transform->Front())
-        //{
-        //    D3DXQuaternionRotationYawPitchRoll(&rotate, 0.0F, 0.0F, 0.0F);
-        //}
-        //else
-        //{
-        //    D3DXQuaternionRotationYawPitchRoll(&rotate, D3DX_PI, 0.0F, 0.0F);
-        //}
-
-        D3DXQuaternionRotationYawPitchRoll(&rotate, D3DX_PI, 0.0F, 0.0F);
+        _move_Distance = 0.0F;
+        if (_checkRotate)
+        {
+            D3DXQuaternionRotationYawPitchRoll(&rotate, 0.0F, 0.0F, 0.0F);
+            _checkRotate = false;
+        }
+        else
+        {
+            D3DXQuaternionRotationYawPitchRoll(&rotate, D3DX_PI * 1, 0.0F, 0.0F);
+            _checkRotate = true;
+        }
         _transform->SetRotation(&rotate);
+        _move_Vector = -_move_Vector;
     }
 
     //ˆÚ“®’l‚Ì”½‰f
-    _transform->Offset(&Move);
+    _transform->Offset(&_move);
 
     Gimmick::Update();
 }

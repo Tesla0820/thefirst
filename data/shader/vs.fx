@@ -27,6 +27,7 @@ VS_OUTPUT vertex(VS_IN i)
 	o.WorldPosition = mul(i.Position, W);
 	normal = normalize(mul(i.Normal.xyz, (float3x3)W));
 	brightness = saturate(0.5 + dot(normal, (float3)light)*0.5-0.2);
-	o.color = float4(brightness*0.02, brightness*0.02, brightness*0.02, 1.0)*(1-rate)+float4(1.0, 0.0, 0.7, 1.0)*rate;//float4(brightness, brightness, brightness, 1.0);
+	//o.color = float4(brightness*0.02, brightness*0.02, brightness*0.02, 1.0)*(1-rate)+float4(1.0, 0.0, 0.7, 1.0)*rate;
+    o.color = float4(brightness, brightness, brightness, 1.0);
 	return o;
 }

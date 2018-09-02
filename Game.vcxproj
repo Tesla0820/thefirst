@@ -239,6 +239,9 @@
     <ClInclude Include="src\Game\TitleScene\TitleManager.h" />
     <ClInclude Include="src\Game\TitleScene\TitleScene.h" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="data\model\bell.x" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{3000C7CB-B66E-4029-9ECC-DE6F1F03CCE1}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>

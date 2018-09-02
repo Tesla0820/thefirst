@@ -173,4 +173,7 @@
     <ClInclude Include="src\Game\GameScene\Behaviour\ThornsMove.h" />
     <ClInclude Include="src\Game\GameScene\Behaviour\BronzeStatue.h" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="data\model\bell.x" />
+  </ItemGroup>
 </Project>
