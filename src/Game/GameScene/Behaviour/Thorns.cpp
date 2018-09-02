@@ -25,7 +25,7 @@ Thorns::Thorns():Gimmick(Gimmick::defaultDuration)
 /////////////////////////////////////////////
 void Thorns::Start(void)
 {
-
+    Gimmick::Start();
 }
 
 /////////////////////////////////////////////

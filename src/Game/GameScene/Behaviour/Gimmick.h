@@ -22,7 +22,6 @@ namespace Game { namespace Behaviour
 
 class Gimmick : public GameEngine::Behaviour::Behaviour, public GameEngine::Behaviour::ICollisionHandler
 {
-
     protected:
 		bool _isShining;
 		int _duration;
@@ -36,7 +35,7 @@ class Gimmick : public GameEngine::Behaviour::Behaviour, public GameEngine::Beha
 		virtual void Update() override;
 		virtual void OnCollision(GameEngine::Behaviour::Collider * from) override;
 	public:
-		static constexpr int defaultDuration = 180;
+		static constexpr int defaultDuration = 200;
 };
 
 }}

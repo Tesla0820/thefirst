@@ -38,7 +38,7 @@ void Bell::Start(void)
 /////////////////////////////////////////////
 void Bell::Update(void)
 {
-    //Gimmick::Update();
+    Gimmick::Update();
 }
 
 }}

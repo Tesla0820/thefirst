@@ -19,6 +19,7 @@ void Gimmick::Start()
 	_renderer = object->FindBehaviour<MeshRendererEx>();
 	_collider->SetHandler(this);
     _duration = 0;
+    _isShining = false;
 }
 
 void Gimmick::Update()

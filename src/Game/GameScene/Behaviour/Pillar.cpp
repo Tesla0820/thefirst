@@ -25,7 +25,7 @@ Pillar::Pillar():Gimmick(Gimmick::defaultDuration)
 /////////////////////////////////////////////
 void Pillar::Start(void)
 {
-
+    Gimmick::Start();
 }
 
 /////////////////////////////////////////////

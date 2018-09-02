@@ -25,7 +25,7 @@ BrokenPillar::BrokenPillar():Gimmick(Gimmick::defaultDuration)
 /////////////////////////////////////////////
 void BrokenPillar::Start(void)
 {
-
+    Gimmick::Start();
 }
 
 /////////////////////////////////////////////
