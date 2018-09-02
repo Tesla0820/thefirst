@@ -14,11 +14,11 @@
 namespace GameEngine { namespace Resource { namespace Mesh
 {
 
-template<class T>
+template<typename T>
 class Mesh:public IMesh
 {
 	private:
-		std::unique_ptr<T> _verticies;
+		std::unique_ptr<T[]> _verticies;
 		D3DPRIMITIVETYPE _primtiveType;
 		unsigned long _fvf;
 		unsigned int _primitiveCount;
@@ -31,19 +31,19 @@ class Mesh:public IMesh
 		virtual void Draw() override;
 };
 
-template<class T>
+template<typename T>
 Mesh<T>::Mesh(std::vector<T>& verticies,unsigned long fvf,D3DPRIMITIVETYPE primitiveType)
 {
 	int size =verticies.size();
 	_verticies.reset(new T[size]);
 	for (int i=0;i<size;i++)
 	{
-		_verticies[size] = verticies[i];
+		_verticies[i] = verticies[i];
 	}
 
 	_fvf = fvf;
 	_primtiveType = primitiveType;
-	switch (fvf)
+	switch (primitiveType)
 	{
 		case D3DPT_POINTLIST:
 			_primitiveCount = size;
@@ -60,21 +60,22 @@ Mesh<T>::Mesh(std::vector<T>& verticies,unsigned long fvf,D3DPRIMITIVETYPE primi
 		case D3DPT_TRIANGLESTRIP:
 		case D3DPT_TRIANGLEFAN:
 			_primitiveCount = size - 2;
+			break;
 	}
 }
 
-template<class T>
+template<typename T>
 void Mesh<T>::Setup()
 {
 	auto device = GameEngine::Environment::Get()->GetCurrentDevice();
 	device->SetFVF(_primtiveType);
 }
 
-template<class T>
+template<typename T>
 void Mesh<T>::Draw()
 {
 	auto device = GameEngine::Environment::Get()->GetCurrentDevice();
-	device->DrawPrimitiveUP(_primtiveType, , _verticies->get(), sizeof(T));
+	device->DrawPrimitiveUP(_primtiveType, _primitiveCount, _verticies.get(), sizeof(T));
 }
 
 }
