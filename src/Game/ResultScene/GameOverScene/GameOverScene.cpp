@@ -45,7 +45,7 @@ namespace Game { namespace ResultScene
 		backgroundRenderer->SetColor(D3DCOLOR_ARGB(255, 255, 255, 255));
 		backgroundObject->AddBehaviour(backgroundRenderer);
 
-
+		// ゲームオーバーの文字用
 		GameEngine::GameObject* gameoverObject = GameEngine::GameObject::Instantiate();
 		gameoverObject->GetTransform()->SetPosition(&D3DXVECTOR3(400.0f, 200.0f, 0.0f));
 		gameoverObject->GetTransform()->SetScale(&D3DXVECTOR3(600.0f, 150.0f, 50.0f));
