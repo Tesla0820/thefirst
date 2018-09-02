@@ -50,7 +50,7 @@ namespace Game { namespace ResultScene
 		GameEngine::GameObject* gameClearObject = GameEngine::GameObject::Instantiate();
 		gameClearObject->GetTransform()->SetPosition(&D3DXVECTOR3(400.0f, 200.0f, 0.0f));
 		gameClearObject->GetTransform()->SetScale(&D3DXVECTOR3(600.0f, 150.0f, 50.0f));
-		auto gameClearRenderer = new GameEngine::Behaviour::UIRenderer(GameEngine::Resource::ResourceManager::Get<Texture>("./data/texture/STAGE_CLEAR.png"));
+		auto gameClearRenderer = new GameEngine::Behaviour::UIRenderer(GameEngine::Resource::ResourceManager::Get<Texture>("./data/texture/GAME_CLEAR.png"));
 		gameClearRenderer->SetColor(D3DCOLOR_ARGB(255, 255, 255, 255));
 		gameClearObject->AddBehaviour(gameClearRenderer);
 

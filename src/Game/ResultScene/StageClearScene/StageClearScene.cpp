@@ -32,14 +32,14 @@ namespace Game {
 
 			// マネージャー用
 			GameEngine::GameObject* stageclearManagerObject = GameEngine::GameObject::Instantiate();
-			auto resultmanager = new Game::ResultManager();
+			auto stageclearManager = new Game::ResultScene::StageClearManager();
 			auto stageclearManagerSoundPlay = new GameEngine::Behaviour::SoundPlay();
 			stageclearManagerSoundPlay->SetSound(GameEngine::Sound::Sound::CreateFromWaveFile("./data/sound/stage_clear.wav", XAUDIO2_LOOP_INFINITE));
-			stageclearManagerObject->AddBehaviour(resultmanager);
+			stageclearManagerObject->AddBehaviour(stageclearManager);
 			stageclearManagerObject->AddBehaviour(stageclearManagerSoundPlay);
 			stageclearManagerSoundPlay->Play();
 
-
+			// ステージクリア画面の背景用
 			GameEngine::GameObject* backgroundObject = GameEngine::GameObject::Instantiate();
 			backgroundObject->GetTransform()->SetPosition(&D3DXVECTOR3(400.0f, 300.0f, 0.0f));
 			backgroundObject->GetTransform()->SetScale(&D3DXVECTOR3(800.0f, 600.0f, 50.0f));
@@ -47,7 +47,7 @@ namespace Game {
 			backgroundRenderer->SetColor(D3DCOLOR_ARGB(255, 255, 255, 255));
 			backgroundObject->AddBehaviour(backgroundRenderer);
 
-
+			// ステージクリアの文字用
 			GameEngine::GameObject* stageclearObject = GameEngine::GameObject::Instantiate();
 			stageclearObject->GetTransform()->SetPosition(&D3DXVECTOR3(400.0f, 200.0f, 0.0f));
 			stageclearObject->GetTransform()->SetScale(&D3DXVECTOR3(600.0f, 150.0f, 50.0f));
