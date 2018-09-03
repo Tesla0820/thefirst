@@ -77,15 +77,29 @@ void StageLoader::CreateStage(std::vector<int>& stage, int width, int depth)
 	stageObject->AddBehaviour(renderer);
 
 	//create collider
-	stageObject->AddBehaviour(new GameEngine::Behaviour::BoxCollider(D3DXVECTOR3(width*_scale/2.0f,1.0f,depth*_scale/2.0f), D3DXVECTOR3(width*_scale/2.0f, -0.5f, depth*_scale/2.0f), 0x0004));
-	std::vector<int> markedWall(stage.size(),0);
+	stageObject->AddBehaviour
+	(
+		new GameEngine::Behaviour::BoxCollider
+		(
+			D3DXVECTOR3(width*_scale/2.0f,1.0f,depth*_scale/2.0f), 
+			D3DXVECTOR3(width*_scale/2.0f, -0.5f, depth*_scale/2.0f), 
+			0x0004
+		)
+	);
 	for (int z = 0; z < depth; z++)
 	{
 		for (int x = 0; x < width; x++)
 		{
 			int index = width * z + x;
-			if (stage[index] == 0 || markedWall[index] != 0)continue;
-			auto collider = new GameEngine::Behaviour::BoxCollider(D3DXVECTOR3(width*_scale,_scale*_multiplyY,depth*_scale)/2.0f, D3DXVECTOR3(_scale,_scale*_multiplyY,_scale), 0x0004);
+			if (stage[index] != 1)continue;
+			auto collider = new GameEngine::Behaviour::BoxCollider
+			(
+				D3DXVECTOR3(x * _scale, _scale * _multiplyY / 2.0f, z * _scale),
+				D3DXVECTOR3(1, _multiplyY, 1) * _scale/2.0f, 
+				0x0002
+			);
+			collider->EnableTrigger(false);
+			collider->EnableFreeze(true);
 			stageObject->AddBehaviour(collider);
 		}
 	}

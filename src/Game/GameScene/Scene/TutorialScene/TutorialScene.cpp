@@ -25,14 +25,9 @@ namespace Game { namespace GameScene { namespace Scene
 
 	bool TutorialScene::Init()
 	{
-		Fade::StartFadeIn();
-
 		using Texture = GameEngine::Resource::Texture;
 		using ResourceManager = GameEngine::Resource::ResourceManager;
 		GameEngine::Environment::Get()->AttachPipeline(new Pipeline::Echo());
-
-		//地面
-		//GameFactory::CreateGround();
 
 		//プレイヤー
 		GameFactory::CreatePlayer();
@@ -59,6 +54,10 @@ namespace Game { namespace GameScene { namespace Scene
 		FadeObject->AddBehaviour(fade);
 
 		StageLoader::LoadStage("./data/stage/stage0.txt");
+
+		//フェード
+		GameFactory::CreateFade();
+
 
 		return false;
 	}

@@ -12,7 +12,7 @@ namespace Game { namespace GameScene
 		public:
 		static void CreateGround();
 		static void CreatePlayer();
-
+		static void CreateFade();
 	};
 }
 }

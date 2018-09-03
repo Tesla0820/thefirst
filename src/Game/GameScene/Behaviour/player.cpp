@@ -3,6 +3,7 @@
 //
 
 #include "player.h"
+#include "../../Common/Fade.h"
 #include "../../../GameEngine/Input.h"
 #include "../../../GameEngine/GameEngine.h"
 
@@ -18,15 +19,34 @@ void Player::Start()
 	_sonar = object->FindBehaviour<Sonar>();
 	_soundPlay = object->FindBehaviour<GameEngine::Behaviour::SoundPlay>();
 	_sphere = object->FindBehaviour<GameEngine::Behaviour::SphereCollider>();
-	angle = 0.0f;
-	currentFuel= maxFuel = 90;
-	delay = 0;
+	_angle = 0.0f;
+	_currentFuel= _maxFuel = 90;
+	_delay = 0;
+	_state = 0;
 }
 
 //=======================================================
 	// 更新処理
 	//=======================================================
 void Player::Update()
+{
+	switch (_state)
+	{
+		case 0:
+			UpdatePlayer();
+			break;
+
+		case 1:
+			UpdateOver();
+			break;
+
+		case 2:
+			UpdateClear();
+			break;
+	}
+}
+
+void Player::UpdatePlayer()
 {
 	D3DXVECTOR3 vec = { 0.0f,0.0f,0.0f };
 	D3DXVECTOR3 up = _transform->Up();
@@ -50,19 +70,19 @@ void Player::Update()
 		vec -= front;
 	}
 
-	if (delay)
+	if (_delay)
 	{
-		delay--;
+		_delay--;
 	}
-	else if (currentFuel < maxFuel)
+	else if (_currentFuel < _maxFuel)
 	{
-		currentFuel++;
+		_currentFuel++;
 	}
 
-	if (GameEngine::Input::GetKey(DIKEYBOARD_SPACE, HOLD) && currentFuel)
+	if (GameEngine::Input::GetKey(DIKEYBOARD_SPACE, HOLD) && _currentFuel)
 	{
-		delay = 30;
-		currentFuel--;
+		_delay = 30;
+		_currentFuel--;
 		vec -= up;
 	}
 	else
@@ -83,25 +103,51 @@ void Player::Update()
 
 	if (GameEngine::Input::GetKey(DIKEYBOARD_LEFT, HOLD))
 	{
-		angle -= 0.05f;
+		_angle -= 0.05f;
 	}
 	else if (GameEngine::Input::GetKey(DIKEYBOARD_RIGHT, HOLD))
 	{
-		angle += 0.05f;
+		_angle += 0.05f;
 	}
 
 
 	D3DXQUATERNION rot;
-	D3DXQuaternionRotationYawPitchRoll(&rot, angle, 0.0f, 0.0f);
+	D3DXQuaternionRotationYawPitchRoll(&rot, _angle, 0.0f, 0.0f);
 	_transform->SetRotation(&rot);
 	_sphere->HitAll();
 }
 
+void Player::UpdateClear()
+{
+	if (Fade::EndFadeOut())
+	{
+		GameEngine::Scene::SceneManager::LoadScene(6);
+	}
+}
+
+void Player::UpdateOver()
+{
+	if (Fade::EndFadeOut())
+	{
+		GameEngine::Scene::SceneManager::LoadScene(7);
+	}
+}
+
+
 void Player::OnCollision(GameEngine::Behaviour::Collider * from)
 {
-	if (from->GetFlag() & 0x0002)
+	if (_state != 0)return;
+	int flag = from->GetFlag();
+	if (flag & 0x0002)
 	{
 		//ゲームオーバー
+		_state = 1;
+		Fade::StartFadeOut();
+	}
+	else if (flag & 0x0008)
+	{
+		_state = 2;
+		Fade::StartFadeOut();
 	}
 }
 

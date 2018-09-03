@@ -2,9 +2,11 @@
 #include "../../GameEngine/GameEngine.h"
 #include "Behaviour/Sonar.h"
 #include "Behaviour/player.h"
+#include "../Common/Fade.h"
 
 namespace Game { namespace GameScene
 {
+
 void GameFactory::CreateGround()
 {
 	GameEngine::GameObject* object = GameEngine::GameObject::Instantiate();
@@ -40,6 +42,18 @@ void GameFactory::CreatePlayer()
 	object->AddBehaviour(sonarCollider);
 	object->AddBehaviour(sonar);
 
+}
+
+void GameFactory::CreateFade()
+{
+	GameEngine::GameObject* FadeObject = GameEngine::GameObject::Instantiate();
+	FadeObject->GetTransform()->SetPosition(&D3DXVECTOR3(400.0f, 300.0f, 0.0f));
+	FadeObject->GetTransform()->SetScale(&D3DXVECTOR3(800.0f, 600.0f, 1.0f));
+	auto fade = new Game::Fade();
+	auto FadeRenderer = new GameEngine::Behaviour::UIRenderer();
+	FadeRenderer->SetColor(D3DCOLOR_ARGB(255, 0, 0, 0));
+	FadeObject->AddBehaviour(FadeRenderer);
+	FadeObject->AddBehaviour(fade);
 }
 
 }
