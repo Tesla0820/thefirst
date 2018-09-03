@@ -77,6 +77,12 @@
     <ClCompile Include="src\Game\GameScene\Behaviour\Thorns.cpp" />
     <ClCompile Include="src\Game\GameScene\Behaviour\ThornsMove.cpp" />
     <ClCompile Include="src\Game\GameScene\Behaviour\bronzeStatue.cpp" />
+    <ClCompile Include="src\Game\GameScene\Behaviour\Toge.cpp" />
+    <ClCompile Include="src\Game\GameScene\Behaviour\Toge_move.cpp" />
+    <ClCompile Include="src\Game\GameScene\Behaviour\Yoroi.cpp" />
+    <ClCompile Include="src\Game\GameScene\Behaviour\UIgauge.cpp" />
+    <ClCompile Include="src\Game\GameScene\Scene\OperationScene\OperationScene.cpp" />
+    <ClCompile Include="src\Game\GameScene\Scene\OperationScene\OperationManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\DXCT\D3DX\D3DXAllocateHierarchy.h" />
@@ -175,5 +181,11 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="data\model\bell.x" />
+    <ClInclude Include="src\Game\GameScene\Behaviour\Toge.h" />
+    <ClInclude Include="src\Game\GameScene\Behaviour\Toge_move.h" />
+    <ClInclude Include="src\Game\GameScene\Behaviour\Yoroi.h" />
+    <ClInclude Include="src\Game\GameScene\Behaviour\UIgauge.h" />
+    <ClInclude Include="src\Game\GameScene\Scene\OperationScene\OperationScene.h" />
+    <ClInclude Include="src\Game\GameScene\Scene\OperationScene\OperationManager.h" />
   </ItemGroup>
 </Project>

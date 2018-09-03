@@ -13,6 +13,7 @@
 #include "ResultScene/StageClearScene/StageClearScene.h"
 #include "ResultScene/GameClearScene/GameClearScene.h"
 #include "ResultScene/GameOverScene/GameOverScene.h"
+#include "GameScene/Scene/OperationScene/OperationScene.h"
 
 // プロトタイプ宣言
 int Run(); //プログラムの実行
@@ -72,4 +73,5 @@ void RegisterScenes()
 	GameEngine::Scene::SceneManager::RegisterScene(new Game::ResultScene::StageClearScene());
 	GameEngine::Scene::SceneManager::RegisterScene(new Game::ResultScene::GameClearScene());
 	GameEngine::Scene::SceneManager::RegisterScene(new Game::ResultScene::GameOverScene());
+	GameEngine::Scene::SceneManager::RegisterScene(new Game::GameScene::Scene::OperationScene());
 }

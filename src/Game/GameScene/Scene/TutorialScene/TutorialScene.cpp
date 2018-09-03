@@ -1,5 +1,5 @@
 //
-//		ƒtƒ@ƒCƒ‹–¼:TutorialScene.cpp
+//		ãƒ•ã‚¡ã‚¤ãƒ«å:TutorialScene.cpp
 //
 
 #include "TutorialScene.h"
@@ -9,6 +9,7 @@
 #include "../../../Common/Fade.h"
 #include "../../GameFactory.h"
 #include "../../Behaviour/GimmickFactory.h"
+#include "../../Behaviour/UIgauge.h"
 
 namespace Game { namespace GameScene { namespace Scene
 {
@@ -31,11 +32,12 @@ namespace Game { namespace GameScene { namespace Scene
 		using ResourceManager = GameEngine::Resource::ResourceManager;
 		GameEngine::Environment::Get()->AttachPipeline(new Pipeline::Echo());
 
-		//’n–Ê
+		//åœ°é¢
 		GameFactory::CreateGround();
 
-		//ƒvƒŒƒCƒ„[
+		//ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼
 		GameFactory::CreatePlayer();
+
 
 		GameEngine::GameObject* object2 = GameEngine::GameObject::Instantiate();
 		auto transform = object2->GetTransform();
@@ -44,11 +46,18 @@ namespace Game { namespace GameScene { namespace Scene
 		meshRenderer->SetMesh(std::shared_ptr<GameEngine::Resource::Mesh::IMesh>(new GameEngine::Resource::Mesh::MeshD3DX(TEXT("./data/model/stage.x"))));
 		object2->AddBehaviour(meshRenderer);
 
-		GameEngine::GameObject* object4 = GameEngine::GameObject::Instantiate();
-		auto tutorialmanager = new Game::GameScene::Scene::TutorialManager();
-		object4->AddBehaviour(tutorialmanager);
+		
 
-        //ƒMƒ~ƒbƒN
+		// ãƒžãƒãƒ¼ã‚¸ãƒ£ãƒ¼ç”¨
+		GameEngine::GameObject* tutorialManagerObject = GameEngine::GameObject::Instantiate();
+		auto tutorialmanager = new Game::GameScene::Scene::TutorialManager();
+		tutorialManagerObject->AddBehaviour(tutorialmanager);
+		auto tutorialManagerSoundPlay = new GameEngine::Behaviour::SoundPlay();
+		tutorialManagerSoundPlay->SetSound(GameEngine::Sound::Sound::CreateFromWaveFile("./data/sound/game_honpen.wav", XAUDIO2_LOOP_INFINITE));
+		tutorialManagerObject->AddBehaviour(tutorialManagerSoundPlay);
+		tutorialManagerSoundPlay->Play();
+
+        //ã‚®ãƒŸãƒƒã‚¯
         //Behaviour::GimmickFactory::InstantiateArmor(&D3DXVECTOR3(0.0f, 0.0f, 10.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
         //Behaviour::GimmickFactory::InstantiateBell(&D3DXVECTOR3(0.0f, 0.0f, 0.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
         //Behaviour::GimmickFactory::InstantiateBrokenPillar(&D3DXVECTOR3(0.0f, 0.0f, 0.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
@@ -57,17 +66,20 @@ namespace Game { namespace GameScene { namespace Scene
         //Behaviour::GimmickFactory::InstantiateThorns(&D3DXVECTOR3(0.0f, 0.0f, 10.0f), &D3DXVECTOR3(0.0f, 90.0f, 0.0f));
         Behaviour::GimmickFactory::InstantiateThornsMove(&D3DXVECTOR3(0.0f, 0.0f, 10.0f), &D3DXVECTOR3(270.0f, 90.0f, 0.0f));
 
-		// ƒtƒF[ƒh—p
-		GameEngine::GameObject* FadeObject = GameEngine::GameObject::Instantiate();
-		FadeObject->GetTransform()->SetPosition(&D3DXVECTOR3(400.0f, 300.0f, 0.0f));
-		FadeObject->GetTransform()->SetScale(&D3DXVECTOR3(800.0f, 600.0f, 50.0f));
+		// ãƒ•ã‚§ãƒ¼ãƒ‰ç”¨
+		GameEngine::GameObject* fadeObject = GameEngine::GameObject::Instantiate();
+		fadeObject->GetTransform()->SetPosition(&D3DXVECTOR3(400.0f, 300.0f, 0.0f));
+		fadeObject->GetTransform()->SetScale(&D3DXVECTOR3(800.0f, 600.0f, 50.0f));
 		auto fade = new Game::Fade();
-		auto FadeRenderer = new GameEngine::Behaviour::UIRenderer();
-		FadeRenderer->SetColor(D3DCOLOR_ARGB(255, 0, 0, 0));
-		FadeObject->AddBehaviour(FadeRenderer);
-		FadeObject->AddBehaviour(fade);
+		auto fadeRenderer = new GameEngine::Behaviour::UIRenderer();
+		fadeRenderer->SetColor(D3DCOLOR_ARGB(255, 0, 0, 0));
+		fadeObject->AddBehaviour(fadeRenderer);
+		fadeObject->AddBehaviour(fade);
+	
+		// UIã‚²ãƒ¼ã‚¸
+		GameFactory::CreateUIgauge();
 
-		
+
 
 		return false;
 	}

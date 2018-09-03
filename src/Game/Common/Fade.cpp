@@ -32,9 +32,9 @@ namespace Game
 		_fade = FADE_TIME;
 		_dir = -1;
 		_alpha = 0;
-		_red = 0;
-		_blue = 0;
-		_green = 0;
+		_red = 50;
+		_blue = 50;
+		_green = 50;
 		_render = this->GetAttachedObject()->FindBehaviour<GameEngine::Behaviour::UIRenderer>();
 
 	}
