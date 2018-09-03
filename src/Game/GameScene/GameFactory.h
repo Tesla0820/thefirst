@@ -13,9 +13,9 @@ namespace Game { namespace GameScene
 class GameFactory
 {
   public:
-  static void CreateGround();
-  static void CreatePlayer();
-  static void CreateFade();
+  static GameEngine::GameObject* CreateGround();
+  static GameEngine::GameObject* CreatePlayer();
+  static GameEngine::GameObject* CreateFade();
   static GameEngine::GameObject* CreateUIgauge();
 };
 

@@ -8,16 +8,16 @@
 namespace Game { namespace GameScene
 {
 
-void GameFactory::CreateGround()
+GameEngine::GameObject* GameFactory::CreateGround()
 {
 	GameEngine::GameObject* object = GameEngine::GameObject::Instantiate();
 	auto collider = new GameEngine::Behaviour::BoxCollider(D3DXVECTOR3(0.0f,-1.0f,0.0f), D3DXVECTOR3(100.0f, 1.0f, 100.0f),0x0004);
 	collider->EnableTrigger(false);
 	collider->EnableFreeze(true);
-	
 	object->AddBehaviour(collider);
+	return object;
 }
-void GameFactory::CreatePlayer()
+GameEngine::GameObject* GameFactory::CreatePlayer()
 {
 	GameEngine::GameObject* object = GameEngine::GameObject::Instantiate();
 	auto camera = new GameEngine::Behaviour::Camera();
@@ -42,8 +42,21 @@ void GameFactory::CreatePlayer()
 	sonarCollider->EnableTrigger(true);
 	object->AddBehaviour(sonarCollider);
 	object->AddBehaviour(sonar);
+	return object;
 }
 
+GameEngine::GameObject* GameFactory::CreateFade()
+{
+	GameEngine::GameObject* FadeObject = GameEngine::GameObject::Instantiate();
+	FadeObject->GetTransform()->SetPosition(&D3DXVECTOR3(400.0f, 300.0f, 0.0f));
+	FadeObject->GetTransform()->SetScale(&D3DXVECTOR3(800.0f, 600.0f, 1.0f));
+	auto fade = new Game::Fade();
+	auto FadeRenderer = new GameEngine::Behaviour::UIRenderer();
+	FadeRenderer->SetColor(D3DCOLOR_ARGB(255, 0, 0, 0));
+	FadeObject->AddBehaviour(FadeRenderer);
+	FadeObject->AddBehaviour(fade);
+	return FadeObject;
+}
 
 GameEngine::GameObject* GameFactory::CreateUIgauge()
 {
@@ -60,17 +73,7 @@ GameEngine::GameObject* GameFactory::CreateUIgauge()
 	return uiObject;
 }
 
-void GameFactory::CreateFade()
-{
-	GameEngine::GameObject* FadeObject = GameEngine::GameObject::Instantiate();
-	FadeObject->GetTransform()->SetPosition(&D3DXVECTOR3(400.0f, 300.0f, 0.0f));
-	FadeObject->GetTransform()->SetScale(&D3DXVECTOR3(800.0f, 600.0f, 1.0f));
-	auto fade = new Game::Fade();
-	auto FadeRenderer = new GameEngine::Behaviour::UIRenderer();
-	FadeRenderer->SetColor(D3DCOLOR_ARGB(255, 0, 0, 0));
-	FadeObject->AddBehaviour(FadeRenderer);
-	FadeObject->AddBehaviour(fade);
-}
+
 
 }
 }
