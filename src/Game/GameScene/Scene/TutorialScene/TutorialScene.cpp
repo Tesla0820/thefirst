@@ -63,9 +63,9 @@ namespace Game { namespace GameScene { namespace Scene
         //GimmickFactory::InstantiateBrokenPillar(&D3DXVECTOR3(0.0f, 0.0f, 0.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
         //GimmickFactory::InstantiateBronzeStatue(&D3DXVECTOR3(0.0f, 0.0f, 5.0f), &D3DXVECTOR3(0.0f, 90.0f, 0.0f));
         //GimmickFactory::InstantiatePillar(&D3DXVECTOR3(0.0f, 0.0f, 0.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
-        GimmickFactory::InstantiateThorns(&D3DXVECTOR3(0.0f, 0.0f, 10.0f), &D3DXVECTOR3(0.0f, 90.0f, 0.0f));
+        //GimmickFactory::InstantiateThorns(&D3DXVECTOR3(0.0f, 0.0f, 10.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
 		
-        GimmickFactory::InstantiateThornsMove(&D3DXVECTOR3(0.0f, 0.0f, 10.0f), &D3DXVECTOR3(270.0f, 90.0f, 0.0f));
+        GimmickFactory::InstantiateThornsMove(&D3DXVECTOR3(0.0f, 0.0f, 10.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
 
 		// フェード用
 		GameEngine::GameObject* fadeObject = GameEngine::GameObject::Instantiate();
