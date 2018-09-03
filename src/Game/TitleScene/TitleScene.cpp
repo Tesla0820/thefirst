@@ -38,11 +38,11 @@ bool TitleScene::Init()
 	BackgroundObject->AddBehaviour(backGroundRenderer);
 
 
-	GameEngine::GameObject* TitlemanagerObject = GameEngine::GameObject::Instantiate();
-	TitlemanagerObject->GetTransform()->SetPosition(&D3DXVECTOR3(300.0f, 400.0f, 0.0f));
-	TitlemanagerObject->GetTransform()->SetScale(&D3DXVECTOR3(50.0f, 50.0f, 50.0f));
-	auto titlemanager = new Game::TitleManager();
-	auto TitlemanagerRenderer = new GameEngine::Behaviour::UIRenderer(ResourceManager::Get<Texture>("./data/texture/select.png"));
+	GameEngine::GameObject* titleManagerObject = GameEngine::GameObject::Instantiate();
+	titleManagerObject->GetTransform()->SetPosition(&D3DXVECTOR3(300.0f, 400.0f, 0.0f));
+	titleManagerObject->GetTransform()->SetScale(&D3DXVECTOR3(50.0f, 50.0f, 50.0f));
+	auto titleManager = new Game::TitleManager();
+	auto titleManagerRenderer = new GameEngine::Behaviour::UIRenderer(ResourceManager::Get<Texture>("./data/texture/select.png"));
 	auto titleManagerSoundPlay = new GameEngine::Behaviour::SoundPlay();
 	titleManagerRenderer->SetColor(D3DCOLOR_ARGB(255, 255, 255, 255));
 	titleManagerSoundPlay->SetSound(GameEngine::Sound::Sound::CreateFromWaveFile("./data/sound/title.wav",XAUDIO2_LOOP_INFINITE));

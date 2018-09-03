@@ -38,19 +38,8 @@ bool TutorialScene::Init()
   //meshRenderer->SetMesh(std::shared_ptr<GameEngine::Resource::Mesh::IMesh>(new GameEngine::Resource::Mesh::MeshD3DX(TEXT("./data/model/stage.x"))));
   //object2->AddBehaviour(meshRenderer);
 
-  //地面
-  GameFactory::CreateGround();
-
   //プレイヤー
   GameFactory::CreatePlayer();
-
-
-  GameEngine::GameObject* object2 = GameEngine::GameObject::Instantiate();
-  auto transform = object2->GetTransform();
-  transform->SetPosition(&D3DXVECTOR3(0.0f, 0.0f, 10.0f));
-  auto meshRenderer = new Game::MeshRendererEx();
-  meshRenderer->SetMesh(std::shared_ptr<GameEngine::Resource::Mesh::IMesh>(new GameEngine::Resource::Mesh::MeshD3DX(TEXT("./data/model/stage.x"))));
-  object2->AddBehaviour(meshRenderer);
 
   // マネージャー用
   GameEngine::GameObject* tutorialManagerObject = GameEngine::GameObject::Instantiate();
