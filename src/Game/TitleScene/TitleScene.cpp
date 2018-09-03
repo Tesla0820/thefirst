@@ -44,11 +44,18 @@ bool TitleScene::Init()
 	auto titleManager = new Game::TitleManager();
 	auto titleManagerRenderer = new GameEngine::Behaviour::UIRenderer(ResourceManager::Get<Texture>("./data/texture/select.png"));
 	auto titleManagerSoundPlay = new GameEngine::Behaviour::SoundPlay();
+	auto titleManagerSoundPlay2 = new GameEngine::Behaviour::SoundPlay();
+	auto titleManagerSoundPlay3 = new GameEngine::Behaviour::SoundPlay();
 	titleManagerRenderer->SetColor(D3DCOLOR_ARGB(255, 255, 255, 255));
 	titleManagerSoundPlay->SetSound(GameEngine::Sound::Sound::CreateFromWaveFile("./data/sound/title.wav",XAUDIO2_LOOP_INFINITE));
+	titleManagerSoundPlay2->SetSound(GameEngine::Sound::Sound::CreateFromWaveFile("./data/sound/title.wav", XAUDIO2_LOOP_INFINITE));
+	titleManagerSoundPlay3->SetSound(GameEngine::Sound::Sound::CreateFromWaveFile("./data/sound/title.wav", XAUDIO2_LOOP_INFINITE));
+
 	titleManagerObject->AddBehaviour(titleManagerRenderer);
 	titleManagerObject->AddBehaviour(titleManager);
 	titleManagerObject->AddBehaviour(titleManagerSoundPlay);
+	titleManagerObject->AddBehaviour(titleManagerSoundPlay2);
+	titleManagerObject->AddBehaviour(titleManagerSoundPlay3);
 	titleManagerSoundPlay->Play();
 
 	// タイトルの描画
