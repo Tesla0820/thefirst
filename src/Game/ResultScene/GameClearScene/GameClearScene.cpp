@@ -42,7 +42,7 @@ namespace Game { namespace ResultScene
 		GameEngine::GameObject* backgroundObject = GameEngine::GameObject::Instantiate();
 		backgroundObject->GetTransform()->SetPosition(&D3DXVECTOR3(400.0f, 300.0f, 0.0f));
 		backgroundObject->GetTransform()->SetScale(&D3DXVECTOR3(800.0f, 600.0f, 50.0f));
-		auto backgroundRenderer = new GameEngine::Behaviour::UIRenderer(GameEngine::Resource::ResourceManager::Get<Texture>("./data/texture/GAME_CLEAR_BG.png"));
+		auto backgroundRenderer = new GameEngine::Behaviour::UIRenderer(GameEngine::Resource::ResourceManager::Get<Texture>("./data/texture/gameclearBG.png"));
 		backgroundRenderer->SetColor(D3DCOLOR_ARGB(255, 255, 255, 255));
 		backgroundObject->AddBehaviour(backgroundRenderer);
 

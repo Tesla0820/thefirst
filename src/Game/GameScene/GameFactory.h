@@ -1,5 +1,5 @@
 //
-//		ƒtƒ@ƒCƒ‹–¼:GameFactory.h
+//		Æ’tÆ’@Æ’CÆ’â€¹â€“Â¼:GameFactory.h
 //
 
 #ifndef HEADER_GAME_FACTORY_H
@@ -9,16 +9,16 @@
 
 namespace Game { namespace GameScene
 {
-	
 
-	class GameFactory
-	{
-		public:
-		static void CreateGround();
-		static void CreatePlayer();
-		static GameEngine::GameObject* CreateUIgauge();
+class GameFactory
+{
+  public:
+  static void CreateGround();
+  static void CreatePlayer();
+  static void CreateFade();
+  static GameEngine::GameObject* CreateUIgauge();
+};
 
-	};
 }
 }
 #endif
