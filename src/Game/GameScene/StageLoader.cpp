@@ -12,7 +12,7 @@ namespace Game
 void StageLoader::LoadStage(std::string file)
 {
 	int width;
-	int height;
+	int depth;
 	char temp[1024];
 	std::ifstream stageFile;
 	stageFile.open(file, std::ios::in);
@@ -21,9 +21,9 @@ void StageLoader::LoadStage(std::string file)
 	std::sscanf(temp, "%d", &width);
 	//縦幅
 	stageFile.getline(temp, sizeof(temp));
-	std::sscanf(temp, "%d", &height);
-	std::vector<int> stage(width*height);
-	for (int z = 0; z < height; z++)
+	std::sscanf(temp, "%d", &depth);
+	std::vector<int> stage(width*depth);
+	for (int z = 0; z < depth; z++)
 	{
 		stageFile.getline(temp, sizeof(temp));
 		char *current = temp;
@@ -34,27 +34,32 @@ void StageLoader::LoadStage(std::string file)
 		}
 	}
 	stageFile.close();
-	CreateStage(stage,width,height);
+	CreateStage(stage,width,depth);
 }
 
 void StageLoader::CreateStage(std::vector<int>& stage, int width, int depth)
 {
+	D3DXVECTOR3 pos(0.0f,0.0f,0.0f);
 	std::vector<StageVertex> verticies;
-	//create mesh
-	for (int y = 1; y < depth-1; y++)
+	//メッシュデータの生成
+	for (int z = 1; z < depth - 1; z++)
 	{
-		for (int x = 1; x < width-1; x++)
+		for (int x = 1; x < width - 1; x++)
 		{
-			int index = width*y + x;
+			int index = width*z + x;
 			switch (stage[index])
 			{
 				case 0:
-					AddSideWalls(verticies, stage, width, depth, x, y);
+					AddSideWalls(verticies, stage, width, depth, x, z);
 					break;
 
 				case 1:
 					break;
 				case 2:
+					pos.x = -x*_scale;
+					pos.y = 0;
+					pos.z = -z*_scale;
+					AddSideWalls(verticies, stage, width, depth, x, z);
 					break;
 			}
 
@@ -63,17 +68,34 @@ void StageLoader::CreateStage(std::vector<int>& stage, int width, int depth)
 	}
 
 	GameEngine::GameObject* stageObject = GameEngine::GameObject::Instantiate();
+	auto transform = stageObject->GetTransform();
+
+	transform->SetPosition(&pos);
+
 	auto renderer = new GameEngine::Behaviour::MeshRenderer();
 	renderer->SetMesh(std::shared_ptr<GameEngine::Resource::Mesh::IMesh>(new GameEngine::Resource::Mesh::Mesh<StageVertex>(verticies, D3DFVF_XYZ | D3DFVF_NORMAL, D3DPT_TRIANGLELIST)));
 	stageObject->AddBehaviour(renderer);
 
 	//create collider
 	stageObject->AddBehaviour(new GameEngine::Behaviour::BoxCollider(D3DXVECTOR3(width*_scale/2.0f,1.0f,depth*_scale/2.0f), D3DXVECTOR3(width*_scale/2.0f, -0.5f, depth*_scale/2.0f), 0x0004));
+	std::vector<int> markedWall(stage.size(),0);
+	for (int z = 0; z < depth; z++)
+	{
+		for (int x = 0; x < width; x++)
+		{
+			int index = width * z + x;
+			if (stage[index] == 0 || markedWall[index] != 0)continue;
+			auto collider = new GameEngine::Behaviour::BoxCollider(D3DXVECTOR3(width*_scale,_scale*_multiplyY,depth*_scale)/2.0f, D3DXVECTOR3(_scale,_scale*_multiplyY,_scale), 0x0004);
+			stageObject->AddBehaviour(collider);
+		}
+	}
+
 }
 
 void StageLoader::AddSideWalls(std::vector<StageVertex>& verticies, std::vector<int>& stage, int width, int depth, int x, int z)
 {
 	AddWall(verticies, StageDirectionBottom, x, z);
+	AddWall(verticies, StageDirectionUp, x, z);
 	if (stage[width*z + x + 1] == 1)
 	{
 		AddWall(verticies, StageDirectionLeft, x, z);
