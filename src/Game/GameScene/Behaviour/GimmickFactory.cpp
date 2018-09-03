@@ -36,7 +36,7 @@ GameEngine::GameObject* GimmickFactory::Instantiate(GameEngine::Behaviour::Behav
     gimmick->AddBehaviour(meshRenderer);
 
     //“–‚½‚è”»’è‚Ì•t—^
-    gimmick->AddBehaviour(new GameEngine::Behaviour::BoxCollider(*position, D3DXVECTOR3(1.0F, 1.0F, 1.0F), 0x0102));
+    gimmick->AddBehaviour(new GameEngine::Behaviour::BoxCollider(D3DXVECTOR3(0.0f,0.0f,0.0f), D3DXVECTOR3(1.0F, 1.0F, 1.0F), 0x0102));
 
     return gimmick;
 }
@@ -55,12 +55,7 @@ void GimmickFactory::InstantiateArmor(D3DXVECTOR3* position, D3DXVECTOR3* rotate
     GameEngine::GameObject* gimmick;
     gimmick = Instantiate(new Game::Behaviour::Armor(), position, rotate, std::shared_ptr<GameEngine::Resource::Mesh::IMesh>(new GameEngine::Resource::Mesh::MeshD3DX(TEXT("./data/model/armor.x"))));
 
-    D3DXQUATERNION rotation;
-    D3DXQuaternionRotationYawPitchRoll(&rotation, 0.0F, D3DXToRadian(270.0F), 0.0F);
-    gimmick->GetTransform()->SetPosition(&D3DXVECTOR3(position->x, position->y + 5.0F, position->z));
-    gimmick->GetTransform()->SetRotation(&rotation);
-
-    gimmick->GetTransform()->SetScale(&D3DXVECTOR3(0.05F, 0.05F, 0.05F));
+    gimmick->GetTransform()->SetPosition(&D3DXVECTOR3(position->x, position->y + 3.5F, position->z));
 }
 
 /////////////////////////////////////////////
@@ -74,7 +69,10 @@ void GimmickFactory::InstantiateArmor(D3DXVECTOR3* position, D3DXVECTOR3* rotate
 /////////////////////////////////////////////
 void GimmickFactory::InstantiateBell(D3DXVECTOR3* position, D3DXVECTOR3* rotate)
 {
-    Instantiate(new Game::Behaviour::Bell(), position, rotate, std::shared_ptr<GameEngine::Resource::Mesh::IMesh>(new GameEngine::Resource::Mesh::MeshD3DX(TEXT("./data/model/bell.x"))));
+    GameEngine::GameObject* gimmick;
+    gimmick = Instantiate(new Game::Behaviour::Bell(), position, rotate, std::shared_ptr<GameEngine::Resource::Mesh::IMesh>(new GameEngine::Resource::Mesh::MeshD3DX(TEXT("./data/model/bell.x"))));
+
+    gimmick->GetTransform()->SetPosition(&D3DXVECTOR3(position->x, position->y + 3.0F, position->z));
 }
 
 /////////////////////////////////////////////
@@ -91,10 +89,7 @@ void GimmickFactory::InstantiateBrokenPillar(D3DXVECTOR3* position, D3DXVECTOR3*
     GameEngine::GameObject* gimmick;
     gimmick = Instantiate(new Game::Behaviour::BrokenPillar(), position, rotate, std::shared_ptr<GameEngine::Resource::Mesh::IMesh>(new GameEngine::Resource::Mesh::MeshD3DX(TEXT("./data/model/brokenPillar.x"))));
     
-    D3DXQUATERNION rotation;
-    D3DXQuaternionRotationYawPitchRoll(&rotation, D3DXToRadian(90.0F), 0.0F, 0.0F);
-    gimmick->GetTransform()->SetPosition(&D3DXVECTOR3(position->x, position->y + 1.0F, position->z));
-    gimmick->GetTransform()->SetRotation(&rotation);
+    gimmick->GetTransform()->SetPosition(&D3DXVECTOR3(position->x, position->y + 2.3F, position->z));
 }
 
 /////////////////////////////////////////////
@@ -111,13 +106,7 @@ void GimmickFactory::InstantiateBronzeStatue(D3DXVECTOR3* position, D3DXVECTOR3*
     GameEngine::GameObject* gimmick;
     gimmick = Instantiate(new Game::Behaviour::BronzeStatue(), position, rotate, std::shared_ptr<GameEngine::Resource::Mesh::IMesh>(new GameEngine::Resource::Mesh::MeshD3DX(TEXT("./data/model/bronzeStatue.x"))));
 
-    gimmick->GetTransform()->SetPosition(&D3DXVECTOR3(position->x, position->y + 0.0F, position->z - 0.0F));
-
-    D3DXQUATERNION rotation;
-    D3DXQuaternionRotationYawPitchRoll(&rotation, D3DXToRadian(180.0F), D3DXToRadian(0.0F), D3DXToRadian(0.0F));
-    gimmick->GetTransform()->SetRotation(&rotation);
-
-    gimmick->GetTransform()->SetScale(&D3DXVECTOR3(4.0F, 4.0F, 4.0F));
+    gimmick->GetTransform()->SetPosition(&D3DXVECTOR3(position->x, position->y + 3.0F, position->z - 0.0F));
 }
 
 /////////////////////////////////////////////
@@ -147,12 +136,7 @@ void GimmickFactory::InstantiatePillar(D3DXVECTOR3* position, D3DXVECTOR3* rotat
 /////////////////////////////////////////////
 void GimmickFactory::InstantiateThorns(D3DXVECTOR3* position, D3DXVECTOR3* rotate)
 {
-    GameEngine::GameObject* gimmick;
-    gimmick = Instantiate(new Game::Behaviour::Thorns(), position, rotate, std::shared_ptr<GameEngine::Resource::Mesh::IMesh>(new GameEngine::Resource::Mesh::MeshD3DX(TEXT("./data/model/thorns.x"))));
-    
-    D3DXQUATERNION rotation;
-    D3DXQuaternionRotationYawPitchRoll(&rotation, 0.0F, D3DXToRadian(180.0F), 0.0F);
-    gimmick->GetTransform()->SetRotation(&rotation);
+    Instantiate(new Game::Behaviour::Thorns(), position, rotate, std::shared_ptr<GameEngine::Resource::Mesh::IMesh>(new GameEngine::Resource::Mesh::MeshD3DX(TEXT("./data/model/thorns.x"))));
 }
 
 /////////////////////////////////////////////
@@ -169,12 +153,11 @@ void GimmickFactory::InstantiateThornsMove(D3DXVECTOR3* position, D3DXVECTOR3* r
     GameEngine::GameObject* gimmick;
     gimmick = Instantiate(new Game::Behaviour::ThornsMove(), position, rotate, std::shared_ptr<GameEngine::Resource::Mesh::IMesh>(new GameEngine::Resource::Mesh::MeshD3DX(TEXT("./data/model/thorns.x"))));
 
-    D3DXQUATERNION rotation;
-    D3DXQuaternionRotationYawPitchRoll(&rotation, 0.0F, D3DXToRadian(180.0F), 0.0F);
-    gimmick->GetTransform()->SetRotation(&rotation);
-
     //“–‚½‚è”»’è‚Ì•t—^
-    gimmick->AddBehaviour(new GameEngine::Behaviour::BoxCollider(*position, D3DXVECTOR3(1.2F, 1.2F, 1.2F), 0x0001));
+    auto collider = new GameEngine::Behaviour::BoxCollider(*position, D3DXVECTOR3(1.0F, 1.0F, 1.0F), 0x0004);
+    collider->EnableTrigger(true);
+    collider->EnableFreeze(false);
+    gimmick->AddBehaviour(collider);
 }
 
 }}

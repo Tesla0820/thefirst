@@ -31,9 +31,6 @@ void ThornsMove::Start(void)
     _move_Distance = 0.0F;
     _move = { 0.0F, 0.0F, 0.0F };
     _move_Vector = _transform->Front();
-
-    //セットハンドラー
-
     _attack = false;
 }
 
@@ -57,7 +54,7 @@ void ThornsMove::Update(void)
     _move += _move_Vector;
     _move_Distance += 0.1F;
 
-    if (_move_Distance >= MOVE_DISTANCE)
+    if (_move_Distance >= 3.0F)
     {
         _attack = false;
         return;
@@ -78,7 +75,9 @@ void ThornsMove::Update(void)
 /////////////////////////////////////////////
 void ThornsMove::OnCollision(GameEngine::Behaviour::Collider* from)
 {
-    //_attack = true;
+    Gimmick::OnCollision(from);
+    if (from->GetFlag() & 0x00ff);
+    _attack = true;
 }
 
 }}

@@ -55,6 +55,7 @@ namespace GameEngine
 			std::vector<GameObject*> GetChildren();
 			void AddBehaviour(Behaviour::Behaviour* behaviour);
 			template <class T> T* FindBehaviour();
+            template <class T> std::vector<T*> FindBehaviours();
 			Behaviour::Transform* GetTransform();
 			void Update();
 			void BeforeDraw(D3DXMATRIX const& mtx);
@@ -77,6 +78,19 @@ namespace GameEngine
 		}
 		return nullptr;
 	}
-
+    template <class T>
+    std::vector<T*> GameObject::FindBehaviours()
+    {
+        std::vector<T*> _found;
+        for (auto behaviour : _behaviours)
+        {
+            T* target = dynamic_cast<T*>(behaviour);
+            if (target != nullptr)
+            {
+                _found.push_back(target);
+            }
+        }
+        return _found;
+    }
 }
 #endif

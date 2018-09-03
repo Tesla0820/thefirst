@@ -15,9 +15,12 @@ Gimmick::Gimmick(int maxDuration)
 void Gimmick::Start()
 {
     GameEngine::GameObject* object = GetAttachedObject();
-	_collider = object->FindBehaviour<GameEngine::Behaviour::BoxCollider>();
+	_colliders = object->FindBehaviours<GameEngine::Behaviour::BoxCollider>();
 	_renderer = object->FindBehaviour<MeshRendererEx>();
-	_collider->SetHandler(this);
+    for (auto iterator = _colliders.begin(); iterator != _colliders.end(); iterator++)
+    {
+	    (*iterator)->SetHandler(this);
+    }
     _duration = 0;
     _isShining = false;
 }

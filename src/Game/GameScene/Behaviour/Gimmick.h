@@ -27,7 +27,7 @@ class Gimmick : public GameEngine::Behaviour::Behaviour, public GameEngine::Beha
 		int _duration;
         int _maxDuration;
 
-        GameEngine::Behaviour::BoxCollider*  _collider;
+        std::vector<GameEngine::Behaviour::BoxCollider*>  _colliders;
         Game::MeshRendererEx*                _renderer;
 
         Gimmick(int maxDuration);

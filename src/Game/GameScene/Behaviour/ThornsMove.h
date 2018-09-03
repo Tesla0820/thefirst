@@ -9,9 +9,6 @@
 #include "Gimmick.h"
 #include "../../../GameEngine/Behaviour/Collider/ICollisionHandler.h"
 
-//＝＝＝定数・マクロ定義＝＝＝//
-#define MOVE_DISTANCE 3.0F
-
 //＝＝＝クラス宣言＝＝＝//
 namespace Game { namespace Behaviour
 {
