@@ -15,21 +15,22 @@ namespace Game { namespace GameScene
 	private:
 
 		Sonar* _sonar;
-
 		GameEngine::Behaviour::SoundPlay* _soundPlay;
 		GameEngine::Behaviour::Transform* _transform;
 		GameEngine::Behaviour::SphereCollider* _sphere;
-		float angle;
-		int maxFuel;
-		int currentFuel;
-		int delay;
-		float ground;
+		float _angle;
+		int _maxFuel;
+		int _currentFuel;
+		int _delay;
+		int _state;
 
+		void UpdatePlayer();
+		void UpdateClear();
+		void UpdateOver();
 	public:
 
 		virtual void Start() override;
 		virtual void Update() override;
-		// ICollisionHandler ÇâÓÇµÇƒåpè≥Ç≥ÇÍÇ‹ÇµÇΩ
 		virtual void OnCollision(GameEngine::Behaviour::Collider * from) override;
 
 	};

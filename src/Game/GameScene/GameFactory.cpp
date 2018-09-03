@@ -1,11 +1,13 @@
 #include "GameFactory.h"
 #include "../../GameEngine/GameEngine.h"
+#include "../Common/Fade.h"
 #include "Behaviour/Sonar.h"
 #include "Behaviour/player.h"
 #include "Behaviour/UIgauge.h"
 
 namespace Game { namespace GameScene
 {
+
 void GameFactory::CreateGround()
 {
 	GameEngine::GameObject* object = GameEngine::GameObject::Instantiate();
@@ -45,7 +47,7 @@ void GameFactory::CreatePlayer()
 
 GameEngine::GameObject* GameFactory::CreateUIgauge()
 {
-	// UIƒQ[ƒW—p
+	// UIã‚²ãƒ¼ã‚¸
 	GameEngine::GameObject* uiObject = GameEngine::GameObject::Instantiate();
 	auto uigauge = new Game::GameScene::Behaviour::UIgauge();
 	auto gaugeRenderer = new GameEngine::Behaviour::UIRenderer();
@@ -56,6 +58,18 @@ GameEngine::GameObject* GameFactory::CreateUIgauge()
 	uiObject->AddBehaviour(gaugeRenderer);
 
 	return uiObject;
+}
+
+void GameFactory::CreateFade()
+{
+	GameEngine::GameObject* FadeObject = GameEngine::GameObject::Instantiate();
+	FadeObject->GetTransform()->SetPosition(&D3DXVECTOR3(400.0f, 300.0f, 0.0f));
+	FadeObject->GetTransform()->SetScale(&D3DXVECTOR3(800.0f, 600.0f, 1.0f));
+	auto fade = new Game::Fade();
+	auto FadeRenderer = new GameEngine::Behaviour::UIRenderer();
+	FadeRenderer->SetColor(D3DCOLOR_ARGB(255, 0, 0, 0));
+	FadeObject->AddBehaviour(FadeRenderer);
+	FadeObject->AddBehaviour(fade);
 }
 
 }

@@ -71,6 +71,7 @@
     <ClCompile Include="src\Game\GameScene\Behaviour\UIgauge.cpp" />
     <ClCompile Include="src\Game\GameScene\GameFactory.cpp" />
     <ClCompile Include="src\Game\GameScene\Behaviour\Sonar.cpp" />
+    <ClCompile Include="src\Game\GameScene\StageLoader.cpp" />
     <ClCompile Include="src\Game\GameScene\Scene\OperationScene\OperationManager.cpp" />
     <ClCompile Include="src\Game\GameScene\Scene\OperationScene\OperationScene.cpp" />
     <ClCompile Include="src\Game\ResultScene\GameClearScene\GameClearScene.cpp" />
@@ -186,6 +187,10 @@
     <ClInclude Include="src\GameEngine\Resource\IResource.h" />
     <ClInclude Include="src\GameEngine\Resource\IResourceBase.h" />
     <ClInclude Include="src\GameEngine\Resource\Mesh\IMesh.h" />
+    <ClInclude Include="src\GameEngine\Resource\Mesh\Mesh.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
     <ClInclude Include="src\GameEngine\Resource\Mesh\MeshD3DX.h" />
     <ClInclude Include="src\GameEngine\Resource\ResourceManager.h" />
     <ClInclude Include="src\GameEngine\Resource\Texture.h" />
@@ -217,6 +222,7 @@
       </SubType>
     </ClInclude>
     <ClInclude Include="src\Game\GameScene\Behaviour\Sonar.h" />
+    <ClInclude Include="src\Game\GameScene\StageLoader.h" />
     <ClInclude Include="src\Game\GameScene\Scene\OperationScene\OperationManager.h" />
     <ClInclude Include="src\Game\GameScene\Scene\OperationScene\OperationScene.h" />
     <ClInclude Include="src\Game\ResultScene\GameClearScene\GameClearScene.h" />
