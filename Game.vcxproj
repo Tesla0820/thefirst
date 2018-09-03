@@ -68,8 +68,11 @@
     <ClCompile Include="src\Game\Common\Fade.cpp" />
     <ClCompile Include="src\Game\Common\Flash.cpp" />
     <ClCompile Include="src\Game\Common\MeshRendererEx.cpp" />
+    <ClCompile Include="src\Game\GameScene\Behaviour\UIgauge.cpp" />
     <ClCompile Include="src\Game\GameScene\GameFactory.cpp" />
     <ClCompile Include="src\Game\GameScene\Behaviour\Sonar.cpp" />
+    <ClCompile Include="src\Game\GameScene\Scene\OperationScene\OperationManager.cpp" />
+    <ClCompile Include="src\Game\GameScene\Scene\OperationScene\OperationScene.cpp" />
     <ClCompile Include="src\Game\ResultScene\GameClearScene\GameClearScene.cpp" />
     <ClCompile Include="src\Game\ResultScene\GameOverScene\GameOverScene.cpp" />
     <ClCompile Include="src\Game\GameScene\Scene\Stage1Scene\Stage1Scene.cpp" />
@@ -208,11 +211,14 @@
       <SubType>
       </SubType>
     </ClInclude>
+    <ClInclude Include="src\Game\GameScene\Behaviour\UIgauge.h" />
     <ClInclude Include="src\Game\GameScene\GameFactory.h">
       <SubType>
       </SubType>
     </ClInclude>
     <ClInclude Include="src\Game\GameScene\Behaviour\Sonar.h" />
+    <ClInclude Include="src\Game\GameScene\Scene\OperationScene\OperationManager.h" />
+    <ClInclude Include="src\Game\GameScene\Scene\OperationScene\OperationScene.h" />
     <ClInclude Include="src\Game\ResultScene\GameClearScene\GameClearScene.h" />
     <ClInclude Include="src\Game\ResultScene\GameOverScene\GameOverScene.h" />
     <ClInclude Include="src\Game\GameScene\Scene\Stage1Scene\Stage1Scene.h" />

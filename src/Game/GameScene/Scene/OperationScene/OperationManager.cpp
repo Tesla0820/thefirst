@@ -1,8 +1,8 @@
 //
-//		ファイル名:TutorialManager.cpp
+//		ファイル名:OperationManager.cpp
 //
 
-#include "TutorialManager.h"
+#include "OperationManager.h"
 #include "../../../../GameEngine/GameEngine.h"
 #include "../../../../GameEngine/Input.h"
 #include "../../../../GameEngine/Scene/SceneManager.h"
@@ -11,12 +11,12 @@
 namespace Game { namespace GameScene { namespace Scene
 {
 
-	TutorialManager::TutorialManager()
+	OperationManager::OperationManager()
 	{
 
 	}
 
-	TutorialManager::~TutorialManager()
+	OperationManager::~OperationManager()
 	{
 
 	}
@@ -25,31 +25,30 @@ namespace Game { namespace GameScene { namespace Scene
 	//===============================================
 	// 初期化処理
 	//===============================================
-	void TutorialManager::Start()
+	void OperationManager::Start()
 	{
-		
+				
 	}
 
 	//=================================================
 	// 更新処理
 	//=================================================
-	void TutorialManager::Update()
+	void OperationManager::Update()
 	{
-		//if (Fade::EndFadeIn())
-		//{
-		//	//次のシーンへ
-		//	if (GameEngine::Input::GetKey(DIK_RETURN, TRIGGER))
-		//	{
-		//		Fade::StartFadeOut();
-		//	}
-		//}
-		//if (Fade::EndFadeOut())
-		//{
-		//	GameEngine::Scene::SceneManager::LoadScene(5);		// ステージクリアへ
-		//}
-
-
+		if (Fade::EndFadeIn())
+		{
+			//次のシーンへ
+			if (GameEngine::Input::GetKey(DIK_RETURN, TRIGGER))
+			{
+				Fade::StartFadeOut();
+			}
+		}
+		if (Fade::EndFadeOut())
+		{
+			GameEngine::Scene::SceneManager::LoadScene(1);		// ステージクリアへ
+		}
 	}
+
 }
 }
 }

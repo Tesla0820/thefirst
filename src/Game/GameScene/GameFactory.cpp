@@ -2,6 +2,7 @@
 #include "../../GameEngine/GameEngine.h"
 #include "Behaviour/Sonar.h"
 #include "Behaviour/player.h"
+#include "Behaviour/UIgauge.h"
 
 namespace Game { namespace GameScene
 {
@@ -39,7 +40,22 @@ void GameFactory::CreatePlayer()
 	sonarCollider->EnableTrigger(true);
 	object->AddBehaviour(sonarCollider);
 	object->AddBehaviour(sonar);
+}
 
+
+GameEngine::GameObject* GameFactory::CreateUIgauge()
+{
+	// UIƒQ[ƒW—p
+	GameEngine::GameObject* uiObject = GameEngine::GameObject::Instantiate();
+	auto uigauge = new Game::GameScene::Behaviour::UIgauge();
+	auto gaugeRenderer = new GameEngine::Behaviour::UIRenderer();
+	uiObject->GetTransform()->SetPosition(&D3DXVECTOR3(150.0f, 10.0f, 0.0f));
+	uiObject->GetTransform()->SetScale(&D3DXVECTOR3(200.0f, 50.0f, 0.0f));
+	gaugeRenderer->SetColor(D3DCOLOR_ARGB(255, 0, 230, 0));
+	uiObject->AddBehaviour(uigauge);
+	uiObject->AddBehaviour(gaugeRenderer);
+
+	return uiObject;
 }
 
 }
