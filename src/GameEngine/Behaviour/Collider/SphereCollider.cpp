@@ -139,7 +139,7 @@ void SphereCollider::HitToBox(BoxCollider* collider)
 		}
 	}
 
-	if (isHit && !IsTrigger() && !IsFreeze()) 
+	if (isHit && !IsTrigger() && !IsFreeze() && !collider->IsTrigger()) 
 	{
 		//”»’è“à‚É‚¢‚é
 		me->Offset(&(penetration));

@@ -1,5 +1,5 @@
 //
-//		ÉtÉ@ÉCÉãñº:TitleScene.cpp
+//		„Éï„Ç°„Ç§„É´Âêç:TitleScene.cpp
 //
 
 #include "../../GameEngine/GameEngine.h"
@@ -8,7 +8,7 @@
 #include "../GameScene/GameFactory.h"
 #include "TitleScene.h"
 #include "TitleManager.h"
-#
+
 namespace Game
 {
 
@@ -29,7 +29,7 @@ bool TitleScene::Init()
 	using ResourceManager	= GameEngine::Resource::ResourceManager;
 
 	
-	// îwåiÇÃï`âÊ
+	// ËÉåÊôØ„ÅÆÊèèÁîª
 	GameEngine::GameObject* BackgroundObject = GameEngine::GameObject::Instantiate();
 	BackgroundObject->GetTransform()->SetPosition(&D3DXVECTOR3(400.0f, 300.0f, 0.0f));
 	BackgroundObject->GetTransform()->SetScale(&D3DXVECTOR3(800.0f, 600.0f, 50.0f));
@@ -44,54 +44,54 @@ bool TitleScene::Init()
 	auto titlemanager = new Game::TitleManager();
 	auto TitlemanagerRenderer = new GameEngine::Behaviour::UIRenderer(ResourceManager::Get<Texture>("./data/texture/select.png"));
 	auto titleManagerSoundPlay = new GameEngine::Behaviour::SoundPlay();
-	TitlemanagerRenderer->SetColor(D3DCOLOR_ARGB(255, 255, 255, 255));
+	titleManagerRenderer->SetColor(D3DCOLOR_ARGB(255, 255, 255, 255));
 	titleManagerSoundPlay->SetSound(GameEngine::Sound::Sound::CreateFromWaveFile("./data/sound/title.wav",XAUDIO2_LOOP_INFINITE));
-	TitlemanagerObject->AddBehaviour(TitlemanagerRenderer);
-	TitlemanagerObject->AddBehaviour(titlemanager);
-	TitlemanagerObject->AddBehaviour(titleManagerSoundPlay);
+	titleManagerObject->AddBehaviour(titleManagerRenderer);
+	titleManagerObject->AddBehaviour(titleManager);
+	titleManagerObject->AddBehaviour(titleManagerSoundPlay);
 	titleManagerSoundPlay->Play();
 
-	// É^ÉCÉgÉãÇÃï`âÊ
-	GameEngine::GameObject* TitleObject = GameEngine::GameObject::Instantiate();
-	TitleObject->GetTransform()->SetPosition(&D3DXVECTOR3(400.0f, 300.0f, 0.0f));
-	TitleObject->GetTransform()->SetScale(&D3DXVECTOR3(600.0f, 150.0f, 50.0f));
-	auto TitleRenderer = new GameEngine::Behaviour::UIRenderer(ResourceManager::Get<Texture>("./data/texture/title.png"));
-	TitleRenderer->SetColor(D3DCOLOR_ARGB(255, 255, 255, 255));
-	TitleObject->AddBehaviour(TitleRenderer);
+	// „Çø„Ç§„Éà„É´„ÅÆÊèèÁîª
+	GameEngine::GameObject* titleObject = GameEngine::GameObject::Instantiate();
+	titleObject->GetTransform()->SetPosition(&D3DXVECTOR3(400.0f, 300.0f, 0.0f));
+	titleObject->GetTransform()->SetScale(&D3DXVECTOR3(600.0f, 150.0f, 50.0f));
+	auto titleRenderer = new GameEngine::Behaviour::UIRenderer(GameEngine::Resource::ResourceManager::Get<Texture>("./data/texture/title.png"));
+	titleRenderer->SetColor(D3DCOLOR_ARGB(255, 255, 255, 255));
+	titleObject->AddBehaviour(titleRenderer);
 
-	// É`ÉÖÅ[ÉgÉäÉAÉãÇÃï∂éöÇÃï\é¶
-	GameEngine::GameObject* StageObject = GameEngine::GameObject::Instantiate();
-	StageObject->GetTransform()->SetPosition(&D3DXVECTOR3(400.0f, 400.0f, 0.0f));
-	StageObject->GetTransform()->SetScale(&D3DXVECTOR3(250.0f, 70.0f, 50.0f));
-	auto StageRenderer = new GameEngine::Behaviour::UIRenderer(ResourceManager::Get<Texture>("./data/texture/tutorial.png"));
-	StageRenderer->SetColor(D3DCOLOR_ARGB(255, 255, 255, 255));
-	StageObject->AddBehaviour(StageRenderer);
+	// „ÉÅ„É•„Éº„Éà„É™„Ç¢„É´„ÅÆÊñáÂ≠ó„ÅÆË°®Á§∫
+	GameEngine::GameObject* stageObject = GameEngine::GameObject::Instantiate();
+	stageObject->GetTransform()->SetPosition(&D3DXVECTOR3(400.0f, 400.0f, 0.0f));
+	stageObject->GetTransform()->SetScale(&D3DXVECTOR3(250.0f, 70.0f, 50.0f));
+	auto stageRenderer = new GameEngine::Behaviour::UIRenderer(GameEngine::Resource::ResourceManager::Get<Texture>("./data/texture/tutorial.png"));
+	stageRenderer->SetColor(D3DCOLOR_ARGB(255, 255, 255, 255));
+	stageObject->AddBehaviour(stageRenderer);
 
-	// ÉXÉeÅ[ÉWÇPÇÃï∂éöÇÃï\é¶
-	GameEngine::GameObject* StageObject2 = GameEngine::GameObject::Instantiate();
-	StageObject2->GetTransform()->SetPosition(&D3DXVECTOR3(400.0f, 450.0f, 0.0f));
-	StageObject2->GetTransform()->SetScale(&D3DXVECTOR3(250.0f, 70.0f, 50.0f));
-	auto StageRenderer2 = new GameEngine::Behaviour::UIRenderer(ResourceManager::Get<Texture>("./data/texture/stage1.png"));
-	StageRenderer2->SetColor(D3DCOLOR_ARGB(255, 255, 255, 255));
-	StageObject2->AddBehaviour(StageRenderer2);
+	// „Çπ„ÉÜ„Éº„Ç∏Ôºë„ÅÆÊñáÂ≠ó„ÅÆË°®Á§∫
+	GameEngine::GameObject* stageObject2 = GameEngine::GameObject::Instantiate();
+	stageObject2->GetTransform()->SetPosition(&D3DXVECTOR3(400.0f, 450.0f, 0.0f));
+	stageObject2->GetTransform()->SetScale(&D3DXVECTOR3(250.0f, 70.0f, 50.0f));
+	auto stageRenderer2 = new GameEngine::Behaviour::UIRenderer(GameEngine::Resource::ResourceManager::Get<Texture>("./data/texture/stage1.png"));
+	stageRenderer2->SetColor(D3DCOLOR_ARGB(255, 255, 255, 255));
+	stageObject2->AddBehaviour(stageRenderer2);
 
-	// ÉXÉeÅ[ÉWÇQÇÃï∂éöÇÃï\é¶
-	GameEngine::GameObject* StageObject3 = GameEngine::GameObject::Instantiate();
-	StageObject3->GetTransform()->SetPosition(&D3DXVECTOR3(400.0f, 500.0f, 0.0f));
-	StageObject3->GetTransform()->SetScale(&D3DXVECTOR3(250.0f, 70.0f, 50.0f));
-	auto StageRenderer3 = new GameEngine::Behaviour::UIRenderer(ResourceManager::Get<Texture>("./data/texture/stage2.png"));
-	StageRenderer3->SetColor(D3DCOLOR_ARGB(255, 255, 255, 255));
-	StageObject3->AddBehaviour(StageRenderer3);
+	// „Çπ„ÉÜ„Éº„Ç∏Ôºí„ÅÆÊñáÂ≠ó„ÅÆË°®Á§∫
+	GameEngine::GameObject* stageObject3 = GameEngine::GameObject::Instantiate();
+	stageObject3->GetTransform()->SetPosition(&D3DXVECTOR3(400.0f, 500.0f, 0.0f));
+	stageObject3->GetTransform()->SetScale(&D3DXVECTOR3(250.0f, 70.0f, 50.0f));
+	auto stageRenderer3 = new GameEngine::Behaviour::UIRenderer(GameEngine::Resource::ResourceManager::Get<Texture>("./data/texture/stage2.png"));
+	stageRenderer3->SetColor(D3DCOLOR_ARGB(255, 255, 255, 255));
+	stageObject3->AddBehaviour(stageRenderer3);
 
-	// ÉXÉeÅ[ÉWÇRÇÃï∂éöÇÃï\é¶
-	GameEngine::GameObject* StageObject4 = GameEngine::GameObject::Instantiate();
-	StageObject4->GetTransform()->SetPosition(&D3DXVECTOR3(400.0f, 550.0f, 0.0f));
-	StageObject4->GetTransform()->SetScale(&D3DXVECTOR3(250.0f, 70.0f, 50.0f));
-	auto StageRenderer4 = new GameEngine::Behaviour::UIRenderer(ResourceManager::Get<Texture>("./data/texture/stage3.png"));
-	StageRenderer4->SetColor(D3DCOLOR_ARGB(255, 255, 255, 255));
-	StageObject4->AddBehaviour(StageRenderer4);
+	// „Çπ„ÉÜ„Éº„Ç∏Ôºì„ÅÆÊñáÂ≠ó„ÅÆË°®Á§∫
+	GameEngine::GameObject* stageObject4 = GameEngine::GameObject::Instantiate();
+	stageObject4->GetTransform()->SetPosition(&D3DXVECTOR3(400.0f, 550.0f, 0.0f));
+	stageObject4->GetTransform()->SetScale(&D3DXVECTOR3(250.0f, 70.0f, 50.0f));
+	auto stageRenderer4 = new GameEngine::Behaviour::UIRenderer(GameEngine::Resource::ResourceManager::Get<Texture>("./data/texture/stage3.png"));
+	stageRenderer4->SetColor(D3DCOLOR_ARGB(255, 255, 255, 255));
+	stageObject4->AddBehaviour(stageRenderer4);
 
-	//ÉtÉFÅ[Éh
+	//„Éï„Çß„Éº„Éâ
 	Game::GameScene::GameFactory::CreateFade();
 	return false;
 }

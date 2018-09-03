@@ -35,18 +35,18 @@ namespace Game { namespace GameScene { namespace Scene
 	//=================================================
 	void TutorialManager::Update()
 	{
-		if (Fade::EndFadeIn())
-		{
-			//次のシーンへ
-			if (GameEngine::Input::GetKey(DIK_RETURN, TRIGGER))
-			{
-				Fade::StartFadeOut();
-			}
-		}
-		if (Fade::EndFadeOut())
-		{
-			GameEngine::Scene::SceneManager::LoadScene(5);		// ステージクリアへ
-		}
+		//if (Fade::EndFadeIn())
+		//{
+		//	//次のシーンへ
+		//	if (GameEngine::Input::GetKey(DIK_RETURN, TRIGGER))
+		//	{
+		//		Fade::StartFadeOut();
+		//	}
+		//}
+		//if (Fade::EndFadeOut())
+		//{
+		//	GameEngine::Scene::SceneManager::LoadScene(5);		// ステージクリアへ
+		//}
 
 
 	}

@@ -27,7 +27,6 @@ namespace Game { namespace ResultScene
 	//===============================================
 	void StageClearManager::Start()
 	{
-		//_render = this->GetAttachedObject()->FindBehaviour<GameEngine::Behaviour::UIRenderer>();
 
 	}
 

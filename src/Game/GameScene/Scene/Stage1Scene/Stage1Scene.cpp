@@ -43,17 +43,32 @@ namespace Game { namespace GameScene { namespace Scene
 		meshRenderer->SetMesh(std::shared_ptr<GameEngine::Resource::Mesh::IMesh>(new GameEngine::Resource::Mesh::MeshD3DX(TEXT("./data/model/stage.x"))));
 		object2->AddBehaviour(meshRenderer);
 		
-        Behaviour::GimmickFactory::InstantiateBell(&D3DXVECTOR3(0.0f, 0.0f, 10.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
+        //ギミック
+        //Behaviour::GimmickFactory::InstantiateArmor(&D3DXVECTOR3(0.0f, 0.0f, 20.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
+        //Behaviour::GimmickFactory::InstantiateBell(&D3DXVECTOR3(0.0f, 7.0f, 20.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
+        //Behaviour::GimmickFactory::InstantiateBrokenPillar(&D3DXVECTOR3(0.0f, 0.0f, 20.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
+        //Behaviour::GimmickFactory::InstantiateBronzeStatue(&D3DXVECTOR3(0.0f, 7.0f, 10.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
+        //Behaviour::GimmickFactory::InstantiatePillar(&D3DXVECTOR3(0.0f, 0.0f, 20.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
+        //Behaviour::GimmickFactory::InstantiateThorns(&D3DXVECTOR3(0.0f, 0.0f, 20.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
+        //Behaviour::GimmickFactory::InstantiateThornsMove(&D3DXVECTOR3(0.0f, 0.0f, 20.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
+
+		// BGM・SE用
+		GameEngine::GameObject* stageSoundObject = GameEngine::GameObject::Instantiate();
+		auto stageSoundPlay = new GameEngine::Behaviour::SoundPlay();
+		stageSoundPlay->SetSound(GameEngine::Sound::Sound::CreateFromWaveFile("./data/sound/game_honpen.wav", XAUDIO2_LOOP_INFINITE));
+		stageSoundObject->AddBehaviour(stageSoundPlay);
+		stageSoundPlay->Play();
+
 
 		// フェード用
-		GameEngine::GameObject* FadeObject = GameEngine::GameObject::Instantiate();
-		FadeObject->GetTransform()->SetPosition(&D3DXVECTOR3(400.0f, 300.0f, 0.0f));
-		FadeObject->GetTransform()->SetScale(&D3DXVECTOR3(800.0f, 600.0f, 50.0f));
+		GameEngine::GameObject* fadeObject = GameEngine::GameObject::Instantiate();
+		fadeObject->GetTransform()->SetPosition(&D3DXVECTOR3(400.0f, 300.0f, 0.0f));
+		fadeObject->GetTransform()->SetScale(&D3DXVECTOR3(800.0f, 600.0f, 50.0f));
 		auto fade = new Game::Fade();
-		auto FadeRenderer = new GameEngine::Behaviour::UIRenderer();
-		FadeRenderer->SetColor(D3DCOLOR_ARGB(255, 0, 0, 0));
-		FadeObject->AddBehaviour(FadeRenderer);
-		FadeObject->AddBehaviour(fade);
+		auto fadeRenderer = new GameEngine::Behaviour::UIRenderer();
+		fadeRenderer->SetColor(D3DCOLOR_ARGB(255, 0, 0, 0));
+		fadeObject->AddBehaviour(fadeRenderer);
+		fadeObject->AddBehaviour(fade);
 
 		return false;
 	}

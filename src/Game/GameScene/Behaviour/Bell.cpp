@@ -4,14 +4,13 @@
 
 //＝＝＝ヘッダファイル読み込み＝＝＝//
 #include "Bell.h"
-#include "../../../GameEngine/Resource/Mesh/MeshD3DX.h"
 
 namespace Game { namespace Behaviour
 {
 
-Bell::Bell()
-	:Gimmick(Gimmick::defaultDuration*2)
+Bell::Bell():Gimmick(Gimmick::defaultDuration * 2)
 {
+
 }
 //＝＝＝関数定義＝＝＝//
 /////////////////////////////////////////////
@@ -25,7 +24,7 @@ Bell::Bell()
 /////////////////////////////////////////////
 void Bell::Start(void)
 {
-
+    Gimmick::Start();
 }
 
 /////////////////////////////////////////////

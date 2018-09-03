@@ -93,7 +93,7 @@ namespace Game
 		{
 			if (this->_mode == MODE_TUTORIAL)
 			{
-				GameEngine::Scene::SceneManager::LoadScene(1);		// チュートリアルへ
+				GameEngine::Scene::SceneManager::LoadScene(8);		// チュートリアルの前の操作説明へ
 				Game::GameScene::StageManager::SetStage(0);
 			}
 			else if (this->_mode == MODE_STAGE1)
