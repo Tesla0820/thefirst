@@ -32,6 +32,7 @@ namespace Game { namespace GameScene
 		virtual void Start() override;
 		virtual void Update() override;
 		virtual void OnCollision(GameEngine::Behaviour::Collider * from) override;
+		float GetSonarRate();
 
 	};
 }

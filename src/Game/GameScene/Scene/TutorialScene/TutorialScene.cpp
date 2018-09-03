@@ -7,9 +7,9 @@
 #include "../../../Common/Pipeline/Echo.h"
 #include "../../../Common/Fade.h"
 #include "../../Behaviour/UIgauge.h"
+#include "../../GimmickFactory.h"
 #include "../../GameFactory.h"
 #include "../../StageLoader.h"
-#include "../../GimmickFactory.h"
 #include "TutorialManager.h"
 
 namespace Game { namespace GameScene { namespace Scene
@@ -39,7 +39,7 @@ bool TutorialScene::Init()
   //object2->AddBehaviour(meshRenderer);
 
   //プレイヤー
-  GameFactory::CreatePlayer();
+  auto player = GameFactory::CreatePlayer();
 
   // マネージャー用
   GameEngine::GameObject* tutorialManagerObject = GameEngine::GameObject::Instantiate();
@@ -57,13 +57,15 @@ bool TutorialScene::Init()
   //GimmickFactory::InstantiateBronzeStatue(&D3DXVECTOR3(0.0f, 0.0f, 5.0f), &D3DXVECTOR3(0.0f, 90.0f, 0.0f));
   //GimmickFactory::InstantiatePillar(&D3DXVECTOR3(0.0f, 0.0f, 0.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
   //GimmickFactory::InstantiateThorns(&D3DXVECTOR3(0.0f, 0.0f, 10.0f), &D3DXVECTOR3(0.0f, 90.0f, 0.0f));
-
-  // UIゲージ
-  GameFactory::CreateUIgauge();
-
+  
+  //ステージ
   StageLoader::LoadStage("./data/stage/stage0.txt");
+  
+  // UIゲージ
+  auto uiGauge=GameFactory::CreateUIgauge();
+  uiGauge->FindBehaviour<Behaviour::UIgauge>()->SetPlayer(player->FindBehaviour<Player>());
 
-  //�t�F�[�h
+  //フェード
   GameFactory::CreateFade();
 
   return false;
