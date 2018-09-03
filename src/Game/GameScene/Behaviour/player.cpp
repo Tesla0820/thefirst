@@ -151,6 +151,11 @@ void Player::OnCollision(GameEngine::Behaviour::Collider * from)
 	}
 }
 
+float Player::GetSonarRate()
+{
+	return _sonar->GetSonarRate();
+}
+
 
 }
 }

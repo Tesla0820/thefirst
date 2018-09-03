@@ -10,7 +10,7 @@ namespace Game { namespace GameScene
 
 void Sonar::Start()
 {
-	_time = 0;
+	_time = maxTime;
 	_isUsing = false;
 }
 
@@ -36,10 +36,10 @@ void Sonar::SonarEnable()
 
 void Sonar::SonarDisable()
 {
-	_time = 0;
+	_time = maxTime;
 	_isUsing = false;
 	_collider->SetBehaviourEnable(false);
-	_collider->SetRadius(_time);
+	_collider->SetRadius(0);
 	auto pipeline = dynamic_cast<Pipeline::Echo*>(GameEngine::Environment::Get()->GetCurrentPipeline());
 	pipeline->SetRange(-100);
 }
@@ -68,6 +68,11 @@ void Sonar::SetCollider(GameEngine::Behaviour::SphereCollider * collider)
 {
 	_collider = collider;
 	_collider->SetBehaviourEnable(false);
+}
+
+float Sonar::GetSonarRate()
+{
+	return _time/(float)maxTime;
 }
 
 }

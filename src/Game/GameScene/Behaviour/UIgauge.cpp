@@ -16,7 +16,6 @@ namespace Game { namespace GameScene { namespace Behaviour
 	{
 		_len = 0.0f;
 		_transform = this->GetAttachedObject()->GetTransform();
-		_player = nullptr;
 	}
 
 	//=================================================
@@ -24,18 +23,9 @@ namespace Game { namespace GameScene { namespace Behaviour
 	//=================================================
 	void UIgauge::Update()
 	{
-		//_player = 
-		_len++;		// ‚±‚±‚ðGet‚É•Ï‚¦‚é
+		if (!_player) return;
 
-		if (_len <= 0.0f)
-		{
-			_len = MAX_GAUGE;
-		}
-
-		if (_len >= MAX_GAUGE)
-		{
-			_len = 0.0f;
-		}
+		_len = MAX_GAUGE * _player->GetSonarRate();
 
 		_transform->SetPosition(&D3DXVECTOR3(250.0f - (MAX_GAUGE - _len / 2.0f), 50.0f, 0.0f));
 		_transform->SetScale(&D3DXVECTOR3(_len, 30.0f, 0.0f));
