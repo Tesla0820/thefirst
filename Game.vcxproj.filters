@@ -68,7 +68,6 @@
     <ClCompile Include="src\Game\ResultScene\ResultManager.cpp" />
     <ClCompile Include="src\Game\GameScene\Behaviour\Bell.cpp" />
     <ClCompile Include="src\Game\GameScene\Behaviour\Gimmick.cpp" />
-    <ClCompile Include="src\Game\GameScene\Behaviour\GimmickFactory.cpp" />
     <ClCompile Include="src\Game\GameScene\Behaviour\player.cpp" />
     <ClCompile Include="src\Game\GameScene\Behaviour\Sonar.cpp" />
     <ClCompile Include="src\Game\GameScene\Behaviour\Armor.cpp" />
@@ -77,12 +76,10 @@
     <ClCompile Include="src\Game\GameScene\Behaviour\Thorns.cpp" />
     <ClCompile Include="src\Game\GameScene\Behaviour\ThornsMove.cpp" />
     <ClCompile Include="src\Game\GameScene\Behaviour\bronzeStatue.cpp" />
-    <ClCompile Include="src\Game\GameScene\Behaviour\Toge.cpp" />
-    <ClCompile Include="src\Game\GameScene\Behaviour\Toge_move.cpp" />
-    <ClCompile Include="src\Game\GameScene\Behaviour\Yoroi.cpp" />
     <ClCompile Include="src\Game\GameScene\Behaviour\UIgauge.cpp" />
     <ClCompile Include="src\Game\GameScene\Scene\OperationScene\OperationScene.cpp" />
     <ClCompile Include="src\Game\GameScene\Scene\OperationScene\OperationManager.cpp" />
+    <ClCompile Include="src\Game\GameScene\GimmickFactory.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\DXCT\D3DX\D3DXAllocateHierarchy.h" />
@@ -169,7 +166,6 @@
     <ClInclude Include="src\Game\GameScene\Scene\Stage3Scene\Stage3Scene.h" />
     <ClInclude Include="src\Game\GameScene\Behaviour\Bell.h" />
     <ClInclude Include="src\Game\GameScene\Behaviour\Gimmick.h" />
-    <ClInclude Include="src\Game\GameScene\Behaviour\GimmickFactory.h" />
     <ClInclude Include="src\Game\GameScene\Behaviour\player.h" />
     <ClInclude Include="src\Game\GameScene\Behaviour\Sonar.h" />
     <ClInclude Include="src\Game\GameScene\Behaviour\Armor.h" />
@@ -178,12 +174,10 @@
     <ClInclude Include="src\Game\GameScene\Behaviour\Thorns.h" />
     <ClInclude Include="src\Game\GameScene\Behaviour\ThornsMove.h" />
     <ClInclude Include="src\Game\GameScene\Behaviour\BronzeStatue.h" />
+    <ClInclude Include="src\Game\GameScene\GimmickFactory.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="data\model\bell.x" />
-    <ClInclude Include="src\Game\GameScene\Behaviour\Toge.h" />
-    <ClInclude Include="src\Game\GameScene\Behaviour\Toge_move.h" />
-    <ClInclude Include="src\Game\GameScene\Behaviour\Yoroi.h" />
     <ClInclude Include="src\Game\GameScene\Behaviour\UIgauge.h" />
     <ClInclude Include="src\Game\GameScene\Scene\OperationScene\OperationScene.h" />
     <ClInclude Include="src\Game\GameScene\Scene\OperationScene\OperationManager.h" />

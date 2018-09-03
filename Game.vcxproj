@@ -89,7 +89,7 @@
     <ClCompile Include="src\Game\GameScene\Behaviour\Bell.cpp" />
     <ClCompile Include="src\Game\GameScene\Behaviour\bronzeStatue.cpp" />
     <ClCompile Include="src\Game\GameScene\Behaviour\Gimmick.cpp" />
-    <ClCompile Include="src\Game\GameScene\Behaviour\GimmickFactory.cpp" />
+    <ClCompile Include="src\Game\GameScene\GimmickFactory.cpp" />
     <ClCompile Include="src\Game\GameScene\Behaviour\Pillar.cpp" />
     <ClCompile Include="src\Game\GameScene\Behaviour\BrokenPillar.cpp" />
     <ClCompile Include="src\Game\GameScene\Behaviour\Thorns.cpp" />
@@ -235,7 +235,7 @@
     <ClInclude Include="src\Game\GameScene\Behaviour\Bell.h" />
     <ClInclude Include="src\Game\GameScene\Behaviour\BronzeStatue.h" />
     <ClInclude Include="src\Game\GameScene\Behaviour\Gimmick.h" />
-    <ClInclude Include="src\Game\GameScene\Behaviour\GimmickFactory.h" />
+    <ClInclude Include="src\Game\GameScene\GimmickFactory.h" />
     <ClInclude Include="src\Game\GameScene\Behaviour\Pillar.h" />
     <ClInclude Include="src\Game\GameScene\Behaviour\BrokenPillar.h" />
     <ClInclude Include="src\Game\GameScene\Behaviour\Thorns.h" />
