@@ -8,6 +8,7 @@
 #include "TutorialManager.h"
 #include "../../../Common/Fade.h"
 #include "../../GameFactory.h"
+#include "../../Behaviour/UIgauge.h"
 
 namespace Game { namespace GameScene { namespace Scene
 {
@@ -36,12 +37,15 @@ namespace Game { namespace GameScene { namespace Scene
 		//プレイヤー
 		GameFactory::CreatePlayer();
 
+
 		GameEngine::GameObject* object2 = GameEngine::GameObject::Instantiate();
 		auto transform = object2->GetTransform();
 		transform->SetPosition(&D3DXVECTOR3(0.0f, 0.0f, 0.0f));
 		auto meshRenderer = new GameEngine::Behaviour::MeshRenderer();
 		meshRenderer->SetMesh(std::shared_ptr<GameEngine::Resource::Mesh::IMesh>(new GameEngine::Resource::Mesh::MeshD3DX(TEXT("./data/model/stage.x"))));
 		object2->AddBehaviour(meshRenderer);
+
+		
 
 		// マネージャー用
 		GameEngine::GameObject* tutorialManagerObject = GameEngine::GameObject::Instantiate();
@@ -61,8 +65,11 @@ namespace Game { namespace GameScene { namespace Scene
 		fadeRenderer->SetColor(D3DCOLOR_ARGB(255, 0, 0, 0));
 		fadeObject->AddBehaviour(fadeRenderer);
 		fadeObject->AddBehaviour(fade);
+	
+		// UIゲージ
+		GameFactory::CreateUIgauge();
 
-		
+
 
 		return false;
 	}
