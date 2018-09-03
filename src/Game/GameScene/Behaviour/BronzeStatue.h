@@ -20,6 +20,7 @@ class BronzeStatue : public Gimmick
         float _move_Distance;
         D3DXVECTOR3 _move;
         D3DXVECTOR3 _move_Vector;
+        FLOAT _default_Rotation;
         bool _checkRotate;
 
     public:

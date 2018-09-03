@@ -27,7 +27,8 @@ GameEngine::GameObject* GimmickFactory::Instantiate(GameEngine::Behaviour::Behav
     //À•WEŠp“x‚Ìİ’è
     gimmick->GetTransform()->SetPosition(position);
     D3DXQUATERNION rotation;
-    D3DXQuaternionRotationYawPitchRoll(&rotation, D3DXToRadian(rotate->x), D3DXToRadian(rotate->y), D3DXToRadian(rotate->z));
+    //FLOAT y = D3DXToRadian(rotate->y);
+    D3DXQuaternionRotationYawPitchRoll(&rotation, D3DXToRadian(rotate->y), D3DXToRadian(rotate->x), D3DXToRadian(rotate->z));
     gimmick->GetTransform()->SetRotation(&rotation);
 
     //ƒƒbƒVƒ…‚Ì“o˜^
@@ -154,7 +155,7 @@ void GimmickFactory::InstantiateThornsMove(D3DXVECTOR3* position, D3DXVECTOR3* r
     gimmick = Instantiate(new Game::Behaviour::ThornsMove(), position, rotate, std::shared_ptr<GameEngine::Resource::Mesh::IMesh>(new GameEngine::Resource::Mesh::MeshD3DX(TEXT("./data/model/thorns.x"))));
 
     //“–‚½‚è”»’è‚Ì•t—^
-    auto collider = new GameEngine::Behaviour::BoxCollider(*position, D3DXVECTOR3(1.0F, 1.0F, 1.0F), 0x0004);
+    auto collider = new GameEngine::Behaviour::BoxCollider(D3DXVECTOR3(0.0F, 0.0F, 13.0F), D3DXVECTOR3(1.0F, 1.0F, 5.0F), 0x0004);
     collider->EnableTrigger(true);
     collider->EnableFreeze(false);
     gimmick->AddBehaviour(collider);

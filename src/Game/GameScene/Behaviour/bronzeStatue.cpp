@@ -29,6 +29,7 @@ void BronzeStatue::Start(void)
     _move_Distance = 0.0F;
     _move = { 0.0F, 0.0F, 0.0F };
     _move_Vector = _transform->Front() * 0.1F;
+    _default_Rotation = _transform->GetRotation().y * D3DX_PI;
     _checkRotate = false;
 }
 
@@ -47,7 +48,7 @@ void BronzeStatue::Update(void)
     _move = { 0.0F, 0.0F, 0.0F };
     _move += _move_Vector;
     _move_Distance += 0.1F;
-
+    
     //”½“]”»’è
     if (_move_Distance >= 10.0F)
     {
@@ -57,12 +58,12 @@ void BronzeStatue::Update(void)
         _move_Distance = 0.0F;
         if (_checkRotate)
         {
-            D3DXQuaternionRotationYawPitchRoll(&rotate, 0.0F, 0.0F, 0.0F);
+            D3DXQuaternionRotationYawPitchRoll(&rotate, _default_Rotation, 0.0F, 0.0F);
             _checkRotate = false;
         }
         else
         {
-            D3DXQuaternionRotationYawPitchRoll(&rotate, D3DX_PI * 1, 0.0F, 0.0F);
+            D3DXQuaternionRotationYawPitchRoll(&rotate, _default_Rotation + D3DX_PI, 0.0F, 0.0F);
             _checkRotate = true;
         }
         _transform->SetRotation(&rotate);

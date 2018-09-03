@@ -12,7 +12,6 @@ ThornsMove::ThornsMove():Gimmick(Gimmick::defaultDuration)
 {
 
 }
-
 //ŠÖ”’è‹`//
 /////////////////////////////////////////////
 //ŠÖ”–¼FStart
@@ -30,7 +29,7 @@ void ThornsMove::Start(void)
     _transform = GetAttachedObject()->GetTransform();
     _move_Distance = 0.0F;
     _move = { 0.0F, 0.0F, 0.0F };
-    _move_Vector = _transform->Front();
+    _move_Vector = _transform->Front() * 0.2F;
     _attack = false;
 }
 
@@ -51,10 +50,10 @@ void ThornsMove::Update(void)
     }
 
     _move = { 0.0F, 0.0F, 0.0F };
-    _move += _move_Vector;
+    _move += _move_Vector * _move_Distance;
     _move_Distance += 0.1F;
 
-    if (_move_Distance >= 3.0F)
+    if (_move_Distance >= 5.0F)
     {
         _attack = false;
         return;
