@@ -61,7 +61,7 @@ bool TutorialScene::Init()
   GimmickFactory::InstantiateBrokenPillar(&D3DXVECTOR3(-100.0f, 0.0f, 0.0f), &D3DXVECTOR3(0.0f, 90.0f, 0.0f));
   GimmickFactory::InstantiateArmor(&D3DXVECTOR3(-410.0f, 0.0f, -60.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
 
-  //GimmickFactory::InstantiatePillar(&D3DXVECTOR3(-450.0f, 0.0f, 30.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
+  GimmickFactory::InstantiatePillar(&D3DXVECTOR3(-450.0f, 0.0f, 30.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
   GimmickFactory::InstantiatePillar(&D3DXVECTOR3(-450.0f, 0.0f, -30.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
   GimmickFactory::InstantiateArmor(&D3DXVECTOR3(-510.0f, 0.0f, 40.0f), &D3DXVECTOR3(0.0f, 180.0f, 0.0f));
   GimmickFactory::InstantiateArmor(&D3DXVECTOR3(-510.0f, 0.0f, -60.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
