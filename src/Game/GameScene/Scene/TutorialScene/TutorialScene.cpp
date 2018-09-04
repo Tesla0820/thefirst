@@ -56,8 +56,6 @@ bool TutorialScene::Init()
   //ステージ
   StageLoader::LoadStage("./data/stage/stage0.txt");
   
-  
-  
   GimmickFactory::InstantiateBrokenPillar(&D3DXVECTOR3(-100.0f, 0.0f, 0.0f), &D3DXVECTOR3(0.0f, 90.0f, 0.0f));
   GimmickFactory::InstantiateArmor(&D3DXVECTOR3(-410.0f, 0.0f, -60.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
 
