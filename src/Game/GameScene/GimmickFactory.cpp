@@ -98,15 +98,18 @@ void GimmickFactory::InstantiateBell(D3DXVECTOR3* position, D3DXVECTOR3* rotate)
 /////////////////////////////////////////////
 void GimmickFactory::InstantiateBrokenPillar(D3DXVECTOR3* position, D3DXVECTOR3* rotate)
 {
-    rotate->x += 45.0F;
-	GameEngine::GameObject* gimmick;
-	gimmick = Instantiate(new Game::Behaviour::BrokenPillar(), position, rotate, std::shared_ptr<GameEngine::Resource::Mesh::IMesh>(new GameEngine::Resource::Mesh::MeshD3DX(TEXT("./data/model/brokenPillar.x"))));
+    GameEngine::GameObject* gimmick;
+    gimmick = Instantiate(new Game::Behaviour::BrokenPillar(), position, rotate, std::shared_ptr<GameEngine::Resource::Mesh::IMesh>(new GameEngine::Resource::Mesh::MeshD3DX(TEXT("./data/model/brokenPillar.x"))));
 
-	gimmick->GetTransform()->SetPosition(&D3DXVECTOR3(position->x, position->y + 35.0F, position->z));
+    gimmick->GetTransform()->SetPosition(&D3DXVECTOR3(position->x, position->y + 35.0F, position->z));
 
     gimmick->GetTransform()->SetScale(&D3DXVECTOR3(45.0F, 45.0F, 45.0F));
 
-    gimmick->FindBehaviour<GameEngine::Behaviour::BoxCollider>()->SetScale(&D3DXVECTOR3(0.7F, 0.7F, 1.6F));
+    gimmick->FindBehaviour<GameEngine::Behaviour::BoxCollider>()->SetScale(&D3DXVECTOR3(0.7F, 0.7F, 0.8F));
+
+    D3DXQUATERNION rotation;
+    D3DXQuaternionRotationYawPitchRoll(&rotation, D3DXToRadian(rotate->y), D3DXToRadian(rotate->x + 45.0F), D3DXToRadian(rotate->z));
+    gimmick->GetTransform()->SetRotation(&rotation);
 }
 
 /////////////////////////////////////////////
