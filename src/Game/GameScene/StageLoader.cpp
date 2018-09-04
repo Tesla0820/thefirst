@@ -5,7 +5,7 @@
 #include <memory>
 #include <fstream>
 #include "StageLoader.h"
-
+#include "../Common/MeshRendererEx.h"
 namespace Game
 {
 
@@ -72,7 +72,7 @@ void StageLoader::CreateStage(std::vector<int>& stage, int width, int depth)
 
 	transform->SetPosition(&pos);
 
-	auto renderer = new GameEngine::Behaviour::MeshRenderer();
+	auto renderer = new MeshRendererEx();
 	renderer->SetMesh(std::shared_ptr<GameEngine::Resource::Mesh::IMesh>(new GameEngine::Resource::Mesh::Mesh<StageVertex>(verticies, D3DFVF_XYZ | D3DFVF_NORMAL, D3DPT_TRIANGLELIST)));
 	stageObject->AddBehaviour(renderer);
 

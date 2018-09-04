@@ -73,7 +73,16 @@ GameEngine::GameObject* GameFactory::CreateUIgauge()
 	return uiObject;
 }
 
-
+GameEngine::GameObject* GameFactory::CreateUIgaugeEdge()
+{
+	GameEngine::GameObject* object = GameEngine::GameObject::Instantiate();
+	object->GetTransform()->SetPosition(&D3DXVECTOR3(400.0f, 300.0f, 0.0f));
+	object->GetTransform()->SetScale(&D3DXVECTOR3(800.0f, 600.0f, 50.0f));
+	auto uiRenderer = new GameEngine::Behaviour::UIRenderer(GameEngine::Resource::ResourceManager::Get<GameEngine::Resource::Texture>("./data/texture/UIgauge.png"));
+	uiRenderer->SetColor(D3DCOLOR_ARGB(255, 255, 255, 255));
+	object->AddBehaviour(uiRenderer);
+	return object;
+}
 
 }
 }

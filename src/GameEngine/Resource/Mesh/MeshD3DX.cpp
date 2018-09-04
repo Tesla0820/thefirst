@@ -13,6 +13,10 @@ MeshD3DX::MeshD3DX(LPCTSTR pFilename)
 	ID3DXBuffer* EffectInstances;
 	auto device = GameEngine::Environment::Get()->GetCurrentDevice();
 	hr = D3DXLoadMeshFromX(pFilename, D3DXMESH_VB_MANAGED, device->GetPtr(), NULL, &Materials, &EffectInstances, &NumMaterials, &Mesh);
+	if (FAILED(hr))
+	{
+		throw(std::runtime_error("メッシュの生成に失敗しました。"));
+	}
 	if (!(Mesh->GetFVF() & D3DFVF_NORMAL))
 	{
 		//法線情報が存在しない

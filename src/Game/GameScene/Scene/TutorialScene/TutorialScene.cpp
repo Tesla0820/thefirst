@@ -62,7 +62,7 @@ bool TutorialScene::Init()
   GimmickFactory::InstantiateArmor(&D3DXVECTOR3(-410.0f, 0.0f, -60.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
 
   //GimmickFactory::InstantiatePillar(&D3DXVECTOR3(-450.0f, 0.0f, 30.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
-  //GimmickFactory::InstantiatePillar(&D3DXVECTOR3(-450.0f, 0.0f, -30.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
+  GimmickFactory::InstantiatePillar(&D3DXVECTOR3(-450.0f, 0.0f, -30.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
   GimmickFactory::InstantiateArmor(&D3DXVECTOR3(-510.0f, 0.0f, 40.0f), &D3DXVECTOR3(0.0f, 180.0f, 0.0f));
   GimmickFactory::InstantiateArmor(&D3DXVECTOR3(-510.0f, 0.0f, -60.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
 
@@ -72,13 +72,8 @@ bool TutorialScene::Init()
   GimmickFactory::InstantiateBell(&D3DXVECTOR3(-970.0f, 0.0f, 0.0f), &D3DXVECTOR3(0.0f, 90.0f, 0.0f));
 
 
-  // UIゲージの枠用
-  GameEngine::GameObject* uiObject = GameEngine::GameObject::Instantiate();
-  uiObject->GetTransform()->SetPosition(&D3DXVECTOR3(400.0f, 300.0f, 0.0f));
-  uiObject->GetTransform()->SetScale(&D3DXVECTOR3(800.0f, 600.0f, 50.0f));
-  auto uiRenderer = new GameEngine::Behaviour::UIRenderer(GameEngine::Resource::ResourceManager::Get<Texture>("./data/texture/UIgauge.png"));
-  uiRenderer->SetColor(D3DCOLOR_ARGB(255, 255, 255, 255));
-  uiObject->AddBehaviour(uiRenderer);
+  // UIゲージの枠
+  GameFactory::CreateUIgaugeEdge();
 
   // UIゲージ
   auto uiGauge=GameFactory::CreateUIgauge();

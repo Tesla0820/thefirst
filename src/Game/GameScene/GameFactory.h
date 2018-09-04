@@ -17,6 +17,7 @@ class GameFactory
   static GameEngine::GameObject* CreatePlayer();
   static GameEngine::GameObject* CreateFade();
   static GameEngine::GameObject* CreateUIgauge();
+  static GameEngine::GameObject* CreateUIgaugeEdge();
 };
 
 }
