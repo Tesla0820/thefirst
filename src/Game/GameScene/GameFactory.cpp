@@ -46,10 +46,10 @@ GameEngine::GameObject* GameFactory::CreatePlayer()
 	auto landingSoundPlay = new GameEngine::Behaviour::SoundPlay();
 	auto deadSoundPlay = new GameEngine::Behaviour::SoundPlay();
 	auto hoverSoundPlay = new GameEngine::Behaviour::SoundPlay();
-	sonarSoundPlay->SetSound(GameEngine::Sound::Sound::CreateFromWaveFile("./data/sound/sonar.wav", XAUDIO2_NO_LOOP_REGION));
-	landingSoundPlay->SetSound(GameEngine::Sound::Sound::CreateFromWaveFile("./data/sound/landing.wav", XAUDIO2_NO_LOOP_REGION));
-	deadSoundPlay->SetSound(GameEngine::Sound::Sound::CreateFromWaveFile("./data/sound/dead.wav", XAUDIO2_NO_LOOP_REGION));
-	hoverSoundPlay->SetSound(GameEngine::Sound::Sound::CreateFromWaveFile("./data/sound/decision.wav", XAUDIO2_NO_LOOP_REGION));
+	sonarSoundPlay->SetSound(GameEngine::Sound::Sound::CreateFromWaveFile("./data/sound/sonar.wav", 0));
+	landingSoundPlay->SetSound(GameEngine::Sound::Sound::CreateFromWaveFile("./data/sound/landing.wav", 0));
+	deadSoundPlay->SetSound(GameEngine::Sound::Sound::CreateFromWaveFile("./data/sound/dead.wav", 0));
+	hoverSoundPlay->SetSound(GameEngine::Sound::Sound::CreateFromWaveFile("./data/sound/decision.wav",0));
 	object->AddBehaviour(sonarSoundPlay);
 	object->AddBehaviour(landingSoundPlay);
 	object->AddBehaviour(deadSoundPlay);

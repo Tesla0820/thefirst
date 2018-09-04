@@ -85,7 +85,7 @@ void Player::UpdatePlayer()
 	{
 		if (_delay < 29)
 		{
-			//_soundPlays[3]->Play();
+			_soundPlays[3]->Play();
 		}
 		_delay = 30;
 		_currentFuel--;
@@ -120,7 +120,13 @@ void Player::UpdatePlayer()
 	D3DXQUATERNION rot;
 	D3DXQuaternionRotationYawPitchRoll(&rot, _angle, 0.0f, 0.0f);
 	_transform->SetRotation(&rot);
+	bool old = _isGround;
+	_isGround = false;
 	_sphere->HitAll();
+	if (old == false && _isGround == true)
+	{
+		_soundPlays[2]->Play();
+	}
 }
 
 void Player::UpdateClear()
@@ -148,7 +154,6 @@ void Player::OnCollision(GameEngine::Behaviour::Collider * from)
 	{
 		//ゲームオーバー
 		_state = 1;
-		_soundPlays[2]->Play();
 		Fade::StartFadeOut();
 	}
 	else if (flag & 0x0008)
@@ -160,15 +165,6 @@ void Player::OnCollision(GameEngine::Behaviour::Collider * from)
 	if (flag & 0x0004)
 	{
 		_isGround = true;
-		if (!_isGround)
-		{
-			_soundPlays[1]->Play();
-		}
-		
-	}
-	else
-	{
-		_isGround = false;
 	}
 }
 
