@@ -27,8 +27,8 @@ namespace Game { namespace GameScene { namespace Behaviour
 
 		_len = MAX_GAUGE * _player->GetSonarRate();
 
-		_transform->SetPosition(&D3DXVECTOR3(250.0f - (MAX_GAUGE - _len / 2.0f), 50.0f, 0.0f));
-		_transform->SetScale(&D3DXVECTOR3(_len, 30.0f, 0.0f));
+		_transform->SetPosition(&D3DXVECTOR3(394.0f - (MAX_GAUGE - _len / 2.0f), 98.0f, 0.0f));
+		_transform->SetScale(&D3DXVECTOR3(_len, 28.5f, 0.0f));
 	}
 
 	Player* UIgauge::GetPlayer()
