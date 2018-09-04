@@ -17,11 +17,14 @@ namespace Game { namespace GameScene { namespace Behaviour
 	{
 
 	private:
+		bool _isHoverGauge;
 		float _len;
 		Game::GameScene::Player* _player;
 		GameEngine::Behaviour::Transform* _transform;
+		D3DXVECTOR3 origin;
+
 	public:
-		UIgauge() = default;
+		UIgauge(bool isHoverGauge);
 		virtual void Start() override;
 		virtual void Update() override;
 		Player* GetPlayer();

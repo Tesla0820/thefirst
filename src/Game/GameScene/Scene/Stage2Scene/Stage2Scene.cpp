@@ -137,7 +137,7 @@ bool Stage2Scene::Init()
 	uiObject->AddBehaviour(uiRenderer);
 
 	// UIゲージ
-	auto uiGauge = GameFactory::CreateUIgauge();
+	auto uiGauge = GameFactory::CreateSonarGauge();
 	uiGauge->FindBehaviour<Behaviour::UIgauge>()->SetPlayer(player->FindBehaviour<Player>());
 
 	// フェード用

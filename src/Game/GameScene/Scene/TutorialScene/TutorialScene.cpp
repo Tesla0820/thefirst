@@ -79,9 +79,10 @@ bool TutorialScene::Init()
   GameFactory::CreateUIgaugeEdge();
 
   // UIゲージ
-  auto uiGauge=GameFactory::CreateUIgauge();
-  uiGauge->FindBehaviour<Behaviour::UIgauge>()->SetPlayer(player->FindBehaviour<Player>());
-
+  auto hoverGauge = GameFactory::CreateHoverGauge();
+  auto sonarGauge = GameFactory::CreateSonarGauge();
+  hoverGauge->FindBehaviour<Behaviour::UIgauge>()->SetPlayer(player->FindBehaviour<Player>());
+  sonarGauge->FindBehaviour<Behaviour::UIgauge>()->SetPlayer(player->FindBehaviour<Player>());
   //フェード
   GameFactory::CreateFade();
 

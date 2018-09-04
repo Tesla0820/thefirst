@@ -138,6 +138,7 @@ void Player::OnCollision(GameEngine::Behaviour::Collider * from)
 {
 	if (_state != 0)return;
 	int flag = from->GetFlag();
+
 	if (flag & 0x0002)
 	{
 		//ゲームオーバー
@@ -154,6 +155,11 @@ void Player::OnCollision(GameEngine::Behaviour::Collider * from)
 float Player::GetSonarRate()
 {
 	return _sonar->GetSonarRate();
+}
+
+float Player::GetHoverRate()
+{
+	return _currentFuel / (float)_maxFuel;
 }
 
 
