@@ -25,8 +25,7 @@ GameEngine::GameObject* GameFactory::CreatePlayer()
 	camera->SetCurrent();
 	camera->EnablePerspectiveMode(true);
 	object->GetTransform()->SetPosition(&D3DXVECTOR3(0.0f, 5.0f, 0.0f));
-	object->AddBehaviour(new GameEngine::Behaviour::SoundPlay());
-	auto player = new Player();
+	auto player = new Behaviour::Player();
 	object->AddBehaviour(player);
 	auto hitCollider = new GameEngine::Behaviour::SphereCollider(0x00ff);
 	hitCollider->EnableTrigger(false);
@@ -35,7 +34,26 @@ GameEngine::GameObject* GameFactory::CreatePlayer()
 	hitCollider->SetHandler(player);
 	object->AddBehaviour(hitCollider);
 
-	auto sonar = new Sonar();
+	auto sonarSoundPlay = new GameEngine::Behaviour::SoundPlay();
+	auto landingSoundPlay = new GameEngine::Behaviour::SoundPlay();
+	auto deadSoundPlay = new GameEngine::Behaviour::SoundPlay();
+	auto hoverSoundPlay = new GameEngine::Behaviour::SoundPlay();
+	sonarSoundPlay->SetSound(GameEngine::Sound::Sound::CreateFromWaveFile("./data/sound/sonar.wav", 0));
+	landingSoundPlay->SetSound(GameEngine::Sound::Sound::CreateFromWaveFile("./data/sound/landing.wav", 0));
+	deadSoundPlay->SetSound(GameEngine::Sound::Sound::CreateFromWaveFile("./data/sound/dead.wav", 0));
+	hoverSoundPlay->SetSound(GameEngine::Sound::Sound::CreateFromWaveFile("./data/sound/decision.wav",0));
+	object->AddBehaviour(sonarSoundPlay);
+	object->AddBehaviour(landingSoundPlay);
+	object->AddBehaviour(deadSoundPlay);
+	object->AddBehaviour(hoverSoundPlay);
+
+	return object;
+}
+
+GameEngine::GameObject* GameFactory::CreateSonarEffect()
+{
+	GameEngine::GameObject* object = GameEngine::GameObject::Instantiate();
+	auto sonar = new Behaviour::Sonar();
 	auto sonarCollider = new GameEngine::Behaviour::SphereCollider(0xff00);
 	sonar->SetCollider(sonarCollider);
 	sonarCollider->EnableFreeze(false);
@@ -44,6 +62,7 @@ GameEngine::GameObject* GameFactory::CreatePlayer()
 	object->AddBehaviour(sonar);
 	return object;
 }
+
 
 GameEngine::GameObject* GameFactory::CreateFade()
 {

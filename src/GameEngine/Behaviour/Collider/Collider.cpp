@@ -51,6 +51,11 @@ void Collider::SetHandler(ICollisionHandler * handler)
 	_handler = handler;
 }
 
+void Collider::SetFlag(int flag)
+{
+	_flag = flag;
+}
+
 int Collider::GetFlag()
 {
 	return _flag;

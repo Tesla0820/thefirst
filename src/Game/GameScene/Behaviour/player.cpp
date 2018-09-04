@@ -7,7 +7,9 @@
 #include "../../../GameEngine/Input.h"
 #include "../../../GameEngine/GameEngine.h"
 
-namespace Game { namespace GameScene
+namespace Game {
+namespace GameScene {
+namespace Behaviour
 {
 
 #define PLAYER_SPEED (1.0f)
@@ -16,13 +18,14 @@ void Player::Start()
 {
 	GameEngine::GameObject* object = GetAttachedObject();
 	_transform = object->GetTransform();
-	_sonar = object->FindBehaviour<Sonar>();
-	_soundPlay = object->FindBehaviour<GameEngine::Behaviour::SoundPlay>();
 	_sphere = object->FindBehaviour<GameEngine::Behaviour::SphereCollider>();
 	_angle = 0.0f;
-	_currentFuel= _maxFuel = 90;
+	_currentFuel = _maxFuel = 90;
 	_delay = 0;
 	_state = 0;
+	_isGround = true;
+	_soundPlays = GetAttachedObject()->FindBehaviours<GameEngine::Behaviour::SoundPlay>();
+
 }
 
 //=======================================================
@@ -81,6 +84,10 @@ void Player::UpdatePlayer()
 
 	if (GameEngine::Input::GetKey(DIKEYBOARD_SPACE, HOLD) && _currentFuel)
 	{
+		if (_delay < 29)
+		{
+			_soundPlays[3]->Play();
+		}
 		_delay = 30;
 		_currentFuel--;
 		vec -= up;
@@ -92,9 +99,9 @@ void Player::UpdatePlayer()
 
 	if (GameEngine::Input::GetKey(DIKEYBOARD_LSHIFT, TRIGGER) || GameEngine::Input::GetKey(DIKEYBOARD_RSHIFT, TRIGGER))
 	{
-		if (_sonar->Ping())
+		if (_sonar->Ping(_transform->GetWorldPosition(), _transform->GetRotation()))
 		{
-			_soundPlay->Play();
+			_soundPlays[0]->Play();
 		}
 	}
 
@@ -114,14 +121,20 @@ void Player::UpdatePlayer()
 	D3DXQUATERNION rot;
 	D3DXQuaternionRotationYawPitchRoll(&rot, _angle, 0.0f, 0.0f);
 	_transform->SetRotation(&rot);
+	bool old = _isGround;
+	_isGround = false;
 	_sphere->HitAll();
+	if (old == false && _isGround == true)
+	{
+		_soundPlays[2]->Play();
+	}
 }
 
 void Player::UpdateClear()
 {
 	if (Fade::EndFadeOut())
 	{
-		GameEngine::Scene::SceneManager::LoadScene(6);
+		GameEngine::Scene::SceneManager::LoadScene(5);
 	}
 }
 
@@ -150,6 +163,11 @@ void Player::OnCollision(GameEngine::Behaviour::Collider * from)
 		_state = 2;
 		Fade::StartFadeOut();
 	}
+
+	if (flag & 0x0004)
+	{
+		_isGround = true;
+	}
 }
 
 float Player::GetSonarRate()
@@ -162,6 +180,12 @@ float Player::GetHoverRate()
 	return _currentFuel / (float)_maxFuel;
 }
 
+void Player::SetSonar(Sonar * sonar)
+{
+	_sonar = sonar;
+}
 
+
+}
 }
 }

@@ -50,6 +50,10 @@ void BoxCollider::HitToBox(BoxCollider* collider)
 
 }
 
+void BoxCollider::SetScale(D3DXVECTOR3* scale)
+{
+    _scale = *scale;
+}
 
 }
 }

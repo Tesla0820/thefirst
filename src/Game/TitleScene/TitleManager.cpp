@@ -35,6 +35,7 @@ namespace Game
 		_alpha = 0;
 		_transform = this->GetAttachedObject()->GetTransform();
 		_render = this->GetAttachedObject()->FindBehaviour<GameEngine::Behaviour::UIRenderer>();
+		_soundPlays = GetAttachedObject()->FindBehaviours<GameEngine::Behaviour::SoundPlay>();
 	}
 
 	//=================================================
@@ -49,6 +50,7 @@ namespace Game
 		if (GameEngine::Input::GetKey(DIK_UP, TRIGGER))
 		{
 			this->_mode--;
+			_soundPlays[1]->Play();
 			if (this->_mode < 0)
 			{
 				this->_mode = MODE_TUTORIAL;
@@ -57,6 +59,7 @@ namespace Game
 		else if (GameEngine::Input::GetKey(DIK_DOWN, TRIGGER))
 		{
 			this->_mode++;
+			_soundPlays[1]->Play();
 			if (this->_mode >= MODE_MAX)
 			{
 				this->_mode = MODE_STAGE3;
@@ -86,6 +89,7 @@ namespace Game
 			//ŽŸ‚ÌƒV[ƒ“‚Ö
 			if (GameEngine::Input::GetKey(DIK_RETURN, TRIGGER))
 			{
+				_soundPlays[2]->Play();
 				Fade::StartFadeOut();
 			}
 		}

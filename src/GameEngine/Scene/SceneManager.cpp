@@ -2,6 +2,7 @@
 //		ƒtƒ@ƒCƒ‹–¼:SceneManager.cpp
 //
 #include "SceneManager.h"
+#include "../Sound/SoundManager.h"
 #include "../Behaviour/Behaviour.h"
 
 namespace GameEngine { namespace Scene
@@ -62,6 +63,7 @@ void SceneManager::RegisterScene(SceneBase * scene)
 void SceneManager::NextScene()
 {
 	_manager->_oldIndex = _manager->_index;
+	Sound::SoundManager::StopAll();
 	ClearObjects();
 	if (_manager->_index >= _manager->_scenes.size())
 	{

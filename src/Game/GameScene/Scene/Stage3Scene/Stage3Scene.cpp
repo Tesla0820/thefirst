@@ -1,5 +1,5 @@
 //
-//		ƒtƒ@ƒCƒ‹–¼:Stage3Scene.cpp
+//		ãƒ•ã‚¡ã‚¤ãƒ«å:Stage3Scene.cpp
 //
 
 #include "Stage3Scene.h"
@@ -33,20 +33,24 @@ bool Stage3Scene::Init()
 	using ResourceManager = GameEngine::Resource::ResourceManager;
 	GameEngine::Environment::Get()->AttachPipeline(new Pipeline::Echo());
 
-	//ƒvƒŒƒCƒ„[
-	auto player = GameFactory::CreatePlayer();
+	//ã‚½ãƒŠãƒ¼
+	auto sonar = GameFactory::CreateSonarEffect();
 
-	// BGMESE—p
+	//ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼
+	auto player = GameFactory::CreatePlayer();
+	player->FindBehaviour<Behaviour::Player>()->SetSonar(sonar->FindBehaviour<Behaviour::Sonar>());
+
+	// BGMãƒ»SEç”¨
 	GameEngine::GameObject* stageSoundObject = GameEngine::GameObject::Instantiate();
 	auto stageSoundPlay = new GameEngine::Behaviour::SoundPlay();
 	stageSoundPlay->SetSound(GameEngine::Sound::Sound::CreateFromWaveFile("./data/sound/game_honpen.wav", XAUDIO2_LOOP_INFINITE));
 	stageSoundObject->AddBehaviour(stageSoundPlay);
 	stageSoundPlay->Play();
 
-	//ƒXƒe[ƒW
+	//ã‚¹ãƒ†ãƒ¼ã‚¸
 	StageLoader::LoadStage("./data/stage/stage3.txt");
 	
-	// ‚»‚Ì‚P
+	// ãã®ï¼‘
 	GimmickFactory::InstantiatePillar(&D3DXVECTOR3(-240.0f, 0.0f, -50.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
 	GimmickFactory::InstantiatePillar(&D3DXVECTOR3(-240.0f, 0.0f, -120.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
 	GimmickFactory::InstantiatePillar(&D3DXVECTOR3(-240.0f, 0.0f, -210.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
@@ -85,7 +89,7 @@ bool Stage3Scene::Init()
 	GimmickFactory::InstantiateBronzeStatue(&D3DXVECTOR3(-560.0f, 0.0f, 100.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
 
 
-	// ‚»‚Ì‚Q
+	// ãã®ï¼’
 	GimmickFactory::InstantiatePillar(&D3DXVECTOR3(-950.0f, 0.0f, -50.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
 	GimmickFactory::InstantiatePillar(&D3DXVECTOR3(-950.0f, 0.0f, -120.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
 	GimmickFactory::InstantiatePillar(&D3DXVECTOR3(-950.0f, 0.0f, -210.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
@@ -124,7 +128,7 @@ bool Stage3Scene::Init()
 	GimmickFactory::InstantiatePillar(&D3DXVECTOR3(-1370.0f, 0.0f, 50.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
 
 
-	// ‚»‚Ì‚R
+	// ãã®ï¼“
 	GimmickFactory::InstantiatePillar(&D3DXVECTOR3(-1650.0f, 0.0f, -50.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
 	GimmickFactory::InstantiatePillar(&D3DXVECTOR3(-1650.0f, 0.0f, -120.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
 	GimmickFactory::InstantiatePillar(&D3DXVECTOR3(-1650.0f, 0.0f, -210.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
@@ -176,16 +180,16 @@ bool Stage3Scene::Init()
 	GimmickFactory::InstantiateBell(&D3DXVECTOR3(-2300.0f, 0.0f, 0.0f), &D3DXVECTOR3(0.0f, 90.0f, 0.0f));
 
 
-	// UIƒQ[ƒW‚Ì˜g—p
+	// UIã‚²ãƒ¼ã‚¸ã®æ ç”¨
 	GameFactory::CreateUIgaugeEdge();
 
-	// UIƒQ[ƒW
+	// UIã‚²ãƒ¼ã‚¸
 	auto hoverGauge = GameFactory::CreateHoverGauge();
 	auto sonarGauge = GameFactory::CreateSonarGauge();
 	hoverGauge->FindBehaviour<Behaviour::UIgauge>()->SetPlayer(player->FindBehaviour<Player>());
 	sonarGauge->FindBehaviour<Behaviour::UIgauge>()->SetPlayer(player->FindBehaviour<Player>());
 
-	// ƒtƒF[ƒh—p
+	// ãƒ•ã‚§ãƒ¼ãƒ‰ç”¨
 	GameFactory::CreateFade();
 
 	return false;

@@ -15,6 +15,7 @@ class GameFactory
   public:
   static GameEngine::GameObject* CreateGround();
   static GameEngine::GameObject* CreatePlayer();
+  static GameEngine::GameObject* CreateSonarEffect();
   static GameEngine::GameObject* CreateFade();
   static GameEngine::GameObject* CreateHoverGauge();
   static GameEngine::GameObject* CreateSonarGauge();

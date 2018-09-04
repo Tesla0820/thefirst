@@ -18,7 +18,7 @@ namespace Game { namespace ResultScene
 
 	private:
 		int _Stage;
-		//GameEngine::Behaviour::UIRenderer* _render;
+		std::vector<GameEngine::Behaviour::SoundPlay*> _soundPlays;
 	public:
 		StageClearManager();
 		~StageClearManager();

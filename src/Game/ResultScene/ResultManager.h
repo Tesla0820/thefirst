@@ -16,6 +16,7 @@ namespace Game
 
 	private:
 		int _mode;
+		std::vector<GameEngine::Behaviour::SoundPlay*> _soundPlays;
 	public:
 		ResultManager();
 		~ResultManager();

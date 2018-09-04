@@ -32,9 +32,12 @@ namespace Game { namespace ResultScene
 		GameEngine::GameObject* resultManagerObject = GameEngine::GameObject::Instantiate();
 		auto resultmanager = new Game::ResultManager();
 		auto resultManagerSoundPlay = new GameEngine::Behaviour::SoundPlay();
+		auto resultManagerSoundPlay2 = new GameEngine::Behaviour::SoundPlay();
 		resultManagerSoundPlay->SetSound(GameEngine::Sound::Sound::CreateFromWaveFile("./data/sound/game_over.wav", XAUDIO2_LOOP_INFINITE));
+		resultManagerSoundPlay2->SetSound(GameEngine::Sound::Sound::CreateFromWaveFile("./data/sound/decision.wav", XAUDIO2_NO_LOOP_REGION));
 		resultManagerObject->AddBehaviour(resultmanager);
 		resultManagerObject->AddBehaviour(resultManagerSoundPlay);
+		resultManagerObject->AddBehaviour(resultManagerSoundPlay2);
 		resultManagerSoundPlay->Play();
 
 		// ゲームオーバー画面の背景用

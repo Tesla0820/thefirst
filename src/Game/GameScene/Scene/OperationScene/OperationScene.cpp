@@ -1,5 +1,5 @@
 //
-//		ƒtƒ@ƒCƒ‹–¼:OperationScene.cpp
+//		ãƒ•ã‚¡ã‚¤ãƒ«å:OperationScene.cpp
 //
 
 #include "OperationScene.h"
@@ -29,7 +29,7 @@ bool OperationScene::Init()
 	using Texture = GameEngine::Resource::Texture;
 	using ResourceManager = GameEngine::Resource::ResourceManager;
 
-	// ‘€ìà–¾‰æ–Ê
+	// æ“ä½œèª¬æ˜Žç”»é¢
 	GameEngine::GameObject* operationObject = GameEngine::GameObject::Instantiate();
 	operationObject->GetTransform()->SetPosition(&D3DXVECTOR3(800.0f, 600.0f, 0.0f));
 	operationObject->GetTransform()->SetScale(&D3DXVECTOR3(1600.0f, 1200.0f, 50.0f));
@@ -37,7 +37,7 @@ bool OperationScene::Init()
 	operationRenderer->SetColor(D3DCOLOR_ARGB(255, 255, 255, 255));
 	operationObject->AddBehaviour(operationRenderer);
 
-	// ƒ}ƒl[ƒWƒƒ[—p
+	// ãƒžãƒãƒ¼ã‚¸ãƒ£ãƒ¼ç”¨
 	GameEngine::GameObject* operationManagerObject = GameEngine::GameObject::Instantiate();
 	operationManagerObject->GetTransform()->SetPosition(&D3DXVECTOR3(600.0f, 800.0f, 0.0f));
 	operationManagerObject->GetTransform()->SetScale(&D3DXVECTOR3(100.0f, 100.0f, 50.0f));
@@ -49,7 +49,8 @@ bool OperationScene::Init()
 	//operationManagerSoundPlay->Play();
 
 
-	// PushEnter—p
+
+	// PushEnterç”¨
 	GameEngine::GameObject* pushenterObject = GameEngine::GameObject::Instantiate();
 	pushenterObject->GetTransform()->SetPosition(&D3DXVECTOR3(1200.0f, 1100.0f, 0.0f));
 	pushenterObject->GetTransform()->SetScale(&D3DXVECTOR3(800.0f, 600.0f, 50.0f));
@@ -59,7 +60,7 @@ bool OperationScene::Init()
 	pushenterRenderer->SetColor(D3DCOLOR_ARGB(255, 255, 255, 255));
 	pushenterObject->AddBehaviour(pushenterRenderer);
 
-	// ƒtƒF[ƒh—p
+	// ãƒ•ã‚§ãƒ¼ãƒ‰ç”¨
 	GameEngine::GameObject* fadeObject = GameEngine::GameObject::Instantiate();
 	fadeObject->GetTransform()->SetPosition(&D3DXVECTOR3(800.0f, 600.0f, 0.0f));
 	fadeObject->GetTransform()->SetScale(&D3DXVECTOR3(1600.0f, 1200.0f, 50.0f));

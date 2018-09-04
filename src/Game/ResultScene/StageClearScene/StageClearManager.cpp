@@ -27,7 +27,7 @@ namespace Game { namespace ResultScene
 	//===============================================
 	void StageClearManager::Start()
 	{
-
+		_soundPlays = GetAttachedObject()->FindBehaviours<GameEngine::Behaviour::SoundPlay>();
 	}
 
 	//=================================================
@@ -41,6 +41,7 @@ namespace Game { namespace ResultScene
 			//ŽŸ‚ÌƒV[ƒ“‚Ö
 			if (GameEngine::Input::GetKey(DIK_RETURN, TRIGGER))
 			{
+				_soundPlays[1]->Play();
 				Fade::StartFadeOut();
 			}
 		}
