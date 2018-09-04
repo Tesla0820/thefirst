@@ -90,7 +90,7 @@ void Player::UpdatePlayer()
 		vec += up;
 	}
 
-	if (GameEngine::Input::GetKey(DIKEYBOARD_Z, TRIGGER))
+	if (GameEngine::Input::GetKey(DIKEYBOARD_LSHIFT, TRIGGER) || GameEngine::Input::GetKey(DIKEYBOARD_RSHIFT, TRIGGER))
 	{
 		if (_sonar->Ping())
 		{
