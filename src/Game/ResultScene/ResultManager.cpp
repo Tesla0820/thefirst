@@ -27,7 +27,8 @@ namespace Game
 	//===============================================
 	void ResultManager::Start()
 	{
-		
+		_soundPlays = GetAttachedObject()->FindBehaviours<GameEngine::Behaviour::SoundPlay>();
+
 	}
 
 	//=================================================
@@ -40,6 +41,7 @@ namespace Game
 			//ŽŸ‚ÌƒV[ƒ“‚Ö
 			if (GameEngine::Input::GetKey(DIK_RETURN, TRIGGER))
 			{
+				_soundPlays[1]->Play();
 				Fade::StartFadeOut();
 			}
 		}

@@ -15,7 +15,6 @@ namespace Game { namespace GameScene
 	private:
 
 		Sonar* _sonar;
-		GameEngine::Behaviour::SoundPlay* _soundPlay;
 		GameEngine::Behaviour::Transform* _transform;
 		GameEngine::Behaviour::SphereCollider* _sphere;
 		float _angle;
@@ -23,10 +22,12 @@ namespace Game { namespace GameScene
 		int _currentFuel;
 		int _delay;
 		int _state;
+		bool _isGround;
 
 		void UpdatePlayer();
 		void UpdateClear();
 		void UpdateOver();
+		std::vector<GameEngine::Behaviour::SoundPlay*> _soundPlays;
 	public:
 
 		virtual void Start() override;

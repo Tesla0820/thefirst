@@ -48,8 +48,8 @@ bool TitleScene::Init()
 	auto titleManagerSoundPlay3 = new GameEngine::Behaviour::SoundPlay();
 	titleManagerRenderer->SetColor(D3DCOLOR_ARGB(255, 255, 255, 255));
 	titleManagerSoundPlay->SetSound(GameEngine::Sound::Sound::CreateFromWaveFile("./data/sound/title.wav",XAUDIO2_LOOP_INFINITE));
-	titleManagerSoundPlay2->SetSound(GameEngine::Sound::Sound::CreateFromWaveFile("./data/sound/title.wav", XAUDIO2_LOOP_INFINITE));
-	titleManagerSoundPlay3->SetSound(GameEngine::Sound::Sound::CreateFromWaveFile("./data/sound/title.wav", XAUDIO2_LOOP_INFINITE));
+	titleManagerSoundPlay2->SetSound(GameEngine::Sound::Sound::CreateFromWaveFile("./data/sound/select.wav", XAUDIO2_NO_LOOP_REGION));
+	titleManagerSoundPlay3->SetSound(GameEngine::Sound::Sound::CreateFromWaveFile("./data/sound/decision.wav", XAUDIO2_NO_LOOP_REGION));
 
 	titleManagerObject->AddBehaviour(titleManagerRenderer);
 	titleManagerObject->AddBehaviour(titleManager);

@@ -17,12 +17,14 @@ void Player::Start()
 	GameEngine::GameObject* object = GetAttachedObject();
 	_transform = object->GetTransform();
 	_sonar = object->FindBehaviour<Sonar>();
-	_soundPlay = object->FindBehaviour<GameEngine::Behaviour::SoundPlay>();
 	_sphere = object->FindBehaviour<GameEngine::Behaviour::SphereCollider>();
 	_angle = 0.0f;
 	_currentFuel= _maxFuel = 90;
 	_delay = 0;
 	_state = 0;
+	_isGround = true;
+	_soundPlays = GetAttachedObject()->FindBehaviours<GameEngine::Behaviour::SoundPlay>();
+
 }
 
 //=======================================================
@@ -81,6 +83,10 @@ void Player::UpdatePlayer()
 
 	if (GameEngine::Input::GetKey(DIKEYBOARD_SPACE, HOLD) && _currentFuel)
 	{
+		if (_delay < 29)
+		{
+			//_soundPlays[3]->Play();
+		}
 		_delay = 30;
 		_currentFuel--;
 		vec -= up;
@@ -94,7 +100,7 @@ void Player::UpdatePlayer()
 	{
 		if (_sonar->Ping())
 		{
-			_soundPlay->Play();
+			_soundPlays[0]->Play();
 		}
 	}
 
@@ -142,12 +148,27 @@ void Player::OnCollision(GameEngine::Behaviour::Collider * from)
 	{
 		//ゲームオーバー
 		_state = 1;
+		_soundPlays[2]->Play();
 		Fade::StartFadeOut();
 	}
 	else if (flag & 0x0008)
 	{
 		_state = 2;
 		Fade::StartFadeOut();
+	}
+
+	if (flag & 0x0004)
+	{
+		_isGround = true;
+		if (!_isGround)
+		{
+			_soundPlays[1]->Play();
+		}
+		
+	}
+	else
+	{
+		_isGround = false;
 	}
 }
 
