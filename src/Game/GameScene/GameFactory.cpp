@@ -58,13 +58,28 @@ GameEngine::GameObject* GameFactory::CreateFade()
 	return FadeObject;
 }
 
-GameEngine::GameObject* GameFactory::CreateUIgauge()
+GameEngine::GameObject * GameFactory::CreateHoverGauge()
 {
 	// UIゲージ
 	GameEngine::GameObject* uiObject = GameEngine::GameObject::Instantiate();
-	auto uigauge = new Game::GameScene::Behaviour::UIgauge();
+	auto uigauge = new Game::GameScene::Behaviour::UIgauge(true);
 	auto gaugeRenderer = new GameEngine::Behaviour::UIRenderer();
-	uiObject->GetTransform()->SetPosition(&D3DXVECTOR3(150.0f, 10.0f, 0.0f));
+	uiObject->GetTransform()->SetPosition(&D3DXVECTOR3(394.0f, 63.0f, 0.0f));
+	uiObject->GetTransform()->SetScale(&D3DXVECTOR3(200.0f, 50.0f, 0.0f));
+	gaugeRenderer->SetColor(D3DCOLOR_ARGB(255, 0, 230, 0));
+	uiObject->AddBehaviour(uigauge);
+	uiObject->AddBehaviour(gaugeRenderer);
+
+	return uiObject;
+}
+
+GameEngine::GameObject* GameFactory::CreateSonarGauge()
+{
+	// UIゲージ
+	GameEngine::GameObject* uiObject = GameEngine::GameObject::Instantiate();
+	auto uigauge = new Game::GameScene::Behaviour::UIgauge(false);
+	auto gaugeRenderer = new GameEngine::Behaviour::UIRenderer();
+	uiObject->GetTransform()->SetPosition(&D3DXVECTOR3(394.0f, 98.0f, 0.0f));
 	uiObject->GetTransform()->SetScale(&D3DXVECTOR3(200.0f, 50.0f, 0.0f));
 	gaugeRenderer->SetColor(D3DCOLOR_ARGB(255, 230, 0, 0));
 	uiObject->AddBehaviour(uigauge);

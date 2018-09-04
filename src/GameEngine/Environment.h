@@ -45,6 +45,7 @@ class Environment
 		Pipeline::IModefier* GetCurrentPipeline();
 		void OnBeforeRenderer(D3DXMATRIX const& world);
 		void OnSetCamera(D3DXMATRIX const& view, D3DXMATRIX const& projection);
+		void SetBackColor(D3DCOLOR backColor);
 		static void Create();
 		static void Release();
 		static Environment* Get();

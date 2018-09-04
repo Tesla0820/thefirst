@@ -24,7 +24,7 @@ TitleScene::~TitleScene()
 
 bool TitleScene::Init()
 {
-
+	GameEngine::Environment::Get()->SetBackColor(D3DCOLOR_ARGB(255, 50, 50, 50));
 	using Texture = GameEngine::Resource::Texture;
 	using ResourceManager	= GameEngine::Resource::ResourceManager;
 

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClCompile Include="src\DXCT\D3DX\D3DXAllocateHierarchy.cpp" />
@@ -70,9 +70,6 @@
     <ClCompile Include="src\Game\GameScene\Behaviour\Gimmick.cpp" />
     <ClCompile Include="src\Game\GameScene\Behaviour\player.cpp" />
     <ClCompile Include="src\Game\GameScene\Behaviour\Sonar.cpp" />
-    <ClCompile Include="src\Game\GameScene\Behaviour\Toge.cpp" />
-    <ClCompile Include="src\Game\GameScene\Behaviour\Toge_move.cpp" />
-    <ClCompile Include="src\Game\GameScene\Behaviour\Yoroi.cpp" />
     <ClCompile Include="src\Game\GameScene\StageLoader.cpp" />
     <ClCompile Include="src\Game\GameScene\Behaviour\Armor.cpp" />
     <ClCompile Include="src\Game\GameScene\Behaviour\BrokenPillar.cpp" />
@@ -172,9 +169,6 @@
     <ClInclude Include="src\Game\GameScene\Behaviour\Gimmick.h" />
     <ClInclude Include="src\Game\GameScene\Behaviour\player.h" />
     <ClInclude Include="src\Game\GameScene\Behaviour\Sonar.h" />
-    <ClInclude Include="src\Game\GameScene\Behaviour\Toge.h" />
-    <ClInclude Include="src\Game\GameScene\Behaviour\Toge_move.h" />
-    <ClInclude Include="src\Game\GameScene\Behaviour\Yoroi.h" />
     <ClInclude Include="src\Game\GameScene\StageLoader.h" />
     <ClInclude Include="src\GameEngine\Resource\Mesh\Mesh.h" />
     <ClInclude Include="src\Game\GameScene\Behaviour\Armor.h" />
@@ -184,10 +178,10 @@
     <ClInclude Include="src\Game\GameScene\Behaviour\ThornsMove.h" />
     <ClInclude Include="src\Game\GameScene\Behaviour\BronzeStatue.h" />
     <ClInclude Include="src\Game\GameScene\GimmickFactory.h" />
+    <ClInclude Include="src\Game\GameScene\Behaviour\UIgauge.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="data\model\bell.x" />
-    <ClInclude Include="src\Game\GameScene\Behaviour\UIgauge.h" />
     <ClInclude Include="src\Game\GameScene\Scene\OperationScene\OperationScene.h" />
     <ClInclude Include="src\Game\GameScene\Scene\OperationScene\OperationManager.h" />
   </ItemGroup>
