@@ -46,6 +46,14 @@ bool Stage3Scene::Init()
 	//ステージ
 	StageLoader::LoadStage("./data/stage/stage3.txt");
 
+	// UIゲージの枠用
+	GameEngine::GameObject* uiObject = GameEngine::GameObject::Instantiate();
+	uiObject->GetTransform()->SetPosition(&D3DXVECTOR3(400.0f, 300.0f, 0.0f));
+	uiObject->GetTransform()->SetScale(&D3DXVECTOR3(800.0f, 600.0f, 50.0f));
+	auto uiRenderer = new GameEngine::Behaviour::UIRenderer(GameEngine::Resource::ResourceManager::Get<Texture>("./data/texture/UIgauge.png"));
+	uiRenderer->SetColor(D3DCOLOR_ARGB(255, 255, 255, 255));
+	uiObject->AddBehaviour(uiRenderer);
+
 	// UIゲージ
 	auto uiGauge = GameFactory::CreateUIgauge();
 	uiGauge->FindBehaviour<Behaviour::UIgauge>()->SetPlayer(player->FindBehaviour<Player>());

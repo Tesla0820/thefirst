@@ -11,7 +11,7 @@
 
 namespace Game { namespace GameScene { namespace Behaviour
 {
-#define MAX_GAUGE (200.0f)
+#define MAX_GAUGE (333.0f)
 
 	class UIgauge :public GameEngine::Behaviour::Behaviour
 	{
