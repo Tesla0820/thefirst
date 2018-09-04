@@ -36,7 +36,7 @@ GameEngine::GameObject* GimmickFactory::Instantiate(GameEngine::Behaviour::Behav
 	gimmick->AddBehaviour(meshRenderer);
 
 	//当たり判定の付与
-	gimmick->AddBehaviour(new GameEngine::Behaviour::BoxCollider(D3DXVECTOR3(0.0f, 0.0f, 0.0f), D3DXVECTOR3(0.0f, 0.0f, 0.0f), 0x0102));
+	gimmick->AddBehaviour(new GameEngine::Behaviour::BoxCollider(D3DXVECTOR3(0.0f, 0.0f, 0.0f), D3DXVECTOR3(1.0f, 1.0f, 1.0f), 0x0102));
 
 	return gimmick;
 }
@@ -55,7 +55,7 @@ void GimmickFactory::InstantiateArmor(D3DXVECTOR3* position, D3DXVECTOR3* rotate
 	GameEngine::GameObject* gimmick;
 	gimmick = Instantiate(new Game::Behaviour::Armor(), position, rotate, std::shared_ptr<GameEngine::Resource::Mesh::IMesh>(new GameEngine::Resource::Mesh::MeshD3DX(TEXT("./data/model/armor.x"))));
 
-    gimmick->GetTransform()->SetPosition(&D3DXVECTOR3(position->x, position->y + 50.0F, position->z));
+    gimmick->GetTransform()->Offset(&D3DXVECTOR3(0.0f,50.0f,0.0f));
     gimmick->GetTransform()->SetScale(&D3DXVECTOR3(20.0F, 20.0F, 20.0F));
 }
 
@@ -73,7 +73,7 @@ void GimmickFactory::InstantiateBell(D3DXVECTOR3* position, D3DXVECTOR3* rotate)
 	GameEngine::GameObject* gimmick;
 	gimmick = Instantiate(new Game::Behaviour::Bell(), position, rotate, std::shared_ptr<GameEngine::Resource::Mesh::IMesh>(new GameEngine::Resource::Mesh::MeshD3DX(TEXT("./data/model/bell.x"))));
 
-	gimmick->GetTransform()->SetPosition(&D3DXVECTOR3(position->x, position->y + 30.0F, position->z));
+	gimmick->GetTransform()->Offset(&D3DXVECTOR3(0.0f, 30.0f, 0.0f));
     gimmick->GetTransform()->SetScale(&D3DXVECTOR3(13.0F, 13.0F, 13.0F));
 }
 

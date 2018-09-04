@@ -19,7 +19,7 @@ void Sonar::Update()
 	if (!_isUsing) return;
 
 	_time++;
-	_collider->SetRadius(_time/4.0f);
+	_collider->SetRadius(_time/2.0f);
 	_collider->HitAll();
 	auto pipeline = dynamic_cast<Pipeline::Echo*>(GameEngine::Environment::Get()->GetCurrentPipeline());
 	pipeline->SetRange(_time/2.0f);
