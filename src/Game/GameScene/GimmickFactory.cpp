@@ -1,161 +1,173 @@
 //
-//		ƒtƒ@ƒCƒ‹–¼: GimmickFactory.cpp
+//		ãƒ•ã‚¡ã‚¤ãƒ«å: GimmickFactory.cpp
 //
 
-//ƒwƒbƒ_ƒtƒ@ƒCƒ‹“Ç‚İ‚İ//
+//ï¼ï¼ï¼ãƒ˜ãƒƒãƒ€ãƒ•ã‚¡ã‚¤ãƒ«èª­ã¿è¾¼ã¿ï¼ï¼ï¼//
 #include "GimmickFactory.h"
 
 namespace Game { namespace GameScene
 {
 
-//ŠÖ”’è‹`//
+//ï¼ï¼ï¼é–¢æ•°å®šç¾©ï¼ï¼ï¼//
 /////////////////////////////////////////////
-//ŠÖ”–¼FInstantiate
+//é–¢æ•°åï¼šInstantiate
 //
-//‹@”\FƒMƒ~ƒbƒN¶¬‚ÌªŠ²ŠÖ”
+//æ©Ÿèƒ½ï¼šã‚®ãƒŸãƒƒã‚¯ç”Ÿæˆã®æ ¹å¹¹é–¢æ•°
 //
-//ˆø”F(GameEngine::Behaviour::Behaviour*)¶¬•¨, (D3DXVECTOR3*)ˆÊ’u, (D3DXVECTOR3*)Šp“x
+//å¼•æ•°ï¼š(GameEngine::Behaviour::Behaviour*)ç”Ÿæˆç‰©, (D3DXVECTOR3*)ä½ç½®, (D3DXVECTOR3*)è§’åº¦
 //
-//–ß‚è’lF‚È‚µ
+//æˆ»ã‚Šå€¤ï¼šãªã—
 /////////////////////////////////////////////
 GameEngine::GameObject* GimmickFactory::Instantiate(GameEngine::Behaviour::Behaviour* behaviour, D3DXVECTOR3* position, D3DXVECTOR3* rotate, std::shared_ptr<GameEngine::Resource::Mesh::IMesh> mesh)
 {
-	//ƒIƒuƒWƒFƒNƒg‚Ì“o˜^
+	//ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ç™»éŒ²
 	GameEngine::GameObject* gimmick = GameEngine::GameObject::Instantiate();
 	gimmick->AddBehaviour(behaviour);
 
-	//À•WEŠp“x‚Ìİ’è
+	//åº§æ¨™ãƒ»è§’åº¦ã®è¨­å®š
 	gimmick->GetTransform()->SetPosition(position);
 	D3DXQUATERNION rotation;
-	//FLOAT y = D3DXToRadian(rotate->y);
 	D3DXQuaternionRotationYawPitchRoll(&rotation, D3DXToRadian(rotate->y), D3DXToRadian(rotate->x), D3DXToRadian(rotate->z));
 	gimmick->GetTransform()->SetRotation(&rotation);
 
-	//ƒƒbƒVƒ…‚Ì“o˜^
+	//ãƒ¡ãƒƒã‚·ãƒ¥ã®ç™»éŒ²
 	auto meshRenderer = new Game::MeshRendererEx();
 	meshRenderer->SetMesh(mesh);
 	gimmick->AddBehaviour(meshRenderer);
 
-	//“–‚½‚è”»’è‚Ì•t—^
-	gimmick->AddBehaviour(new GameEngine::Behaviour::BoxCollider(D3DXVECTOR3(0.0f, 0.0f, 0.0f), D3DXVECTOR3(1.0F, 1.0F, 1.0F), 0x0102));
+	//å½“ãŸã‚Šåˆ¤å®šã®ä»˜ä¸
+	gimmick->AddBehaviour(new GameEngine::Behaviour::BoxCollider(D3DXVECTOR3(0.0f, 0.0f, 0.0f), D3DXVECTOR3(1.0f, 1.0f, 1.0f), 0x0102));
 
 	return gimmick;
 }
 
 /////////////////////////////////////////////
-//ŠÖ”–¼FInstantiateArmor
+//é–¢æ•°åï¼šInstantiateArmor
 //
-//‹@”\FŠZ‚Ì¶¬
+//æ©Ÿèƒ½ï¼šé§ã®ç”Ÿæˆ
 //
-//ˆø”F(D3DXVECTOR3*)ˆÊ’u, (D3DXVECTOR3*)Šp“x
+//å¼•æ•°ï¼š(D3DXVECTOR3*)ä½ç½®, (D3DXVECTOR3*)è§’åº¦
 //
-//–ß‚è’lF‚È‚µ
+//æˆ»ã‚Šå€¤ï¼šãªã—
 /////////////////////////////////////////////
 void GimmickFactory::InstantiateArmor(D3DXVECTOR3* position, D3DXVECTOR3* rotate)
 {
 	GameEngine::GameObject* gimmick;
 	gimmick = Instantiate(new Game::Behaviour::Armor(), position, rotate, std::shared_ptr<GameEngine::Resource::Mesh::IMesh>(new GameEngine::Resource::Mesh::MeshD3DX(TEXT("./data/model/armor.x"))));
 
-	gimmick->GetTransform()->SetPosition(&D3DXVECTOR3(position->x, position->y + 3.5F, position->z));
+    gimmick->GetTransform()->Offset(&D3DXVECTOR3(0.0f,50.0f,0.0f));
+    gimmick->GetTransform()->SetScale(&D3DXVECTOR3(20.0F, 20.0F, 20.0F));
 }
 
 /////////////////////////////////////////////
-//ŠÖ”–¼FInstantiateBell
+//é–¢æ•°åï¼šInstantiateBell
 //
-//‹@”\Fà‚Ì¶¬
+//æ©Ÿèƒ½ï¼šé˜ã®ç”Ÿæˆ
 //
-//ˆø”F(D3DXVECTOR3*)ˆÊ’u, (D3DXVECTOR3*)Šp“x
+//å¼•æ•°ï¼š(D3DXVECTOR3*)ä½ç½®, (D3DXVECTOR3*)è§’åº¦
 //
-//–ß‚è’lF‚È‚µ
+//æˆ»ã‚Šå€¤ï¼šãªã—
 /////////////////////////////////////////////
 void GimmickFactory::InstantiateBell(D3DXVECTOR3* position, D3DXVECTOR3* rotate)
 {
 	GameEngine::GameObject* gimmick;
 	gimmick = Instantiate(new Game::Behaviour::Bell(), position, rotate, std::shared_ptr<GameEngine::Resource::Mesh::IMesh>(new GameEngine::Resource::Mesh::MeshD3DX(TEXT("./data/model/bell.x"))));
 
-	gimmick->GetTransform()->SetPosition(&D3DXVECTOR3(position->x, position->y + 3.0F, position->z));
+	gimmick->GetTransform()->Offset(&D3DXVECTOR3(0.0f, 30.0f, 0.0f));
+    gimmick->GetTransform()->SetScale(&D3DXVECTOR3(13.0F, 13.0F, 13.0F));
 }
 
 /////////////////////////////////////////////
-//ŠÖ”–¼FInstantiateBrokenPillar
+//é–¢æ•°åï¼šInstantiateBrokenPillar
 //
-//‹@”\F‰ó‚ê‚½’Œ‚Ì¶¬
+//æ©Ÿèƒ½ï¼šå£Šã‚ŒãŸæŸ±ã®ç”Ÿæˆ
 //
-//ˆø”F(D3DXVECTOR3*)ˆÊ’u, (D3DXVECTOR3*)Šp“x
+//å¼•æ•°ï¼š(D3DXVECTOR3*)ä½ç½®, (D3DXVECTOR3*)è§’åº¦
 //
-//–ß‚è’lF‚È‚µ
+//æˆ»ã‚Šå€¤ï¼šãªã—
 /////////////////////////////////////////////
 void GimmickFactory::InstantiateBrokenPillar(D3DXVECTOR3* position, D3DXVECTOR3* rotate)
 {
 	GameEngine::GameObject* gimmick;
 	gimmick = Instantiate(new Game::Behaviour::BrokenPillar(), position, rotate, std::shared_ptr<GameEngine::Resource::Mesh::IMesh>(new GameEngine::Resource::Mesh::MeshD3DX(TEXT("./data/model/brokenPillar.x"))));
 
-	gimmick->GetTransform()->SetPosition(&D3DXVECTOR3(position->x, position->y + 2.3F, position->z));
+	gimmick->GetTransform()->SetPosition(&D3DXVECTOR3(position->x, position->y + 45.0F, position->z));
+    gimmick->GetTransform()->SetScale(&D3DXVECTOR3(22.5F, 22.5F, 22.5F));
 }
 
 /////////////////////////////////////////////
-//ŠÖ”–¼FInstantiateBronzeStatue
+//é–¢æ•°åï¼šInstantiateBronzeStatue
 //
-//‹@”\F“º‘œ‚Ì¶¬
+//æ©Ÿèƒ½ï¼šéŠ…åƒã®ç”Ÿæˆ
 //
-//ˆø”F(D3DXVECTOR3*)ˆÊ’u, (D3DXVECTOR3*)Šp“x
+//å¼•æ•°ï¼š(D3DXVECTOR3*)ä½ç½®, (D3DXVECTOR3*)è§’åº¦
 //
-//–ß‚è’lF‚È‚µ
+//æˆ»ã‚Šå€¤ï¼šãªã—
 /////////////////////////////////////////////
 void GimmickFactory::InstantiateBronzeStatue(D3DXVECTOR3* position, D3DXVECTOR3* rotate)
 {
 	GameEngine::GameObject* gimmick;
 	gimmick = Instantiate(new Game::Behaviour::BronzeStatue(), position, rotate, std::shared_ptr<GameEngine::Resource::Mesh::IMesh>(new GameEngine::Resource::Mesh::MeshD3DX(TEXT("./data/model/bronzeStatue.x"))));
 
-	gimmick->GetTransform()->SetPosition(&D3DXVECTOR3(position->x, position->y + 3.0F, position->z));
+	gimmick->GetTransform()->SetPosition(&D3DXVECTOR3(position->x, position->y + 30.0F, position->z));
+    gimmick->GetTransform()->SetScale(&D3DXVECTOR3(20.0F, 20.0F, 20.0F));
 }
 
 /////////////////////////////////////////////
-//ŠÖ”–¼FInstantiatePillar
+//é–¢æ•°åï¼šInstantiatePillar
 //
-//‹@”\F’Œ‚Ì¶¬
+//æ©Ÿèƒ½ï¼šæŸ±ã®ç”Ÿæˆ
 //
-//ˆø”F(D3DXVECTOR3*)ˆÊ’u, (D3DXVECTOR3*)Šp“x
+//å¼•æ•°ï¼š(D3DXVECTOR3*)ä½ç½®, (D3DXVECTOR3*)è§’åº¦
 //
-//–ß‚è’lF‚È‚µ
+//æˆ»ã‚Šå€¤ï¼šãªã—
 /////////////////////////////////////////////
 void GimmickFactory::InstantiatePillar(D3DXVECTOR3* position, D3DXVECTOR3* rotate)
 {
 	GameEngine::GameObject* gimmick;
 	gimmick = Instantiate(new Game::Behaviour::Pillar(), position, rotate, std::shared_ptr<GameEngine::Resource::Mesh::IMesh>(new GameEngine::Resource::Mesh::MeshD3DX(TEXT("./data/model/pillar.x"))));
-	gimmick->GetTransform()->SetPosition(&D3DXVECTOR3(position->x, position->y + 3.0F, position->z));
+	gimmick->GetTransform()->SetPosition(&D3DXVECTOR3(position->x, position->y + 30.0F, position->z));
+  gimmick->GetTransform()->SetScale(&D3DXVECTOR3(8.0F, 8.0F, 8.0F));
+
 }
 
 /////////////////////////////////////////////
-//ŠÖ”–¼FInstantiateThorns
+//é–¢æ•°åï¼šInstantiateThorns
 //
-//‹@”\FƒgƒQ‚Ì¶¬
+//æ©Ÿèƒ½ï¼šãƒˆã‚²ã®ç”Ÿæˆ
 //
-//ˆø”F(D3DXVECTOR3*)ˆÊ’u, (D3DXVECTOR3*)Šp“x
+//å¼•æ•°ï¼š(D3DXVECTOR3*)ä½ç½®, (D3DXVECTOR3*)è§’åº¦
 //
-//–ß‚è’lF‚È‚µ
+//æˆ»ã‚Šå€¤ï¼šãªã—
 /////////////////////////////////////////////
 void GimmickFactory::InstantiateThorns(D3DXVECTOR3* position, D3DXVECTOR3* rotate)
 {
-	Instantiate(new Game::Behaviour::Thorns(), position, rotate, std::shared_ptr<GameEngine::Resource::Mesh::IMesh>(new GameEngine::Resource::Mesh::MeshD3DX(TEXT("./data/model/thorns.x"))));
+    GameEngine::GameObject* gimmick;
+	gimmick = Instantiate(new Game::Behaviour::Thorns(), position, rotate, std::shared_ptr<GameEngine::Resource::Mesh::IMesh>(new GameEngine::Resource::Mesh::MeshD3DX(TEXT("./data/model/thorns.x"))));
+    
+    gimmick->GetTransform()->SetPosition(&D3DXVECTOR3(position->x, position->y + 35.0F, position->z));
+    gimmick->GetTransform()->SetScale(&D3DXVECTOR3(8.0F, 8.0F, 8.0F));
 }
 
 /////////////////////////////////////////////
-//ŠÖ”–¼FInstantiateThornsMove
+//é–¢æ•°åï¼šInstantiateThornsMove
 //
-//‹@”\F“®‚­ƒgƒQ‚Ì¶¬
+//æ©Ÿèƒ½ï¼šå‹•ããƒˆã‚²ã®ç”Ÿæˆ
 //
-//ˆø”F(D3DXVECTOR3*)ˆÊ’u, (D3DXVECTOR3*)Šp“x
+//å¼•æ•°ï¼š(D3DXVECTOR3*)ä½ç½®, (D3DXVECTOR3*)è§’åº¦
 //
-//–ß‚è’lF‚È‚µ
+//æˆ»ã‚Šå€¤ï¼šãªã—
 /////////////////////////////////////////////
 void GimmickFactory::InstantiateThornsMove(D3DXVECTOR3* position, D3DXVECTOR3* rotate)
 {
 	GameEngine::GameObject* gimmick;
 	gimmick = Instantiate(new Game::Behaviour::ThornsMove(), position, rotate, std::shared_ptr<GameEngine::Resource::Mesh::IMesh>(new GameEngine::Resource::Mesh::MeshD3DX(TEXT("./data/model/thorns.x"))));
 
-	//“–‚½‚è”»’è‚Ì•t—^
-	auto collider = new GameEngine::Behaviour::BoxCollider(D3DXVECTOR3(0.0F, 0.0F, 13.0F), D3DXVECTOR3(1.0F, 1.0F, 5.0F), 0x0004);
+    gimmick->GetTransform()->SetPosition(&D3DXVECTOR3(position->x, position->y + 35.0F, position->z));
+    gimmick->GetTransform()->SetScale(&D3DXVECTOR3(8.0F, 8.0F, 8.0F));
+
+	//å½“ãŸã‚Šåˆ¤å®šã®ä»˜ä¸
+	auto collider = new GameEngine::Behaviour::BoxCollider(D3DXVECTOR3(0.0F, 0.0F, 0.0F), D3DXVECTOR3(0.0F, 0.0F, 0.0F), 0x0004);
 	collider->EnableTrigger(true);
 	collider->EnableFreeze(false);
 	gimmick->AddBehaviour(collider);

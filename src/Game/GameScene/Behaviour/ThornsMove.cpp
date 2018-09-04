@@ -61,6 +61,8 @@ void ThornsMove::Update(void)
 
     //ˆÚ“®’l‚Ì”½‰f
     _transform->Offset(&_move);
+
+    Gimmick::Update();
 }
 
 /////////////////////////////////////////////
