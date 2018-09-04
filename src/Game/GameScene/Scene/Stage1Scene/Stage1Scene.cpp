@@ -33,18 +33,12 @@ bool Stage1Scene::Init()
 	using ResourceManager = GameEngine::Resource::ResourceManager;
 	GameEngine::Environment::Get()->AttachPipeline(new Pipeline::Echo());
 
+	//ソナー
+	auto sonar = GameFactory::CreateSonarEffect();
+
 	//プレイヤー
 	auto player = GameFactory::CreatePlayer();
-
-  //ギミック
-
-  //Behaviour::GimmickFactory::InstantiateArmor(&D3DXVECTOR3(0.0f, 0.0f, 20.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
-  //Behaviour::GimmickFactory::InstantiateBell(&D3DXVECTOR3(0.0f, 7.0f, 20.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
-  //Behaviour::GimmickFactory::InstantiateBrokenPillar(&D3DXVECTOR3(0.0f, 0.0f, 20.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
-  //Behaviour::GimmickFactory::InstantiateBronzeStatue(&D3DXVECTOR3(0.0f, 7.0f, 10.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
-  //GimmickFactory::InstantiatePillar(&D3DXVECTOR3(0.0f, 0.0f, 20.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
-  //Behaviour::GimmickFactory::InstantiateThorns(&D3DXVECTOR3(0.0f, 0.0f, 20.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
-  //Behaviour::GimmickFactory::InstantiateThornsMove(&D3DXVECTOR3(0.0f, 0.0f, 20.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
+	player->FindBehaviour<Behaviour::Player>()->SetSonar(sonar->FindBehaviour<Behaviour::Sonar>());
   
 	// BGM・SE用
 	GameEngine::GameObject* stageSoundObject = GameEngine::GameObject::Instantiate();
@@ -126,7 +120,7 @@ bool Stage1Scene::Init()
 
 	// UIゲージ
 	auto uiGauge = GameFactory::CreateSonarGauge();
-	uiGauge->FindBehaviour<Behaviour::UIgauge>()->SetPlayer(player->FindBehaviour<Player>());
+	uiGauge->FindBehaviour<Behaviour::UIgauge>()->SetPlayer(player->FindBehaviour<Behaviour::Player>());
 
 	// フェード用
 	GameFactory::CreateFade();

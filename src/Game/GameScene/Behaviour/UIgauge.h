@@ -11,26 +11,26 @@
 
 namespace Game { namespace GameScene { namespace Behaviour
 {
-#define MAX_GAUGE (333.0f)
 
-	class UIgauge :public GameEngine::Behaviour::Behaviour
-	{
+class UIgauge :public GameEngine::Behaviour::Behaviour
+{
 
-	private:
-		bool _isHoverGauge;
-		float _len;
-		Game::GameScene::Player* _player;
-		GameEngine::Behaviour::Transform* _transform;
-		D3DXVECTOR3 origin;
+private:
+	bool _isHoverGauge;
+	float _len;
+	Player* _player;
+	GameEngine::Behaviour::Transform* _transform;
+	D3DXVECTOR3 origin;
 
-	public:
-		UIgauge(bool isHoverGauge);
-		virtual void Start() override;
-		virtual void Update() override;
-		Player* GetPlayer();
-		void SetPlayer(Game::GameScene::Player*);
+	static constexpr float MaxGauge = 333.0f;
+public:
+	UIgauge(bool isHoverGauge);
+	virtual void Start() override;
+	virtual void Update() override;
+	Player* GetPlayer();
+	void SetPlayer(Player* player);
 
-	};
+};
 }
 }
 }

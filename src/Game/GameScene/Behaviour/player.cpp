@@ -7,7 +7,9 @@
 #include "../../../GameEngine/Input.h"
 #include "../../../GameEngine/GameEngine.h"
 
-namespace Game { namespace GameScene
+namespace Game {
+namespace GameScene {
+namespace Behaviour
 {
 
 #define PLAYER_SPEED (1.0f)
@@ -16,10 +18,9 @@ void Player::Start()
 {
 	GameEngine::GameObject* object = GetAttachedObject();
 	_transform = object->GetTransform();
-	_sonar = object->FindBehaviour<Sonar>();
 	_sphere = object->FindBehaviour<GameEngine::Behaviour::SphereCollider>();
 	_angle = 0.0f;
-	_currentFuel= _maxFuel = 90;
+	_currentFuel = _maxFuel = 90;
 	_delay = 0;
 	_state = 0;
 	_isGround = true;
@@ -98,7 +99,7 @@ void Player::UpdatePlayer()
 
 	if (GameEngine::Input::GetKey(DIKEYBOARD_LSHIFT, TRIGGER) || GameEngine::Input::GetKey(DIKEYBOARD_RSHIFT, TRIGGER))
 	{
-		if (_sonar->Ping())
+		if (_sonar->Ping(_transform->GetWorldPosition(), _transform->GetRotation()))
 		{
 			_soundPlays[0]->Play();
 		}
@@ -179,6 +180,12 @@ float Player::GetHoverRate()
 	return _currentFuel / (float)_maxFuel;
 }
 
+void Player::SetSonar(Sonar * sonar)
+{
+	_sonar = sonar;
+}
 
+
+}
 }
 }
