@@ -17,12 +17,14 @@ void Player::Start()
 	GameEngine::GameObject* object = GetAttachedObject();
 	_transform = object->GetTransform();
 	_sonar = object->FindBehaviour<Sonar>();
-	_soundPlay = object->FindBehaviour<GameEngine::Behaviour::SoundPlay>();
 	_sphere = object->FindBehaviour<GameEngine::Behaviour::SphereCollider>();
 	_angle = 0.0f;
 	_currentFuel= _maxFuel = 90;
 	_delay = 0;
 	_state = 0;
+	_isGround = true;
+	_soundPlays = GetAttachedObject()->FindBehaviours<GameEngine::Behaviour::SoundPlay>();
+
 }
 
 //=======================================================
@@ -81,6 +83,10 @@ void Player::UpdatePlayer()
 
 	if (GameEngine::Input::GetKey(DIKEYBOARD_SPACE, HOLD) && _currentFuel)
 	{
+		if (_delay < 29)
+		{
+			_soundPlays[3]->Play();
+		}
 		_delay = 30;
 		_currentFuel--;
 		vec -= up;
@@ -94,7 +100,7 @@ void Player::UpdatePlayer()
 	{
 		if (_sonar->Ping())
 		{
-			_soundPlay->Play();
+			_soundPlays[0]->Play();
 		}
 	}
 
@@ -114,7 +120,13 @@ void Player::UpdatePlayer()
 	D3DXQUATERNION rot;
 	D3DXQuaternionRotationYawPitchRoll(&rot, _angle, 0.0f, 0.0f);
 	_transform->SetRotation(&rot);
+	bool old = _isGround;
+	_isGround = false;
 	_sphere->HitAll();
+	if (old == false && _isGround == true)
+	{
+		_soundPlays[2]->Play();
+	}
 }
 
 void Player::UpdateClear()
@@ -149,6 +161,11 @@ void Player::OnCollision(GameEngine::Behaviour::Collider * from)
 	{
 		_state = 2;
 		Fade::StartFadeOut();
+	}
+
+	if (flag & 0x0004)
+	{
+		_isGround = true;
 	}
 }
 

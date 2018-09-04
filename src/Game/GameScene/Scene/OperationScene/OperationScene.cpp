@@ -51,9 +51,12 @@ bool OperationScene::Init()
 	operationManagerObject->GetTransform()->SetScale(&D3DXVECTOR3(50.0f, 50.0f, 50.0f));
 	auto operationManager = new Game::GameScene::Scene::OperationManager();
 	auto operationManagerSoundPlay = new GameEngine::Behaviour::SoundPlay();
+	auto operationManagerSoundPlay2 = new GameEngine::Behaviour::SoundPlay();
 	operationManagerSoundPlay->SetSound(GameEngine::Sound::Sound::CreateFromWaveFile("./data/sound/title.wav", XAUDIO2_LOOP_INFINITE));
+	operationManagerSoundPlay2->SetSound(GameEngine::Sound::Sound::CreateFromWaveFile("./data/sound/decision.wav", XAUDIO2_NO_LOOP_REGION));
 	operationManagerObject->AddBehaviour(operationManager);
 	operationManagerObject->AddBehaviour(operationManagerSoundPlay);
+	operationManagerObject->AddBehaviour(operationManagerSoundPlay2);
 	operationManagerSoundPlay->Play();
 
 

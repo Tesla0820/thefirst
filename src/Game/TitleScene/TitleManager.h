@@ -31,6 +31,7 @@ namespace Game
 		bool _plus;
 		GameEngine::Behaviour::Transform* _transform;
 		GameEngine::Behaviour::UIRenderer* _render;
+		std::vector<GameEngine::Behaviour::SoundPlay*> _soundPlays;
 	public:
 		TitleManager();
 		~TitleManager();

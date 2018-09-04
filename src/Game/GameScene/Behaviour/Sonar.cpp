@@ -12,6 +12,7 @@ void Sonar::Start()
 {
 	_time = maxTime;
 	_isUsing = false;
+
 }
 
 void Sonar::Update()

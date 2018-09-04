@@ -16,6 +16,8 @@ namespace Game { namespace GameScene { namespace Scene
 	{
 
 	private:
+		std::vector<GameEngine::Behaviour::SoundPlay*> _soundPlays;
+
 	public:
 		OperationManager();
 		~OperationManager();
