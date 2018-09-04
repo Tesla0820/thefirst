@@ -56,7 +56,10 @@ void GimmickFactory::InstantiateArmor(D3DXVECTOR3* position, D3DXVECTOR3* rotate
 	gimmick = Instantiate(new Game::Behaviour::Armor(), position, rotate, std::shared_ptr<GameEngine::Resource::Mesh::IMesh>(new GameEngine::Resource::Mesh::MeshD3DX(TEXT("./data/model/armor.x"))));
 
     gimmick->GetTransform()->Offset(&D3DXVECTOR3(0.0f,50.0f,0.0f));
-    gimmick->GetTransform()->SetScale(&D3DXVECTOR3(20.0F, 20.0F, 20.0F));
+
+    D3DXVECTOR3 scale = { 20.0F,20.0F,20.0F };
+    gimmick->GetTransform()->SetScale(&scale);
+    gimmick->FindBehaviour<GameEngine::Behaviour::BoxCollider>()->SetScale(&scale);
 }
 
 /////////////////////////////////////////////
@@ -74,7 +77,10 @@ void GimmickFactory::InstantiateBell(D3DXVECTOR3* position, D3DXVECTOR3* rotate)
 	gimmick = Instantiate(new Game::Behaviour::Bell(), position, rotate, std::shared_ptr<GameEngine::Resource::Mesh::IMesh>(new GameEngine::Resource::Mesh::MeshD3DX(TEXT("./data/model/bell.x"))));
 
 	gimmick->GetTransform()->Offset(&D3DXVECTOR3(0.0f, 30.0f, 0.0f));
-    gimmick->GetTransform()->SetScale(&D3DXVECTOR3(13.0F, 13.0F, 13.0F));
+
+    D3DXVECTOR3 scale = { 13.0F,13.0F,13.0F };
+    gimmick->GetTransform()->SetScale(&scale);
+    gimmick->FindBehaviour<GameEngine::Behaviour::BoxCollider>()->SetScale(&scale);
 }
 
 /////////////////////////////////////////////
@@ -88,11 +94,19 @@ void GimmickFactory::InstantiateBell(D3DXVECTOR3* position, D3DXVECTOR3* rotate)
 /////////////////////////////////////////////
 void GimmickFactory::InstantiateBrokenPillar(D3DXVECTOR3* position, D3DXVECTOR3* rotate)
 {
+    rotate->x += 45.0F;
 	GameEngine::GameObject* gimmick;
 	gimmick = Instantiate(new Game::Behaviour::BrokenPillar(), position, rotate, std::shared_ptr<GameEngine::Resource::Mesh::IMesh>(new GameEngine::Resource::Mesh::MeshD3DX(TEXT("./data/model/brokenPillar.x"))));
 
 	gimmick->GetTransform()->SetPosition(&D3DXVECTOR3(position->x, position->y + 45.0F, position->z));
-    gimmick->GetTransform()->SetScale(&D3DXVECTOR3(22.5F, 22.5F, 22.5F));
+
+    //D3DXQUATERNION rotation;// = gimmick->GetTransform()->GetRotation();
+    //D3DXQuaternionRotationYawPitchRoll(&rotation, rotation.y, rotation.x, rotation.z);
+    //gimmick->GetTransform()->SetRotation(&rotation);
+
+    D3DXVECTOR3 scale = { 45.0F,45.0F,45.0F };      //22.5F
+    gimmick->GetTransform()->SetScale(&scale);
+    gimmick->FindBehaviour<GameEngine::Behaviour::BoxCollider>()->SetScale(&(scale / 10));
 }
 
 /////////////////////////////////////////////
@@ -110,7 +124,10 @@ void GimmickFactory::InstantiateBronzeStatue(D3DXVECTOR3* position, D3DXVECTOR3*
 	gimmick = Instantiate(new Game::Behaviour::BronzeStatue(), position, rotate, std::shared_ptr<GameEngine::Resource::Mesh::IMesh>(new GameEngine::Resource::Mesh::MeshD3DX(TEXT("./data/model/bronzeStatue.x"))));
 
 	gimmick->GetTransform()->SetPosition(&D3DXVECTOR3(position->x, position->y + 30.0F, position->z));
-    gimmick->GetTransform()->SetScale(&D3DXVECTOR3(20.0F, 20.0F, 20.0F));
+    
+    D3DXVECTOR3 scale = { 20.0F,20.0F,20.0F };
+    gimmick->GetTransform()->SetScale(&scale);
+    gimmick->FindBehaviour<GameEngine::Behaviour::BoxCollider>()->SetScale(&scale);
 }
 
 /////////////////////////////////////////////
@@ -126,9 +143,12 @@ void GimmickFactory::InstantiatePillar(D3DXVECTOR3* position, D3DXVECTOR3* rotat
 {
 	GameEngine::GameObject* gimmick;
 	gimmick = Instantiate(new Game::Behaviour::Pillar(), position, rotate, std::shared_ptr<GameEngine::Resource::Mesh::IMesh>(new GameEngine::Resource::Mesh::MeshD3DX(TEXT("./data/model/pillar.x"))));
-	gimmick->GetTransform()->SetPosition(&D3DXVECTOR3(position->x, position->y + 30.0F, position->z));
-  gimmick->GetTransform()->SetScale(&D3DXVECTOR3(8.0F, 8.0F, 8.0F));
+	
+    gimmick->GetTransform()->SetPosition(&D3DXVECTOR3(position->x, position->y + 30.0F, position->z));
 
+    D3DXVECTOR3 scale = { 8.0F,8.0F,8.0F };
+    gimmick->GetTransform()->SetScale(&scale);
+    gimmick->FindBehaviour<GameEngine::Behaviour::BoxCollider>()->SetScale(&scale);
 }
 
 /////////////////////////////////////////////
@@ -146,7 +166,10 @@ void GimmickFactory::InstantiateThorns(D3DXVECTOR3* position, D3DXVECTOR3* rotat
 	gimmick = Instantiate(new Game::Behaviour::Thorns(), position, rotate, std::shared_ptr<GameEngine::Resource::Mesh::IMesh>(new GameEngine::Resource::Mesh::MeshD3DX(TEXT("./data/model/thorns.x"))));
     
     gimmick->GetTransform()->SetPosition(&D3DXVECTOR3(position->x, position->y + 35.0F, position->z));
-    gimmick->GetTransform()->SetScale(&D3DXVECTOR3(8.0F, 8.0F, 8.0F));
+
+    D3DXVECTOR3 scale = { 8.0F,8.0F,8.0F };
+    gimmick->GetTransform()->SetScale(&scale);
+    gimmick->FindBehaviour<GameEngine::Behaviour::BoxCollider>()->SetScale(&scale);
 }
 
 /////////////////////////////////////////////
@@ -164,7 +187,10 @@ void GimmickFactory::InstantiateThornsMove(D3DXVECTOR3* position, D3DXVECTOR3* r
 	gimmick = Instantiate(new Game::Behaviour::ThornsMove(), position, rotate, std::shared_ptr<GameEngine::Resource::Mesh::IMesh>(new GameEngine::Resource::Mesh::MeshD3DX(TEXT("./data/model/thorns.x"))));
 
     gimmick->GetTransform()->SetPosition(&D3DXVECTOR3(position->x, position->y + 35.0F, position->z));
-    gimmick->GetTransform()->SetScale(&D3DXVECTOR3(8.0F, 8.0F, 8.0F));
+
+    D3DXVECTOR3 scale = { 8.0F,8.0F,8.0F };
+    gimmick->GetTransform()->SetScale(&scale);
+    gimmick->FindBehaviour<GameEngine::Behaviour::BoxCollider>()->SetScale(&scale);
 
 	//当たり判定の付与
 	auto collider = new GameEngine::Behaviour::BoxCollider(D3DXVECTOR3(0.0F, 0.0F, 0.0F), D3DXVECTOR3(0.0F, 0.0F, 0.0F), 0x0004);
