@@ -200,6 +200,11 @@ void Environment::OnSetCamera(D3DXMATRIX const & view, D3DXMATRIX const & projec
 	if (_pipeline)_pipeline->OnSetCamera(_device, view, projection);
 }
 
+void Environment::SetBackColor(D3DCOLOR backColor)
+{
+	_backColor = backColor;
+}
+
 void Environment::UpdateFrame()
 {
 	Update();
