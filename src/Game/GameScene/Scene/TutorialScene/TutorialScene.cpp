@@ -68,7 +68,7 @@ bool TutorialScene::Init()
 
   GimmickFactory::InstantiateThorns(&D3DXVECTOR3(-800.0f, 0.0f, 40.0f), &D3DXVECTOR3(0.0f, 180.0f, 0.0f));
   GimmickFactory::InstantiateThorns(&D3DXVECTOR3(-800.0f, 0.0f, -60.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
-
+  GimmickFactory::InstantiateThornsMove(&D3DXVECTOR3(-815.0f, 7.0f, 40.0f), &D3DXVECTOR3(0.0f, 180.0f, 0.0f));
   GimmickFactory::InstantiateBell(&D3DXVECTOR3(-970.0f, 0.0f, 0.0f), &D3DXVECTOR3(0.0f, 90.0f, 0.0f));
 
 
