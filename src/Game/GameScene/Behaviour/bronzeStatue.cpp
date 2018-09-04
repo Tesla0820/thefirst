@@ -26,9 +26,9 @@ void BronzeStatue::Start(void)
     Gimmick::Start();
 
     _transform = GetAttachedObject()->GetTransform();
-    _move_Distance = 0.0F;
+    _move_Distance = 0;
     _move = { 0.0F, 0.0F, 0.0F };
-    _move_Vector = _transform->Front() * 0.1F;
+    _move_Vector = _transform->Front();
     _default_Rotation = _transform->GetRotation().y * D3DX_PI;
     _checkRotate = false;
 }
@@ -47,10 +47,10 @@ void BronzeStatue::Update(void)
     //ˆÚ“®
     _move = { 0.0F, 0.0F, 0.0F };
     _move += _move_Vector;
-    _move_Distance += 0.1F;
+    _move_Distance++;
     
     //”½“]”»’è
-    if (_move_Distance >= 10.0F)
+    if (_move_Distance >= 100)
     {
         //---ŠeŽíéŒ¾---//
         D3DXQUATERNION rotate;

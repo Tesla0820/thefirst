@@ -42,34 +42,35 @@ bool TutorialScene::Init()
   auto tutorialManagerSoundPlay = new GameEngine::Behaviour::SoundPlay();
   tutorialManagerSoundPlay->SetSound(GameEngine::Sound::Sound::CreateFromWaveFile("./data/sound/game_honpen.wav", XAUDIO2_LOOP_INFINITE));
   tutorialManagerObject->AddBehaviour(tutorialManagerSoundPlay);
-  tutorialManagerSoundPlay->Play();
+  tutorialManagerSoundPlay->Play(); 
 
   //ギミック
-  //GimmickFactory::InstantiateArmor(&D3DXVECTOR3(0.0f, 0.0f, 10.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
-  //GimmickFactory::InstantiateBell(&D3DXVECTOR3(0.0f, 0.0f, 0.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
-  //GimmickFactory::InstantiateBrokenPillar(&D3DXVECTOR3(0.0f, 0.0f, 0.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
-  //GimmickFactory::InstantiateBronzeStatue(&D3DXVECTOR3(0.0f, 0.0f, 5.0f), &D3DXVECTOR3(0.0f, 90.0f, 0.0f));
-  //GimmickFactory::InstantiatePillar(&D3DXVECTOR3(0.0f, 0.0f, 0.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
-  //GimmickFactory::InstantiateThorns(&D3DXVECTOR3(0.0f, 0.0f, 10.0f), &D3DXVECTOR3(0.0f, 90.0f, 0.0f));
-  //GimmickFactory::InstantiateThornsMove(&D3DXVECTOR3(0.0f, 0.0f, 10.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
+  //GimmickFactory::InstantiateArmor(&D3DXVECTOR3(-70.0f, 0.0f, 10.0f), &D3DXVECTOR3(0.0f, 90.0f, 0.0f));
+  //GimmickFactory::InstantiateBell(&D3DXVECTOR3(-70.0f, 0.0f, 10.0f), &D3DXVECTOR3(0.0f, 90.0f, 0.0f));
+  //GimmickFactory::InstantiateBrokenPillar(&D3DXVECTOR3(-70.0f, 0.0f, 10.0f), &D3DXVECTOR3(0.0f, 90.0f, 0.0f));
+  //GimmickFactory::InstantiateBronzeStatue(&D3DXVECTOR3(-70.0f, 0.0f, 10.0f), &D3DXVECTOR3(0.0f, 90.0f, 0.0f));
+  //GimmickFactory::InstantiatePillar(&D3DXVECTOR3(-70.0f, 0.0f, 10.0f), &D3DXVECTOR3(0.0f, 90.0f, 0.0f));
+  //GimmickFactory::InstantiateThorns(&D3DXVECTOR3(-70.0f, 0.0f, 0.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
+  //GimmickFactory::InstantiateThornsMove(&D3DXVECTOR3(-70.0f, 0.0f, 10.0f), &D3DXVECTOR3(0.0f, 90.0f, 0.0f));
   
   //ステージ
   StageLoader::LoadStage("./data/stage/stage0.txt");
   
+  GimmickFactory::InstantiateBronzeStatue(&D3DXVECTOR3(-300.0f, 0.0f, 0.0f), &D3DXVECTOR3(0.0f, 90.0f, 0.0f));
+
   
-  
-  GimmickFactory::InstantiateBrokenPillar(&D3DXVECTOR3(-100.0f, 0.0f, 0.0f), &D3DXVECTOR3(0.0f, 90.0f, 0.0f));
-  GimmickFactory::InstantiateArmor(&D3DXVECTOR3(-410.0f, 0.0f, -60.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
+  //GimmickFactory::InstantiateBrokenPillar(&D3DXVECTOR3(-100.0f, 0.0f, 0.0f), &D3DXVECTOR3(0.0f, 90.0f, 0.0f));
+  //GimmickFactory::InstantiateArmor(&D3DXVECTOR3(-410.0f, 0.0f, -60.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
 
   //GimmickFactory::InstantiatePillar(&D3DXVECTOR3(-450.0f, 0.0f, 30.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
-  GimmickFactory::InstantiatePillar(&D3DXVECTOR3(-450.0f, 0.0f, -30.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
-  GimmickFactory::InstantiateArmor(&D3DXVECTOR3(-510.0f, 0.0f, 40.0f), &D3DXVECTOR3(0.0f, 180.0f, 0.0f));
-  GimmickFactory::InstantiateArmor(&D3DXVECTOR3(-510.0f, 0.0f, -60.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
+  //GimmickFactory::InstantiatePillar(&D3DXVECTOR3(-450.0f, 0.0f, -30.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
+  //GimmickFactory::InstantiateArmor(&D3DXVECTOR3(-510.0f, 0.0f, 40.0f), &D3DXVECTOR3(0.0f, 180.0f, 0.0f));
+  //GimmickFactory::InstantiateArmor(&D3DXVECTOR3(-510.0f, 0.0f, -60.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
 
-  GimmickFactory::InstantiateThorns(&D3DXVECTOR3(-800.0f, 0.0f, 40.0f), &D3DXVECTOR3(0.0f, 180.0f, 0.0f));
-  GimmickFactory::InstantiateThorns(&D3DXVECTOR3(-800.0f, 0.0f, -60.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
+  //GimmickFactory::InstantiateThorns(&D3DXVECTOR3(-800.0f, 0.0f, 40.0f), &D3DXVECTOR3(0.0f, 180.0f, 0.0f));
+  //GimmickFactory::InstantiateThorns(&D3DXVECTOR3(-800.0f, 0.0f, -60.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
 
-  GimmickFactory::InstantiateBell(&D3DXVECTOR3(-970.0f, 0.0f, 0.0f), &D3DXVECTOR3(0.0f, 90.0f, 0.0f));
+  //GimmickFactory::InstantiateBell(&D3DXVECTOR3(-970.0f, 0.0f, 0.0f), &D3DXVECTOR3(0.0f, 90.0f, 0.0f));
 
 
   // UIゲージの枠
