@@ -81,6 +81,10 @@
     <ClCompile Include="src\Game\GameScene\Scene\OperationScene\OperationScene.cpp" />
     <ClCompile Include="src\Game\GameScene\Scene\OperationScene\OperationManager.cpp" />
     <ClCompile Include="src\Game\GameScene\GimmickFactory.cpp" />
+    <ClCompile Include="src\Game\GameScene\Scene\Operation2Scene\Operation2Manager.cpp" />
+    <ClCompile Include="src\Game\GameScene\Scene\Operation2Scene\Operation2Scene.cpp" />
+    <ClCompile Include="src\Game\GameScene\Scene\Operation3Scene\Operation3Manager.cpp" />
+    <ClCompile Include="src\Game\GameScene\Scene\Operation3Scene\Operation3Scene.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\DXCT\D3DX\D3DXAllocateHierarchy.h" />
@@ -179,6 +183,10 @@
     <ClInclude Include="src\Game\GameScene\Behaviour\BronzeStatue.h" />
     <ClInclude Include="src\Game\GameScene\GimmickFactory.h" />
     <ClInclude Include="src\Game\GameScene\Behaviour\UIgauge.h" />
+    <ClInclude Include="src\Game\GameScene\Scene\Operation2Scene\Operation2Manager.h" />
+    <ClInclude Include="src\Game\GameScene\Scene\Operation2Scene\Operation2Scene.h" />
+    <ClInclude Include="src\Game\GameScene\Scene\Operation3Scene\Operation3Manager.h" />
+    <ClInclude Include="src\Game\GameScene\Scene\Operation3Scene\Operation3Scene.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="data\model\bell.x" />

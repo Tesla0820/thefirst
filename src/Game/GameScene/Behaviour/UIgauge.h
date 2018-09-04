@@ -1,5 +1,5 @@
 //
-//		ƒtƒ@ƒCƒ‹–¼:UIgauge.h
+//		Æ’tÆ’@Æ’CÆ’â€¹â€“Â¼:UIgauge.h
 //
 
 #ifndef HEADER_UIGAUGE_H
@@ -22,7 +22,7 @@ private:
 	GameEngine::Behaviour::Transform* _transform;
 	D3DXVECTOR3 origin;
 
-	static constexpr float MaxGauge = 333.0f;
+	static constexpr float MaxGauge = 666.0f;
 public:
 	UIgauge(bool isHoverGauge);
 	virtual void Start() override;

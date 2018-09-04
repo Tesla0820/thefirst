@@ -1,8 +1,8 @@
 //
-//		ファイル名:OperationManager.cpp
+//		ファイル名:Operation2Manager.cpp
 //
 
-#include "OperationManager.h"
+#include "Operation2Manager.h"
 #include "../../../../GameEngine/GameEngine.h"
 #include "../../../../GameEngine/Input.h"
 #include "../../../../GameEngine/Scene/SceneManager.h"
@@ -11,12 +11,12 @@
 namespace Game { namespace GameScene { namespace Scene
 {
 
-	OperationManager::OperationManager()
+	Operation2Manager::Operation2Manager()
 	{
 
 	}
 
-	OperationManager::~OperationManager()
+	Operation2Manager::~Operation2Manager()
 	{
 
 	}
@@ -25,16 +25,15 @@ namespace Game { namespace GameScene { namespace Scene
 	//===============================================
 	// 初期化処理
 	//===============================================
-	void OperationManager::Start()
+	void Operation2Manager::Start()
 	{
 		_soundPlay = GetAttachedObject()->FindBehaviour<GameEngine::Behaviour::SoundPlay>();
-
 	}
 
 	//=================================================
 	// 更新処理
 	//=================================================
-	void OperationManager::Update()
+	void Operation2Manager::Update()
 	{
 		if (Fade::EndFadeIn())
 		{
@@ -47,7 +46,7 @@ namespace Game { namespace GameScene { namespace Scene
 		}
 		if (Fade::EndFadeOut())
 		{
-			GameEngine::Scene::SceneManager::LoadScene(9);		// 操作説明画面２へ
+			GameEngine::Scene::SceneManager::LoadScene(10);		// 操作説明画面３へ
 		}
 	}
 

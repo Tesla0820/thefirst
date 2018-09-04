@@ -1,53 +1,54 @@
 //
-//		ãƒ•ã‚¡ã‚¤ãƒ«å:OperationScene.cpp
+//		ƒtƒ@ƒCƒ‹–¼:Operation3Scene.cpp
 //
 
-#include "OperationScene.h"
+#include "Operation3Scene.h"
 #include "../../../../GameEngine/GameEngine.h"
 #include "../../../Common/Pipeline/Echo.h"
-#include "OperationManager.h"
+#include "Operation3Manager.h"
 #include "../../../Common/Fade.h"
 #include "../../../Common/Flash.h"
 
 namespace Game { namespace GameScene { namespace Scene
 {
 
-OperationScene::OperationScene()
+Operation3Scene::Operation3Scene()
 {
 
 }
 
-OperationScene::~OperationScene()
+Operation3Scene::~Operation3Scene()
 {
 	SAFE_DELETE(farre);
 }
 
-bool OperationScene::Init()
+bool Operation3Scene::Init()
 {
 	Fade::StartFadeIn();
 
 	using Texture = GameEngine::Resource::Texture;
 	using ResourceManager = GameEngine::Resource::ResourceManager;
 
-	// æ“ä½œèª¬æ˜Žç”»é¢
+
+	// ‘€ìà–¾‰æ–Ê
 	GameEngine::GameObject* operationObject = GameEngine::GameObject::Instantiate();
 	operationObject->GetTransform()->SetPosition(&D3DXVECTOR3(800.0f, 600.0f, 0.0f));
 	operationObject->GetTransform()->SetScale(&D3DXVECTOR3(1600.0f, 1200.0f, 50.0f));
-	auto operationRenderer = new GameEngine::Behaviour::UIRenderer(GameEngine::Resource::ResourceManager::Get<Texture>("./data/texture/operation.png"));
+	auto operationRenderer = new GameEngine::Behaviour::UIRenderer(GameEngine::Resource::ResourceManager::Get<Texture>("./data/texture/operation3.png"));
 	operationRenderer->SetColor(D3DCOLOR_ARGB(255, 255, 255, 255));
 	operationObject->AddBehaviour(operationRenderer);
 
-	// ãƒžãƒãƒ¼ã‚¸ãƒ£ãƒ¼ç”¨
+	// ƒ}ƒl[ƒWƒƒ[—p
 	GameEngine::GameObject* operationManagerObject = GameEngine::GameObject::Instantiate();
 	operationManagerObject->GetTransform()->SetPosition(&D3DXVECTOR3(600.0f, 800.0f, 0.0f));
 	operationManagerObject->GetTransform()->SetScale(&D3DXVECTOR3(100.0f, 100.0f, 50.0f));
-	auto operationManager = new Game::GameScene::Scene::OperationManager();
+	auto operationManager = new Game::GameScene::Scene::Operation3Manager();
 	auto operationManagerSoundPlay = new GameEngine::Behaviour::SoundPlay();
 	operationManagerSoundPlay->SetSound(GameEngine::Sound::Sound::CreateFromWaveFile("./data/sound/decision.wav", 0));
 	operationManagerObject->AddBehaviour(operationManager);
 	operationManagerObject->AddBehaviour(operationManagerSoundPlay);
-
-	// PushEnterç”¨
+	
+	// PushEnter—p
 	GameEngine::GameObject* pushenterObject = GameEngine::GameObject::Instantiate();
 	pushenterObject->GetTransform()->SetPosition(&D3DXVECTOR3(1200.0f, 1100.0f, 0.0f));
 	pushenterObject->GetTransform()->SetScale(&D3DXVECTOR3(800.0f, 600.0f, 50.0f));
@@ -57,7 +58,7 @@ bool OperationScene::Init()
 	pushenterRenderer->SetColor(D3DCOLOR_ARGB(255, 255, 255, 255));
 	pushenterObject->AddBehaviour(pushenterRenderer);
 
-	// ãƒ•ã‚§ãƒ¼ãƒ‰ç”¨
+	// ƒtƒF[ƒh—p
 	GameEngine::GameObject* fadeObject = GameEngine::GameObject::Instantiate();
 	fadeObject->GetTransform()->SetPosition(&D3DXVECTOR3(800.0f, 600.0f, 0.0f));
 	fadeObject->GetTransform()->SetScale(&D3DXVECTOR3(1600.0f, 1200.0f, 50.0f));

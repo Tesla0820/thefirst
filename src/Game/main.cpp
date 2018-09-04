@@ -14,6 +14,9 @@
 #include "ResultScene/GameClearScene/GameClearScene.h"
 #include "ResultScene/GameOverScene/GameOverScene.h"
 #include "GameScene/Scene/OperationScene/OperationScene.h"
+#include "GameScene/Scene/Operation2Scene/Operation2Scene.h"
+#include "GameScene/Scene/Operation3Scene/Operation3Scene.h"
+
 
 // プロトタイプ宣言
 int Run(); //プログラムの実行
@@ -65,13 +68,16 @@ int Run()
 void RegisterScenes()
 {
 
-	GameEngine::Scene::SceneManager::RegisterScene(new Game::TitleScene());
-	GameEngine::Scene::SceneManager::RegisterScene(new Game::GameScene::Scene::TutorialScene);
-	GameEngine::Scene::SceneManager::RegisterScene(new Game::GameScene::Scene::Stage1Scene);
-	GameEngine::Scene::SceneManager::RegisterScene(new Game::GameScene::Scene::Stage2Scene);
-	GameEngine::Scene::SceneManager::RegisterScene(new Game::GameScene::Scene::Stage3Scene);
-	GameEngine::Scene::SceneManager::RegisterScene(new Game::ResultScene::StageClearScene());
-	GameEngine::Scene::SceneManager::RegisterScene(new Game::ResultScene::GameClearScene());
-	GameEngine::Scene::SceneManager::RegisterScene(new Game::ResultScene::GameOverScene());
-	GameEngine::Scene::SceneManager::RegisterScene(new Game::GameScene::Scene::OperationScene());
+	GameEngine::Scene::SceneManager::RegisterScene(new Game::TitleScene());	//0
+	GameEngine::Scene::SceneManager::RegisterScene(new Game::GameScene::Scene::TutorialScene);	//1
+	GameEngine::Scene::SceneManager::RegisterScene(new Game::GameScene::Scene::Stage1Scene);	//2
+	GameEngine::Scene::SceneManager::RegisterScene(new Game::GameScene::Scene::Stage2Scene);	//3
+	GameEngine::Scene::SceneManager::RegisterScene(new Game::GameScene::Scene::Stage3Scene);	//4
+	GameEngine::Scene::SceneManager::RegisterScene(new Game::ResultScene::StageClearScene());	//5
+	GameEngine::Scene::SceneManager::RegisterScene(new Game::ResultScene::GameClearScene());	//6
+	GameEngine::Scene::SceneManager::RegisterScene(new Game::ResultScene::GameOverScene());		//7
+	GameEngine::Scene::SceneManager::RegisterScene(new Game::GameScene::Scene::OperationScene());	//8
+	GameEngine::Scene::SceneManager::RegisterScene(new Game::GameScene::Scene::Operation2Scene());	//9
+	GameEngine::Scene::SceneManager::RegisterScene(new Game::GameScene::Scene::Operation3Scene());	//10
+
 }

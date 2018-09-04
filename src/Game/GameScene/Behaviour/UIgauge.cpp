@@ -1,5 +1,5 @@
 //
-//		ƒtƒ@ƒCƒ‹–¼:UIgauge.cpp
+//		ãƒ•ã‚¡ã‚¤ãƒ«å:UIgauge.cpp
 //
 
 #include "UIgauge.h"
@@ -16,7 +16,7 @@ UIgauge::UIgauge(bool isHoverGauge)
 }
 
 //===============================================
-// ‰Šú‰»ˆ—
+// åˆæœŸåŒ–å‡¦ç†
 //===============================================
 void UIgauge::Start()
 {
@@ -26,7 +26,7 @@ void UIgauge::Start()
 }
 
 //=================================================
-// XVˆ—
+// æ›´æ–°å‡¦ç†
 //=================================================
 void UIgauge::Update()
 {
@@ -41,7 +41,7 @@ void UIgauge::Update()
 	}
 
 	_transform->SetPosition(&D3DXVECTOR3(origin.x - (MaxGauge - _len / 2.0f),origin.y, 0.0f));
-	_transform->SetScale(&D3DXVECTOR3(_len, 28.5f, 0.0f));
+	_transform->SetScale(&D3DXVECTOR3(_len, 57.0f, 0.0f));
 }
 
 Player* UIgauge::GetPlayer()
