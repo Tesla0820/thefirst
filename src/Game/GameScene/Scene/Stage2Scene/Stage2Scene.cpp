@@ -129,16 +129,13 @@ bool Stage2Scene::Init()
 	GimmickFactory::InstantiateBronzeStatue(&D3DXVECTOR3(0.0f, 7.0f, 10.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
 
 	// UIゲージの枠用
-	GameEngine::GameObject* uiObject = GameEngine::GameObject::Instantiate();
-	uiObject->GetTransform()->SetPosition(&D3DXVECTOR3(400.0f, 300.0f, 0.0f));
-	uiObject->GetTransform()->SetScale(&D3DXVECTOR3(800.0f, 600.0f, 50.0f));
-	auto uiRenderer = new GameEngine::Behaviour::UIRenderer(GameEngine::Resource::ResourceManager::Get<Texture>("./data/texture/UIgauge.png"));
-	uiRenderer->SetColor(D3DCOLOR_ARGB(255, 255, 255, 255));
-	uiObject->AddBehaviour(uiRenderer);
+	GameFactory::CreateUIgaugeEdge();
 
 	// UIゲージ
-	auto uiGauge = GameFactory::CreateSonarGauge();
-	uiGauge->FindBehaviour<Behaviour::UIgauge>()->SetPlayer(player->FindBehaviour<Player>());
+	auto hoverGauge = GameFactory::CreateHoverGauge();
+	auto sonarGauge = GameFactory::CreateSonarGauge();
+	hoverGauge->FindBehaviour<Behaviour::UIgauge>()->SetPlayer(player->FindBehaviour<Player>());
+	sonarGauge->FindBehaviour<Behaviour::UIgauge>()->SetPlayer(player->FindBehaviour<Player>());
 
 	// フェード用
 	GameFactory::CreateFade();

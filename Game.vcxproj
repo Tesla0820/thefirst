@@ -71,6 +71,10 @@
     <ClCompile Include="src\Game\GameScene\Behaviour\UIgauge.cpp" />
     <ClCompile Include="src\Game\GameScene\GameFactory.cpp" />
     <ClCompile Include="src\Game\GameScene\Behaviour\Sonar.cpp" />
+    <ClCompile Include="src\Game\GameScene\Scene\Operation2Scene\Operation2Manager.cpp" />
+    <ClCompile Include="src\Game\GameScene\Scene\Operation2Scene\Operation2Scene.cpp" />
+    <ClCompile Include="src\Game\GameScene\Scene\Operation3Scene\Operation3Manager.cpp" />
+    <ClCompile Include="src\Game\GameScene\Scene\Operation3Scene\Operation3Scene.cpp" />
     <ClCompile Include="src\Game\GameScene\StageLoader.cpp" />
     <ClCompile Include="src\Game\GameScene\Scene\OperationScene\OperationManager.cpp" />
     <ClCompile Include="src\Game\GameScene\Scene\OperationScene\OperationScene.cpp" />
@@ -222,6 +226,10 @@
       </SubType>
     </ClInclude>
     <ClInclude Include="src\Game\GameScene\Behaviour\Sonar.h" />
+    <ClInclude Include="src\Game\GameScene\Scene\Operation2Scene\Operation2Manager.h" />
+    <ClInclude Include="src\Game\GameScene\Scene\Operation2Scene\Operation2Scene.h" />
+    <ClInclude Include="src\Game\GameScene\Scene\Operation3Scene\Operation3Manager.h" />
+    <ClInclude Include="src\Game\GameScene\Scene\Operation3Scene\Operation3Scene.h" />
     <ClInclude Include="src\Game\GameScene\StageLoader.h" />
     <ClInclude Include="src\Game\GameScene\Scene\OperationScene\OperationManager.h" />
     <ClInclude Include="src\Game\GameScene\Scene\OperationScene\OperationScene.h" />

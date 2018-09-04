@@ -15,8 +15,8 @@ using GameEngine::Scene::SceneManager;
 
 static Environment* _instance;
 
-constexpr int ScreenWidth = 800;
-constexpr int ScreenHeight = 600;
+constexpr int ScreenWidth = 1600;
+constexpr int ScreenHeight = 1200;
 
 Environment::Environment():
 	_window(ScreenWidth + GetSystemMetrics(SM_CYCAPTION) + GetSystemMetrics(SM_CYBORDER),ScreenHeight + GetSystemMetrics(SM_CXBORDER)*2)

@@ -45,14 +45,6 @@ bool Stage3Scene::Init()
 
 	//ステージ
 	StageLoader::LoadStage("./data/stage/stage3.txt");
-
-	//GimmickFactory::InstantiateArmor(&D3DXVECTOR3(0.0f, 0.0f, 10.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
-	//GimmickFactory::InstantiateBell(&D3DXVECTOR3(0.0f, 0.0f, 0.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
-	//GimmickFactory::InstantiateBrokenPillar(&D3DXVECTOR3(0.0f, 0.0f, 0.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
-	//GimmickFactory::InstantiateBronzeStatue(&D3DXVECTOR3(0.0f, 0.0f, 5.0f), &D3DXVECTOR3(0.0f, 90.0f, 0.0f));
-	//GimmickFactory::InstantiatePillar(&D3DXVECTOR3(0.0f, 0.0f, 0.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
-	//GimmickFactory::InstantiateThorns(&D3DXVECTOR3(0.0f, 0.0f, 10.0f), &D3DXVECTOR3(0.0f, 90.0f, 0.0f));
-	//GimmickFactory::InstantiateThornsMove(&D3DXVECTOR3(0.0f, 0.0f, 10.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
 	
 	// その１
 	GimmickFactory::InstantiatePillar(&D3DXVECTOR3(-240.0f, 0.0f, -50.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
@@ -90,7 +82,7 @@ bool Stage3Scene::Init()
 
 	GimmickFactory::InstantiateBronzeStatue(&D3DXVECTOR3(-360.0f, 0.0f, -200.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
 	GimmickFactory::InstantiateBronzeStatue(&D3DXVECTOR3(-460.0f, 0.0f, 0.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
-	GimmickFactory::InstantiateBronzeStatue(&D3DXVECTOR3(-560.0f, 0.0f, 200.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
+	GimmickFactory::InstantiateBronzeStatue(&D3DXVECTOR3(-560.0f, 0.0f, 100.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
 
 
 	// その２
@@ -102,22 +94,22 @@ bool Stage3Scene::Init()
 	GimmickFactory::InstantiatePillar(&D3DXVECTOR3(-950.0f, 0.0f, 120.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
 	GimmickFactory::InstantiatePillar(&D3DXVECTOR3(-950.0f, 0.0f, 220.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
 
-	GimmickFactory::InstantiateArmor(&D3DXVECTOR3(-970.0f, 0.0f, -80.0f), &D3DXVECTOR3(0.0f, -90.0f, 0.0f));
+	//GimmickFactory::InstantiateArmor(&D3DXVECTOR3(-970.0f, 0.0f, -80.0f), &D3DXVECTOR3(0.0f, -90.0f, 0.0f));
 
 	GimmickFactory::InstantiateArmor(&D3DXVECTOR3(-970.0f, 0.0f, 90.0f), &D3DXVECTOR3(0.0f, -90.0f, 0.0f));
-	GimmickFactory::InstantiateArmor(&D3DXVECTOR3(-970.0f, 0.0f, 190.0f), &D3DXVECTOR3(0.0f, -90.0f, 0.0f));
+	//GimmickFactory::InstantiateArmor(&D3DXVECTOR3(-970.0f, 0.0f, 190.0f), &D3DXVECTOR3(0.0f, -90.0f, 0.0f));
 	
-	GimmickFactory::InstantiateArmor(&D3DXVECTOR3(-1030.0f, 0.0f, -90.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
-	GimmickFactory::InstantiateArmor(&D3DXVECTOR3(-1090.0f, 0.0f, -90.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
+	GimmickFactory::InstantiateArmor(&D3DXVECTOR3(-1030.0f, 0.0f, -110.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
+	GimmickFactory::InstantiateArmor(&D3DXVECTOR3(-1090.0f, 0.0f, -110.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
 
 	GimmickFactory::InstantiateArmor(&D3DXVECTOR3(-1070.0f, 0.0f, 190.0f), &D3DXVECTOR3(0.0f, 180.0f, 0.0f));
 	GimmickFactory::InstantiateArmor(&D3DXVECTOR3(-1170.0f, 0.0f, 190.0f), &D3DXVECTOR3(0.0f, 180.0f, 0.0f));
 
 	GimmickFactory::InstantiateBrokenPillar(&D3DXVECTOR3(-1110.0f, 0.0f, 0.0f), &D3DXVECTOR3(0.0f, -90.0f, 0.0f));
-	GimmickFactory::InstantiateBrokenPillar(&D3DXVECTOR3(-1160.0f, 0.0f, 50.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
-	GimmickFactory::InstantiateBrokenPillar(&D3DXVECTOR3(-1210.0f, 0.0f, 0.0f), &D3DXVECTOR3(0.0f, 90.0f, 0.0f));
+	//GimmickFactory::InstantiateBrokenPillar(&D3DXVECTOR3(-1160.0f, 0.0f, 50.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
+	//GimmickFactory::InstantiateBrokenPillar(&D3DXVECTOR3(-1210.0f, 0.0f, 0.0f), &D3DXVECTOR3(0.0f, 90.0f, 0.0f));
 
-	GimmickFactory::InstantiateBronzeStatue(&D3DXVECTOR3(-1260.0f, 0.0f, 0.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
+	GimmickFactory::InstantiateBronzeStatue(&D3DXVECTOR3(-1260.0f, 0.0f, -50.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
 
 	GimmickFactory::InstantiateArmor(&D3DXVECTOR3(-1140.0f, 0.0f, -120.0f), &D3DXVECTOR3(0.0f, -90.0f, 0.0f));
 	GimmickFactory::InstantiateArmor(&D3DXVECTOR3(-1140.0f, 0.0f, -200.0f), &D3DXVECTOR3(0.0f, -90.0f, 0.0f));
@@ -126,7 +118,7 @@ bool Stage3Scene::Init()
 	GimmickFactory::InstantiatePillar(&D3DXVECTOR3(-1280.0f, 0.0f, -210.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
 	GimmickFactory::InstantiatePillar(&D3DXVECTOR3(-1370.0f, 0.0f, -210.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
 
-	GimmickFactory::InstantiateBrokenPillar(&D3DXVECTOR3(-1300.0f, 0.0f, 100.0f), &D3DXVECTOR3(0.0f, 90.0f, 0.0f));
+	//GimmickFactory::InstantiateBrokenPillar(&D3DXVECTOR3(-1300.0f, 0.0f, 100.0f), &D3DXVECTOR3(0.0f, 90.0f, 0.0f));
 
 	GimmickFactory::InstantiatePillar(&D3DXVECTOR3(-1370.0f, 0.0f, -40.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
 	GimmickFactory::InstantiatePillar(&D3DXVECTOR3(-1370.0f, 0.0f, 50.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
@@ -160,41 +152,38 @@ bool Stage3Scene::Init()
 	GimmickFactory::InstantiatePillar(&D3DXVECTOR3(-2080.0f, 0.0f, 220.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
 
 	GimmickFactory::InstantiateArmor(&D3DXVECTOR3(-1710.0f, 0.0f, -50.0f), &D3DXVECTOR3(0.0f, 90.0f, 0.0f));
-	GimmickFactory::InstantiateArmor(&D3DXVECTOR3(-1680.0f, 0.0f, -80.0f), &D3DXVECTOR3(0.0f, 90.0f, 0.0f));
+	//GimmickFactory::InstantiateArmor(&D3DXVECTOR3(-1680.0f, 0.0f, -80.0f), &D3DXVECTOR3(0.0f, 90.0f, 0.0f));
 	GimmickFactory::InstantiateArmor(&D3DXVECTOR3(-1710.0f, 0.0f, -120.0f), &D3DXVECTOR3(0.0f, 90.0f, 0.0f));
 	GimmickFactory::InstantiateArmor(&D3DXVECTOR3(-1710.0f, 0.0f, 60.0f), &D3DXVECTOR3(0.0f, 90.0f, 0.0f));
-	GimmickFactory::InstantiateArmor(&D3DXVECTOR3(-1680.0f, 0.0f, 90.0f), &D3DXVECTOR3(0.0f, 90.0f, 0.0f));
+	//GimmickFactory::InstantiateArmor(&D3DXVECTOR3(-1680.0f, 0.0f, 90.0f), &D3DXVECTOR3(0.0f, 90.0f, 0.0f));
 	GimmickFactory::InstantiateArmor(&D3DXVECTOR3(-1710.0f, 0.0f, 130.0f), &D3DXVECTOR3(0.0f, 90.0f, 0.0f));
 	
-	GimmickFactory::InstantiateArmor(&D3DXVECTOR3(-2030.0f, 0.0f, 60.0f), &D3DXVECTOR3(0.0f, -90.0f, 0.0f));
-	GimmickFactory::InstantiateArmor(&D3DXVECTOR3(-2050.0f, 0.0f, 90.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
+	//GimmickFactory::InstantiateArmor(&D3DXVECTOR3(-2030.0f, 0.0f, 60.0f), &D3DXVECTOR3(0.0f, -90.0f, 0.0f));
+	//GimmickFactory::InstantiateArmor(&D3DXVECTOR3(-2050.0f, 0.0f, 90.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
 	GimmickFactory::InstantiateArmor(&D3DXVECTOR3(-2030.0f, 0.0f, 130.0f), &D3DXVECTOR3(0.0f, -90.0f, 0.0f));
 
 	GimmickFactory::InstantiateBronzeStatue(&D3DXVECTOR3(-2040.0f, 0.0f, 180.0f), &D3DXVECTOR3(0.0f, 90.0f, 0.0f));
 	GimmickFactory::InstantiateBronzeStatue(&D3DXVECTOR3(-2040.0f, 0.0f, -10.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
 
-	GimmickFactory::InstantiateBrokenPillar(&D3DXVECTOR3(-1770.0f, 0.0f, -180.0f), &D3DXVECTOR3(0.0f, 90.0f, 0.0f));
+	//GimmickFactory::InstantiateBrokenPillar(&D3DXVECTOR3(-1770.0f, 0.0f, -180.0f), &D3DXVECTOR3(0.0f, 90.0f, 0.0f));
 
 	GimmickFactory::InstantiateArmor(&D3DXVECTOR3(-1840.0f, 0.0f, -180.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
 	GimmickFactory::InstantiateArmor(&D3DXVECTOR3(-1970.0f, 0.0f, -180.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
 	GimmickFactory::InstantiateArmor(&D3DXVECTOR3(-2040.0f, 0.0f, -180.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
 
-	GimmickFactory::InstantiateBrokenPillar(&D3DXVECTOR3(-2200.0f, 0.0f, 0.0f), &D3DXVECTOR3(0.0f, 90.0f, 0.0f));
+	//GimmickFactory::InstantiateBrokenPillar(&D3DXVECTOR3(-2200.0f, 0.0f, 0.0f), &D3DXVECTOR3(0.0f, 90.0f, 0.0f));
 
-	GimmickFactory::InstantiateBell(&D3DXVECTOR3(-2310.0f, 0.0f, 0.0f), &D3DXVECTOR3(0.0f, 90.0f, 0.0f));
+	GimmickFactory::InstantiateBell(&D3DXVECTOR3(-2300.0f, 0.0f, 0.0f), &D3DXVECTOR3(0.0f, 90.0f, 0.0f));
 
 
 	// UIゲージの枠用
-	GameEngine::GameObject* uiObject = GameEngine::GameObject::Instantiate();
-	uiObject->GetTransform()->SetPosition(&D3DXVECTOR3(400.0f, 300.0f, 0.0f));
-	uiObject->GetTransform()->SetScale(&D3DXVECTOR3(800.0f, 600.0f, 50.0f));
-	auto uiRenderer = new GameEngine::Behaviour::UIRenderer(GameEngine::Resource::ResourceManager::Get<Texture>("./data/texture/UIgauge.png"));
-	uiRenderer->SetColor(D3DCOLOR_ARGB(255, 255, 255, 255));
-	uiObject->AddBehaviour(uiRenderer);
+	GameFactory::CreateUIgaugeEdge();
 
 	// UIゲージ
-	auto uiGauge = GameFactory::CreateSonarGauge();
-	uiGauge->FindBehaviour<Behaviour::UIgauge>()->SetPlayer(player->FindBehaviour<Player>());
+	auto hoverGauge = GameFactory::CreateHoverGauge();
+	auto sonarGauge = GameFactory::CreateSonarGauge();
+	hoverGauge->FindBehaviour<Behaviour::UIgauge>()->SetPlayer(player->FindBehaviour<Player>());
+	sonarGauge->FindBehaviour<Behaviour::UIgauge>()->SetPlayer(player->FindBehaviour<Player>());
 
 	// フェード用
 	GameFactory::CreateFade();

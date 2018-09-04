@@ -44,15 +44,7 @@ bool TutorialScene::Init()
   tutorialManagerObject->AddBehaviour(tutorialManagerSoundPlay);
   tutorialManagerSoundPlay->Play(); 
 
-  //ギミック
-  //GimmickFactory::InstantiateArmor(&D3DXVECTOR3(-70.0f, 0.0f, 10.0f), &D3DXVECTOR3(0.0f, 90.0f, 0.0f));
-  //GimmickFactory::InstantiateBell(&D3DXVECTOR3(-70.0f, 0.0f, 10.0f), &D3DXVECTOR3(0.0f, 90.0f, 0.0f));
-  //GimmickFactory::InstantiateBrokenPillar(&D3DXVECTOR3(-70.0f, 0.0f, 10.0f), &D3DXVECTOR3(0.0f, 90.0f, 0.0f));
-  //GimmickFactory::InstantiateBronzeStatue(&D3DXVECTOR3(-70.0f, 0.0f, 10.0f), &D3DXVECTOR3(0.0f, 90.0f, 0.0f));
-  //GimmickFactory::InstantiatePillar(&D3DXVECTOR3(-70.0f, 0.0f, 10.0f), &D3DXVECTOR3(0.0f, 90.0f, 0.0f));
-  //GimmickFactory::InstantiateThorns(&D3DXVECTOR3(-70.0f, 0.0f, 0.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
-  //GimmickFactory::InstantiateThornsMove(&D3DXVECTOR3(-70.0f, 0.0f, 10.0f), &D3DXVECTOR3(0.0f, 90.0f, 0.0f));
-  
+
   //ステージ
   StageLoader::LoadStage("./data/stage/stage0.txt");
   
@@ -67,8 +59,8 @@ bool TutorialScene::Init()
   GimmickFactory::InstantiatePillar(&D3DXVECTOR3(-590.0f, 0.0f, -60.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
 
 
-  GimmickFactory::InstantiateThorns(&D3DXVECTOR3(-800.0f, 0.0f, 45.0f), &D3DXVECTOR3(0.0f, 180.0f, 0.0f));
-  GimmickFactory::InstantiateThorns(&D3DXVECTOR3(-800.0f, 0.0f, -62.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
+  GimmickFactory::InstantiateThorns(&D3DXVECTOR3(-800.0f, 0.0f, 45.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
+  GimmickFactory::InstantiateThorns(&D3DXVECTOR3(-800.0f, 0.0f, -62.0f), &D3DXVECTOR3(0.0f, 180.0f, 0.0f));
 
   GimmickFactory::InstantiatePillar(&D3DXVECTOR3(-890.0f, 0.0f, 40.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
   GimmickFactory::InstantiatePillar(&D3DXVECTOR3(-890.0f, 0.0f, -60.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));

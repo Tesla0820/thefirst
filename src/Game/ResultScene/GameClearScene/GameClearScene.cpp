@@ -40,16 +40,16 @@ namespace Game { namespace ResultScene
 
 		// ゲームクリア画面の背景用
 		GameEngine::GameObject* backgroundObject = GameEngine::GameObject::Instantiate();
-		backgroundObject->GetTransform()->SetPosition(&D3DXVECTOR3(400.0f, 300.0f, 0.0f));
-		backgroundObject->GetTransform()->SetScale(&D3DXVECTOR3(800.0f, 600.0f, 50.0f));
+		backgroundObject->GetTransform()->SetPosition(&D3DXVECTOR3(800.0f, 600.0f, 0.0f));
+		backgroundObject->GetTransform()->SetScale(&D3DXVECTOR3(1600.0f, 1200.0f, 50.0f));
 		auto backgroundRenderer = new GameEngine::Behaviour::UIRenderer(GameEngine::Resource::ResourceManager::Get<Texture>("./data/texture/gameclearBG.png"));
 		backgroundRenderer->SetColor(D3DCOLOR_ARGB(255, 255, 255, 255));
 		backgroundObject->AddBehaviour(backgroundRenderer);
 
 		// ゲームクリアの文字用
 		GameEngine::GameObject* gameClearObject = GameEngine::GameObject::Instantiate();
-		gameClearObject->GetTransform()->SetPosition(&D3DXVECTOR3(400.0f, 200.0f, 0.0f));
-		gameClearObject->GetTransform()->SetScale(&D3DXVECTOR3(600.0f, 150.0f, 50.0f));
+		gameClearObject->GetTransform()->SetPosition(&D3DXVECTOR3(800.0f, 400.0f, 0.0f));
+		gameClearObject->GetTransform()->SetScale(&D3DXVECTOR3(1200.0f, 300.0f, 50.0f));
 		auto gameClearRenderer = new GameEngine::Behaviour::UIRenderer(GameEngine::Resource::ResourceManager::Get<Texture>("./data/texture/GAME_CLEAR.png"));
 		gameClearRenderer->SetColor(D3DCOLOR_ARGB(255, 255, 255, 255));
 		gameClearObject->AddBehaviour(gameClearRenderer);
@@ -57,8 +57,8 @@ namespace Game { namespace ResultScene
 
 		// PushEnter用
 		GameEngine::GameObject* pushenterObject = GameEngine::GameObject::Instantiate();
-		pushenterObject->GetTransform()->SetPosition(&D3DXVECTOR3(400.0f, 400.0f, 0.0f));
-		pushenterObject->GetTransform()->SetScale(&D3DXVECTOR3(400.0f, 300.0f, 50.0f));
+		pushenterObject->GetTransform()->SetPosition(&D3DXVECTOR3(800.0f, 800.0f, 0.0f));
+		pushenterObject->GetTransform()->SetScale(&D3DXVECTOR3(800.0f, 600.0f, 50.0f));
 		auto flash = new Game::Flash();
 		auto pushenterRenderer = new GameEngine::Behaviour::UIRenderer(GameEngine::Resource::ResourceManager::Get<Texture>("./data/texture/pushenter.png"));
 		pushenterObject->AddBehaviour(flash);
@@ -67,8 +67,8 @@ namespace Game { namespace ResultScene
 
 		// フェード用
 		GameEngine::GameObject* fadeObject = GameEngine::GameObject::Instantiate();
-		fadeObject->GetTransform()->SetPosition(&D3DXVECTOR3(400.0f, 300.0f, 0.0f));
-		fadeObject->GetTransform()->SetScale(&D3DXVECTOR3(800.0f, 600.0f, 50.0f));
+		fadeObject->GetTransform()->SetPosition(&D3DXVECTOR3(800.0f, 600.0f, 0.0f));
+		fadeObject->GetTransform()->SetScale(&D3DXVECTOR3(1600.0f, 1200.0f, 50.0f));
 		auto fade = new Game::Fade();
 		auto fadeRenderer = new GameEngine::Behaviour::UIRenderer();
 		fadeRenderer->SetColor(D3DCOLOR_ARGB(255, 0, 0, 0));

@@ -48,8 +48,8 @@ GameEngine::GameObject* GameFactory::CreatePlayer()
 GameEngine::GameObject* GameFactory::CreateFade()
 {
 	GameEngine::GameObject* FadeObject = GameEngine::GameObject::Instantiate();
-	FadeObject->GetTransform()->SetPosition(&D3DXVECTOR3(400.0f, 300.0f, 0.0f));
-	FadeObject->GetTransform()->SetScale(&D3DXVECTOR3(800.0f, 600.0f, 1.0f));
+	FadeObject->GetTransform()->SetPosition(&D3DXVECTOR3(800.0f, 600.0f, 0.0f));
+	FadeObject->GetTransform()->SetScale(&D3DXVECTOR3(1600.0f, 1200.0f, 1.0f));
 	auto fade = new Game::Fade();
 	auto FadeRenderer = new GameEngine::Behaviour::UIRenderer();
 	FadeRenderer->SetColor(D3DCOLOR_ARGB(255, 0, 0, 0));
@@ -64,8 +64,8 @@ GameEngine::GameObject * GameFactory::CreateHoverGauge()
 	GameEngine::GameObject* uiObject = GameEngine::GameObject::Instantiate();
 	auto uigauge = new Game::GameScene::Behaviour::UIgauge(true);
 	auto gaugeRenderer = new GameEngine::Behaviour::UIRenderer();
-	uiObject->GetTransform()->SetPosition(&D3DXVECTOR3(394.0f, 63.0f, 0.0f));
-	uiObject->GetTransform()->SetScale(&D3DXVECTOR3(200.0f, 50.0f, 0.0f));
+	uiObject->GetTransform()->SetPosition(&D3DXVECTOR3(788.0f, 126.0f, 0.0f));
+	uiObject->GetTransform()->SetScale(&D3DXVECTOR3(400.0f, 100.0f, 0.0f));
 	gaugeRenderer->SetColor(D3DCOLOR_ARGB(255, 0, 230, 0));
 	uiObject->AddBehaviour(uigauge);
 	uiObject->AddBehaviour(gaugeRenderer);
@@ -79,8 +79,8 @@ GameEngine::GameObject* GameFactory::CreateSonarGauge()
 	GameEngine::GameObject* uiObject = GameEngine::GameObject::Instantiate();
 	auto uigauge = new Game::GameScene::Behaviour::UIgauge(false);
 	auto gaugeRenderer = new GameEngine::Behaviour::UIRenderer();
-	uiObject->GetTransform()->SetPosition(&D3DXVECTOR3(394.0f, 98.0f, 0.0f));
-	uiObject->GetTransform()->SetScale(&D3DXVECTOR3(200.0f, 50.0f, 0.0f));
+	uiObject->GetTransform()->SetPosition(&D3DXVECTOR3(788.0f, 196.0f, 0.0f));
+	uiObject->GetTransform()->SetScale(&D3DXVECTOR3(400.0f, 100.0f, 0.0f));
 	gaugeRenderer->SetColor(D3DCOLOR_ARGB(255, 230, 0, 0));
 	uiObject->AddBehaviour(uigauge);
 	uiObject->AddBehaviour(gaugeRenderer);
@@ -91,8 +91,8 @@ GameEngine::GameObject* GameFactory::CreateSonarGauge()
 GameEngine::GameObject* GameFactory::CreateUIgaugeEdge()
 {
 	GameEngine::GameObject* object = GameEngine::GameObject::Instantiate();
-	object->GetTransform()->SetPosition(&D3DXVECTOR3(400.0f, 300.0f, 0.0f));
-	object->GetTransform()->SetScale(&D3DXVECTOR3(800.0f, 600.0f, 50.0f));
+	object->GetTransform()->SetPosition(&D3DXVECTOR3(800.0f, 600.0f, 0.0f));
+	object->GetTransform()->SetScale(&D3DXVECTOR3(1600.0f, 1200.0f, 50.0f));
 	auto uiRenderer = new GameEngine::Behaviour::UIRenderer(GameEngine::Resource::ResourceManager::Get<GameEngine::Resource::Texture>("./data/texture/UIgauge.png"));
 	uiRenderer->SetColor(D3DCOLOR_ARGB(255, 255, 255, 255));
 	object->AddBehaviour(uiRenderer);

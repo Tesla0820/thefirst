@@ -1,39 +1,40 @@
 //
-//		ファイル名:OperationScene.cpp
+//		ファイル名:Operation3Scene.cpp
 //
 
-#include "OperationScene.h"
+#include "Operation3Scene.h"
 #include "../../../../GameEngine/GameEngine.h"
 #include "../../../Common/Pipeline/Echo.h"
-#include "OperationManager.h"
+#include "Operation3Manager.h"
 #include "../../../Common/Fade.h"
 #include "../../../Common/Flash.h"
 
 namespace Game { namespace GameScene { namespace Scene
 {
 
-OperationScene::OperationScene()
+Operation3Scene::Operation3Scene()
 {
 
 }
 
-OperationScene::~OperationScene()
+Operation3Scene::~Operation3Scene()
 {
 	SAFE_DELETE(farre);
 }
 
-bool OperationScene::Init()
+bool Operation3Scene::Init()
 {
 	Fade::StartFadeIn();
 
 	using Texture = GameEngine::Resource::Texture;
 	using ResourceManager = GameEngine::Resource::ResourceManager;
 
+
 	// 操作説明画面
 	GameEngine::GameObject* operationObject = GameEngine::GameObject::Instantiate();
 	operationObject->GetTransform()->SetPosition(&D3DXVECTOR3(800.0f, 600.0f, 0.0f));
 	operationObject->GetTransform()->SetScale(&D3DXVECTOR3(1600.0f, 1200.0f, 50.0f));
-	auto operationRenderer = new GameEngine::Behaviour::UIRenderer(GameEngine::Resource::ResourceManager::Get<Texture>("./data/texture/operation.png"));
+	auto operationRenderer = new GameEngine::Behaviour::UIRenderer(GameEngine::Resource::ResourceManager::Get<Texture>("./data/texture/operation3.png"));
 	operationRenderer->SetColor(D3DCOLOR_ARGB(255, 255, 255, 255));
 	operationObject->AddBehaviour(operationRenderer);
 
@@ -41,7 +42,7 @@ bool OperationScene::Init()
 	GameEngine::GameObject* operationManagerObject = GameEngine::GameObject::Instantiate();
 	operationManagerObject->GetTransform()->SetPosition(&D3DXVECTOR3(600.0f, 800.0f, 0.0f));
 	operationManagerObject->GetTransform()->SetScale(&D3DXVECTOR3(100.0f, 100.0f, 50.0f));
-	auto operationManager = new Game::GameScene::Scene::OperationManager();
+	auto operationManager = new Game::GameScene::Scene::Operation3Manager();
 	//auto operationManagerSoundPlay = new GameEngine::Behaviour::SoundPlay();
 	//operationManagerSoundPlay->SetSound(GameEngine::Sound::Sound::CreateFromWaveFile("./data/sound/title.wav", XAUDIO2_LOOP_INFINITE));
 	operationManagerObject->AddBehaviour(operationManager);
