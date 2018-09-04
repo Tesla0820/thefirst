@@ -42,13 +42,10 @@ bool OperationScene::Init()
 	operationManagerObject->GetTransform()->SetPosition(&D3DXVECTOR3(600.0f, 800.0f, 0.0f));
 	operationManagerObject->GetTransform()->SetScale(&D3DXVECTOR3(100.0f, 100.0f, 50.0f));
 	auto operationManager = new Game::GameScene::Scene::OperationManager();
-	//auto operationManagerSoundPlay = new GameEngine::Behaviour::SoundPlay();
-	//operationManagerSoundPlay->SetSound(GameEngine::Sound::Sound::CreateFromWaveFile("./data/sound/title.wav", XAUDIO2_LOOP_INFINITE));
+	auto operationManagerSoundPlay = new GameEngine::Behaviour::SoundPlay();
+	operationManagerSoundPlay->SetSound(GameEngine::Sound::Sound::CreateFromWaveFile("./data/sound/decision.wav", 0));
 	operationManagerObject->AddBehaviour(operationManager);
-	//operationManagerObject->AddBehaviour(operationManagerSoundPlay);
-	//operationManagerSoundPlay->Play();
-
-
+	operationManagerObject->AddBehaviour(operationManagerSoundPlay);
 
 	// PushEnter用
 	GameEngine::GameObject* pushenterObject = GameEngine::GameObject::Instantiate();

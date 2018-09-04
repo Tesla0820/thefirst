@@ -8,6 +8,7 @@
 #include "../../../../GameEngine/GameEngine.h"
 #include "../../../../GameEngine/Behaviour/Behaviour.h"
 
+
 namespace Game { namespace GameScene { namespace Scene
 {
 
@@ -16,7 +17,7 @@ namespace Game { namespace GameScene { namespace Scene
 	{
 
 	private:
-		std::vector<GameEngine::Behaviour::SoundPlay*> _soundPlays;
+		GameEngine::Behaviour::SoundPlay* _soundPlay;
 
 	public:
 		OperationManager();

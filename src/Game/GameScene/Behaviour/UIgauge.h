@@ -22,7 +22,7 @@ private:
 	GameEngine::Behaviour::Transform* _transform;
 	D3DXVECTOR3 origin;
 
-	static constexpr float MaxGauge = 333.0f;
+	static constexpr float MaxGauge = 666.0f;
 public:
 	UIgauge(bool isHoverGauge);
 	virtual void Start() override;

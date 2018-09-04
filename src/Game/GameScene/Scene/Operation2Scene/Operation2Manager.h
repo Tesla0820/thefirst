@@ -11,18 +11,19 @@
 namespace Game { namespace GameScene { namespace Scene
 {
 
+class Operation2Manager :public GameEngine::Behaviour::Behaviour
+{
 
-	class Operation2Manager :public GameEngine::Behaviour::Behaviour
-	{
+private:
+	GameEngine::Behaviour::SoundPlay* _soundPlay;
 
-	private:
-	public:
-		Operation2Manager();
-		~Operation2Manager();
-		virtual void Start() override;
-		virtual void Update() override;
+public:
+	Operation2Manager();
+	~Operation2Manager();
+	virtual void Start() override;
+	virtual void Update() override;
+};
 
-	};
 }
 }
 }

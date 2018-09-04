@@ -27,7 +27,7 @@ namespace Game { namespace GameScene { namespace Scene
 	//===============================================
 	void OperationManager::Start()
 	{
-		_soundPlays = GetAttachedObject()->FindBehaviours<GameEngine::Behaviour::SoundPlay>();
+		_soundPlay = GetAttachedObject()->FindBehaviour<GameEngine::Behaviour::SoundPlay>();
 
 	}
 
@@ -41,7 +41,7 @@ namespace Game { namespace GameScene { namespace Scene
 			//ŽŸ‚ÌƒV[ƒ“‚Ö
 			if (GameEngine::Input::GetKey(DIK_RETURN, TRIGGER))
 			{
-				_soundPlays[1]->Play();
+				_soundPlay->Play();
 				Fade::StartFadeOut();
 			}
 		}

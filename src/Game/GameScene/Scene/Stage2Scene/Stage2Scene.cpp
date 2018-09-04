@@ -138,8 +138,8 @@ bool Stage2Scene::Init()
 	// UIゲージ
 	auto hoverGauge = GameFactory::CreateHoverGauge();
 	auto sonarGauge = GameFactory::CreateSonarGauge();
-	hoverGauge->FindBehaviour<Behaviour::UIgauge>()->SetPlayer(player->FindBehaviour<Player>());
-	sonarGauge->FindBehaviour<Behaviour::UIgauge>()->SetPlayer(player->FindBehaviour<Player>());
+	hoverGauge->FindBehaviour<Behaviour::UIgauge>()->SetPlayer(player->FindBehaviour<Behaviour::Player>());
+	sonarGauge->FindBehaviour<Behaviour::UIgauge>()->SetPlayer(player->FindBehaviour<Behaviour::Player>());
 
 	// フェード用
 	GameFactory::CreateFade();

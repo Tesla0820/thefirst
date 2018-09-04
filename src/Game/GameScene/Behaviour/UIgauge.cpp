@@ -40,7 +40,7 @@ void UIgauge::Update()
 		_len = MaxGauge * _player->GetSonarRate();
 	}
 
-	_transform->SetPosition(&D3DXVECTOR3(origin.x - (MAX_GAUGE - _len / 2.0f),origin.y, 0.0f));
+	_transform->SetPosition(&D3DXVECTOR3(origin.x - (MaxGauge - _len / 2.0f),origin.y, 0.0f));
 	_transform->SetScale(&D3DXVECTOR3(_len, 57.0f, 0.0f));
 }
 
