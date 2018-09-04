@@ -5,7 +5,7 @@
 #include "Sonar.h"
 #include "../../Common/Pipeline/Echo.h"
 
-namespace Game { namespace GameScene
+namespace Game { namespace GameScene { namespace Behaviour
 {
 
 void Sonar::Start()
@@ -20,10 +20,10 @@ void Sonar::Update()
 	if (!_isUsing) return;
 
 	_time++;
-	_collider->SetRadius(_time/2.0f);
+	_collider->SetRadius(_time / 2.0f);
 	_collider->HitAll();
 	auto pipeline = dynamic_cast<Pipeline::Echo*>(GameEngine::Environment::Get()->GetCurrentPipeline());
-	pipeline->SetRange(_time/2.0f);
+	pipeline->SetRange(_time / 2.0f);
 	if (_time < maxTime) return;
 	SonarDisable();
 }
@@ -46,7 +46,7 @@ void Sonar::SonarDisable()
 }
 
 
-bool Sonar::Ping()
+bool Sonar::Ping(D3DXVECTOR3 pos, D3DXQUATERNION rot)
 {
 	if (_isUsing)
 	{
@@ -54,9 +54,11 @@ bool Sonar::Ping()
 	}
 	D3DXVECTOR3 front(0.0f, 0.0f, -1.0f);
 	auto transform = GetAttachedObject()->GetTransform();
-	_position = transform->GetWorldPosition();
+	transform->SetPosition(&pos);
+	transform->SetRotation(&rot);
+	_position = pos;
 	_direction = transform->Front();
-	
+
 	//SonarEnable();
 	auto pipeline = dynamic_cast<Pipeline::Echo*>(GameEngine::Environment::Get()->GetCurrentPipeline());
 	pipeline->SetSonar(_position, _direction);
@@ -73,8 +75,9 @@ void Sonar::SetCollider(GameEngine::Behaviour::SphereCollider * collider)
 
 float Sonar::GetSonarRate()
 {
-	return _time/(float)maxTime;
+	return _time / (float)maxTime;
 }
 
+}
 }
 }

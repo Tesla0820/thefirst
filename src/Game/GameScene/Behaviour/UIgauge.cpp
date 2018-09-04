@@ -33,14 +33,14 @@ void UIgauge::Update()
 	if (!_player) return;
 	if (_isHoverGauge)
 	{
-		_len = MAX_GAUGE * _player->GetHoverRate();
+		_len = MaxGauge * _player->GetHoverRate();
 	}
 	else
 	{
-		_len = MAX_GAUGE * _player->GetSonarRate();
+		_len = MaxGauge * _player->GetSonarRate();
 	}
 
-	_transform->SetPosition(&D3DXVECTOR3(origin.x - (MAX_GAUGE - _len / 2.0f),origin.y, 0.0f));
+	_transform->SetPosition(&D3DXVECTOR3(origin.x - (MaxGauge - _len / 2.0f),origin.y, 0.0f));
 	_transform->SetScale(&D3DXVECTOR3(_len, 28.5f, 0.0f));
 }
 
@@ -49,7 +49,7 @@ Player* UIgauge::GetPlayer()
 	return _player;
 }
 
-void  UIgauge::SetPlayer(Game::GameScene::Player* player)
+void  UIgauge::SetPlayer(Player* player)
 {
 	_player = player;
 }

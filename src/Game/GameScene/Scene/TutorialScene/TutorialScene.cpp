@@ -7,6 +7,8 @@
 #include "../../../Common/Pipeline/Echo.h"
 #include "../../../Common/Fade.h"
 #include "../../Behaviour/UIgauge.h"
+#include "../../Behaviour/player.h"
+#include "../../Behaviour/Sonar.h"
 #include "../../GimmickFactory.h"
 #include "../../GameFactory.h"
 #include "../../StageLoader.h"
@@ -32,8 +34,12 @@ bool TutorialScene::Init()
   using ResourceManager = GameEngine::Resource::ResourceManager;
   GameEngine::Environment::Get()->AttachPipeline(new Pipeline::Echo());
 
+  //ソナー
+  auto sonar = GameFactory::CreateSonarEffect();
+
   //プレイヤー
   auto player = GameFactory::CreatePlayer();
+  player->FindBehaviour<Behaviour::Player>()->SetSonar(sonar->FindBehaviour<Behaviour::Sonar>());
 
   // マネージャー用
   GameEngine::GameObject* tutorialManagerObject = GameEngine::GameObject::Instantiate();
@@ -72,8 +78,8 @@ bool TutorialScene::Init()
   // UIゲージ
   auto hoverGauge = GameFactory::CreateHoverGauge();
   auto sonarGauge = GameFactory::CreateSonarGauge();
-  hoverGauge->FindBehaviour<Behaviour::UIgauge>()->SetPlayer(player->FindBehaviour<Player>());
-  sonarGauge->FindBehaviour<Behaviour::UIgauge>()->SetPlayer(player->FindBehaviour<Player>());
+  hoverGauge->FindBehaviour<Behaviour::UIgauge>()->SetPlayer(player->FindBehaviour<Behaviour::Player>());
+  sonarGauge->FindBehaviour<Behaviour::UIgauge>()->SetPlayer(player->FindBehaviour<Behaviour::Player>());
   //フェード
   GameFactory::CreateFade();
 

@@ -25,7 +25,7 @@ GameEngine::GameObject* GameFactory::CreatePlayer()
 	camera->SetCurrent();
 	camera->EnablePerspectiveMode(true);
 	object->GetTransform()->SetPosition(&D3DXVECTOR3(0.0f, 5.0f, 0.0f));
-	auto player = new Player();
+	auto player = new Behaviour::Player();
 	object->AddBehaviour(player);
 	auto hitCollider = new GameEngine::Behaviour::SphereCollider(0x00ff);
 	hitCollider->EnableTrigger(false);
@@ -33,14 +33,6 @@ GameEngine::GameObject* GameFactory::CreatePlayer()
 	hitCollider->SetRadius(5.0f);
 	hitCollider->SetHandler(player);
 	object->AddBehaviour(hitCollider);
-
-	auto sonar = new Sonar();
-	auto sonarCollider = new GameEngine::Behaviour::SphereCollider(0xff00);
-	sonar->SetCollider(sonarCollider);
-	sonarCollider->EnableFreeze(false);
-	sonarCollider->EnableTrigger(true);
-	object->AddBehaviour(sonarCollider);
-	object->AddBehaviour(sonar);
 
 	auto sonarSoundPlay = new GameEngine::Behaviour::SoundPlay();
 	auto landingSoundPlay = new GameEngine::Behaviour::SoundPlay();
@@ -55,9 +47,22 @@ GameEngine::GameObject* GameFactory::CreatePlayer()
 	object->AddBehaviour(deadSoundPlay);
 	object->AddBehaviour(hoverSoundPlay);
 
-
 	return object;
 }
+
+GameEngine::GameObject* GameFactory::CreateSonarEffect()
+{
+	GameEngine::GameObject* object = GameEngine::GameObject::Instantiate();
+	auto sonar = new Behaviour::Sonar();
+	auto sonarCollider = new GameEngine::Behaviour::SphereCollider(0xff00);
+	sonar->SetCollider(sonarCollider);
+	sonarCollider->EnableFreeze(false);
+	sonarCollider->EnableTrigger(true);
+	object->AddBehaviour(sonarCollider);
+	object->AddBehaviour(sonar);
+	return object;
+}
+
 
 GameEngine::GameObject* GameFactory::CreateFade()
 {

@@ -33,8 +33,12 @@ bool Stage3Scene::Init()
 	using ResourceManager = GameEngine::Resource::ResourceManager;
 	GameEngine::Environment::Get()->AttachPipeline(new Pipeline::Echo());
 
+	//ソナー
+	auto sonar = GameFactory::CreateSonarEffect();
+
 	//プレイヤー
 	auto player = GameFactory::CreatePlayer();
+	player->FindBehaviour<Behaviour::Player>()->SetSonar(sonar->FindBehaviour<Behaviour::Sonar>());
 
 	// BGM・SE用
 	GameEngine::GameObject* stageSoundObject = GameEngine::GameObject::Instantiate();
@@ -194,7 +198,7 @@ bool Stage3Scene::Init()
 
 	// UIゲージ
 	auto uiGauge = GameFactory::CreateSonarGauge();
-	uiGauge->FindBehaviour<Behaviour::UIgauge>()->SetPlayer(player->FindBehaviour<Player>());
+	uiGauge->FindBehaviour<Behaviour::UIgauge>()->SetPlayer(player->FindBehaviour<Behaviour::Player>());
 
 	// フェード用
 	GameFactory::CreateFade();

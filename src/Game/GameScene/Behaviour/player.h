@@ -7,35 +7,37 @@
 
 #include "Sonar.h"
 
-namespace Game { namespace GameScene
+namespace Game { namespace GameScene { namespace Behaviour
 {
-	class Player : public GameEngine::Behaviour::Behaviour,public GameEngine::Behaviour::ICollisionHandler
-	{
+
+class Player : public GameEngine::Behaviour::Behaviour, public GameEngine::Behaviour::ICollisionHandler
+{
 	private:
 
-		Sonar* _sonar;
-		GameEngine::Behaviour::Transform* _transform;
-		GameEngine::Behaviour::SphereCollider* _sphere;
-		float _angle;
-		int _maxFuel;
-		int _currentFuel;
-		int _delay;
-		int _state;
-		bool _isGround;
+	Sonar* _sonar;
+	GameEngine::Behaviour::Transform* _transform;
+	GameEngine::Behaviour::SphereCollider* _sphere;
+	float _angle;
+	int _maxFuel;
+	int _currentFuel;
+	int _delay;
+	int _state;
+	bool _isGround;
 
-		void UpdatePlayer();
-		void UpdateClear();
-		void UpdateOver();
-		std::vector<GameEngine::Behaviour::SoundPlay*> _soundPlays;
+	void UpdatePlayer();
+	void UpdateClear();
+	void UpdateOver();
+	std::vector<GameEngine::Behaviour::SoundPlay*> _soundPlays;
 	public:
+	virtual void Start() override;
+	virtual void Update() override;
+	virtual void OnCollision(GameEngine::Behaviour::Collider * from) override;
+	float GetSonarRate();
+	float GetHoverRate();
+	void SetSonar(Sonar* sonar);
+};
 
-		virtual void Start() override;
-		virtual void Update() override;
-		virtual void OnCollision(GameEngine::Behaviour::Collider * from) override;
-		float GetSonarRate();
-		float GetHoverRate();
-
-	};
+}
 }
 }
 #endif
