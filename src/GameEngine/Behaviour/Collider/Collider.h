@@ -34,6 +34,7 @@ public:
 	bool IsTrigger();
 	bool IsFreeze();
 	void SetHandler(ICollisionHandler* handler);
+	void SetFlag(int flag);
 	int GetFlag();
 	void HitAll(); // ŠeCollider‚ÆÚG‚µ‚Ä‚¢‚é‚©”»’è‚µ‚Ü‚·B
 
