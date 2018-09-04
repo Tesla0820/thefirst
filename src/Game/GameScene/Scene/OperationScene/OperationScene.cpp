@@ -33,7 +33,7 @@ bool OperationScene::Init()
 	GameEngine::GameObject* backgrounsObject = GameEngine::GameObject::Instantiate();
 	backgrounsObject->GetTransform()->SetPosition(&D3DXVECTOR3(400.0f, 300.0f, 0.0f));
 	backgrounsObject->GetTransform()->SetScale(&D3DXVECTOR3(800.0f, 600.0f, 50.0f));
-	auto backgrounsRenderer = new GameEngine::Behaviour::UIRenderer(GameEngine::Resource::ResourceManager::Get<Texture>("./data/texture/test.png"));
+	auto backgrounsRenderer = new GameEngine::Behaviour::UIRenderer(/*GameEngine::Resource::ResourceManager::Get<Texture>("./data/texture/test.png")*/);
 	backgrounsRenderer->SetColor(D3DCOLOR_ARGB(255, 255, 255, 255));
 	backgrounsObject->AddBehaviour(backgrounsRenderer);
 
@@ -42,7 +42,7 @@ bool OperationScene::Init()
 	operationObject->GetTransform()->SetPosition(&D3DXVECTOR3(400.0f, 200.0f, 0.0f));
 	operationObject->GetTransform()->SetScale(&D3DXVECTOR3(800.0f, 400.0f, 50.0f));
 	auto operationRenderer = new GameEngine::Behaviour::UIRenderer(GameEngine::Resource::ResourceManager::Get<Texture>("./data/texture/operation.png"));
-	operationRenderer->SetColor(D3DCOLOR_ARGB(255, 255, 255, 255));
+	operationRenderer->SetColor(D3DCOLOR_ARGB(255, 0, 0, 0));
 	operationObject->AddBehaviour(operationRenderer);
 
 	// マネージャー用
