@@ -133,7 +133,7 @@ void Player::UpdateClear()
 {
 	if (Fade::EndFadeOut())
 	{
-		GameEngine::Scene::SceneManager::LoadScene(6);
+		GameEngine::Scene::SceneManager::LoadScene(5);
 	}
 }
 

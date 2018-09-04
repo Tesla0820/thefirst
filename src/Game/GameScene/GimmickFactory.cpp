@@ -80,7 +80,11 @@ void GimmickFactory::InstantiateBell(D3DXVECTOR3* position, D3DXVECTOR3* rotate)
 
     gimmick->GetTransform()->SetScale(&D3DXVECTOR3(13.0F, 13.0F, 13.0F));
 
-    gimmick->FindBehaviour<GameEngine::Behaviour::BoxCollider>()->SetScale(&D3DXVECTOR3(5.5F, 3.0F, 1.2F));
+	auto collider = gimmick->FindBehaviour<GameEngine::Behaviour::BoxCollider>();
+	
+    collider->SetScale(&D3DXVECTOR3(5.5F, 3.0F, 1.2F));
+
+	collider->SetFlag(0x0008);
 }
 
 /////////////////////////////////////////////
