@@ -29,6 +29,7 @@ public:
 	virtual void Hit(Collider* collider) override;
 	void HitToSphere(SphereCollider* collider);
 	void HitToBox(BoxCollider* collider);
+    void SetScale(D3DXVECTOR3*);
 };
 
 

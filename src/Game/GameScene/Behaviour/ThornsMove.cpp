@@ -27,9 +27,9 @@ void ThornsMove::Start(void)
     Gimmick::Start();
 
     _transform = GetAttachedObject()->GetTransform();
-    _move_Distance = 0.0F;
+    _move_Distance = 0;
     _move = { 0.0F, 0.0F, 0.0F };
-    _move_Vector = _transform->Front() * 0.2F;
+    _move_Vector = _transform->Back() * 0.1F;
     _attack = false;
 }
 
@@ -50,10 +50,10 @@ void ThornsMove::Update(void)
     }
 
     _move = { 0.0F, 0.0F, 0.0F };
-    _move += _move_Vector * _move_Distance;
-    _move_Distance += 0.1F;
+    _move += _move_Vector * (_move_Distance * 0.1F);
+    _move_Distance++;
 
-    if (_move_Distance >= 5.0F)
+    if (_move_Distance >= 100)
     {
         _attack = false;
         return;
