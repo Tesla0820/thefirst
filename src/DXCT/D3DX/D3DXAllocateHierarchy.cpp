@@ -64,7 +64,7 @@ HRESULT D3DXAllocateHierarchy::CreateMeshContainer(LPCSTR Name, D3DXMESHDATA con
 	//マテリアルデータの設定
 	p->NumMaterials = NumMaterials;
 	p->pMaterials = new D3DXMATERIAL[NumMaterials];
-	for (int i = 0; i<NumMaterials; i++) {
+	for (DWORD i = 0; i<NumMaterials; i++) {
 		p->pMaterials[i].MatD3D = pMaterials[i].MatD3D;
 		StringDeepCopy(&p->Name, pMaterials[i].pTextureFilename);
 	}
@@ -147,16 +147,17 @@ HRESULT D3DXAllocateHierarchy::DestroyMeshContainer(LPD3DXMESHCONTAINER pMeshCon
 	}
 	
 	//マテリアルデータの解放
-	for (int i = 0; i<pMeshContainer->NumMaterials; i++) {
+	for (DWORD i = 0; i<pMeshContainer->NumMaterials; i++) {
 		SAFE_DELETE_ARRAY(pMeshContainer->pMaterials[i].pTextureFilename);
 	}
 	SAFE_DELETE_ARRAY(pMeshContainer->pMaterials);
 	
 	//エフェクトデータの解放
-	for (int i = 0; i<pMeshContainer->pEffects->NumDefaults; i++) {
+	for (DWORD i = 0; i<pMeshContainer->pEffects->NumDefaults; i++) {
 		SAFE_DELETE_ARRAY(pMeshContainer->pEffects->pDefaults[i].pParamName);
 		SAFE_DELETE_ARRAY(pMeshContainer->pEffects->pDefaults[i].pValue);
 	}
+
 	SAFE_DELETE_ARRAY(pMeshContainer->pEffects->pEffectFilename);
 	SAFE_DELETE_ARRAY(pMeshContainer->pEffects->pDefaults);
 	SAFE_DELETE(pMeshContainer->pEffects);

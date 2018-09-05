@@ -34,9 +34,9 @@ class Mesh:public IMesh
 template<typename T>
 Mesh<T>::Mesh(std::vector<T>& verticies,unsigned long fvf,D3DPRIMITIVETYPE primitiveType)
 {
-	int size =verticies.size();
+	unsigned int size = (unsigned int)verticies.size();
 	_verticies.reset(new T[size]);
-	for (int i=0;i<size;i++)
+	for (unsigned int i=0;i<size;i++)
 	{
 		_verticies[i] = verticies[i];
 	}

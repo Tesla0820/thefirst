@@ -43,7 +43,7 @@ void FPSCounter::Reset()
 void FPSCounter::Update()
 {
 	double elapsed = _clock.GetElapsed();
-	int currentFrame = elapsed*_frameRate;
+	int currentFrame = (int) elapsed*_frameRate;
 	_isFrameChanged = false;
 	if (_oldFrame != currentFrame)
 	{

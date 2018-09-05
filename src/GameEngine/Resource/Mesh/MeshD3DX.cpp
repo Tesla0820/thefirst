@@ -11,12 +11,15 @@ MeshD3DX::MeshD3DX(LPCTSTR pFilename)
 	HRESULT hr;
 	ID3DXBuffer* Materials;
 	ID3DXBuffer* EffectInstances;
+
 	auto device = GameEngine::Environment::Get()->GetCurrentDevice();
 	hr = D3DXLoadMeshFromX(pFilename, D3DXMESH_VB_MANAGED, device->GetPtr(), NULL, &Materials, &EffectInstances, &NumMaterials, &Mesh);
+
 	if (FAILED(hr))
 	{
 		throw(std::runtime_error("メッシュの生成に失敗しました。"));
 	}
+
 	if (!(Mesh->GetFVF() & D3DFVF_NORMAL))
 	{
 		//法線情報が存在しない
@@ -31,11 +34,10 @@ MeshD3DX::MeshD3DX(LPCTSTR pFilename)
 	materials.reset( new D3DMATERIAL9[NumMaterials]);
 	D3DXMATERIAL* d3dxMaterials = (D3DXMATERIAL*)Materials->GetBufferPointer();
 
-	for (int i = 0; i < NumMaterials; i++)
+	for (DWORD i = 0; i < NumMaterials; i++)
 	{
 		materials[i] = d3dxMaterials[i].MatD3D;
 	}
-
 
 	Materials->Release();
 	EffectInstances->Release();
@@ -62,9 +64,9 @@ void MeshD3DX::Draw()
 {
 	IDirect3DDevice9* device;
 	Mesh->GetDevice(&device);
-	for (int i = 0; i < NumMaterials; i++) {
+	for (DWORD i = 0; i < NumMaterials; i++)
+	{
 		device->SetMaterial(&materials[i]);
-		//device->SetTexture(0, Textures[i]);
 		Mesh->DrawSubset(i);
 	}
 }

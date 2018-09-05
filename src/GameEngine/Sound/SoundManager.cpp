@@ -7,7 +7,7 @@ std::shared_ptr<DXCT::XAudio2::XAudio2Factory> SoundManager::_factory;
 std::shared_ptr<DXCT::XAudio2::XAudio2MasteringVoice> SoundManager::_masteringVoice;
 std::list<std::shared_ptr<DXCT::XAudio2::XAudio2SourceVoice>> SoundManager::_sourceVoiceList;
 
-int SoundManager::Play(Sound & sound)
+unsigned int SoundManager::Play(Sound & sound)
 {
 	XAUDIO2_BUFFER buffer;
 
@@ -19,7 +19,6 @@ int SoundManager::Play(Sound & sound)
 	buffer.LoopCount = sound.GetLoopCount();
 
 	WAVEFORMATEXTENSIBLE format;
-
 	sound.GetFomat(&format);
 
 	std::shared_ptr<DXCT::XAudio2::XAudio2SourceVoice> voice = _factory->CreateSourceVoice(&format.Format);
@@ -28,7 +27,7 @@ int SoundManager::Play(Sound & sound)
 	voice->Start(0);
 
 	_sourceVoiceList.push_back(std::move(voice));
-	return _sourceVoiceList.size() - 1;
+	return (unsigned int)_sourceVoiceList.size() - 1u;
 }
 
 void SoundManager::Stop(int code)
@@ -58,7 +57,6 @@ void SoundManager::StopAll()
 		}
 		_sourceVoiceList.pop_back();
 	}
-
 }
 
 void SoundManager::Create()
@@ -72,7 +70,6 @@ void SoundManager::Release()
 {
 	StopAll();
 	_masteringVoice.reset();
-
 	_factory.reset();
 }
 

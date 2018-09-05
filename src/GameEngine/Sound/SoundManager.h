@@ -19,7 +19,7 @@ class SoundManager
 		static std::list<std::shared_ptr<DXCT::XAudio2::XAudio2SourceVoice>> _sourceVoiceList;
 
 	public:
-		static int Play(Sound& sound);
+		static unsigned int Play(Sound& sound);
 		static void Stop(int code);
 		static void StopAll();
 		static void Create();
