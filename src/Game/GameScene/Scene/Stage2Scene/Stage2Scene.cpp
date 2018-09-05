@@ -51,86 +51,76 @@ bool Stage2Scene::Init()
 	StageLoader::LoadStage("./data/stage/stage2.txt");
 
 	//壊れた柱
-	GimmickFactory::InstantiateBrokenPillar(&D3DXVECTOR3(-100.0f, 0.0f, 0.0f), &D3DXVECTOR3(0.0f, 90.0f, 0.0f));
-	GimmickFactory::InstantiateBrokenPillar(&D3DXVECTOR3(-100.0f, 0.0f, 0.0f), &D3DXVECTOR3(0.0f, 90.0f, 0.0f));
-	GimmickFactory::InstantiateBrokenPillar(&D3DXVECTOR3(-100.0f, 0.0f, 0.0f), &D3DXVECTOR3(0.0f, 90.0f, 0.0f));
-	GimmickFactory::InstantiateBrokenPillar(&D3DXVECTOR3(-100.0f, 0.0f, 0.0f), &D3DXVECTOR3(0.0f, 90.0f, 0.0f));
-	GimmickFactory::InstantiateBrokenPillar(&D3DXVECTOR3(-100.0f, 0.0f, 0.0f), &D3DXVECTOR3(0.0f, 90.0f, 0.0f));
+	//GimmickFactory::InstantiateBrokenPillar(&D3DXVECTOR3(-100.0f, 0.0f, 0.0f), &D3DXVECTOR3(0.0f, 90.0f, 0.0f));
+	//GimmickFactory::InstantiateBrokenPillar(&D3DXVECTOR3(-100.0f, 0.0f, 0.0f), &D3DXVECTOR3(0.0f, 90.0f, 0.0f));
+	//GimmickFactory::InstantiateBrokenPillar(&D3DXVECTOR3(-50.0f, 0.0f, -520.0f), &D3DXVECTOR3(0.0f, 90.0f, 0.0f));
+	//GimmickFactory::InstantiateBrokenPillar(&D3DXVECTOR3(-50.0f, 0.0f, -420.0f), &D3DXVECTOR3(0.0f, 90.0f, 0.0f));
 
-	GimmickFactory::InstantiateBrokenPillar(&D3DXVECTOR3(-100.0f, 0.0f, 0.0f), &D3DXVECTOR3(0.0f, 90.0f, 0.0f));
-	GimmickFactory::InstantiateBrokenPillar(&D3DXVECTOR3(-100.0f, 0.0f, 0.0f), &D3DXVECTOR3(0.0f, 90.0f, 0.0f));
-	GimmickFactory::InstantiateBrokenPillar(&D3DXVECTOR3(-100.0f, 0.0f, 0.0f), &D3DXVECTOR3(0.0f, 90.0f, 0.0f));
+	GimmickFactory::InstantiateBrokenPillar(&D3DXVECTOR3(-190.0f, 0.0f, -734.0f), &D3DXVECTOR3(0.0f, 180.0f, 0.0f));
+	
+    GimmickFactory::InstantiateBrokenPillar(&D3DXVECTOR3(-260.0f, 0.0f, -204.0f), &D3DXVECTOR3(0.0f, 90.0f, 0.0f));
 
 	//柱
-	GimmickFactory::InstantiatePillar(&D3DXVECTOR3(0.0f, 0.0f, 20.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
-	GimmickFactory::InstantiatePillar(&D3DXVECTOR3(0.0f, 0.0f, 20.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
-	GimmickFactory::InstantiatePillar(&D3DXVECTOR3(0.0f, 0.0f, 20.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
-	GimmickFactory::InstantiatePillar(&D3DXVECTOR3(0.0f, 0.0f, 20.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
-	GimmickFactory::InstantiatePillar(&D3DXVECTOR3(0.0f, 0.0f, 20.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
+    GimmickFactory::InstantiatePillar(&D3DXVECTOR3(60.0f, 0.0f, -111.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
+    GimmickFactory::InstantiatePillar(&D3DXVECTOR3(-40.0f, 0.0f, -204.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
 
-	GimmickFactory::InstantiatePillar(&D3DXVECTOR3(0.0f, 0.0f, 20.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
-	GimmickFactory::InstantiatePillar(&D3DXVECTOR3(0.0f, 0.0f, 20.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
-	GimmickFactory::InstantiatePillar(&D3DXVECTOR3(0.0f, 0.0f, 20.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
-	GimmickFactory::InstantiatePillar(&D3DXVECTOR3(0.0f, 0.0f, 20.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
-	GimmickFactory::InstantiatePillar(&D3DXVECTOR3(0.0f, 0.0f, 20.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
+    GimmickFactory::InstantiatePillar(&D3DXVECTOR3(180.0f, 0.0f, -204.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
+	GimmickFactory::InstantiatePillar(&D3DXVECTOR3(356.0f, 0.0f, -111.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
+	GimmickFactory::InstantiatePillar(&D3DXVECTOR3(440.0f, 0.0f, -204.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
+	GimmickFactory::InstantiatePillar(&D3DXVECTOR3(534.0f, 0.0f, -111.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
 
-	GimmickFactory::InstantiatePillar(&D3DXVECTOR3(0.0f, 0.0f, 20.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
-	GimmickFactory::InstantiatePillar(&D3DXVECTOR3(0.0f, 0.0f, 20.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
-	GimmickFactory::InstantiatePillar(&D3DXVECTOR3(0.0f, 0.0f, 20.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
-	GimmickFactory::InstantiatePillar(&D3DXVECTOR3(0.0f, 0.0f, 20.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
-	GimmickFactory::InstantiatePillar(&D3DXVECTOR3(0.0f, 0.0f, 20.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
+    GimmickFactory::InstantiatePillar(&D3DXVECTOR3(534.0f, 0.0f, -295.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
+    GimmickFactory::InstantiatePillar(&D3DXVECTOR3(440.0f, 0.0f, -400.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
+    GimmickFactory::InstantiatePillar(&D3DXVECTOR3(534.0f, 0.0f, -558.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
+    GimmickFactory::InstantiatePillar(&D3DXVECTOR3(440.0f, 0.0f, -651.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
+    GimmickFactory::InstantiatePillar(&D3DXVECTOR3(534.0f, 0.0f, -744.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
 
-	GimmickFactory::InstantiatePillar(&D3DXVECTOR3(0.0f, 0.0f, 20.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
-	GimmickFactory::InstantiatePillar(&D3DXVECTOR3(0.0f, 0.0f, 20.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
-	GimmickFactory::InstantiatePillar(&D3DXVECTOR3(0.0f, 0.0f, 20.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
-	GimmickFactory::InstantiatePillar(&D3DXVECTOR3(0.0f, 0.0f, 20.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
-	GimmickFactory::InstantiatePillar(&D3DXVECTOR3(0.0f, 0.0f, 20.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
-
-	GimmickFactory::InstantiatePillar(&D3DXVECTOR3(0.0f, 0.0f, 20.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
-	GimmickFactory::InstantiatePillar(&D3DXVECTOR3(0.0f, 0.0f, 20.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
+	GimmickFactory::InstantiatePillar(&D3DXVECTOR3(356.0f, 0.0f, -744.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
+	GimmickFactory::InstantiatePillar(&D3DXVECTOR3(250.0f, 0.0f, -651.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
+	GimmickFactory::InstantiatePillar(&D3DXVECTOR3(144.0f, 0.0f, -744.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
+	GimmickFactory::InstantiatePillar(&D3DXVECTOR3(38.0f, 0.0f, -651.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
+	GimmickFactory::InstantiatePillar(&D3DXVECTOR3(-68.0f, 0.0f, -744.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
+	GimmickFactory::InstantiatePillar(&D3DXVECTOR3(-214.0f, 0.0f, -651.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
+	GimmickFactory::InstantiatePillar(&D3DXVECTOR3(-310.0f, 0.0f, -744.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
+	
+    GimmickFactory::InstantiatePillar(&D3DXVECTOR3(-310.0f, 0.0f, -558.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
+	GimmickFactory::InstantiatePillar(&D3DXVECTOR3(-214.0f, 0.0f, -450.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
+	GimmickFactory::InstantiatePillar(&D3DXVECTOR3(-310.0f, 0.0f, -355.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
+	GimmickFactory::InstantiatePillar(&D3DXVECTOR3(-310.0f, 0.0f, -260.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
 
 	//トゲ
-	GimmickFactory::InstantiateThorns(&D3DXVECTOR3(0.0f, 0.0f, 20.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
-	GimmickFactory::InstantiateThorns(&D3DXVECTOR3(0.0f, 0.0f, 20.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
-	GimmickFactory::InstantiateThorns(&D3DXVECTOR3(0.0f, 0.0f, 20.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
-	GimmickFactory::InstantiateThorns(&D3DXVECTOR3(0.0f, 0.0f, 20.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
-	GimmickFactory::InstantiateThorns(&D3DXVECTOR3(0.0f, 0.0f, 20.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
+	GimmickFactory::InstantiateThorns(&D3DXVECTOR3(370.0f, 0.0f, -637.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
+	GimmickFactory::InstantiateThorns(&D3DXVECTOR3(330.0f, 0.0f, -637.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
 
-	GimmickFactory::InstantiateThorns(&D3DXVECTOR3(0.0f, 0.0f, 20.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
-
+	GimmickFactory::InstantiateThorns(&D3DXVECTOR3(60.0f, 0.0f, -758.0f), &D3DXVECTOR3(0.0f, 180.0f, 0.0f));
+	GimmickFactory::InstantiateThorns(&D3DXVECTOR3(20.0f, 0.0f, -758.0f), &D3DXVECTOR3(0.0f, 180.0f, 0.0f));
 
 	//飛び出すトゲ
-	GimmickFactory::InstantiateThornsMove(&D3DXVECTOR3(0.0f, 0.0f, 20.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
-	GimmickFactory::InstantiateThornsMove(&D3DXVECTOR3(0.0f, 0.0f, 20.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
-	GimmickFactory::InstantiateThornsMove(&D3DXVECTOR3(0.0f, 0.0f, 20.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
-	GimmickFactory::InstantiateThornsMove(&D3DXVECTOR3(0.0f, 0.0f, 20.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
-	GimmickFactory::InstantiateThornsMove(&D3DXVECTOR3(0.0f, 0.0f, 20.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
+	GimmickFactory::InstantiateThornsMove(&D3DXVECTOR3(130.0f, 0.0f, -110.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
+	GimmickFactory::InstantiateThornsMove(&D3DXVECTOR3(210.0f, 0.0f, -110.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
+	
+    GimmickFactory::InstantiateThornsMove(&D3DXVECTOR3(260.0f, 0.0f, -758.0f), &D3DXVECTOR3(0.0f, 180.0f, 0.0f));
+	GimmickFactory::InstantiateThornsMove(&D3DXVECTOR3(220.0f, 0.0f, -758.0f), &D3DXVECTOR3(0.0f, 180.0f, 0.0f));
 
-	GimmickFactory::InstantiateThornsMove(&D3DXVECTOR3(0.0f, 0.0f, 20.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
-	GimmickFactory::InstantiateThornsMove(&D3DXVECTOR3(0.0f, 0.0f, 20.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
-	GimmickFactory::InstantiateThornsMove(&D3DXVECTOR3(0.0f, 0.0f, 20.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
-	GimmickFactory::InstantiateThornsMove(&D3DXVECTOR3(0.0f, 0.0f, 20.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
-	GimmickFactory::InstantiateThornsMove(&D3DXVECTOR3(0.0f, 0.0f, 20.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
+	GimmickFactory::InstantiateThornsMove(&D3DXVECTOR3(160.0f, 0.0f, -637.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
+	GimmickFactory::InstantiateThornsMove(&D3DXVECTOR3(120.0f, 0.0f, -637.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
 
-	GimmickFactory::InstantiateThornsMove(&D3DXVECTOR3(0.0f, 0.0f, 20.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
-	GimmickFactory::InstantiateThornsMove(&D3DXVECTOR3(0.0f, 0.0f, 20.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
-	GimmickFactory::InstantiateThornsMove(&D3DXVECTOR3(0.0f, 0.0f, 20.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
-	GimmickFactory::InstantiateThornsMove(&D3DXVECTOR3(0.0f, 0.0f, 20.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
+	GimmickFactory::InstantiateThornsMove(&D3DXVECTOR3(-50.0f, 0.0f, -637.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
+	GimmickFactory::InstantiateThornsMove(&D3DXVECTOR3(-110.0f, 0.0f, -637.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
 
 	//鎧
-	GimmickFactory::InstantiateArmor(&D3DXVECTOR3(0.0f, 0.0f, 20.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
-	GimmickFactory::InstantiateArmor(&D3DXVECTOR3(0.0f, 0.0f, 20.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
-	GimmickFactory::InstantiateArmor(&D3DXVECTOR3(0.0f, 0.0f, 20.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
-	GimmickFactory::InstantiateArmor(&D3DXVECTOR3(0.0f, 0.0f, 20.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
-	GimmickFactory::InstantiateArmor(&D3DXVECTOR3(0.0f, 0.0f, 20.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
-	GimmickFactory::InstantiateArmor(&D3DXVECTOR3(0.0f, 0.0f, 20.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
+	GimmickFactory::InstantiateArmor(&D3DXVECTOR3(-290.0f, 0.0f, -608.0f), &D3DXVECTOR3(0.0f, 90.0f, 0.0f));
+	GimmickFactory::InstantiateArmor(&D3DXVECTOR3(-235.0f, 0.0f, -608.0f), &D3DXVECTOR3(0.0f, 270.0f, 0.0f));
+    GimmickFactory::InstantiateArmor(&D3DXVECTOR3(-290.0f, 0.0f, -508.0f), &D3DXVECTOR3(0.0f, 90.0f, 0.0f));
+    GimmickFactory::InstantiateArmor(&D3DXVECTOR3(-235.0f, 0.0f, -508.0f), &D3DXVECTOR3(0.0f, 270.0f, 0.0f));
+    GimmickFactory::InstantiateArmor(&D3DXVECTOR3(-290.0f, 0.0f, -408.0f), &D3DXVECTOR3(0.0f, 90.0f, 0.0f));
+    GimmickFactory::InstantiateArmor(&D3DXVECTOR3(-235.0f, 0.0f, -408.0f), &D3DXVECTOR3(0.0f, 270.0f, 0.0f));
+
+    //銅像
+    GimmickFactory::InstantiateBronzeStatue(&D3DXVECTOR3(490.0f, 7.0f, -700.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f)/*, &D3DXVECTOR3(490.0f, 7.0f, -700.0f), &D3DXVECTOR3(490.0f, 7.0f, -120.0f) 0.0F*/);
 
 	//鐘
-	GimmickFactory::InstantiateBell(&D3DXVECTOR3(0.0f, 7.0f, 20.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
-
-	//銅像
-	GimmickFactory::InstantiateBronzeStatue(&D3DXVECTOR3(0.0f, 7.0f, 10.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
-	GimmickFactory::InstantiateBronzeStatue(&D3DXVECTOR3(0.0f, 7.0f, 10.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
+	GimmickFactory::InstantiateBell(&D3DXVECTOR3(-430.0f, 7.0f, -307.0f), &D3DXVECTOR3(0.0f, 90.0f, 0.0f));
 
 	// UIゲージの枠用
 	GameFactory::CreateUIgaugeEdge();
