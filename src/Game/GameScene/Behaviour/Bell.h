@@ -19,10 +19,13 @@ namespace Game { namespace Behaviour
 //ƒNƒ‰ƒXéŒ¾//
 class Bell : public Gimmick
 {
+	private:
+		GameEngine::Behaviour::SoundPlay* _bell;
     public:
 		Bell();
         virtual void Start(void) override;
         virtual void Update(void) override;
+		virtual void OnCollision(GameEngine::Behaviour::Collider* collider) override;
 };
 
 }}

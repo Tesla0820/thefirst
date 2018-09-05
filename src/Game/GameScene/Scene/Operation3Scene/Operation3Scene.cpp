@@ -53,7 +53,7 @@ bool Operation3Scene::Init()
 	pushenterObject->GetTransform()->SetPosition(&D3DXVECTOR3(1200.0f, 1100.0f, 0.0f));
 	pushenterObject->GetTransform()->SetScale(&D3DXVECTOR3(800.0f, 600.0f, 50.0f));
 	auto flash = new Game::Flash();
-	auto pushenterRenderer = new GameEngine::Behaviour::UIRenderer(GameEngine::Resource::ResourceManager::Get<Texture>("./data/texture/pushenter.png"));
+	auto pushenterRenderer = new GameEngine::Behaviour::UIRenderer(GameEngine::Resource::ResourceManager::Get<Texture>("./data/texture/pushenterB.png"));
 	pushenterObject->AddBehaviour(flash);
 	pushenterRenderer->SetColor(D3DCOLOR_ARGB(255, 255, 255, 255));
 	pushenterObject->AddBehaviour(pushenterRenderer);

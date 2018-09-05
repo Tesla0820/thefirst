@@ -24,7 +24,7 @@ Bell::Bell():Gimmick(Gimmick::defaultDuration * 2)
 /////////////////////////////////////////////
 void Bell::Start(void)
 {
-    Gimmick::Start();
+	Gimmick::Start();
 }
 
 /////////////////////////////////////////////
@@ -39,6 +39,13 @@ void Bell::Start(void)
 void Bell::Update(void)
 {
     Gimmick::Update();
+
+}
+
+void Bell::OnCollision(GameEngine::Behaviour::Collider * collider)
+{
+	Gimmick::OnCollision(collider);
+	if (collider->GetFlag() & 0x00ff) return;
 }
 
 }}
