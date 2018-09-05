@@ -110,10 +110,8 @@ bool Stage3Scene::Init()
 	GimmickFactory::InstantiateArmor(&D3DXVECTOR3(-1170.0f, 0.0f, 190.0f), &D3DXVECTOR3(0.0f, 180.0f, 0.0f));
 
 	GimmickFactory::InstantiateBrokenPillar(&D3DXVECTOR3(-1110.0f, 0.0f, 0.0f), &D3DXVECTOR3(0.0f, -90.0f, 0.0f));
-	//GimmickFactory::InstantiateBrokenPillar(&D3DXVECTOR3(-1160.0f, 0.0f, 50.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
-	//GimmickFactory::InstantiateBrokenPillar(&D3DXVECTOR3(-1210.0f, 0.0f, 0.0f), &D3DXVECTOR3(0.0f, 90.0f, 0.0f));
 
-	//GimmickFactory::InstantiateBronzeStatue(&D3DXVECTOR3(-1260.0f, 0.0f, -50.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
+	GimmickFactory::InstantiateBronzeStatue(&D3DXVECTOR3(-1260.0f, 0.0f, -50.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f), 200.0f, 0.5f);
 
 	GimmickFactory::InstantiateArmor(&D3DXVECTOR3(-1140.0f, 0.0f, -120.0f), &D3DXVECTOR3(0.0f, -90.0f, 0.0f));
 	GimmickFactory::InstantiateArmor(&D3DXVECTOR3(-1140.0f, 0.0f, -200.0f), &D3DXVECTOR3(0.0f, -90.0f, 0.0f));
@@ -121,8 +119,6 @@ bool Stage3Scene::Init()
 	GimmickFactory::InstantiatePillar(&D3DXVECTOR3(-1200.0f, 0.0f, -210.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
 	GimmickFactory::InstantiatePillar(&D3DXVECTOR3(-1280.0f, 0.0f, -210.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
 	GimmickFactory::InstantiatePillar(&D3DXVECTOR3(-1370.0f, 0.0f, -210.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
-
-	//GimmickFactory::InstantiateBrokenPillar(&D3DXVECTOR3(-1300.0f, 0.0f, 100.0f), &D3DXVECTOR3(0.0f, 90.0f, 0.0f));
 
 	GimmickFactory::InstantiatePillar(&D3DXVECTOR3(-1370.0f, 0.0f, -40.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
 	GimmickFactory::InstantiatePillar(&D3DXVECTOR3(-1370.0f, 0.0f, 50.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
@@ -156,28 +152,20 @@ bool Stage3Scene::Init()
 	GimmickFactory::InstantiatePillar(&D3DXVECTOR3(-2080.0f, 0.0f, 220.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
 
 	GimmickFactory::InstantiateArmor(&D3DXVECTOR3(-1710.0f, 0.0f, -50.0f), &D3DXVECTOR3(0.0f, 90.0f, 0.0f));
-	//GimmickFactory::InstantiateArmor(&D3DXVECTOR3(-1680.0f, 0.0f, -80.0f), &D3DXVECTOR3(0.0f, 90.0f, 0.0f));
 	GimmickFactory::InstantiateArmor(&D3DXVECTOR3(-1710.0f, 0.0f, -120.0f), &D3DXVECTOR3(0.0f, 90.0f, 0.0f));
 	GimmickFactory::InstantiateArmor(&D3DXVECTOR3(-1710.0f, 0.0f, 60.0f), &D3DXVECTOR3(0.0f, 90.0f, 0.0f));
-	//GimmickFactory::InstantiateArmor(&D3DXVECTOR3(-1680.0f, 0.0f, 90.0f), &D3DXVECTOR3(0.0f, 90.0f, 0.0f));
 	GimmickFactory::InstantiateArmor(&D3DXVECTOR3(-1710.0f, 0.0f, 130.0f), &D3DXVECTOR3(0.0f, 90.0f, 0.0f));
 	
-	//GimmickFactory::InstantiateArmor(&D3DXVECTOR3(-2030.0f, 0.0f, 60.0f), &D3DXVECTOR3(0.0f, -90.0f, 0.0f));
-	//GimmickFactory::InstantiateArmor(&D3DXVECTOR3(-2050.0f, 0.0f, 90.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
 	GimmickFactory::InstantiateArmor(&D3DXVECTOR3(-2030.0f, 0.0f, 130.0f), &D3DXVECTOR3(0.0f, -90.0f, 0.0f));
 
-	//GimmickFactory::InstantiateBronzeStatue(&D3DXVECTOR3(-2040.0f, 0.0f, 180.0f), &D3DXVECTOR3(0.0f, 90.0f, 0.0f));
-	//GimmickFactory::InstantiateBronzeStatue(&D3DXVECTOR3(-2040.0f, 0.0f, -10.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
-
-	//GimmickFactory::InstantiateBrokenPillar(&D3DXVECTOR3(-1770.0f, 0.0f, -180.0f), &D3DXVECTOR3(0.0f, 90.0f, 0.0f));
+	GimmickFactory::InstantiateBronzeStatue(&D3DXVECTOR3(-2010.0f, 0.0f, 180.0f), &D3DXVECTOR3(0.0f, 90.0f, 0.0f), 200.0f, 0.0f);
+	GimmickFactory::InstantiateBronzeStatue(&D3DXVECTOR3(-2040.0f, 0.0f, -85.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f), 180.0f, 0.5f);
 
 	GimmickFactory::InstantiateArmor(&D3DXVECTOR3(-1840.0f, 0.0f, -180.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
 	GimmickFactory::InstantiateArmor(&D3DXVECTOR3(-1970.0f, 0.0f, -180.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
 	GimmickFactory::InstantiateArmor(&D3DXVECTOR3(-2040.0f, 0.0f, -180.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
 
-	//GimmickFactory::InstantiateBrokenPillar(&D3DXVECTOR3(-2200.0f, 0.0f, 0.0f), &D3DXVECTOR3(0.0f, 90.0f, 0.0f));
-
-	GimmickFactory::InstantiateBell(&D3DXVECTOR3(-2300.0f, 0.0f, 0.0f), &D3DXVECTOR3(0.0f, 90.0f, 0.0f));
+	GimmickFactory::InstantiateBell(&D3DXVECTOR3(-2300.0f, 0.0f, 10.0f), &D3DXVECTOR3(0.0f, 90.0f, 0.0f));
 
 
 	// UIゲージの枠用

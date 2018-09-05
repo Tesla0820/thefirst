@@ -63,8 +63,8 @@ bool TutorialScene::Init()
 	GimmickFactory::InstantiatePillar(&D3DXVECTOR3(-590.0f, 0.0f, 40.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
 	GimmickFactory::InstantiatePillar(&D3DXVECTOR3(-590.0f, 0.0f, -60.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
 
-	GimmickFactory::InstantiateThorns(&D3DXVECTOR3(-800.0f, 0.0f, 45.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
-	GimmickFactory::InstantiateThorns(&D3DXVECTOR3(-800.0f, 0.0f, -62.0f), &D3DXVECTOR3(0.0f, 180.0f, 0.0f));
+	GimmickFactory::InstantiateThorns(&D3DXVECTOR3(-800.0f, 0.0f, 55.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
+	GimmickFactory::InstantiateThorns(&D3DXVECTOR3(-800.0f, 0.0f, -70.0f), &D3DXVECTOR3(0.0f, 180.0f, 0.0f));
 
 	GimmickFactory::InstantiatePillar(&D3DXVECTOR3(-890.0f, 0.0f, 40.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
 	GimmickFactory::InstantiatePillar(&D3DXVECTOR3(-890.0f, 0.0f, -60.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
