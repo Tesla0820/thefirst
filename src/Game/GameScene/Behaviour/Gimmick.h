@@ -36,7 +36,7 @@ class Gimmick : public GameEngine::Behaviour::Behaviour, public GameEngine::Beha
 		virtual void Update() override;
 		virtual void OnCollision(GameEngine::Behaviour::Collider * from) override;
 	public:
-		static constexpr int defaultDuration = 300;
+		static constexpr int defaultDuration = 200;
 };
 
 }}
