@@ -125,7 +125,7 @@ void Player::UpdatePlayer()
 	_sphere->HitAll();
 	if (old == false && _isGround == true)
 	{
-		_soundPlays[2]->Play();
+		_soundPlays[1]->Play();
 	}
 }
 
@@ -154,6 +154,7 @@ void Player::OnCollision(GameEngine::Behaviour::Collider * from)
 	if (flag & 0x0002)
 	{
 		//ゲームオーバー
+		_soundPlays[2]->Play();
 		_state = 1;
 		Fade::StartFadeOut();
 	}

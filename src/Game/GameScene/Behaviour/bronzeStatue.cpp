@@ -31,10 +31,9 @@ void BronzeStatue::Start(void)
     _transform = GetAttachedObject()->GetTransform();
 	_direction = 1.0f;
 	_moveDirection = _transform->Front();
-	_origin = _transform->GetPosition();
 	_isInverse = false;
     //À•W‚Ì‘ã“ü
-	_transform->SetPosition(&(_origin + _moveDirection*_currentPos));
+	_transform->SetPosition(&(_transform->GetPosition() + _moveDirection*_currentPos));
 }
 
 /////////////////////////////////////////////

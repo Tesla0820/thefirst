@@ -84,9 +84,9 @@ bool Stage3Scene::Init()
 	GimmickFactory::InstantiatePillar(&D3DXVECTOR3(-500.0f, 0.0f, 95.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
 
 
-	//GimmickFactory::InstantiateBronzeStatue(&D3DXVECTOR3(-360.0f, 0.0f, -200.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
-	//GimmickFactory::InstantiateBronzeStatue(&D3DXVECTOR3(-460.0f, 0.0f, 0.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
-	//GimmickFactory::InstantiateBronzeStatue(&D3DXVECTOR3(-560.0f, 0.0f, 100.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
+	GimmickFactory::InstantiateBronzeStatue(&D3DXVECTOR3(-360.0f, 0.0f, -200.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f), 400.0f, 0.0f);
+	GimmickFactory::InstantiateBronzeStatue(&D3DXVECTOR3(-460.0f, 0.0f, -200.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f), 400.0f, 0.5f);
+	GimmickFactory::InstantiateBronzeStatue(&D3DXVECTOR3(-555.0f, 0.0f, -200.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f), 400.0f, 0.9f);
 
 
 	// その２

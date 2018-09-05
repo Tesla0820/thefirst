@@ -19,7 +19,6 @@ class BronzeStatue : public Gimmick
         GameEngine::Behaviour::Transform*    _transform;    //座標データ
 		float _distance;									//始点と終点間の距離
 		float _currentPos;									//始点と終点間の現在距離
-		D3DXVECTOR3 _origin;								//原点
 		D3DXVECTOR3 _moveDirection;							//移動方向
 		float _direction;									//距離判定上の移動方向
 		float _angle;

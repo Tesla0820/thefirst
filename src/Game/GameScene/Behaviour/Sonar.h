@@ -22,7 +22,7 @@ class Sonar :public GameEngine::Behaviour::Behaviour
 	D3DXVECTOR3 _position;
 	D3DXVECTOR3 _direction;
 
-	static constexpr int maxTime = 300;
+	static constexpr int maxTime = 200;
 	public:
 	Sonar() = default;
 	virtual void Start() override;
