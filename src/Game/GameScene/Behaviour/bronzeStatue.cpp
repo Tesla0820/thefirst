@@ -7,14 +7,16 @@
 
 namespace Game { namespace Behaviour
 {
-BronzeStatue::BronzeStatue(D3DXVECTOR3 start, D3DXVECTOR3 end, float ratio):Gimmick(Gimmick::defaultDuration)
+BronzeStatue::BronzeStatue(D3DXVECTOR3 start, D3DXVECTOR3 end, int ratio):Gimmick(Gimmick::defaultDuration)
 {
     //ˆÚ“®‹——£‚ÌŽZo
     _start = start;
     _end = end;
+    _ratio = ratio;
+
     //D3DXVec3Lerp(&_start_pos, &_start, &_end, ratio);
 
-    _move_Distance = _end - _start;     //‚±‚±‚ð’m‚è‚½‚¢
+    _move_Distance = _end - _start;
     D3DXVec3Length(&_move_Distance);
 }
 //ŠÖ”’è‹`//
@@ -31,13 +33,15 @@ void BronzeStatue::Start(void)
 {
     Gimmick::Start();
     
+    //‰ŠúˆÊ’u‚ÌÝ’è
     _transform = GetAttachedObject()->GetTransform();
-    _transform->SetPosition(&_start_pos);
 
+    //ˆÚ“®—Ê‚Ì‰Šú‰»
     _move = { 0.0F, 0.0F, 0.0F };
-    _move_Current_Distance = { 0.0F, 0.0F, 0.0F };
     _move_Vector = _transform->Front();
+    _move_Current_Distance = _move_Vector * _ratio;
 
+    //‰ñ“]‚Ì‰Šú‰»
     _default_Rotation = std::asin(_transform->GetRotation().y) * 2;
     _checkRotate = false;
 }

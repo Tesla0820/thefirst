@@ -19,7 +19,7 @@ class BronzeStatue : public Gimmick
         GameEngine::Behaviour::Transform*    _transform;    //座標データ
         D3DXVECTOR3 _start;                                 //左端
         D3DXVECTOR3 _end;                                   //右端
-        D3DXVECTOR3 _start_pos;                             //初期位置
+        int         _ratio;                                 //初期移動比率
         D3DXVECTOR3 _move_Current_Distance;                 //累計移動量
         D3DXVECTOR3 _move_Distance;                         //移動距離距離
 
@@ -29,7 +29,7 @@ class BronzeStatue : public Gimmick
         bool _checkRotate;                                  //振り向き済み判定
 
     public:
-        BronzeStatue(D3DXVECTOR3, D3DXVECTOR3, float);
+        BronzeStatue(D3DXVECTOR3, D3DXVECTOR3, int);
         virtual void Start() override;
         virtual void Update() override;
 };
