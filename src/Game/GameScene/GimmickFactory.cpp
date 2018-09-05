@@ -117,14 +117,14 @@ void GimmickFactory::InstantiateBrokenPillar(D3DXVECTOR3* position, D3DXVECTOR3*
 //
 //機能：銅像の生成
 //
-//引数：(D3DXVECTOR3*)位置, (D3DXVECTOR3*)角度
+//引数：(D3DXVECTOR3*)位置, (D3DXVECTOR3*)角度, (D3DXVECTOR3*)スタート, (D3DXVECTOR3*)折り返し, (float)初期位置割合
 //
 //戻り値：なし
 /////////////////////////////////////////////
-void GimmickFactory::InstantiateBronzeStatue(D3DXVECTOR3* position, D3DXVECTOR3* rotate)
+void GimmickFactory::InstantiateBronzeStatue(D3DXVECTOR3* position, D3DXVECTOR3* rotate, D3DXVECTOR3* start, D3DXVECTOR3* end, float ratio)
 {
 	GameEngine::GameObject* gimmick;
-	gimmick = Instantiate(new Game::Behaviour::BronzeStatue(), position, rotate, std::shared_ptr<GameEngine::Resource::Mesh::IMesh>(new GameEngine::Resource::Mesh::MeshD3DX(TEXT("./data/model/bronzeStatue.x"))));
+	gimmick = Instantiate(new Game::Behaviour::BronzeStatue(*start, *end, ratio), position, rotate, std::shared_ptr<GameEngine::Resource::Mesh::IMesh>(new GameEngine::Resource::Mesh::MeshD3DX(TEXT("./data/model/bronzeStatue.x"))));
 
 	gimmick->GetTransform()->SetPosition(&D3DXVECTOR3(position->x, position->y + 30.0F, position->z));
     

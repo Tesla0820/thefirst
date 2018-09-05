@@ -84,9 +84,9 @@ bool Stage3Scene::Init()
 	GimmickFactory::InstantiatePillar(&D3DXVECTOR3(-500.0f, 0.0f, 95.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
 
 
-	GimmickFactory::InstantiateBronzeStatue(&D3DXVECTOR3(-360.0f, 0.0f, -200.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
-	GimmickFactory::InstantiateBronzeStatue(&D3DXVECTOR3(-460.0f, 0.0f, 0.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
-	GimmickFactory::InstantiateBronzeStatue(&D3DXVECTOR3(-560.0f, 0.0f, 100.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
+	//GimmickFactory::InstantiateBronzeStatue(&D3DXVECTOR3(-360.0f, 0.0f, -200.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
+	//GimmickFactory::InstantiateBronzeStatue(&D3DXVECTOR3(-460.0f, 0.0f, 0.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
+	//GimmickFactory::InstantiateBronzeStatue(&D3DXVECTOR3(-560.0f, 0.0f, 100.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
 
 
 	// その２
@@ -113,7 +113,7 @@ bool Stage3Scene::Init()
 	//GimmickFactory::InstantiateBrokenPillar(&D3DXVECTOR3(-1160.0f, 0.0f, 50.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
 	//GimmickFactory::InstantiateBrokenPillar(&D3DXVECTOR3(-1210.0f, 0.0f, 0.0f), &D3DXVECTOR3(0.0f, 90.0f, 0.0f));
 
-	GimmickFactory::InstantiateBronzeStatue(&D3DXVECTOR3(-1260.0f, 0.0f, -50.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
+	//GimmickFactory::InstantiateBronzeStatue(&D3DXVECTOR3(-1260.0f, 0.0f, -50.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
 
 	GimmickFactory::InstantiateArmor(&D3DXVECTOR3(-1140.0f, 0.0f, -120.0f), &D3DXVECTOR3(0.0f, -90.0f, 0.0f));
 	GimmickFactory::InstantiateArmor(&D3DXVECTOR3(-1140.0f, 0.0f, -200.0f), &D3DXVECTOR3(0.0f, -90.0f, 0.0f));
@@ -166,8 +166,8 @@ bool Stage3Scene::Init()
 	//GimmickFactory::InstantiateArmor(&D3DXVECTOR3(-2050.0f, 0.0f, 90.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
 	GimmickFactory::InstantiateArmor(&D3DXVECTOR3(-2030.0f, 0.0f, 130.0f), &D3DXVECTOR3(0.0f, -90.0f, 0.0f));
 
-	GimmickFactory::InstantiateBronzeStatue(&D3DXVECTOR3(-2040.0f, 0.0f, 180.0f), &D3DXVECTOR3(0.0f, 90.0f, 0.0f));
-	GimmickFactory::InstantiateBronzeStatue(&D3DXVECTOR3(-2040.0f, 0.0f, -10.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
+	//GimmickFactory::InstantiateBronzeStatue(&D3DXVECTOR3(-2040.0f, 0.0f, 180.0f), &D3DXVECTOR3(0.0f, 90.0f, 0.0f));
+	//GimmickFactory::InstantiateBronzeStatue(&D3DXVECTOR3(-2040.0f, 0.0f, -10.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
 
 	//GimmickFactory::InstantiateBrokenPillar(&D3DXVECTOR3(-1770.0f, 0.0f, -180.0f), &D3DXVECTOR3(0.0f, 90.0f, 0.0f));
 
