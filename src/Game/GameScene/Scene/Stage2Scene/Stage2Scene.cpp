@@ -96,8 +96,8 @@ bool Stage2Scene::Init()
 	GimmickFactory::InstantiateThorns(&D3DXVECTOR3(20.0f, 0.0f, -758.0f), &D3DXVECTOR3(0.0f, 180.0f, 0.0f));
 
 	//飛び出すトゲ
-	GimmickFactory::InstantiateThornsMove(&D3DXVECTOR3(130.0f, 0.0f, -110.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
-	GimmickFactory::InstantiateThornsMove(&D3DXVECTOR3(210.0f, 0.0f, -110.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
+	GimmickFactory::InstantiateThornsMove(&D3DXVECTOR3(130.0f, 0.0f, -90.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
+	GimmickFactory::InstantiateThornsMove(&D3DXVECTOR3(210.0f, 0.0f, -90.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f));
 	
     GimmickFactory::InstantiateThornsMove(&D3DXVECTOR3(260.0f, 0.0f, -758.0f), &D3DXVECTOR3(0.0f, 180.0f, 0.0f));
 	GimmickFactory::InstantiateThornsMove(&D3DXVECTOR3(220.0f, 0.0f, -758.0f), &D3DXVECTOR3(0.0f, 180.0f, 0.0f));
