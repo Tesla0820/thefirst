@@ -12,16 +12,6 @@
 namespace Game
 {
 
-TitleScene::TitleScene()
-{
-
-}
-
-TitleScene::~TitleScene()
-{
-	SAFE_DELETE(farre);
-}
-
 bool TitleScene::Init()
 {
 	GameEngine::Environment::Get()->SetBackColor(D3DCOLOR_ARGB(255, 50, 50, 50));

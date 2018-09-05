@@ -12,8 +12,7 @@ namespace Game
 	class TitleScene:public GameEngine::SceneBase
 	{
 		public:
-			TitleScene();
-			~TitleScene();
+			TitleScene() = default;
 			virtual bool Init() override;
 
 	};
