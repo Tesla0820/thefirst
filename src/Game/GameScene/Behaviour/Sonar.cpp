@@ -12,7 +12,7 @@ void Sonar::Start()
 {
 	_time = maxTime;
 	_isUsing = false;
-
+	_number = 0;
 }
 
 void Sonar::Update()
@@ -30,6 +30,7 @@ void Sonar::Update()
 
 void Sonar::SonarEnable()
 {
+	_number++;
 	_collider->SetBehaviourEnable(true);
 	_isUsing = true;
 	_time = 0;
@@ -75,6 +76,11 @@ void Sonar::SetCollider(GameEngine::Behaviour::SphereCollider * collider)
 float Sonar::GetSonarRate()
 {
 	return _time / (float)maxTime;
+}
+
+int Sonar::GetCurrentNumber()
+{
+	return _number;
 }
 
 }
