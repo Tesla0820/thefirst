@@ -1,5 +1,5 @@
 //
-//		ƒtƒ@ƒCƒ‹–¼:Sonar.cpp
+//		Æ’tÆ’@Æ’CÆ’â€¹â€“Â¼:Sonar.cpp
 //
 
 #include "Sonar.h"
@@ -18,7 +18,6 @@ void Sonar::Start()
 void Sonar::Update()
 {
 	if (!_isUsing) return;
-
 	_time++;
 	_collider->SetRadius(_time);
 	_collider->HitAll();

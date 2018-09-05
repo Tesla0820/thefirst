@@ -29,8 +29,8 @@ class GimmickFactory
 	static void InstantiateArmor(D3DXVECTOR3* position, D3DXVECTOR3* rotate);
 	static void InstantiateBell(D3DXVECTOR3*, D3DXVECTOR3*);
 	static void InstantiateBrokenPillar(D3DXVECTOR3* position, D3DXVECTOR3* rotate);
-	static void InstantiateBronzeStatue(D3DXVECTOR3*, D3DXVECTOR3*);
-	static void InstantiatePillar(D3DXVECTOR3* position, D3DXVECTOR3* rotate);
+    static void InstantiateBronzeStatue(D3DXVECTOR3* position, D3DXVECTOR3* rotate, float distance,float rate);
+    static void InstantiatePillar(D3DXVECTOR3* position, D3DXVECTOR3* rotate);
 	static void InstantiateThorns(D3DXVECTOR3* position, D3DXVECTOR3* rotate);
 	static void InstantiateThornsMove(D3DXVECTOR3* position, D3DXVECTOR3* rotate);
 };
