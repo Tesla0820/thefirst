@@ -15,16 +15,6 @@
 namespace Game { namespace GameScene { namespace Scene
 {
 
-Stage3Scene::Stage3Scene()
-{
-
-}
-
-Stage3Scene::~Stage3Scene()
-{
-	SAFE_DELETE(farre);
-}
-
 bool Stage3Scene::Init()
 {
 	Fade::StartFadeIn();

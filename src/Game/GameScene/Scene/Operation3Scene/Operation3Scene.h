@@ -11,12 +11,8 @@ namespace Game { namespace GameScene { namespace Scene
 {
 	class Operation3Scene :public GameEngine::SceneBase
 	{
-
-	private:
-		GameEngine::Sound::Sound* farre;
 	public:
-		Operation3Scene();
-		~Operation3Scene();
+		Operation3Scene() = default;
 		virtual bool Init() override;
 
 	};

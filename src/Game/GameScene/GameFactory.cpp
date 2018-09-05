@@ -24,7 +24,8 @@ GameEngine::GameObject* GameFactory::CreatePlayer()
 	object->AddBehaviour(camera);
 	camera->SetCurrent();
 	camera->EnablePerspectiveMode(true);
-	object->GetTransform()->SetPosition(&D3DXVECTOR3(0.0f, 5.0f, 0.0f));
+	auto transform = object->GetTransform();
+	transform->SetPosition(&D3DXVECTOR3(0.0f, 5.0f, 0.0f));
 	auto player = new Behaviour::Player();
 	object->AddBehaviour(player);
 	auto hitCollider = new GameEngine::Behaviour::SphereCollider(0x00ff);

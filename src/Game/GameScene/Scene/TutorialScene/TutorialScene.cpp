@@ -17,16 +17,6 @@
 namespace Game { namespace GameScene { namespace Scene
 {
 
-TutorialScene::TutorialScene()
-{
-
-}
-
-TutorialScene::~TutorialScene()
-{
-  SAFE_DELETE(farre);
-}
-
 bool TutorialScene::Init()
 {
 

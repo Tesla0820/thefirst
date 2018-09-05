@@ -68,10 +68,10 @@ int Run()
 void RegisterScenes()
 {
 	GameEngine::Scene::SceneManager::RegisterScene(new Game::TitleScene());	//0
-	GameEngine::Scene::SceneManager::RegisterScene(new Game::GameScene::Scene::TutorialScene);	//1
-	GameEngine::Scene::SceneManager::RegisterScene(new Game::GameScene::Scene::Stage1Scene);	//2
-	GameEngine::Scene::SceneManager::RegisterScene(new Game::GameScene::Scene::Stage2Scene);	//3
-	GameEngine::Scene::SceneManager::RegisterScene(new Game::GameScene::Scene::Stage3Scene);	//4
+	GameEngine::Scene::SceneManager::RegisterScene(new Game::GameScene::Scene::TutorialScene());	//1
+	GameEngine::Scene::SceneManager::RegisterScene(new Game::GameScene::Scene::Stage1Scene());	//2
+	GameEngine::Scene::SceneManager::RegisterScene(new Game::GameScene::Scene::Stage2Scene());	//3
+	GameEngine::Scene::SceneManager::RegisterScene(new Game::GameScene::Scene::Stage3Scene());	//4
 	GameEngine::Scene::SceneManager::RegisterScene(new Game::ResultScene::StageClearScene());	//5
 	GameEngine::Scene::SceneManager::RegisterScene(new Game::ResultScene::GameClearScene());	//6
 	GameEngine::Scene::SceneManager::RegisterScene(new Game::ResultScene::GameOverScene());		//7

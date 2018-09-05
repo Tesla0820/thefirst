@@ -12,16 +12,6 @@
 namespace Game { namespace GameScene { namespace Scene
 {
 
-OperationScene::OperationScene()
-{
-
-}
-
-OperationScene::~OperationScene()
-{
-	SAFE_DELETE(farre);
-}
-
 bool OperationScene::Init()
 {
 	Fade::StartFadeIn();

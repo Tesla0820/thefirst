@@ -12,34 +12,24 @@
 namespace Game { namespace ResultScene
 {
 
-	StageClearScene::StageClearScene()
-	{
+bool StageClearScene::Init()
+{
+	Fade::StartFadeIn();
 
-	}
+	using Texture = GameEngine::Resource::Texture;
+	using ResourceManager = GameEngine::Resource::ResourceManager;
 
-	StageClearScene::~StageClearScene()
-	{
-		SAFE_DELETE(farre);
-	}
-
-	bool StageClearScene::Init()
-	{
-		Fade::StartFadeIn();
-
-		using Texture = GameEngine::Resource::Texture;
-		using ResourceManager = GameEngine::Resource::ResourceManager;
-
-		// マネージャー用
-		GameEngine::GameObject* stageclearManagerObject = GameEngine::GameObject::Instantiate();
-		auto stageclearManager = new Game::ResultScene::StageClearManager();
-		auto stageclearManagerSoundPlay = new GameEngine::Behaviour::SoundPlay();
-		auto stageclearManagerSoundPlay2 = new GameEngine::Behaviour::SoundPlay();
-		stageclearManagerSoundPlay->SetSound(GameEngine::Sound::Sound::CreateFromWaveFile("./data/sound/stage_clear.wav", XAUDIO2_LOOP_INFINITE));
-		stageclearManagerSoundPlay2->SetSound(GameEngine::Sound::Sound::CreateFromWaveFile("./data/sound/stage_clear.wav", XAUDIO2_LOOP_INFINITE));
-		stageclearManagerObject->AddBehaviour(stageclearManager);
-		stageclearManagerObject->AddBehaviour(stageclearManagerSoundPlay);
-		stageclearManagerObject->AddBehaviour(stageclearManagerSoundPlay2);
-		stageclearManagerSoundPlay->Play();
+	// マネージャー用
+	GameEngine::GameObject* stageclearManagerObject = GameEngine::GameObject::Instantiate();
+	auto stageclearManager = new Game::ResultScene::StageClearManager();
+	auto stageclearManagerSoundPlay = new GameEngine::Behaviour::SoundPlay();
+	auto stageclearManagerSoundPlay2 = new GameEngine::Behaviour::SoundPlay();
+	stageclearManagerSoundPlay->SetSound(GameEngine::Sound::Sound::CreateFromWaveFile("./data/sound/stage_clear.wav", XAUDIO2_LOOP_INFINITE));
+	stageclearManagerSoundPlay2->SetSound(GameEngine::Sound::Sound::CreateFromWaveFile("./data/sound/stage_clear.wav", XAUDIO2_LOOP_INFINITE));
+	stageclearManagerObject->AddBehaviour(stageclearManager);
+	stageclearManagerObject->AddBehaviour(stageclearManagerSoundPlay);
+	stageclearManagerObject->AddBehaviour(stageclearManagerSoundPlay2);
+	stageclearManagerSoundPlay->Play();
 
     // ステージクリア画面の背景用
     GameEngine::GameObject* backgroundObject = GameEngine::GameObject::Instantiate();
@@ -78,7 +68,7 @@ namespace Game { namespace ResultScene
     fadeObject->AddBehaviour(fadeRenderer);
     fadeObject->AddBehaviour(fade);
 
-		return false;
+	return false;
 }
 
 }

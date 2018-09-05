@@ -11,13 +11,10 @@ namespace Game
 {
 	class TitleScene:public GameEngine::SceneBase
 	{
-		
-		private:
-		GameEngine::Sound::Sound* farre;
 		public:
-		TitleScene();
-		~TitleScene();
-		virtual bool Init() override;
+			TitleScene();
+			~TitleScene();
+			virtual bool Init() override;
 
 	};
 }

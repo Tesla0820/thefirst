@@ -10,17 +10,13 @@
 namespace Game { namespace GameScene { namespace Scene
 {
 
-	class Stage2Scene :public GameEngine::SceneBase
-	{
+class Stage2Scene :public GameEngine::SceneBase
+{
+public:
+	Stage2Scene() = default;
+	virtual bool Init() override;
 
-	private:
-		GameEngine::Sound::Sound* farre;
-	public:
-		Stage2Scene();
-		~Stage2Scene();
-		virtual bool Init() override;
-
-	};
+};
 
 }
 }

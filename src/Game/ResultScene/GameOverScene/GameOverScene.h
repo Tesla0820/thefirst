@@ -11,12 +11,8 @@ namespace Game { namespace ResultScene
 {
 	class GameOverScene :public GameEngine::SceneBase
 	{
-
-	private:
-		GameEngine::Sound::Sound* farre;
 	public:
-		GameOverScene();
-		~GameOverScene();
+		GameOverScene() = default;
 		virtual bool Init() override;
 
 	};

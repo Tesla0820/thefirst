@@ -11,12 +11,8 @@ namespace Game { namespace ResultScene
 {
 	class StageClearScene :public GameEngine::SceneBase
 	{
-
-	private:
-		GameEngine::Sound::Sound* farre;
 	public:
-		StageClearScene();
-		~StageClearScene();
+		StageClearScene() = default;
 		virtual bool Init() override;
 
 	};
