@@ -111,16 +111,16 @@ bool Stage2Scene::Init()
 	//鎧
 	GimmickFactory::InstantiateArmor(&D3DXVECTOR3(-290.0f, 0.0f, -608.0f), &D3DXVECTOR3(0.0f, 90.0f, 0.0f));
 	GimmickFactory::InstantiateArmor(&D3DXVECTOR3(-235.0f, 0.0f, -608.0f), &D3DXVECTOR3(0.0f, 270.0f, 0.0f));
-  GimmickFactory::InstantiateArmor(&D3DXVECTOR3(-290.0f, 0.0f, -508.0f), &D3DXVECTOR3(0.0f, 90.0f, 0.0f));
-  GimmickFactory::InstantiateArmor(&D3DXVECTOR3(-235.0f, 0.0f, -508.0f), &D3DXVECTOR3(0.0f, 270.0f, 0.0f));
-  GimmickFactory::InstantiateArmor(&D3DXVECTOR3(-290.0f, 0.0f, -408.0f), &D3DXVECTOR3(0.0f, 90.0f, 0.0f));
-  GimmickFactory::InstantiateArmor(&D3DXVECTOR3(-235.0f, 0.0f, -408.0f), &D3DXVECTOR3(0.0f, 270.0f, 0.0f));
+	GimmickFactory::InstantiateArmor(&D3DXVECTOR3(-290.0f, 0.0f, -508.0f), &D3DXVECTOR3(0.0f, 90.0f, 0.0f));
+	GimmickFactory::InstantiateArmor(&D3DXVECTOR3(-235.0f, 0.0f, -508.0f), &D3DXVECTOR3(0.0f, 270.0f, 0.0f));
+	GimmickFactory::InstantiateArmor(&D3DXVECTOR3(-290.0f, 0.0f, -408.0f), &D3DXVECTOR3(0.0f, 90.0f, 0.0f));
+	GimmickFactory::InstantiateArmor(&D3DXVECTOR3(-235.0f, 0.0f, -408.0f), &D3DXVECTOR3(0.0f, 270.0f, 0.0f));
 
-  //銅像
-  GimmickFactory::InstantiateBronzeStatue(&D3DXVECTOR3(490.0f, 7.0f, -700.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f)/*, &D3DXVECTOR3(490.0f, 7.0f, -700.0f), &D3DXVECTOR3(490.0f, 7.0f, -120.0f) 0.0F*/);
+	//銅像
+	GimmickFactory::InstantiateBronzeStatue(&D3DXVECTOR3(490.0f, 0.0f, -700.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f), 570.0f,0.0f);
 
 	//鐘
-	GimmickFactory::InstantiateBell(&D3DXVECTOR3(-430.0f, 7.0f, -307.0f), &D3DXVECTOR3(0.0f, 90.0f, 0.0f));
+	GimmickFactory::InstantiateBell(&D3DXVECTOR3(-430.0f, 0.0f, -307.0f), &D3DXVECTOR3(0.0f, 90.0f, 0.0f));
 
 	// UIゲージの枠用
 	GameFactory::CreateUIgaugeEdge();
