@@ -1,5 +1,5 @@
 //
-//		ƒtƒ@ƒCƒ‹–¼:Sonar.h
+//		Æ’tÆ’@Æ’CÆ’â€¹â€“Â¼:Sonar.h
 //
 
 #ifndef HEADER_SONAR_H
@@ -23,7 +23,8 @@ class Sonar :public GameEngine::Behaviour::Behaviour
 		D3DXVECTOR3 _direction;
 		int _number;
 
-		static constexpr int maxTime = 180;
+	  static constexpr int maxTime = 200;
+
 	public:
 		Sonar() = default;
 		virtual void Start() override;

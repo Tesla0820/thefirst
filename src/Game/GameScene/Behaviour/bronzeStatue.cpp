@@ -7,10 +7,14 @@
 
 namespace Game { namespace Behaviour
 {
-BronzeStatue::BronzeStatue():Gimmick(Gimmick::defaultDuration)
+BronzeStatue::BronzeStatue(float distance,float rate,float angleY)
+	:Gimmick(Gimmick::defaultDuration)
 {
-
+	_distance = std::floorf(distance);
+	_currentPos = std::floorf(distance*rate);
+	_angle = D3DXToRadian(angleY);
 }
+
 //＝＝＝関数定義＝＝＝//
 /////////////////////////////////////////////
 //関数名：Start
@@ -24,13 +28,12 @@ BronzeStatue::BronzeStatue():Gimmick(Gimmick::defaultDuration)
 void BronzeStatue::Start(void)
 {
     Gimmick::Start();
-
     _transform = GetAttachedObject()->GetTransform();
-    _move_Distance = 0;
-    _move = { 0.0F, 0.0F, 0.0F };
-    _move_Vector = _transform->Front();
-    _default_Rotation = _transform->GetRotation().y * D3DX_PI;
-    _checkRotate = false;
+	_direction = 1.0f;
+	_moveDirection = _transform->Front();
+	_isInverse = false;
+    //座標の代入
+	_transform->SetPosition(&(_transform->GetPosition() + _moveDirection*_currentPos));
 }
 
 /////////////////////////////////////////////
@@ -44,35 +47,18 @@ void BronzeStatue::Start(void)
 /////////////////////////////////////////////
 void BronzeStatue::Update(void)
 {
+	_currentPos += _direction;
+	_transform->Offset(&_moveDirection);
+	if (_currentPos >= _distance || _currentPos<=0.0f)
+	{
+		_isInverse = !_isInverse;
+		_direction *= -1.0f;
+		_moveDirection *= -1.0f;
+		D3DXQUATERNION rot;
+		D3DXQuaternionRotationYawPitchRoll(&rot,_angle+_isInverse * D3DX_PI ,0.0f ,0.0f);
+		_transform->SetRotation(&rot);
+	}
     //移動
-    _move = { 0.0F, 0.0F, 0.0F };
-    _move += _move_Vector;
-    _move_Distance++;
-    
-    //反転判定
-    if (_move_Distance >= 100)
-    {
-        //---各種宣言---//
-        D3DXQUATERNION rotate;
-
-        _move_Distance = 0.0F;
-        if (_checkRotate)
-        {
-            D3DXQuaternionRotationYawPitchRoll(&rotate, _default_Rotation, 0.0F, 0.0F);
-            _checkRotate = false;
-        }
-        else
-        {
-            D3DXQuaternionRotationYawPitchRoll(&rotate, _default_Rotation + D3DX_PI, 0.0F, 0.0F);
-            _checkRotate = true;
-        }
-        _transform->SetRotation(&rotate);
-        _move_Vector = -_move_Vector;
-    }
-
-    //移動値の反映
-    _transform->Offset(&_move);
-
     Gimmick::Update();
 }
 

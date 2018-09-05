@@ -117,7 +117,6 @@ void Player::UpdatePlayer()
 		_angle += 0.05f;
 	}
 
-
 	D3DXQUATERNION rot;
 	D3DXQuaternionRotationYawPitchRoll(&rot, _angle, 0.0f, 0.0f);
 	_transform->SetRotation(&rot);
