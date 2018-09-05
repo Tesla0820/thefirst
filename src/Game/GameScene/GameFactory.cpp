@@ -41,7 +41,7 @@ GameEngine::GameObject* GameFactory::CreatePlayer()
 	sonarSoundPlay->SetSound(GameEngine::Sound::Sound::CreateFromWaveFile("./data/sound/sonar.wav", 0));
 	landingSoundPlay->SetSound(GameEngine::Sound::Sound::CreateFromWaveFile("./data/sound/landing.wav", 0));
 	deadSoundPlay->SetSound(GameEngine::Sound::Sound::CreateFromWaveFile("./data/sound/dead.wav", 0));
-	hoverSoundPlay->SetSound(GameEngine::Sound::Sound::CreateFromWaveFile("./data/sound/decision.wav",0));
+	hoverSoundPlay->SetSound(GameEngine::Sound::Sound::CreateFromWaveFile("./data/sound/hover.wav",0));
 	object->AddBehaviour(sonarSoundPlay);
 	object->AddBehaviour(landingSoundPlay);
 	object->AddBehaviour(deadSoundPlay);
