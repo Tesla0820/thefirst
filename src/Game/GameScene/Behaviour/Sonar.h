@@ -1,5 +1,5 @@
 //
-//		ƒtƒ@ƒCƒ‹–¼:Sonar.h
+//		Æ’tÆ’@Æ’CÆ’â€¹â€“Â¼:Sonar.h
 //
 
 #ifndef HEADER_SONAR_H
@@ -13,23 +13,26 @@ namespace Game { namespace GameScene { namespace Behaviour
 class Sonar :public GameEngine::Behaviour::Behaviour
 {
 	private:
-	void SonarEnable();
-	void SonarDisable();
+		void SonarEnable();
+		void SonarDisable();
 
-	GameEngine::Behaviour::SphereCollider* _collider;
-	int _time;
-	bool _isUsing;
-	D3DXVECTOR3 _position;
-	D3DXVECTOR3 _direction;
+		GameEngine::Behaviour::SphereCollider* _collider;
+		int _time;
+		bool _isUsing;
+		D3DXVECTOR3 _position;
+		D3DXVECTOR3 _direction;
+		int _number;
 
-	static constexpr int maxTime = 200;
+	  static constexpr int maxTime = 200;
+
 	public:
-	Sonar() = default;
-	virtual void Start() override;
-	virtual void Update() override;
-	bool Ping(D3DXVECTOR3 pos, D3DXQUATERNION rot);
-	void SetCollider(GameEngine::Behaviour::SphereCollider* collider);
-	float GetSonarRate();
+		Sonar() = default;
+		virtual void Start() override;
+		virtual void Update() override;
+		bool Ping(D3DXVECTOR3 pos, D3DXQUATERNION rot);
+		void SetCollider(GameEngine::Behaviour::SphereCollider* collider);
+		float GetSonarRate();
+		int GetCurrentNumber();
 };
 
 }
