@@ -12,7 +12,7 @@ void Sonar::Start()
 {
 	_time = maxTime;
 	_isUsing = false;
-
+	_number = 0;
 }
 
 void Sonar::Update()
@@ -20,16 +20,17 @@ void Sonar::Update()
 	if (!_isUsing) return;
 
 	_time++;
-	_collider->SetRadius(_time / 2.0f);
+	_collider->SetRadius(_time);
 	_collider->HitAll();
 	auto pipeline = dynamic_cast<Pipeline::Echo*>(GameEngine::Environment::Get()->GetCurrentPipeline());
-	pipeline->SetRange(_time / 2.0f);
+	pipeline->SetRange(_time);
 	if (_time < maxTime) return;
 	SonarDisable();
 }
 
 void Sonar::SonarEnable()
 {
+	_number++;
 	_collider->SetBehaviourEnable(true);
 	_isUsing = true;
 	_time = 0;
@@ -42,7 +43,7 @@ void Sonar::SonarDisable()
 	_collider->SetBehaviourEnable(false);
 	_collider->SetRadius(0);
 	auto pipeline = dynamic_cast<Pipeline::Echo*>(GameEngine::Environment::Get()->GetCurrentPipeline());
-	pipeline->SetRange(-100);
+	pipeline->SetRange(-10000);
 }
 
 
@@ -59,11 +60,10 @@ bool Sonar::Ping(D3DXVECTOR3 pos, D3DXQUATERNION rot)
 	_position = pos;
 	_direction = transform->Front();
 
-	//SonarEnable();
+	SonarEnable();
 	auto pipeline = dynamic_cast<Pipeline::Echo*>(GameEngine::Environment::Get()->GetCurrentPipeline());
 	pipeline->SetSonar(_position, _direction);
 	pipeline->SetRange((float)_time);
-	SonarEnable();
 	return true;
 }
 
@@ -76,6 +76,11 @@ void Sonar::SetCollider(GameEngine::Behaviour::SphereCollider * collider)
 float Sonar::GetSonarRate()
 {
 	return _time / (float)maxTime;
+}
+
+int Sonar::GetCurrentNumber()
+{
+	return _number;
 }
 
 }

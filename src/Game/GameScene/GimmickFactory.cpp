@@ -84,7 +84,7 @@ void GimmickFactory::InstantiateBell(D3DXVECTOR3* position, D3DXVECTOR3* rotate)
 	
     collider->SetScale(&D3DXVECTOR3(5.5F, 3.0F, 1.2F));
 
-	collider->SetFlag(0x0008);
+	collider->SetFlag(0x0108);
 }
 
 /////////////////////////////////////////////

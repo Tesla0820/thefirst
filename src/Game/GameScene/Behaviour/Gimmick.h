@@ -26,6 +26,7 @@ class Gimmick : public GameEngine::Behaviour::Behaviour, public GameEngine::Beha
 		bool _isShining;
 		int _duration;
         int _maxDuration;
+		int _number = 0;
 
         std::vector<GameEngine::Behaviour::BoxCollider*>  _colliders;
         Game::MeshRendererEx*                _renderer;
