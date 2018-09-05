@@ -9,13 +9,13 @@ namespace Game { namespace Behaviour
 {
 BronzeStatue::BronzeStatue(D3DXVECTOR3 start, D3DXVECTOR3 end, int ratio):Gimmick(Gimmick::defaultDuration)
 {
-    //移動距離の算出
     _start = start;
     _end = end;
     _ratio = ratio;
 
     //D3DXVec3Lerp(&_start_pos, &_start, &_end, ratio);
 
+    //移動距離の算出
     _move_Distance = _end - _start;
     D3DXVec3Length(&_move_Distance);
 }
@@ -33,13 +33,13 @@ void BronzeStatue::Start(void)
 {
     Gimmick::Start();
     
-    //初期位置の設定
+    //座標の代入
     _transform = GetAttachedObject()->GetTransform();
 
     //移動量の初期化
     _move = { 0.0F, 0.0F, 0.0F };
     _move_Vector = _transform->Front();
-    _move_Current_Distance = _move_Vector * _ratio;
+    _move_Current_Distance = _move_Vector * (float)_ratio;
 
     //回転の初期化
     _default_Rotation = std::asin(_transform->GetRotation().y) * 2;
@@ -63,7 +63,7 @@ void BronzeStatue::Update(void)
     _move_Current_Distance += _move_Vector;
 
     //折り返し判定
-    if (_move_Current_Distance >= _move_Distance)
+    if (abs(_move_Current_Distance.x) >= _move_Distance.x)
     {
         //---各種宣言---//
         D3DXQUATERNION rotate;

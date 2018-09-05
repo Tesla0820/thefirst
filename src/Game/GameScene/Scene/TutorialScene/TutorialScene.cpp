@@ -53,7 +53,7 @@ bool TutorialScene::Init()
   //ステージ
   StageLoader::LoadStage("./data/stage/stage0.txt");
 
-  GimmickFactory::InstantiateBronzeStatue(&D3DXVECTOR3(-50.0f, 0.0f, 0.0f), &D3DXVECTOR3(0.0f, 0.0f, 0.0f), &D3DXVECTOR3(-50.0f, 10.0f, 0.0f), &D3DXVECTOR3(-50.0f, -10.0f, 0.0f), 50);
+  GimmickFactory::InstantiateBronzeStatue(&D3DXVECTOR3(-150.0f, 0.0f, 0.0f), &D3DXVECTOR3(0.0f, 90.0f, 0.0f), &D3DXVECTOR3(-200.0f, 0.0f, 0.0f), &D3DXVECTOR3(-100.0f, 0.0f, 0.0f), 50);
 
   
   //GimmickFactory::InstantiateBrokenPillar(&D3DXVECTOR3(-100.0f, 0.0f, 0.0f), &D3DXVECTOR3(0.0f, 90.0f, 0.0f));
