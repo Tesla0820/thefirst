@@ -42,7 +42,7 @@ void Sonar::SonarDisable()
 	_collider->SetBehaviourEnable(false);
 	_collider->SetRadius(0);
 	auto pipeline = dynamic_cast<Pipeline::Echo*>(GameEngine::Environment::Get()->GetCurrentPipeline());
-	pipeline->SetRange(-100);
+	pipeline->SetRange(-10000);
 }
 
 
@@ -59,11 +59,10 @@ bool Sonar::Ping(D3DXVECTOR3 pos, D3DXQUATERNION rot)
 	_position = pos;
 	_direction = transform->Front();
 
-	//SonarEnable();
+	SonarEnable();
 	auto pipeline = dynamic_cast<Pipeline::Echo*>(GameEngine::Environment::Get()->GetCurrentPipeline());
 	pipeline->SetSonar(_position, _direction);
 	pipeline->SetRange((float)_time);
-	SonarEnable();
 	return true;
 }
 
