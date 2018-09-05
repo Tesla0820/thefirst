@@ -132,7 +132,7 @@ void SphereCollider::HitToBox(BoxCollider* collider)
 
 		if(fabs(dot0)<=cos0 && fabs(dot1)<=cos1)
 		{
-			float sign = (s > 0) - (s < 0);
+			int sign = (s > 0.0f) - (s < 0.0f);
 			//Ž²‘¤‚Ì–Ê“à‘¤‚©‚ÂŒvŽZ•ûŒü‘¤‚É‚¢‚é
 			//i“xŒvŽZ
 			penetration += sign*(fabs(half[i])-fabs(s)+_radius)*direction[i];

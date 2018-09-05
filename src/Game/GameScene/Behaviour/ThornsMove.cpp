@@ -12,6 +12,7 @@ ThornsMove::ThornsMove():Gimmick(Gimmick::defaultDuration)
 {
 
 }
+
 //ŠÖ”’è‹`//
 /////////////////////////////////////////////
 //ŠÖ”–¼FStart
@@ -77,8 +78,8 @@ void ThornsMove::Update(void)
 void ThornsMove::OnCollision(GameEngine::Behaviour::Collider* from)
 {
     Gimmick::OnCollision(from);
-    if (from->GetFlag() & 0x00ff);
     _attack = true;
 }
 
-}}
+}
+}

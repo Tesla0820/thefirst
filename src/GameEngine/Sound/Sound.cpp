@@ -7,7 +7,7 @@
 namespace GameEngine { namespace Sound
 {
 
-Sound::Sound(std::unique_ptr<unsigned char[]>&& data,unsigned long bufferSize, WAVEFORMATEXTENSIBLE waveFormatExtensible, char loopCount)
+Sound::Sound(std::unique_ptr<unsigned char[]>&& data,unsigned long bufferSize, WAVEFORMATEXTENSIBLE waveFormatExtensible, unsigned int loopCount)
 {
 	_data = std::move(data);
 	_bufferSize = bufferSize;
@@ -30,25 +30,23 @@ void Sound::GetFomat(WAVEFORMATEXTENSIBLE * waveFormatExtensible)
 	*waveFormatExtensible = _waveFormatExtensible;
 }
 
-char Sound::GetLoopCount()
+unsigned int Sound::GetLoopCount()
 {
 	return _loopCount;
 }
 
-void Sound::SetLoopCount(int loopCount)
+void Sound::SetLoopCount(unsigned int loopCount)
 {
 	_loopCount = loopCount;
 }
 
-bool Sound::HasChunk(std::istream & stream, unsigned long chunkFormat, unsigned long * chunkSize,unsigned long *chunkPosition)
+bool Sound::HasChunk(std::istream & stream, unsigned long chunkFormat, std::size_t* chunkSize, std::streampos* chunkPosition)
 {
 	bool isEnd = false;
 	bool result = false;
 	unsigned long currentPos;
 	unsigned long format;
 	unsigned long size;
-	*chunkSize = 0;
-	*chunkPosition = 0;
 	currentPos = 0;
 	stream.seekg(0, std::ios::beg);
 	do
@@ -91,12 +89,11 @@ bool Sound::HasChunk(std::istream & stream, unsigned long chunkFormat, unsigned 
 	return result;
 }
 
-
-std::shared_ptr<Sound> Sound::CreateFromWaveFile(std::string filename, char loopCount)
+std::shared_ptr<Sound> Sound::CreateFromWaveFile(std::string filename, unsigned int loopCount)
 {
-	unsigned long fileSize;
-	unsigned long chunkSize;
-	unsigned long chunkPosition;
+	std::size_t fileSize;
+	std::size_t chunkSize;
+	std::streampos chunkPosition;
 	unsigned long fileFormat;
 	WAVEFORMATEXTENSIBLE waveFormatExtensible;
 	std::ifstream waveFile;
@@ -119,7 +116,7 @@ std::shared_ptr<Sound> Sound::CreateFromWaveFile(std::string filename, char loop
 		throw(std::runtime_error("Waveファイルではありません。"));
 	}
 
-	fileSize = chunkSize;
+	fileSize = (unsigned long)chunkSize;
 
 	//チャンクデータ読み込み
 	//fmt(データフォーマット)読み込み
@@ -139,7 +136,7 @@ std::shared_ptr<Sound> Sound::CreateFromWaveFile(std::string filename, char loop
 	unsigned char * buffer = new unsigned char[chunkSize+1];
 	waveFile.read(reinterpret_cast<char*>(buffer), chunkSize);
 	std::unique_ptr<unsigned char[]> data(buffer);
-	return std::shared_ptr<Sound>(new Sound(std::move(data),waveFile.gcount(),waveFormatExtensible, loopCount));
+	return std::shared_ptr<Sound>(new Sound(std::move(data),(unsigned long)waveFile.gcount(),waveFormatExtensible, loopCount));
 }
 
 }

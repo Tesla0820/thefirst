@@ -136,7 +136,7 @@ std::shared_ptr<DXCT::D3D::D3DDevice> Environment::GetCurrentDevice()
 	return _device;
 }
 
-WPARAM Environment::Run()
+int Environment::Run()
 {
 	MSG msg;
 	//実行開始と共に最初のシーン読み込み
@@ -165,9 +165,7 @@ WPARAM Environment::Run()
 			}
 		}
 	}
-
-	timeEndPeriod(1);				// 分解能を戻す
-	return msg.wParam;
+	return (int)msg.wParam;
 }
 
 void Environment::AttachPipeline(Pipeline::IModefier * modefier)

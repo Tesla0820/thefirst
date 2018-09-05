@@ -93,7 +93,6 @@ void StageLoader::CreateStage(std::vector<int>& stage, int width, int depth)
 			stageObject->AddBehaviour(collider);
 		}
 	}
-
 }
 
 void StageLoader::AddSideWalls(std::vector<StageVertex>& verticies, std::vector<int>& stage, int width, int depth, int x, int z)
