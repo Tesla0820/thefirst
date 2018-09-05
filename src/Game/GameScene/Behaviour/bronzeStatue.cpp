@@ -7,9 +7,11 @@
 
 namespace Game { namespace Behaviour
 {
-BronzeStatue::BronzeStatue():Gimmick(Gimmick::defaultDuration)
+BronzeStatue::BronzeStatue(D3DXVECTOR3 left_end, D3DXVECTOR3 right_end, float position):Gimmick(Gimmick::defaultDuration)
 {
-
+    _left_end = left_end;
+    _right_end = right_end;
+    D3DXVec3Lerp(&_start_pos, &_left_end, &_right_end, position);
 }
 //ŠÖ”’è‹`//
 /////////////////////////////////////////////
@@ -24,12 +26,13 @@ BronzeStatue::BronzeStatue():Gimmick(Gimmick::defaultDuration)
 void BronzeStatue::Start(void)
 {
     Gimmick::Start();
-
+    
     _transform = GetAttachedObject()->GetTransform();
+    _transform->SetPosition(&_start_pos);
     _move_Distance = 0;
     _move = { 0.0F, 0.0F, 0.0F };
     _move_Vector = _transform->Front();
-    _default_Rotation = _transform->GetRotation().y * D3DX_PI;
+    _default_Rotation = std::asin(_transform->GetRotation().y) * 2;
     _checkRotate = false;
 }
 
@@ -44,14 +47,8 @@ void BronzeStatue::Start(void)
 /////////////////////////////////////////////
 void BronzeStatue::Update(void)
 {
-    //ˆÚ“®
-    _move = { 0.0F, 0.0F, 0.0F };
-    _move += _move_Vector;
-    _move_Distance++;
-    
-    //”½“]”»’è
-    if (_move_Distance >= 100)
-    {
+    if(_move_Distance >= )
+    {   
         //---ŠeŽíéŒ¾---//
         D3DXQUATERNION rotate;
 
@@ -69,6 +66,32 @@ void BronzeStatue::Update(void)
         _transform->SetRotation(&rotate);
         _move_Vector = -_move_Vector;
     }
+
+    //ˆÚ“®
+    _move = { 0.0F, 0.0F, 0.0F };
+    _move += _move_Vector;
+    _move_Distance++;
+    
+    //”½“]”»’è
+    //if (_move_Distance >= 100)
+    //{
+    //    //---ŠeŽíéŒ¾---//
+    //    D3DXQUATERNION rotate;
+    //
+    //    _move_Distance = 0.0F;
+    //    if (_checkRotate)
+    //    {
+    //        D3DXQuaternionRotationYawPitchRoll(&rotate, _default_Rotation, 0.0F, 0.0F);
+    //        _checkRotate = false;
+    //    }
+    //    else
+    //    {
+    //        D3DXQuaternionRotationYawPitchRoll(&rotate, _default_Rotation + D3DX_PI, 0.0F, 0.0F);
+    //        _checkRotate = true;
+    //    }
+    //    _transform->SetRotation(&rotate);
+    //    _move_Vector = -_move_Vector;
+    //}
 
     //ˆÚ“®’l‚Ì”½‰f
     _transform->Offset(&_move);
