@@ -17,19 +17,15 @@ class BronzeStatue : public Gimmick
 {
     private:
         GameEngine::Behaviour::Transform*    _transform;    //座標データ
-        D3DXVECTOR3 _start;                                 //スタート位置
-        D3DXVECTOR3 _end;                                   //折り返し位置
-        int         _ratio;                                 //移動済み比率
-        D3DXVECTOR3 _move_Current_Distance;                 //累計移動距離
-        D3DXVECTOR3 _move_Distance;                         //想定移動距離
-
-        D3DXVECTOR3 _move;                                  //移動量
-        D3DXVECTOR3 _move_Vector;                           //移動方向
-        FLOAT _default_Rotation;                            //標準方向
-        bool _checkRotate;                                  //振り向き済み判定
-
+		float _distance;									//始点と終点間の距離
+		float _currentPos;									//始点と終点間の現在距離
+		D3DXVECTOR3 _origin;								//原点
+		D3DXVECTOR3 _moveDirection;							//移動方向
+		float _direction;									//距離判定上の移動方向
+		float _angle;
+		bool _isInverse;										//反転中かどうか
     public:
-        BronzeStatue(D3DXVECTOR3, D3DXVECTOR3, int);
+        BronzeStatue(float,float,float);
         virtual void Start() override;
         virtual void Update() override;
 };

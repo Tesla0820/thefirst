@@ -7,18 +7,14 @@
 
 namespace Game { namespace Behaviour
 {
-BronzeStatue::BronzeStatue(D3DXVECTOR3 start, D3DXVECTOR3 end, int ratio):Gimmick(Gimmick::defaultDuration)
+BronzeStatue::BronzeStatue(float distance,float rate,float angleY)
+	:Gimmick(Gimmick::defaultDuration)
 {
-    _start = start;
-    _end = end;
-    _ratio = ratio;
-
-    //D3DXVec3Lerp(&_start_pos, &_start, &_end, ratio);
-
-    //ˆÚ“®‹——£‚ÌŽZo
-    _move_Distance = _end - _start;
-    D3DXVec3Length(&_move_Distance);
+	_distance = std::floorf(distance);
+	_currentPos = std::floorf(distance*rate);
+	_angle = D3DXToRadian(angleY);
 }
+
 //ŠÖ”’è‹`//
 /////////////////////////////////////////////
 //ŠÖ”–¼FStart
@@ -32,18 +28,13 @@ BronzeStatue::BronzeStatue(D3DXVECTOR3 start, D3DXVECTOR3 end, int ratio):Gimmic
 void BronzeStatue::Start(void)
 {
     Gimmick::Start();
-    
-    //À•W‚Ì‘ã“ü
     _transform = GetAttachedObject()->GetTransform();
-
-    //ˆÚ“®—Ê‚Ì‰Šú‰»
-    _move = { 0.0F, 0.0F, 0.0F };
-    _move_Vector = _transform->Front();
-    _move_Current_Distance = _move_Vector * (float)_ratio;
-
-    //‰ñ“]‚Ì‰Šú‰»
-    _default_Rotation = std::asin(_transform->GetRotation().y) * 2;
-    _checkRotate = false;
+	_direction = 1.0f;
+	_moveDirection = _transform->Front();
+	_origin = _transform->GetPosition();
+	_isInverse = false;
+    //À•W‚Ì‘ã“ü
+	_transform->SetPosition(&(_origin + _moveDirection*_currentPos));
 }
 
 /////////////////////////////////////////////
@@ -57,56 +48,18 @@ void BronzeStatue::Start(void)
 /////////////////////////////////////////////
 void BronzeStatue::Update(void)
 {
+	_currentPos += _direction;
+	_transform->Offset(&_moveDirection);
+	if (_currentPos >= _distance || _currentPos<=0.0f)
+	{
+		_isInverse = !_isInverse;
+		_direction *= -1.0f;
+		_moveDirection *= -1.0f;
+		D3DXQUATERNION rot;
+		D3DXQuaternionRotationYawPitchRoll(&rot,_angle+_isInverse * D3DX_PI ,0.0f ,0.0f);
+		_transform->SetRotation(&rot);
+	}
     //ˆÚ“®
-    _move = { 0.0F, 0.0F, 0.0F };
-    _move += _move_Vector;
-    _move_Current_Distance += _move_Vector;
-
-    //Ü‚è•Ô‚µ”»’è
-    if (abs(_move_Current_Distance.x) >= _move_Distance.x)
-    {
-        //---ŠeŽíéŒ¾---//
-        D3DXQUATERNION rotate;
-
-        _move_Current_Distance = { 0.0F, 0.0F, 0.0F };
-        if (_checkRotate)
-        {
-            D3DXQuaternionRotationYawPitchRoll(&rotate, _default_Rotation, 0.0F, 0.0F);
-            _checkRotate = false;
-        }
-        else
-        {
-            D3DXQuaternionRotationYawPitchRoll(&rotate, _default_Rotation + D3DX_PI, 0.0F, 0.0F);
-            _checkRotate = true;
-        }
-        _transform->SetRotation(&rotate);
-        _move_Vector = -_move_Vector;
-    }
-
-    //”½“]”»’è
-    //if (_move_Distance >= 100)
-    //{
-    //    //---ŠeŽíéŒ¾---//
-    //    D3DXQUATERNION rotate;
-    //
-    //    _move_Distance = 0.0F;
-    //    if (_checkRotate)
-    //    {
-    //        D3DXQuaternionRotationYawPitchRoll(&rotate, _default_Rotation, 0.0F, 0.0F);
-    //        _checkRotate = false;
-    //    }
-    //    else
-    //    {
-    //        D3DXQuaternionRotationYawPitchRoll(&rotate, _default_Rotation + D3DX_PI, 0.0F, 0.0F);
-    //        _checkRotate = true;
-    //    }
-    //    _transform->SetRotation(&rotate);
-    //    _move_Vector = -_move_Vector;
-    //}
-
-    //ˆÚ“®’l‚Ì”½‰f
-    _transform->Offset(&_move);
-
     Gimmick::Update();
 }
 

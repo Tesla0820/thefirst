@@ -121,10 +121,10 @@ void GimmickFactory::InstantiateBrokenPillar(D3DXVECTOR3* position, D3DXVECTOR3*
 //
 //戻り値：なし
 /////////////////////////////////////////////
-void GimmickFactory::InstantiateBronzeStatue(D3DXVECTOR3* position, D3DXVECTOR3* rotate, D3DXVECTOR3* start, D3DXVECTOR3* end, int ratio)
+void GimmickFactory::InstantiateBronzeStatue(D3DXVECTOR3* position, D3DXVECTOR3* rotate, float distance,float rate)
 {
 	GameEngine::GameObject* gimmick;
-	gimmick = Instantiate(new Game::Behaviour::BronzeStatue(*start, *end, ratio), position, rotate, std::shared_ptr<GameEngine::Resource::Mesh::IMesh>(new GameEngine::Resource::Mesh::MeshD3DX(TEXT("./data/model/bronzeStatue.x"))));
+	gimmick = Instantiate(new Game::Behaviour::BronzeStatue(distance, rate,rotate->y), position, rotate, std::shared_ptr<GameEngine::Resource::Mesh::IMesh>(new GameEngine::Resource::Mesh::MeshD3DX(TEXT("./data/model/bronzeStatue.x"))));
 
 	gimmick->GetTransform()->SetPosition(&D3DXVECTOR3(position->x, position->y + 30.0F, position->z));
     
