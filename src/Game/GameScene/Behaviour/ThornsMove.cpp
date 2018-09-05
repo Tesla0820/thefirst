@@ -77,8 +77,9 @@ void ThornsMove::Update(void)
 /////////////////////////////////////////////
 void ThornsMove::OnCollision(GameEngine::Behaviour::Collider* from)
 {
-    Gimmick::OnCollision(from);
-    _attack = true;
+	Gimmick::OnCollision(from);
+	if (from->GetFlag() & 0xff00) return;
+	_attack = true;
 }
 
 }
